@@ -28,14 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LogIn));
             this.metroTextBoxFName = new MetroFramework.Controls.MetroTextBox();
             this.metroTextBoxPass = new MetroFramework.Controls.MetroTextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.metroButtonLogIn = new MetroFramework.Controls.MetroButton();
+            this.errorProviderFName = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderPassword = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderFName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderPassword)).BeginInit();
             this.SuspendLayout();
             // 
             // metroTextBoxFName
@@ -52,8 +57,7 @@
             this.metroTextBoxFName.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.metroTextBoxFName.CustomButton.UseSelectable = true;
             this.metroTextBoxFName.CustomButton.Visible = false;
-            this.metroTextBoxFName.Lines = new string[] {
-        "felhasználó név"};
+            this.metroTextBoxFName.Lines = new string[0];
             this.metroTextBoxFName.Location = new System.Drawing.Point(82, 177);
             this.metroTextBoxFName.MaxLength = 32767;
             this.metroTextBoxFName.Name = "metroTextBoxFName";
@@ -65,7 +69,6 @@
             this.metroTextBoxFName.ShortcutsEnabled = true;
             this.metroTextBoxFName.Size = new System.Drawing.Size(182, 23);
             this.metroTextBoxFName.TabIndex = 0;
-            this.metroTextBoxFName.Text = "felhasználó név";
             this.metroTextBoxFName.UseSelectable = true;
             this.metroTextBoxFName.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.metroTextBoxFName.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -84,8 +87,7 @@
             this.metroTextBoxPass.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.metroTextBoxPass.CustomButton.UseSelectable = true;
             this.metroTextBoxPass.CustomButton.Visible = false;
-            this.metroTextBoxPass.Lines = new string[] {
-        "jelszó"};
+            this.metroTextBoxPass.Lines = new string[0];
             this.metroTextBoxPass.Location = new System.Drawing.Point(82, 230);
             this.metroTextBoxPass.MaxLength = 32767;
             this.metroTextBoxPass.Name = "metroTextBoxPass";
@@ -97,7 +99,6 @@
             this.metroTextBoxPass.ShortcutsEnabled = true;
             this.metroTextBoxPass.Size = new System.Drawing.Size(182, 23);
             this.metroTextBoxPass.TabIndex = 1;
-            this.metroTextBoxPass.Text = "jelszó";
             this.metroTextBoxPass.UseSelectable = true;
             this.metroTextBoxPass.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.metroTextBoxPass.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -132,6 +133,15 @@
             this.metroButtonLogIn.TabIndex = 4;
             this.metroButtonLogIn.Text = "Belépés";
             this.metroButtonLogIn.UseSelectable = true;
+            this.metroButtonLogIn.Click += new System.EventHandler(this.metroButtonLogIn_Click);
+            // 
+            // errorProviderFName
+            // 
+            this.errorProviderFName.ContainerControl = this;
+            // 
+            // errorProviderPassword
+            // 
+            this.errorProviderPassword.ContainerControl = this;
             // 
             // LogIn
             // 
@@ -148,6 +158,8 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderFName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderPassword)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -159,6 +171,8 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private MetroFramework.Controls.MetroButton metroButtonLogIn;
+        private System.Windows.Forms.ErrorProvider errorProviderFName;
+        private System.Windows.Forms.ErrorProvider errorProviderPassword;
     }
 }
 
