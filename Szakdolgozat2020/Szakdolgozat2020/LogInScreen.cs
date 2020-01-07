@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Szakdolgozat2020
 {
-    public partial class Form1 : Form
+    public partial class LogInScreen : Form
     {
-        public Form1()
+        public LogInScreen()
         {
             InitializeComponent();
         }
