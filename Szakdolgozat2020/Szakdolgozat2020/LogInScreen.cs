@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace Szakdolgozat2020
 {
-    public partial class LogInScreen : Form
+    public partial class LogInScreen : MetroFramework.Forms.MetroForm
     {
         public LogInScreen()
         {
             InitializeComponent();
+        }
+
+        private void LogInScreen_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
