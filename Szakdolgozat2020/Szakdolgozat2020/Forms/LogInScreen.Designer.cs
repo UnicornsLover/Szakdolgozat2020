@@ -37,7 +37,7 @@
             // 
             // panelBack
             // 
-            this.panelBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.panelBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(185)))), ((int)(((byte)(245)))));
             this.panelBack.Controls.Add(this.panelLoad);
             this.panelBack.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelBack.Location = new System.Drawing.Point(20, 299);
@@ -47,7 +47,7 @@
             // 
             // panelLoad
             // 
-            this.panelLoad.BackColor = System.Drawing.Color.Cyan;
+            this.panelLoad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(137)))), ((int)(((byte)(239)))));
             this.panelLoad.Location = new System.Drawing.Point(0, 0);
             this.panelLoad.Name = "panelLoad";
             this.panelLoad.Size = new System.Drawing.Size(36, 18);

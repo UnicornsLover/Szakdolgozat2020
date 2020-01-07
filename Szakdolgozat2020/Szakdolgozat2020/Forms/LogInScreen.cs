@@ -19,7 +19,7 @@ namespace Szakdolgozat2020
 
         private void timerLoad_Tick(object sender, EventArgs e)
         {
-            panelLoad.Width += 4;
+            panelLoad.Width += 6;
             if (panelLoad.Width >= 755)
             {
                 timerLoad.Stop();
@@ -28,5 +28,6 @@ namespace Szakdolgozat2020
                 this.Hide();
             }
         }
+
     }
 }
