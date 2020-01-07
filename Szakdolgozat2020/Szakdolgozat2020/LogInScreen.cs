@@ -17,9 +17,16 @@ namespace Szakdolgozat2020
             InitializeComponent();
         }
 
-        private void LogInScreen_Load(object sender, EventArgs e)
+        private void timerLoad_Tick(object sender, EventArgs e)
         {
-
+            panelLoad.Width += 4;
+            if (panelLoad.Width >= 755)
+            {
+                timerLoad.Stop();
+                LogIn li = new LogIn();
+                li.Show();
+                this.Hide();
+            }
         }
     }
 }
