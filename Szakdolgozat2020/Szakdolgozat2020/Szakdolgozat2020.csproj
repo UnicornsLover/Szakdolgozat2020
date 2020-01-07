@@ -104,6 +104,7 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="Icon\key.png" />
+    <Content Include="Icon\liveincarelogo.png" />
     <Content Include="Icon\user.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
