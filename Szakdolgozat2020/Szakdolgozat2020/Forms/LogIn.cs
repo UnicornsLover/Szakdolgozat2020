@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -54,8 +55,31 @@ namespace Szakdolgozat2020
                 if (login)
                 {
                     this.Hide();
-                    Form1 f = new Form1();
-                    f.Show();
+                    /*this.Hide();
+                    switch (dr["job"].ToString())
+                    {
+                        case "boss":
+                            Form1 f = new Form1();
+                            f.Show();
+                                break;
+                        case "nevelo":
+                            Form2 f2 = new Form2();
+                            f2.Show();
+                                break;
+                        default:
+                            // code block
+                            break;
+                    }*/
+                    if (dr["job"].ToString() == "boss")
+                    {
+                        Form1 f = new Form1();
+                        f.Show();
+                    }
+                    else if(dr["job"].ToString() == "nevelo")
+                    {
+                        Form2 f2 = new Form2();
+                        f2.Show();
+                    }
                 }
                 else
                 {
