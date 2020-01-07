@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace Szakdolgozat2020.Database
 {
-    class BasicCommand
+    partial class CreateCommand
     {
         private string connectionStringCreate;
         private string connectionString;
-        DConnection cs = new DConnection();
+        Connection cs = new Connection();
 
         public void createDatabase()
         {
@@ -33,7 +33,7 @@ namespace Szakdolgozat2020.Database
             {
                 connection.Close();
                 Debug.WriteLine(e.Message+"*******************************************************************************");
-                //throw new DatabaseCreateException("Adatbázis létrehozás nem sikerült vagy már létezik.");
+                throw new DatabaseCreateException("Adatbázis létrehozás nem sikerült vagy már létezik.");
             }
         }
 

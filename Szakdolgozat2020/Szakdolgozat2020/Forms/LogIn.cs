@@ -17,7 +17,7 @@ namespace Szakdolgozat2020
     public partial class LogIn : MetroFramework.Forms.MetroForm
     {
         private readonly string connectionString;
-        DConnection dc = new DConnection();
+        Connection dc = new Connection();
         public LogIn()
         {
             connectionString = dc.getConnectionString();

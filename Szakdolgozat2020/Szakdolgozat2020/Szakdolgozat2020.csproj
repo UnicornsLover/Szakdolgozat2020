@@ -58,9 +58,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Database\BasicCommand.cs" />
+    <Compile Include="Database\InsertTestUsersCommand.cs" />
+    <Compile Include="Database\CreateCommand.cs" />
     <Compile Include="Database\DatabaseCreateException.cs" />
-    <Compile Include="Database\DConnection.cs" />
+    <Compile Include="Database\Connection.cs" />
     <Compile Include="Database\TableCreateException.cs" />
     <Compile Include="Forms\Form1.cs">
       <SubType>Form</SubType>

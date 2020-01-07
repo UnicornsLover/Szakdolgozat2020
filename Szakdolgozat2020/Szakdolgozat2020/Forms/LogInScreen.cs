@@ -21,7 +21,7 @@ namespace Szakdolgozat2020
 
         private void timerLoad_Tick(object sender, EventArgs e)
         {
-            panelLoad.Width += 3;
+            panelLoad.Width += 2;
             if (panelLoad.Width >= 522)
             {
                 timerLoad.Stop();
@@ -33,9 +33,10 @@ namespace Szakdolgozat2020
 
         private void LogInScreen_Load(object sender, EventArgs e)
         {
-            BasicCommand bc = new BasicCommand();
-            bc.createDatabase();
-            bc.createTableLogIn();
+            CreateCommand cc = new CreateCommand();
+            cc.createDatabase();
+            cc.createTableLogIn();
+            cc.fillTestUsers();
         }
     }
 }

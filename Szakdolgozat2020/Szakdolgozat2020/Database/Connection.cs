@@ -9,7 +9,7 @@ namespace Szakdolgozat2020.Database
     /// <summary>
     /// Database-hez csatlakozó metódusok
     /// </summary>
-    class DConnection
+    class Connection
     {
         public string getCreateConnectionString()
         {
