@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Szakdolgozat2020.Database;
 
 namespace Szakdolgozat2020
 {
@@ -15,6 +16,7 @@ namespace Szakdolgozat2020
         public LogInScreen()
         {
             InitializeComponent();
+            
         }
 
         private void timerLoad_Tick(object sender, EventArgs e)
@@ -29,5 +31,11 @@ namespace Szakdolgozat2020
             }
         }
 
+        private void LogInScreen_Load(object sender, EventArgs e)
+        {
+            BasicCommand bc = new BasicCommand();
+            bc.createDatabase();
+            bc.createTableLogIn();
+        }
     }
 }

@@ -29,5 +29,8 @@ namespace Szakdolgozat2020.Database
                 + "PASSWORD=\"\";"
                 + "PORT=\"3306\";";
         }
+
+
+
     }
 }

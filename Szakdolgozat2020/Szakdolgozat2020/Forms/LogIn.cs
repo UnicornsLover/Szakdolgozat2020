@@ -25,11 +25,6 @@ namespace Szakdolgozat2020
             metroTextBoxPass.PasswordChar = '*';
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void metroButtonLogIn_Click(object sender, EventArgs e)
         {
             errorProviderFName.Clear();
