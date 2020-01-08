@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
@@ -31,7 +32,7 @@ namespace Szakdolgozat2020
             errorProviderPassword.Clear();
             MySqlConnection con = new MySqlConnection(connectionString);
             con.Open();
-            string query = "SELECT * FROM loginuser";
+            string query = "SELECT * FROM loginusers  WHERE fname = '" + metroTextBoxFName.Text + "' AND password = '" + metroTextBoxPass.Text + "'; ";
             MySqlCommand cmd = new MySqlCommand(query, con);
             MySqlDataReader dr = cmd.ExecuteReader();
             bool login = false;
@@ -70,10 +71,14 @@ namespace Szakdolgozat2020
                         Form1 f = new Form1();
                         f.Show();
                     }
-                    else if(dr["job"].ToString() == "nevelo")
+                    else if (dr["job"].ToString() == "nevelo")
                     {
                         Form2 f2 = new Form2();
                         f2.Show();
+                    }
+                    else
+                    {
+                        Debug.WriteLine("Ahhhhh");
                     }
                 }
                 else
@@ -88,9 +93,9 @@ namespace Szakdolgozat2020
                     }
                 }
 
-            }
 
-            con.Close();
+            }
+            
         }
     }
 }
