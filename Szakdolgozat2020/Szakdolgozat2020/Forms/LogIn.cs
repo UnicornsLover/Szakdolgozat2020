@@ -28,11 +28,12 @@ namespace Szakdolgozat2020
 
         private void metroButtonLogIn_Click(object sender, EventArgs e)
         {
-            errorProviderFName.Clear();
-            errorProviderPassword.Clear();
+
+            string hiba = "";
+            labelError.Font = new Font("Times New Roman", 12);
             MySqlConnection con = new MySqlConnection(connectionString);
             con.Open();
-            string query = "SELECT * FROM loginusers  WHERE fname = '" + metroTextBoxFName.Text + "' AND password = '" + metroTextBoxPass.Text + "'; ";
+            string query = "SELECT * FROM loginusers WHERE fname = '" + metroTextBoxFName.Text + "' AND password = '" + metroTextBoxPass.Text + "'; ";
             MySqlCommand cmd = new MySqlCommand(query, con);
             MySqlDataReader dr = cmd.ExecuteReader();
             bool login = false;
@@ -48,10 +49,11 @@ namespace Szakdolgozat2020
 
                     login = false;
                 }
+
                 if (login)
                 {
+                    
                     this.Hide();
-                    /*this.Hide();
                     switch (dr["job"].ToString())
                     {
                         case "boss":
@@ -63,10 +65,12 @@ namespace Szakdolgozat2020
                             f2.Show();
                                 break;
                         default:
-                            // code block
+                            hiba += "Nem rendelkezik státusszal!";
+                            labelError.Text += hiba;
                             break;
-                    }*/
-                    if (dr["job"].ToString() == "boss")
+                    }
+
+                    /*if (dr["job"].ToString() == "boss")
                     {
                         Form1 f = new Form1();
                         f.Show();
@@ -78,24 +82,20 @@ namespace Szakdolgozat2020
                     }
                     else
                     {
-                        Debug.WriteLine("Ahhhhh");
-                    }
+                        Debug.WriteLine("Nincs státusz a felhazsnáloknak");
+                        login = false;
+                    }*/
                 }
-                else
-                {
-                    if (!metroTextBoxFName.Text.Equals(dr["fname"].ToString()))
-                    {
-                        errorProviderFName.SetError(metroTextBoxFName, "Hibás felhasználónév, kérlek próbálokozz újból!");
-                    }
-                    if (!metroTextBoxPass.Text.Equals(dr["password"].ToString()))
-                    {
-                        errorProviderPassword.SetError(metroTextBoxPass, "Hibás jelszó, kérlek próbálokozz újból!");
-                    }
-                }
-
 
             }
-            
+            else
+            {
+                //errorProviderFName.SetError(metroTextBoxFName, "Hibás felhasználónév, kérlek próbálokozz újból!");
+                hiba += "Hibás felhasználónév vagy jelszó,\n kérlek próbálokozz újból!";
+                labelError.Text = hiba;
+            }
+            con.Close();
+
         }
     }
 }
