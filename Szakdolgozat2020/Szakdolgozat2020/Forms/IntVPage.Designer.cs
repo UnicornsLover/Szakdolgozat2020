@@ -28,43 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.metroTile1 = new MetroFramework.Controls.MetroTile();
-            this.metroStyleManagerRed = new MetroFramework.Components.MetroStyleManager(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.metroStyleManagerRed)).BeginInit();
+            this.metroTileReg = new MetroFramework.Controls.MetroTile();
             this.SuspendLayout();
             // 
-            // metroTile1
+            // metroTileReg
             // 
-            this.metroTile1.ActiveControl = null;
-            this.metroTile1.Location = new System.Drawing.Point(32, 115);
-            this.metroTile1.Name = "metroTile1";
-            this.metroTile1.Size = new System.Drawing.Size(153, 100);
-            this.metroTile1.TabIndex = 0;
-            this.metroTile1.Text = "Dolgozó regisztrációja";
-            this.metroTile1.UseSelectable = true;
-            // 
-            // metroStyleManagerRed
-            // 
-            this.metroStyleManagerRed.Owner = null;
+            this.metroTileReg.ActiveControl = null;
+            this.metroTileReg.AllowDrop = true;
+            this.metroTileReg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.metroTileReg.Location = new System.Drawing.Point(32, 115);
+            this.metroTileReg.Name = "metroTileReg";
+            this.metroTileReg.Size = new System.Drawing.Size(153, 100);
+            this.metroTileReg.TabIndex = 0;
+            this.metroTileReg.Text = "Dolgozó regisztrációja";
+            this.metroTileReg.UseCustomBackColor = true;
+            this.metroTileReg.UseSelectable = true;
             // 
             // IntVPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.metroTile1);
+            this.Controls.Add(this.metroTileReg);
             this.Name = "IntVPage";
+            this.Style = MetroFramework.MetroColorStyle.Red;
             this.Text = "Intézmányvezető";
             this.Load += new System.EventHandler(this.IntVPage_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.metroStyleManagerRed)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private MetroFramework.Controls.MetroTile metroTile1;
-        private MetroFramework.Components.MetroStyleManager metroStyleManagerRed;
+        private MetroFramework.Controls.MetroTile metroTileReg;
     }
 }

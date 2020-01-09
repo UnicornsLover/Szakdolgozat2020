@@ -19,7 +19,7 @@ namespace Szakdolgozat2020.Forms
 
         private void IntVPage_Load(object sender, EventArgs e)
         {
-            metroStyleManagerRed.Style = MetroFramework.MetroColorStyle.Red;
+            //metroTileReg.Font = new Font();
         }
     }
 }
