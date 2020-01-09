@@ -50,9 +50,9 @@
             // 
             // 
             this.metroTextBoxFName.CustomButton.Image = null;
-            this.metroTextBoxFName.CustomButton.Location = new System.Drawing.Point(120, 1);
+            this.metroTextBoxFName.CustomButton.Location = new System.Drawing.Point(160, 1);
             this.metroTextBoxFName.CustomButton.Name = "";
-            this.metroTextBoxFName.CustomButton.Size = new System.Drawing.Size(16, 17);
+            this.metroTextBoxFName.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.metroTextBoxFName.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroTextBoxFName.CustomButton.TabIndex = 1;
             this.metroTextBoxFName.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -80,9 +80,9 @@
             // 
             // 
             this.metroTextBoxPass.CustomButton.Image = null;
-            this.metroTextBoxPass.CustomButton.Location = new System.Drawing.Point(120, 1);
+            this.metroTextBoxPass.CustomButton.Location = new System.Drawing.Point(160, 1);
             this.metroTextBoxPass.CustomButton.Name = "";
-            this.metroTextBoxPass.CustomButton.Size = new System.Drawing.Size(16, 17);
+            this.metroTextBoxPass.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.metroTextBoxPass.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroTextBoxPass.CustomButton.TabIndex = 1;
             this.metroTextBoxPass.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -128,7 +128,7 @@
             // 
             this.metroButtonLogIn.BackColor = System.Drawing.Color.White;
             this.metroButtonLogIn.ForeColor = System.Drawing.Color.Black;
-            this.metroButtonLogIn.Location = new System.Drawing.Point(130, 297);
+            this.metroButtonLogIn.Location = new System.Drawing.Point(125, 236);
             this.metroButtonLogIn.Name = "metroButtonLogIn";
             this.metroButtonLogIn.Size = new System.Drawing.Size(121, 23);
             this.metroButtonLogIn.TabIndex = 4;
@@ -158,7 +158,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(360, 389);
+            this.ClientSize = new System.Drawing.Size(363, 370);
             this.Controls.Add(this.labelError);
             this.Controls.Add(this.metroButtonLogIn);
             this.Controls.Add(this.pictureBox2);
@@ -167,6 +167,7 @@
             this.Controls.Add(this.metroTextBoxFName);
             this.Name = "LogIn";
             this.Text = "Bejelentkezés";
+            this.Load += new System.EventHandler(this.LogIn_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderFName)).EndInit();

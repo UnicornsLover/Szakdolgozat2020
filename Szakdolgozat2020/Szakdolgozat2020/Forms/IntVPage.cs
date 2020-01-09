@@ -19,7 +19,8 @@ namespace Szakdolgozat2020.Forms
 
         private void IntVPage_Load(object sender, EventArgs e)
         {
-            //metroTileReg.Font = new Font();
+            metroLabelLoggedIn.Text = "Intézményvezető";
+            
         }
     }
 }

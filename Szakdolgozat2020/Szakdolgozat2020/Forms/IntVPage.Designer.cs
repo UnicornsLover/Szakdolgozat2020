@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.metroTileReg = new MetroFramework.Controls.MetroTile();
+            this.metroLabelWelcome = new MetroFramework.Controls.MetroLabel();
+            this.metroLabelLoggedIn = new MetroFramework.Controls.MetroLabel();
             this.SuspendLayout();
             // 
             // metroTileReg
@@ -41,25 +43,50 @@
             this.metroTileReg.Size = new System.Drawing.Size(153, 100);
             this.metroTileReg.TabIndex = 0;
             this.metroTileReg.Text = "Dolgozó regisztrációja";
+            this.metroTileReg.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroTileReg.UseCustomBackColor = true;
             this.metroTileReg.UseSelectable = true;
+            // 
+            // metroLabelWelcome
+            // 
+            this.metroLabelWelcome.AutoSize = true;
+            this.metroLabelWelcome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.metroLabelWelcome.Location = new System.Drawing.Point(431, 32);
+            this.metroLabelWelcome.Name = "metroLabelWelcome";
+            this.metroLabelWelcome.Size = new System.Drawing.Size(160, 19);
+            this.metroLabelWelcome.TabIndex = 1;
+            this.metroLabelWelcome.Text = "Üdvözölek a rendszerben:";
+            // 
+            // metroLabelLoggedIn
+            // 
+            this.metroLabelLoggedIn.AutoSize = true;
+            this.metroLabelLoggedIn.ForeColor = System.Drawing.Color.Red;
+            this.metroLabelLoggedIn.Location = new System.Drawing.Point(680, 32);
+            this.metroLabelLoggedIn.Name = "metroLabelLoggedIn";
+            this.metroLabelLoggedIn.Size = new System.Drawing.Size(0, 0);
+            this.metroLabelLoggedIn.TabIndex = 2;
             // 
             // IntVPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.metroLabelLoggedIn);
+            this.Controls.Add(this.metroLabelWelcome);
             this.Controls.Add(this.metroTileReg);
             this.Name = "IntVPage";
             this.Style = MetroFramework.MetroColorStyle.Red;
             this.Text = "Intézmányvezető";
             this.Load += new System.EventHandler(this.IntVPage_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private MetroFramework.Controls.MetroTile metroTileReg;
+        private MetroFramework.Controls.MetroLabel metroLabelWelcome;
+        private MetroFramework.Controls.MetroLabel metroLabelLoggedIn;
     }
 }

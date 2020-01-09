@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Szakdolgozat2020.Forms
 {
-    public partial class Form1 : MetroFramework.Forms.MetroForm
+    public partial class Boss : MetroFramework.Forms.MetroForm
     {
-        public Form1()
+        public Boss()
         {
             InitializeComponent();
         }
