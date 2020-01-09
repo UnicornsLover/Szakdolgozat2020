@@ -51,7 +51,7 @@
             // 
             this.metroLabelWelcome.AutoSize = true;
             this.metroLabelWelcome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.metroLabelWelcome.Location = new System.Drawing.Point(431, 32);
+            this.metroLabelWelcome.Location = new System.Drawing.Point(487, 29);
             this.metroLabelWelcome.Name = "metroLabelWelcome";
             this.metroLabelWelcome.Size = new System.Drawing.Size(160, 19);
             this.metroLabelWelcome.TabIndex = 1;
@@ -61,7 +61,7 @@
             // 
             this.metroLabelLoggedIn.AutoSize = true;
             this.metroLabelLoggedIn.ForeColor = System.Drawing.Color.Red;
-            this.metroLabelLoggedIn.Location = new System.Drawing.Point(680, 32);
+            this.metroLabelLoggedIn.Location = new System.Drawing.Point(643, 29);
             this.metroLabelLoggedIn.Name = "metroLabelLoggedIn";
             this.metroLabelLoggedIn.Size = new System.Drawing.Size(0, 0);
             this.metroLabelLoggedIn.TabIndex = 2;
