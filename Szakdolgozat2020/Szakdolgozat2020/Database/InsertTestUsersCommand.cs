@@ -17,7 +17,7 @@ namespace Szakdolgozat2020.Database
             {
                 connection.Open();
                 string query =
-                    "INSERT INTO `loginusers` (`id`, `fname`, `password`,`job`) VALUES " +
+                    "INSERT INTO `loginusers` (`user_ID`, `fname`, `password`,`job`) VALUES " +
                             " (1, 'bisti', 'admin', 'boss'), " +
                             " (2, 'nevelo', 'nevelo1', 'nevelo'), " +
                             " (3, 'intv', 'intv1', 'intvezeto'), " +

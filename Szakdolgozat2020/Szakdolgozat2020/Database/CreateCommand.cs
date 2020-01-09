@@ -46,14 +46,14 @@ namespace Szakdolgozat2020.Database
                 connection.Open();
                 string queryCreateTable =
                     "CREATE TABLE IF NOT EXISTS `liveincare`.`loginusers` ( " +
-                    "`userId` INT NULL," +
+                    "`user_ID` INT NULL," +
                     "`fname` VARCHAR(25) NOT NULL," +
                     " `password` VARCHAR(25) NOT NULL," +
                     " `job` VARCHAR(18) NOT NULL" +
                     //" `startJob` VARCHAR(20) NOT NULL" + ???????????????????????????????????????????????
                     ") ENGINE = InnoDB;";
                 string queryPrimaryKey =
-                    "ALTER TABLE `loginusers` ADD PRIMARY KEY(`userId`);";
+                    "ALTER TABLE `loginusers` ADD PRIMARY KEY(`user_ID`);";
                 MySqlCommand cmdCreateTable = new MySqlCommand(queryCreateTable, connection);
                 cmdCreateTable.ExecuteNonQuery();
                 MySqlCommand cmdPrimaryKey = new MySqlCommand(queryPrimaryKey, connection);
