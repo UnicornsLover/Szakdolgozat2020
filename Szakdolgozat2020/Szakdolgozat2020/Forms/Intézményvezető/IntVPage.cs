@@ -10,11 +10,19 @@ using System.Windows.Forms;
 
 namespace Szakdolgozat2020.Forms
 {
-    public partial class Form2 : MetroFramework.Forms.MetroForm
+    public partial class IntVPage : MetroFramework.Forms.MetroForm
     {
-        public Form2()
+        public IntVPage()
         {
             InitializeComponent();
+            metroLabelLoggedName.Text = LogIn.fnameLoged;
         }
+
+        private void IntVPage_Load(object sender, EventArgs e)
+        {
+            
+            
+        }
+
     }
 }

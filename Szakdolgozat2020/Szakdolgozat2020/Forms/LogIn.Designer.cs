@@ -28,20 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LogIn));
             this.metroTextBoxFName = new MetroFramework.Controls.MetroTextBox();
             this.metroTextBoxPass = new MetroFramework.Controls.MetroTextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.metroButtonLogIn = new MetroFramework.Controls.MetroButton();
-            this.errorProviderFName = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errorProviderPassword = new System.Windows.Forms.ErrorProvider(this.components);
             this.labelError = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProviderFName)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProviderPassword)).BeginInit();
             this.SuspendLayout();
             // 
             // metroTextBoxFName
@@ -136,14 +131,6 @@
             this.metroButtonLogIn.UseSelectable = true;
             this.metroButtonLogIn.Click += new System.EventHandler(this.metroButtonLogIn_Click);
             // 
-            // errorProviderFName
-            // 
-            this.errorProviderFName.ContainerControl = this;
-            // 
-            // errorProviderPassword
-            // 
-            this.errorProviderPassword.ContainerControl = this;
-            // 
             // labelError
             // 
             this.labelError.AutoSize = true;
@@ -170,8 +157,6 @@
             this.Load += new System.EventHandler(this.LogIn_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProviderFName)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProviderPassword)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -184,8 +169,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private MetroFramework.Controls.MetroButton metroButtonLogIn;
-        private System.Windows.Forms.ErrorProvider errorProviderFName;
-        private System.Windows.Forms.ErrorProvider errorProviderPassword;
         private System.Windows.Forms.Label labelError;
     }
 }

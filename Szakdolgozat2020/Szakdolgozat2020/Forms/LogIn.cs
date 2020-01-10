@@ -18,7 +18,7 @@ namespace Szakdolgozat2020
 {
     public partial class LogIn : MetroFramework.Forms.MetroForm
     {
-        public static string fnameLoged = "";
+        public static string fnameLoged;
         private readonly string connectionString;
         Connection dc = new Connection();
         public LogIn()
@@ -45,14 +45,17 @@ namespace Szakdolgozat2020
                 switch (dr["job"].ToString())
                 {
                     case "boss":
+                        fnameLoged = dr["fname"].ToString();
                         Boss f = new Boss();
                         f.Show();
                         break;
                     case "nevelo":
-                        Form2 f2 = new Form2();
+                        fnameLoged = dr["fname"].ToString();
+                        Nevelo f2 = new Nevelo();
                         f2.Show();
                         break;
                     case "intvezeto":
+                        fnameLoged = dr["fname"].ToString();
                         IntVPage ivp = new IntVPage();
                         ivp.Show();
                         break;
@@ -61,7 +64,7 @@ namespace Szakdolgozat2020
                         labelError.Text += hiba;
                         break;
                 }
-                fnameLoged = metroTextBoxFName.Text; //bejelenkező neve tárolva
+                 //bejelenkező neve tárolva
                 //metrolabelnev.Text = LogIn.FnameLoged -> ez kell majd a formra ahova kiírod ki jelentkezett be
             }
             else

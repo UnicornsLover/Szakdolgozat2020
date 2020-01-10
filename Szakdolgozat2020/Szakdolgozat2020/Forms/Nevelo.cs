@@ -10,17 +10,12 @@ using System.Windows.Forms;
 
 namespace Szakdolgozat2020.Forms
 {
-    public partial class IntVPage : MetroFramework.Forms.MetroForm
+    public partial class Nevelo : MetroFramework.Forms.MetroForm
     {
-        public IntVPage()
+        public Nevelo()
         {
-            InitializeComponent(); 
-        }
-
-        private void IntVPage_Load(object sender, EventArgs e)
-        {
-            metroLabelLoggedIn.Text = "Intézményvezető";
-            
+            InitializeComponent();
+            metroLabelLoggedName.Text = LogIn.fnameLoged;
         }
     }
 }
