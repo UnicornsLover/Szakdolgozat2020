@@ -70,16 +70,22 @@
     <Compile Include="Forms\Boss.Designer.cs">
       <DependentUpon>Boss.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Head of institution\WorkersRegistration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Head of institution\WorkersRegistration.Designer.cs">
+      <DependentUpon>WorkersRegistration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Nevelo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Nevelo.Designer.cs">
       <DependentUpon>Nevelo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Intézményvezető\IntVPage.cs">
+    <Compile Include="Forms\Head of institution\IntVPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Intézményvezető\IntVPage.Designer.cs">
+    <Compile Include="Forms\Head of institution\IntVPage.Designer.cs">
       <DependentUpon>IntVPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\LogIn.cs">
@@ -99,10 +105,13 @@
     <EmbeddedResource Include="Forms\Boss.resx">
       <DependentUpon>Boss.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Head of institution\WorkersRegistration.resx">
+      <DependentUpon>WorkersRegistration.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Nevelo.resx">
       <DependentUpon>Nevelo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Intézményvezető\IntVPage.resx">
+    <EmbeddedResource Include="Forms\Head of institution\IntVPage.resx">
       <DependentUpon>IntVPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LogIn.resx">

@@ -37,7 +37,7 @@
             // 
             this.metroTileReg.ActiveControl = null;
             this.metroTileReg.AllowDrop = true;
-            this.metroTileReg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.metroTileReg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(0)))), ((int)(((byte)(37)))));
             this.metroTileReg.Location = new System.Drawing.Point(32, 115);
             this.metroTileReg.Name = "metroTileReg";
             this.metroTileReg.Size = new System.Drawing.Size(153, 100);
@@ -46,12 +46,13 @@
             this.metroTileReg.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroTileReg.UseCustomBackColor = true;
             this.metroTileReg.UseSelectable = true;
+            this.metroTileReg.Click += new System.EventHandler(this.metroTileReg_Click);
             // 
             // metroLabelWelcome
             // 
             this.metroLabelWelcome.AutoSize = true;
             this.metroLabelWelcome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.metroLabelWelcome.Location = new System.Drawing.Point(551, 24);
+            this.metroLabelWelcome.Location = new System.Drawing.Point(500, 24);
             this.metroLabelWelcome.Name = "metroLabelWelcome";
             this.metroLabelWelcome.Size = new System.Drawing.Size(160, 19);
             this.metroLabelWelcome.TabIndex = 1;
@@ -61,7 +62,7 @@
             // 
             this.metroLabelLoggedName.AutoSize = true;
             this.metroLabelLoggedName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.metroLabelLoggedName.Location = new System.Drawing.Point(708, 24);
+            this.metroLabelLoggedName.Location = new System.Drawing.Point(656, 24);
             this.metroLabelLoggedName.Name = "metroLabelLoggedName";
             this.metroLabelLoggedName.Size = new System.Drawing.Size(0, 0);
             this.metroLabelLoggedName.TabIndex = 4;
