@@ -37,6 +37,9 @@ namespace Szakdolgozat2020.Database
             }
         }
 
+        /// <summary>
+        /// Login tábla létrehozása, dolgozók adatai
+        /// </summary>
         public void createTableLogIn()
         {
             connectionString = cs.getConnectionString();
@@ -45,15 +48,18 @@ namespace Szakdolgozat2020.Database
             {
                 connection.Open();
                 string queryCreateTable =
-                    "CREATE TABLE IF NOT EXISTS `liveincare`.`loginusers` ( " +
-                    "`user_ID` INT NULL," +
-                    "`fname` VARCHAR(25) NOT NULL," +
-                    " `password` VARCHAR(25) NOT NULL," +
-                    " `job` VARCHAR(18) NOT NULL" +
-                    //" `startJob` VARCHAR(20) NOT NULL" + ???????????????????????????????????????????????
-                    ") ENGINE = InnoDB;";
+                    "CREATE TABLE `employers_login` ("
+                    +"`ID` int(11) NOT NULL,"
+                    +"`name` varchar(50) COLLATE utf8_hungarian_ci NOT NULL,"
+                    + "`ebirth` date NOT NULL,"
+                    +"`ebirthplace` varchar(40) COLLATE utf8_hungarian_ci NOT NULL,"
+                    +"`elocation` varchar(40) COLLATE utf8_hungarian_ci NOT NULL,"
+                    +"`fname` varchar(25) COLLATE utf8_hungarian_ci NOT NULL,"
+                    +"`password` varchar(25) COLLATE utf8_hungarian_ci NOT NULL,"
+                    +"`job` varchar(18) COLLATE utf8_hungarian_ci NOT NULL"
+                    +") ENGINE = InnoDB DEFAULT CHARSET = utf8 COLLATE = utf8_hungarian_ci;";
                 string queryPrimaryKey =
-                    "ALTER TABLE `loginusers` ADD PRIMARY KEY(`user_ID`);";
+                    "ALTER TABLE `loginusers` ADD PRIMARY KEY(`ID`);";
                 MySqlCommand cmdCreateTable = new MySqlCommand(queryCreateTable, connection);
                 cmdCreateTable.ExecuteNonQuery();
                 MySqlCommand cmdPrimaryKey = new MySqlCommand(queryPrimaryKey, connection);
