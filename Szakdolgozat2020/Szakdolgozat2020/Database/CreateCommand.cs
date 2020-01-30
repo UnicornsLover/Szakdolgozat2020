@@ -48,8 +48,8 @@ namespace Szakdolgozat2020.Database
             {
                 connection.Open();
                 string queryCreateTable =
-                    "CREATE TABLE `employers_login` ("
-                    +"`ID` int(11) NOT NULL,"
+                    "CREATE TABLE IF NOT EXISTS `employers_login` ("
+                    + "`ID` int(11) NOT NULL,"
                     +"`name` varchar(50) COLLATE utf8_hungarian_ci NOT NULL,"
                     + "`ebirth` date NOT NULL,"
                     +"`ebirthplace` varchar(40) COLLATE utf8_hungarian_ci NOT NULL,"
@@ -59,7 +59,7 @@ namespace Szakdolgozat2020.Database
                     +"`job` varchar(18) COLLATE utf8_hungarian_ci NOT NULL"
                     +") ENGINE = InnoDB DEFAULT CHARSET = utf8 COLLATE = utf8_hungarian_ci;";
                 string queryPrimaryKey =
-                    "ALTER TABLE `loginusers` ADD PRIMARY KEY(`ID`);";
+                    "ALTER TABLE `employers_login` ADD PRIMARY KEY IF NOT EXISTS (`ID`);";
                 MySqlCommand cmdCreateTable = new MySqlCommand(queryCreateTable, connection);
                 cmdCreateTable.ExecuteNonQuery();
                 MySqlCommand cmdPrimaryKey = new MySqlCommand(queryPrimaryKey, connection);
@@ -69,9 +69,230 @@ namespace Szakdolgozat2020.Database
             catch (Exception e)
             {
                 connection.Close();
-                Debug.WriteLine(e.Message+"*******************************************************************************");
+                Debug.WriteLine(e.Message+ "LogIn*******************************************************************************");
                 //throw new TableCreateException("Tábla lérehozása sikertelen, vagy már létezik."); !!!! javítani
             }
         }
+        /// <summary>
+        /// Gyerekek adatai tárolő tábla létrehozása
+        /// </summary>
+        public void createTableChildrenFullProfile()
+        {
+            connectionString = cs.getConnectionString();
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            try
+            {
+                connection.Open();
+                string queryCreateTable =
+                    "CREATE TABLE IF NOT EXISTS `children_fullprofile` ("
+                    + "`ID` int(11) NOT NULL," 
+                    +"`cname` varchar(50) COLLATE utf8_hungarian_ci DEFAULT NULL," 
+                    +"`csex` varchar(10) COLLATE utf8_hungarian_ci DEFAULT NULL," 
+                    +"`cidcardnuumber` varchar(10) COLLATE utf8_hungarian_ci DEFAULT NULL," 
+                    +"`ctajnumber` varchar(10) COLLATE utf8_hungarian_ci DEFAULT NULL," 
+                    +"`cbirth` date DEFAULT NULL," 
+                    +"`motherID` int(10) NOT NULL," 
+                    +"`fatherID` int(10) NOT NULL," 
+                    +"`ccoming` date DEFAULT NULL" 
+                    +") ENGINE = InnoDB DEFAULT CHARSET = utf8 COLLATE = utf8_hungarian_ci;";
+                string queryPrimaryKey =
+                "ALTER TABLE `children_fullprofile` ADD PRIMARY KEY IF NOT EXISTS (`ID`);"
+                + "ALTER TABLE `children_fullprofile`"
+                + "ADD CONSTRAINT `children_fullprofile_ibfk_1` FOREIGN KEY IF NOT EXISTS (`fatherID`) REFERENCES `parents` (`ID`),"
+                + "ADD CONSTRAINT `children_fullprofile_ibfk_2` FOREIGN KEY IF NOT EXISTS (`motherID`) REFERENCES `parents` (`ID`);";
+                MySqlCommand cmdCreateTable = new MySqlCommand(queryCreateTable, connection);
+                cmdCreateTable.ExecuteNonQuery();
+                MySqlCommand cmdPrimaryKey = new MySqlCommand(queryPrimaryKey, connection);
+                cmdPrimaryKey.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception e)
+            {
+                connection.Close();
+                Debug.WriteLine(e.Message + "ChildrenFullProfile*******************************************************************************");
+                //throw new TableCreateException("Tábla lérehozása sikertelen, vagy már létezik."); !!!! javítani
+            }
+        }
+        /// <summary>
+        /// A gyerkekekkel történt események trolására tábla
+        /// </summary>
+        public void createTableEvents()
+        {
+            connectionString = cs.getConnectionString();
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            try
+            {
+                connection.Open();
+                string queryCreateTable =
+                    "CREATE TABLE IF NOT EXISTS `children_events` ("
+                    + "`ID` int(11) NOT NULL,"
+                    + "`title` varchar(30) COLLATE utf8_hungarian_ci DEFAULT NULL,"
+                    + "`details` varchar(120) COLLATE utf8_hungarian_ci DEFAULT NULL,"
+                    + "`img` longblob NOT NULL,"
+                    + "`by` varchar(20) COLLATE utf8_hungarian_ci DEFAULT NULL"
+                    + ") ENGINE = InnoDB DEFAULT CHARSET = utf8 COLLATE = utf8_hungarian_ci;";
+
+                string queryPrimaryKey =
+                "ALTER TABLE `children_events` ADD PRIMARY KEY IF NOT EXISTS (`ID`);";
+                MySqlCommand cmdCreateTable = new MySqlCommand(queryCreateTable, connection);
+                cmdCreateTable.ExecuteNonQuery();
+                MySqlCommand cmdPrimaryKey = new MySqlCommand(queryPrimaryKey, connection);
+                cmdPrimaryKey.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception e)
+            {
+                connection.Close();
+                Debug.WriteLine(e.Message + "Events*******************************************************************************");
+                //throw new TableCreateException("Tábla lérehozása sikertelen, vagy már létezik."); !!!! javítani
+            }
+        }
+        /// <summary>
+        /// A gyerkekekkel egészségügyi felmérések tárolására tábla
+        /// </summary>
+        public void createTableHealth()
+        {
+            connectionString = cs.getConnectionString();
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            try
+            {
+                connection.Open();
+                string queryCreateTable =
+                    "CREATE TABLE IF NOT EXISTS `children_health` ("
+                    + "`ID` int(11) NOT NULL,"
+                    + "`type` varchar(20) COLLATE utf8_hungarian_ci DEFAULT NULL,"
+                    + "`details` text COLLATE utf8_hungarian_ci DEFAULT NULL,"
+                    + "`special_treament` varchar(30) COLLATE utf8_hungarian_ci DEFAULT NULL,"
+                    + "`by` varchar(30) COLLATE utf8_hungarian_ci DEFAULT NULL"
+                    + ") ENGINE = InnoDB DEFAULT CHARSET = utf8 COLLATE = utf8_hungarian_ci;";
+
+                string queryPrimaryKey =
+                "ALTER TABLE `children_health` ADD PRIMARY KEY IF NOT EXISTS (`ID`);";
+                MySqlCommand cmdCreateTable = new MySqlCommand(queryCreateTable, connection);
+                cmdCreateTable.ExecuteNonQuery();
+                MySqlCommand cmdPrimaryKey = new MySqlCommand(queryPrimaryKey, connection);
+                cmdPrimaryKey.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception e)
+            {
+                connection.Close();
+                Debug.WriteLine(e.Message + "Health*******************************************************************************");
+                //throw new TableCreateException("Tábla lérehozása sikertelen, vagy már létezik."); !!!! javítani
+            }
+        }
+
+        /// <summary>
+        /// A szülöket tároló tábla
+        /// </summary>
+        public void createTableParents()
+        {
+            connectionString = cs.getConnectionString();
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            try
+            {
+                connection.Open();
+                string queryCreateTable =
+                    "CREATE TABLE IF NOT EXISTS `parents` ("
+                    + "`ID` int(11) NOT NULL,"
+                    + "`pname` varchar(40) COLLATE utf8_hungarian_ci DEFAULT NULL,"
+                    + "`pmaidenname` varchar(40) COLLATE utf8_hungarian_ci DEFAULT NULL,"
+                    + "`pbirth` date DEFAULT NULL,"
+                    + "`psex` varchar(10) COLLATE utf8_hungarian_ci DEFAULT NULL,"
+                    + "`pidcardnumber` varchar(10) COLLATE utf8_hungarian_ci DEFAULT NULL,"
+                    + "`loginpermission` tinyint(1) NOT NULL,"
+                    + "`loginuser` varchar(25) COLLATE utf8_hungarian_ci NOT NULL,"
+                    + "`loginpsw` varchar(25) COLLATE utf8_hungarian_ci NOT NULL"
+                    + ") ENGINE = InnoDB DEFAULT CHARSET = utf8 COLLATE = utf8_hungarian_ci;";
+
+                string queryPrimaryKey =
+                "ALTER TABLE `parents` ADD PRIMARY KEY IF NOT EXISTS (`ID`);";
+                MySqlCommand cmdCreateTable = new MySqlCommand(queryCreateTable, connection);
+                cmdCreateTable.ExecuteNonQuery();
+                MySqlCommand cmdPrimaryKey = new MySqlCommand(queryPrimaryKey, connection);
+                cmdPrimaryKey.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception e)
+            {
+                connection.Close();
+                Debug.WriteLine(e.Message + "Parents*******************************************************************************");
+                //throw new TableCreateException("Tábla lérehozása sikertelen, vagy már létezik."); !!!! javítani
+            }
+        }
+        //********************************* Kapcsoló táblák ***************************************************
+         /// <summary>
+         /// Kapcsoló tábla a children_fullprofile és a children_events között 
+         /// </summary>
+        public void createTableEventsK()
+        {
+            connectionString = cs.getConnectionString();
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            try
+            {
+                connection.Open();
+                string queryCreateTable =
+                    "CREATE TABLE IF NOT EXISTS `ceventsk` ("
+                    + "`ID` int(11) NOT NULL,"
+                    + "`childrenID` int(11) DEFAULT NULL,"
+                    + "`eventsID` int(11) DEFAULT NULL,"
+                    + "`Timer` date DEFAULT NULL"
+                    + ") ENGINE = InnoDB DEFAULT CHARSET = utf8 COLLATE = utf8_hungarian_ci;";
+
+                string queryPrimaryKey =
+                "ALTER TABLE `ceventsk` ADD PRIMARY KEY IF NOT EXISTS (`ID`);"
+                + "ALTER TABLE `ceventsk`"
+                + "ADD CONSTRAINT `ceventsk_ibfk_1` FOREIGN KEY IF NOT EXISTS (`childrenID`) REFERENCES `children_fullprofile` (`ID`),"
+                + "ADD CONSTRAINT `ceventsk_ibfk_2` FOREIGN KEY IF NOT EXISTS (`eventsID`) REFERENCES `children_events` (`ID`);";
+
+
+                MySqlCommand cmdCreateTable = new MySqlCommand(queryCreateTable, connection);
+                cmdCreateTable.ExecuteNonQuery();
+                MySqlCommand cmdPrimaryKey = new MySqlCommand(queryPrimaryKey, connection);
+                cmdPrimaryKey.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception e)
+            {
+                connection.Close();
+                Debug.WriteLine(e.Message + "EventsK*******************************************************************************");
+                //throw new TableCreateException("Tábla lérehozása sikertelen, vagy már létezik."); !!!! javítani
+            }
+        }
+        public void createTableHealthK()
+        {
+            connectionString = cs.getConnectionString();
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            try
+            {
+                connection.Open();
+                string queryCreateTable =
+                    "CREATE TABLE IF NOT EXISTS `chealthk` ("
+                    + "`ID` int(11) NOT NULL,"
+                    + "`childrenID` int(11) DEFAULT NULL,"
+                    + "`healthID` int(11) DEFAULT NULL"
+                    + ") ENGINE = InnoDB DEFAULT CHARSET = utf8 COLLATE = utf8_hungarian_ci;";
+
+                string queryPrimaryKey =
+                "ALTER TABLE `chealthk` ADD PRIMARY KEY IF NOT EXISTS (`ID`);"
+                + "ALTER TABLE `chealthk`"
+                + "ADD CONSTRAINT `chealthk_ibfk_1` FOREIGN KEY IF NOT EXISTS (`childrenID`) REFERENCES `children_fullprofile` (`ID`),"
+                + "ADD CONSTRAINT `chealthk_ibfk_2` FOREIGN KEY IF NOT EXISTS (`healthID`) REFERENCES `children_health` (`ID`);";
+                
+
+                MySqlCommand cmdCreateTable = new MySqlCommand(queryCreateTable, connection);
+                cmdCreateTable.ExecuteNonQuery();
+                MySqlCommand cmdPrimaryKey = new MySqlCommand(queryPrimaryKey, connection);
+                cmdPrimaryKey.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception e)
+            {
+                connection.Close();
+                Debug.WriteLine(e.Message + "HealthK*******************************************************************************");
+                //throw new TableCreateException("Tábla lérehozása sikertelen, vagy már létezik."); !!!! javítani
+            }
+        }
+
     }
 }
