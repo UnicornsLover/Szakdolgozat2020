@@ -20,7 +20,7 @@ namespace Szakdolgozat2020.Database
             {
                 connection.Open();
                 string query =
-                    "INSERT INTO `employers_login` (`ID`, `name`, `ebirth`, `ebirthplace`, `elocation`, `fname`, `password`, `job`) VALUES" +
+                    "INSERT INTO `employes_login` (`ID`, `name`, `ebirth`, `ebirthplace`, `elocation`, `fname`, `password`, `job`) VALUES" +
                     "(1, 'Bálint István', '1999-09-12','Székesfehérvár', 'Kecskemét', 'bisti', 'admin', 'boss')," +
                     "(2, 'Chat Elek', '1985-03-14','Kiskunfélegyháza','Szeged', 'chaele', 'nevelo1', 'nevelo')," +
                     "(3, 'Zuhany Rózsa', '1963-11-08','Budapest','Szeged', 'zuhroz', 'intv1', 'intvezeto')," +

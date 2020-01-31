@@ -59,7 +59,7 @@ namespace Szakdolgozat2020.Database
                     +"`ejob` varchar(18) COLLATE utf8_hungarian_ci NOT NULL"
                     +") ENGINE = InnoDB DEFAULT CHARSET = utf8 COLLATE = utf8_hungarian_ci;";
                 string queryPrimaryKey =
-                    "ALTER TABLE `employers_login` ADD PRIMARY KEY IF NOT EXISTS (`ID`);";
+                    "ALTER TABLE `employes_login` ADD PRIMARY KEY IF NOT EXISTS (`ID`);";
                 MySqlCommand cmdCreateTable = new MySqlCommand(queryCreateTable, connection);
                 cmdCreateTable.ExecuteNonQuery();
                 MySqlCommand cmdPrimaryKey = new MySqlCommand(queryPrimaryKey, connection);
@@ -94,9 +94,9 @@ namespace Szakdolgozat2020.Database
                     + "`ebirthplace` varchar(40) COLLATE utf8_hungarian_ci NOT NULL,"
                     + "`motherID` int(10) NOT NULL," 
                     +"`fatherID` int(10) NOT NULL," 
-                    +"`ccomingin` date DEFAULT NULL"
-                    + "`clocation` varchar(40) COLLATE utf8_hungarian_ci NOT NULL,"
-                    + ") ENGINE = InnoDB DEFAULT CHARSET = utf8 COLLATE = utf8_hungarian_ci;";
+                    +"`ccomingin` date DEFAULT NULL,"
+                    +"`clocation` varchar(40) COLLATE utf8_hungarian_ci NOT NULL"
+                    +") ENGINE = InnoDB DEFAULT CHARSET = utf8 COLLATE = utf8_hungarian_ci;";
                 string queryPrimaryKey =
                 "ALTER TABLE `children_fullprofile` ADD PRIMARY KEY IF NOT EXISTS (`ID`);"
                 + "ALTER TABLE `children_fullprofile`"
@@ -169,7 +169,7 @@ namespace Szakdolgozat2020.Database
                     + ") ENGINE = InnoDB DEFAULT CHARSET = utf8 COLLATE = utf8_hungarian_ci;";
 
                 string queryPrimaryKey =
-                "ALTER TABLE `children_health` ADD PRIMARY KEY IF NOT EXISTS (`ID`);";
+                "ALTER TABLE `children_healths` ADD PRIMARY KEY IF NOT EXISTS (`ID`);";
                 MySqlCommand cmdCreateTable = new MySqlCommand(queryCreateTable, connection);
                 cmdCreateTable.ExecuteNonQuery();
                 MySqlCommand cmdPrimaryKey = new MySqlCommand(queryPrimaryKey, connection);
@@ -179,7 +179,7 @@ namespace Szakdolgozat2020.Database
             catch (Exception e)
             {
                 connection.Close();
-                Debug.WriteLine(e.Message + "Health*******************************************************************************");
+                Debug.WriteLine(e.Message + "Healths*******************************************************************************");
                 //throw new TableCreateException("Tábla lérehozása sikertelen, vagy már létezik."); !!!! javítani
             }
         }
@@ -243,8 +243,7 @@ namespace Szakdolgozat2020.Database
                 string queryPrimaryKey =
                 "ALTER TABLE `children_school` ADD PRIMARY KEY IF NOT EXISTS(`ID`);"
                 + "ALTER TABLE `children_school`"
-                + "ADD CONSTRAINT `children_school_ibfk_1` FOREIGN KEY IF NOT EXISTS(`childrenID`) REFERENCES`children_fullprofile` (`ID`);";
-
+                + "ADD CONSTRAINT `children_school_ibfk_1` FOREIGN KEY IF NOT EXISTS (`childrenID`) REFERENCES `children_fullprofile` (`ID`);";
 
                 MySqlCommand cmdCreateTable = new MySqlCommand(queryCreateTable, connection);
                 cmdCreateTable.ExecuteNonQuery();
@@ -255,7 +254,7 @@ namespace Szakdolgozat2020.Database
             catch (Exception e)
             {
                 connection.Close();
-                Debug.WriteLine(e.Message + "HealthK*******************************************************************************");
+                Debug.WriteLine(e.Message + "School*******************************************************************************");
                 //throw new TableCreateException("Tábla lérehozása sikertelen, vagy már létezik."); !!!! javítani
             }
         }
@@ -314,10 +313,10 @@ namespace Szakdolgozat2020.Database
                     + ") ENGINE = InnoDB DEFAULT CHARSET = utf8 COLLATE = utf8_hungarian_ci;";
 
                 string queryPrimaryKey =
-                "ALTER TABLE `chealthk` ADD PRIMARY KEY IF NOT EXISTS (`ID`);"
-                + "ALTER TABLE `chealthk`"
-                + "ADD CONSTRAINT `chealthk_ibfk_1` FOREIGN KEY IF NOT EXISTS (`childrenID`) REFERENCES `children_fullprofile` (`ID`),"
-                + "ADD CONSTRAINT `chealthk_ibfk_2` FOREIGN KEY IF NOT EXISTS (`healthID`) REFERENCES `children_health` (`ID`);";
+                "ALTER TABLE `chealthsk` ADD PRIMARY KEY IF NOT EXISTS (`ID`);"
+                + "ALTER TABLE `chealthsk`"
+                + "ADD CONSTRAINT `chealthsk_ibfk_1` FOREIGN KEY IF NOT EXISTS (`childrenID`) REFERENCES `children_fullprofile` (`ID`),"
+                + "ADD CONSTRAINT `chealthsk_ibfk_2` FOREIGN KEY IF NOT EXISTS (`healthID`) REFERENCES `children_healths` (`ID`);";
                 
 
                 MySqlCommand cmdCreateTable = new MySqlCommand(queryCreateTable, connection);
@@ -329,7 +328,7 @@ namespace Szakdolgozat2020.Database
             catch (Exception e)
             {
                 connection.Close();
-                Debug.WriteLine(e.Message + "HealthK*******************************************************************************");
+                Debug.WriteLine(e.Message + "HealthsK*******************************************************************************");
                 //throw new TableCreateException("Tábla lérehozása sikertelen, vagy már létezik."); !!!! javítani
             }
         }
