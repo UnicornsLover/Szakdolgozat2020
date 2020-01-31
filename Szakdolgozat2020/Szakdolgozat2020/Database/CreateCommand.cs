@@ -231,7 +231,7 @@ namespace Szakdolgozat2020.Database
             {
                 connection.Open();
                 string queryCreateTable =
-                    "CREATE TABLE `children_school` ("
+                    "CREATE TABLE IF NOT EXISTS `children_school` ("
                     + "`ID` int(11) NOT NULL,"
                     + "`childrenID` int(11) NOT NULL,"
                     + "`schoolname` varchar(60) COLLATE utf8_hungarian_ci NOT NULL,"
@@ -241,9 +241,9 @@ namespace Szakdolgozat2020.Database
                     + ") ENGINE = InnoDB DEFAULT CHARSET = utf8 COLLATE = utf8_hungarian_ci;";
 
                 string queryPrimaryKey =
-                "ALTER TABLE `children_school` ADD PRIMARY KEY IF NOT EXISTS (`ID`);"
+                "ALTER TABLE `children_school` ADD PRIMARY KEY IF NOT EXISTS(`ID`);"
                 + "ALTER TABLE `children_school`"
-                + "ADD CONSTRAINT `children_school_ibfk_1` FOREIGN KEY(`childrenID`) REFERENCES`children_fullprofile` (`ID`);";
+                + "ADD CONSTRAINT `children_school_ibfk_1` FOREIGN KEY IF NOT EXISTS(`childrenID`) REFERENCES`children_fullprofile` (`ID`);";
 
 
                 MySqlCommand cmdCreateTable = new MySqlCommand(queryCreateTable, connection);
