@@ -165,6 +165,7 @@ namespace Szakdolgozat2020.Database
                     + "`type` varchar(20) COLLATE utf8_hungarian_ci DEFAULT NULL,"
                     + "`details` text COLLATE utf8_hungarian_ci DEFAULT NULL,"
                     + "`special_treament` varchar(60) COLLATE utf8_hungarian_ci DEFAULT NULL,"
+                    + "`treatdate` date DEFAULT NULL,"
                     + "`by` varchar(50) COLLATE utf8_hungarian_ci DEFAULT NULL"
                     + ") ENGINE = InnoDB DEFAULT CHARSET = utf8 COLLATE = utf8_hungarian_ci;";
 

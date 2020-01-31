@@ -99,8 +99,8 @@ namespace Szakdolgozat2020.Database
                 connection.Open();
                 string query =
                     "INSERT INTO `children_school` (`ID`, `childrenID`, `schoolname`, `fromdate`, `todate`, `headteacher`,`by`) VALUES"
-                    + "(1, 2, 'Vasvári Pál Szakgimnázium OKJ (szoftvetfejlesztő)', '2018-09-01', '2020-06-30', 'Kiss Balázs',`Chat Elek`),"
-                    + "(2, 1, 'Kecskeméti Református Általános Iskola (2. osztály)', '2018-09-01', '2026-07-15', 'Kiss Gabriella',`Chat Elek`);";
+                    + "(1, 2, 'Vasvári Pál Szakgimnázium OKJ (szoftvetfejlesztő)', '2018-09-01', '2020-06-30', 'Kiss Balázs','Chat Elek'),"
+                    + "(2, 1, 'Kecskeméti Református Általános Iskola (2. osztály)', '2018-09-01', '2026-07-15', 'Kiss Gabriella','Chat Elek');";
 
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();

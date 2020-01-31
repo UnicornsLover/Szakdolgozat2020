@@ -35,27 +35,27 @@ namespace Szakdolgozat2020
             labelError.Font = new Font("Times New Roman", 12);
             MySqlConnection con = new MySqlConnection(connectionString);
             con.Open();
-            string query = "SELECT * FROM employers_login WHERE fname = '" + metroTextBoxFName.Text + "' AND password = '" + metroTextBoxPass.Text + "'; ";
+            string query = "SELECT * FROM employes_login WHERE euname = '" + metroTextBoxFName.Text + "' AND epassword = '" + metroTextBoxPass.Text + "'; ";
             MySqlCommand cmd = new MySqlCommand(query, con);
             MySqlDataReader dr = cmd.ExecuteReader();
             //bool login = false;
             if (dr.Read())
             {
                 this.Hide();
-                switch (dr["job"].ToString())
+                switch (dr["ejob"].ToString())
                 {
                     case "boss":
-                        fnameLoged = dr["name"].ToString();
+                        fnameLoged = dr["ename"].ToString();
                         Boss f = new Boss();
                         f.Show();
                         break;
                     case "nevelo":
-                        fnameLoged = dr["name"].ToString();
+                        fnameLoged = dr["ename"].ToString();
                         Nevelo f2 = new Nevelo();
                         f2.Show();
                         break;
                     case "intvezeto":
-                        fnameLoged = dr["name"].ToString();
+                        fnameLoged = dr["ename"].ToString();
                         IntVPage ivp = new IntVPage();
                         ivp.Show();
                         break;
