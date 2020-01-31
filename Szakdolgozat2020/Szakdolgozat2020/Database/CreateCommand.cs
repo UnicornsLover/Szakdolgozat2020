@@ -48,15 +48,15 @@ namespace Szakdolgozat2020.Database
             {
                 connection.Open();
                 string queryCreateTable =
-                    "CREATE TABLE IF NOT EXISTS `employers_login` ("
+                    "CREATE TABLE IF NOT EXISTS `employes_login` ("
                     + "`ID` int(11) NOT NULL,"
-                    +"`name` varchar(50) COLLATE utf8_hungarian_ci NOT NULL,"
+                    +"`ename` varchar(50) COLLATE utf8_hungarian_ci NOT NULL,"
                     + "`ebirth` date NOT NULL,"
                     +"`ebirthplace` varchar(40) COLLATE utf8_hungarian_ci NOT NULL,"
                     +"`elocation` varchar(40) COLLATE utf8_hungarian_ci NOT NULL,"
-                    +"`fname` varchar(25) COLLATE utf8_hungarian_ci NOT NULL,"
-                    +"`password` varchar(25) COLLATE utf8_hungarian_ci NOT NULL,"
-                    +"`job` varchar(18) COLLATE utf8_hungarian_ci NOT NULL"
+                    +"`euname` varchar(25) COLLATE utf8_hungarian_ci NOT NULL,"
+                    +"`epassword` varchar(25) COLLATE utf8_hungarian_ci NOT NULL,"
+                    +"`ejob` varchar(18) COLLATE utf8_hungarian_ci NOT NULL"
                     +") ENGINE = InnoDB DEFAULT CHARSET = utf8 COLLATE = utf8_hungarian_ci;";
                 string queryPrimaryKey =
                     "ALTER TABLE `employers_login` ADD PRIMARY KEY IF NOT EXISTS (`ID`);";
@@ -90,11 +90,13 @@ namespace Szakdolgozat2020.Database
                     +"`csex` varchar(10) COLLATE utf8_hungarian_ci DEFAULT NULL," 
                     +"`cidcardnumber` varchar(10) COLLATE utf8_hungarian_ci DEFAULT NULL," 
                     +"`ctajnumber` varchar(10) COLLATE utf8_hungarian_ci DEFAULT NULL," 
-                    +"`cbirth` date DEFAULT NULL," 
-                    +"`motherID` int(10) NOT NULL," 
+                    +"`cbirth` date DEFAULT NULL,"
+                    + "`ebirthplace` varchar(40) COLLATE utf8_hungarian_ci NOT NULL,"
+                    + "`motherID` int(10) NOT NULL," 
                     +"`fatherID` int(10) NOT NULL," 
-                    +"`ccoming` date DEFAULT NULL" 
-                    +") ENGINE = InnoDB DEFAULT CHARSET = utf8 COLLATE = utf8_hungarian_ci;";
+                    +"`ccomingin` date DEFAULT NULL"
+                    + "`clocation` varchar(40) COLLATE utf8_hungarian_ci NOT NULL,"
+                    + ") ENGINE = InnoDB DEFAULT CHARSET = utf8 COLLATE = utf8_hungarian_ci;";
                 string queryPrimaryKey =
                 "ALTER TABLE `children_fullprofile` ADD PRIMARY KEY IF NOT EXISTS (`ID`);"
                 + "ALTER TABLE `children_fullprofile`"
@@ -129,7 +131,7 @@ namespace Szakdolgozat2020.Database
                     + "`title` varchar(30) COLLATE utf8_hungarian_ci DEFAULT NULL,"
                     + "`details` varchar(120) COLLATE utf8_hungarian_ci DEFAULT NULL,"
                     + "`img` longblob NOT NULL,"
-                    + "`by` varchar(20) COLLATE utf8_hungarian_ci DEFAULT NULL"
+                    + "`by` varchar(50) COLLATE utf8_hungarian_ci DEFAULT NULL"
                     + ") ENGINE = InnoDB DEFAULT CHARSET = utf8 COLLATE = utf8_hungarian_ci;";
 
                 string queryPrimaryKey =
@@ -158,12 +160,12 @@ namespace Szakdolgozat2020.Database
             {
                 connection.Open();
                 string queryCreateTable =
-                    "CREATE TABLE IF NOT EXISTS `children_health` ("
+                    "CREATE TABLE IF NOT EXISTS `children_healths` ("
                     + "`ID` int(11) NOT NULL,"
                     + "`type` varchar(20) COLLATE utf8_hungarian_ci DEFAULT NULL,"
                     + "`details` text COLLATE utf8_hungarian_ci DEFAULT NULL,"
-                    + "`special_treament` varchar(30) COLLATE utf8_hungarian_ci DEFAULT NULL,"
-                    + "`by` varchar(30) COLLATE utf8_hungarian_ci DEFAULT NULL"
+                    + "`special_treament` varchar(60) COLLATE utf8_hungarian_ci DEFAULT NULL,"
+                    + "`by` varchar(50) COLLATE utf8_hungarian_ci DEFAULT NULL"
                     + ") ENGINE = InnoDB DEFAULT CHARSET = utf8 COLLATE = utf8_hungarian_ci;";
 
                 string queryPrimaryKey =
@@ -195,8 +197,8 @@ namespace Szakdolgozat2020.Database
                 string queryCreateTable =
                     "CREATE TABLE IF NOT EXISTS `parents` ("
                     + "`ID` int(11) NOT NULL,"
-                    + "`pname` varchar(40) COLLATE utf8_hungarian_ci DEFAULT NULL,"
-                    + "`pmaidenname` varchar(40) COLLATE utf8_hungarian_ci DEFAULT NULL,"
+                    + "`pname` varchar(50) COLLATE utf8_hungarian_ci DEFAULT NULL,"
+                    + "`pmaidenname` varchar(50) COLLATE utf8_hungarian_ci DEFAULT NULL,"
                     + "`pbirth` date DEFAULT NULL,"
                     + "`psex` varchar(10) COLLATE utf8_hungarian_ci DEFAULT NULL,"
                     + "`pidcardnumber` varchar(10) COLLATE utf8_hungarian_ci DEFAULT NULL,"
@@ -236,7 +238,7 @@ namespace Szakdolgozat2020.Database
                     + "`ID` int(11) NOT NULL,"
                     + "`childrenID` int(11) DEFAULT NULL,"
                     + "`eventsID` int(11) DEFAULT NULL,"
-                    + "`Timer` date DEFAULT NULL"
+                    + "`timer` date DEFAULT NULL"
                     + ") ENGINE = InnoDB DEFAULT CHARSET = utf8 COLLATE = utf8_hungarian_ci;";
 
                 string queryPrimaryKey =
@@ -267,7 +269,7 @@ namespace Szakdolgozat2020.Database
             {
                 connection.Open();
                 string queryCreateTable =
-                    "CREATE TABLE IF NOT EXISTS `chealthk` ("
+                    "CREATE TABLE IF NOT EXISTS `chealthsk` ("
                     + "`ID` int(11) NOT NULL,"
                     + "`childrenID` int(11) DEFAULT NULL,"
                     + "`healthID` int(11) DEFAULT NULL"
