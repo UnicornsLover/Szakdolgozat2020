@@ -222,10 +222,48 @@ namespace Szakdolgozat2020.Database
                 //throw new TableCreateException("Tábla lérehozása sikertelen, vagy már létezik."); !!!! javítani
             }
         }
+
+        public void createTableSchool()
+        {
+            connectionString = cs.getConnectionString();
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            try
+            {
+                connection.Open();
+                string queryCreateTable =
+                    "CREATE TABLE `children_school` ("
+                    + "`ID` int(11) NOT NULL,"
+                    + "`childrenID` int(11) NOT NULL,"
+                    + "`schoolname` varchar(60) COLLATE utf8_hungarian_ci NOT NULL,"
+                    + "`fromdate` date NOT NULL,"
+                    + "`todate` date NOT NULL,"
+                    + "`headteacher` varchar(50) COLLATE utf8_hungarian_ci NOT NULL"
+                    + ") ENGINE = InnoDB DEFAULT CHARSET = utf8 COLLATE = utf8_hungarian_ci;";
+
+                string queryPrimaryKey =
+                "ALTER TABLE `children_school` ADD PRIMARY KEY IF NOT EXISTS (`ID`);"
+                + "ALTER TABLE `children_school`"
+                + "ADD CONSTRAINT `children_school_ibfk_1` FOREIGN KEY(`childrenID`) REFERENCES`children_fullprofile` (`ID`);";
+
+
+                MySqlCommand cmdCreateTable = new MySqlCommand(queryCreateTable, connection);
+                cmdCreateTable.ExecuteNonQuery();
+                MySqlCommand cmdPrimaryKey = new MySqlCommand(queryPrimaryKey, connection);
+                cmdPrimaryKey.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception e)
+            {
+                connection.Close();
+                Debug.WriteLine(e.Message + "HealthK*******************************************************************************");
+                //throw new TableCreateException("Tábla lérehozása sikertelen, vagy már létezik."); !!!! javítani
+            }
+        }
+
         //********************************* Kapcsoló táblák ***************************************************
-         /// <summary>
-         /// Kapcsoló tábla a children_fullprofile és a children_events között 
-         /// </summary>
+        /// <summary>
+        /// Kapcsoló tábla a children_fullprofile és a children_events között 
+        /// </summary>
         public void createTableEventsK()
         {
             connectionString = cs.getConnectionString();
@@ -296,5 +334,6 @@ namespace Szakdolgozat2020.Database
             }
         }
 
+        
     }
 }

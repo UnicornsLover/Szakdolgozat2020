@@ -42,6 +42,7 @@ namespace Szakdolgozat2020
             cc.createTableEvents();
             cc.createTableEventsK();
             cc.createTableHealthK();
+            cc.createTableSchool();
             cc.fillTestUsers();
         }
     }
