@@ -91,7 +91,7 @@ namespace Szakdolgozat2020.Database
                     +"`cidcardnumber` varchar(10) COLLATE utf8_hungarian_ci DEFAULT NULL," 
                     +"`ctajnumber` varchar(10) COLLATE utf8_hungarian_ci DEFAULT NULL," 
                     +"`cbirth` date DEFAULT NULL,"
-                    + "`ebirthplace` varchar(40) COLLATE utf8_hungarian_ci NOT NULL,"
+                    + "`cbirthplace` varchar(40) COLLATE utf8_hungarian_ci NOT NULL,"
                     + "`motherID` int(10) NOT NULL," 
                     +"`fatherID` int(10) NOT NULL," 
                     +"`ccomingin` date DEFAULT NULL,"
@@ -130,7 +130,7 @@ namespace Szakdolgozat2020.Database
                     + "`ID` int(11) NOT NULL,"
                     + "`title` varchar(30) COLLATE utf8_hungarian_ci DEFAULT NULL,"
                     + "`details` varchar(120) COLLATE utf8_hungarian_ci DEFAULT NULL,"
-                    + "`img` longblob NOT NULL,"
+                    + "`img` longblob DEFAULT NULL,"
                     + "`by` varchar(50) COLLATE utf8_hungarian_ci DEFAULT NULL"
                     + ") ENGINE = InnoDB DEFAULT CHARSET = utf8 COLLATE = utf8_hungarian_ci;";
 
@@ -237,7 +237,8 @@ namespace Szakdolgozat2020.Database
                     + "`schoolname` varchar(60) COLLATE utf8_hungarian_ci NOT NULL,"
                     + "`fromdate` date NOT NULL,"
                     + "`todate` date NOT NULL,"
-                    + "`headteacher` varchar(50) COLLATE utf8_hungarian_ci NOT NULL"
+                    + "`headteacher` varchar(50) COLLATE utf8_hungarian_ci NOT NULL,"
+                    + "`by` varchar(50) COLLATE utf8_hungarian_ci DEFAULT NULL"
                     + ") ENGINE = InnoDB DEFAULT CHARSET = utf8 COLLATE = utf8_hungarian_ci;";
 
                 string queryPrimaryKey =
@@ -259,7 +260,7 @@ namespace Szakdolgozat2020.Database
             }
         }
 
-        //********************************* Kapcsoló táblák ***************************************************
+        //********************************* Kapcsolótáblák ***************************************************
         /// <summary>
         /// Kapcsoló tábla a children_fullprofile és a children_events között 
         /// </summary>
