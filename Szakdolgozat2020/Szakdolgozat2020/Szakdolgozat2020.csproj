@@ -60,10 +60,10 @@
   <ItemGroup>
     <Compile Include="Database\InsertTestUsersCommand.cs" />
     <Compile Include="Database\CreateCommand.cs" />
-    <Compile Include="Database\DatabaseCreateException.cs" />
+    <Compile Include="Database\Exception\DatabaseCreateException.cs" />
     <Compile Include="Database\Connection.cs" />
-    <Compile Include="Database\InsertUsersException.cs" />
-    <Compile Include="Database\TableCreateException.cs" />
+    <Compile Include="Database\Exception\InsertUsersException.cs" />
+    <Compile Include="Database\Exception\TableCreateException.cs" />
     <Compile Include="Forms\Boss.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +100,7 @@
     <Compile Include="Forms\LogInScreen.Designer.cs">
       <DependentUpon>LogInScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modell\Employes\Employes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\Boss.resx">
@@ -143,7 +144,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Repository\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Icon\key.png" />
     <Content Include="Icon\liveincarelogo.png" />

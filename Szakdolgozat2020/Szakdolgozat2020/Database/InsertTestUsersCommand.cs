@@ -20,12 +20,12 @@ namespace Szakdolgozat2020.Database
             {
                 connection.Open();
                 string query =
-                    "INSERT INTO `employes_login` (`ID`, `ename`, `ebirth`, `ebirthplace`, `elocation`, `euname`, `epassword`, `ejob`) VALUES" +
-                    "(1, 'Bálint István', '1999-09-12','Székesfehérvár', 'Kecskemét', 'bisti', 'admin', 'boss')," +
-                    "(2, 'Chat Elek', '1985-03-14','Kiskunfélegyháza','Szeged', 'chaele', 'nevelo1', 'nevelo')," +
-                    "(3, 'Zuhany Rózsa', '1963-11-08','Budapest','Szeged', 'zuhroz', 'intv1', 'intvezeto')," +
-                    "(4, ' Fejet Lenke ', '1977-02-21','Szárszó','Orosháza', 'fejlen', 'intu1', 'intugyintezo')," +
-                    "(5, 'Major Anna', '1972-09-12','Dorozsma','Kőszeg', 'majann', 'lelek1', 'pszichologus');";
+                    "INSERT INTO `employes_login` (`ID`, `ename`, `emaidenname`, `esex`, `ebirth`, `ebirthplace`,`ejob`, `elocation`, `euname`, `epassword`) VALUES" +
+                    "(1, 'Bálint István','-','férfi', '1999-09-12','Székesfehérvár', 'boss','Kecskemét', 'bisti', 'admin')," +
+                    "(2, 'Chat Elek','-','féfi', '1985-03-14','Kiskunfélegyháza','nevelo','Szeged', 'chaele', 'nevelo1')," +
+                    "(3, 'Zuhany Rózsa','Magyar Izbella','nő', '1963-11-08','Budapest','intvezeto','Szeged', 'zuhroz', 'intv1')," +
+                    "(4, ' Fejet Lenke ','Fejet Lenke','nő', '1977-02-21','Szárszó','intugyintezo','Orosháza','fejlen', 'intu1')," +
+                    "(5, 'Major Anna','Kovács Zita','nő','1972-09-12','Dorozsma','pszichologus','Kőszeg', 'majann', 'lelek1');";
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
                 connection.Close();
@@ -33,7 +33,7 @@ namespace Szakdolgozat2020.Database
             catch (Exception e)
             {
                 connection.Close();
-                Debug.WriteLine(e.Message);
+                Debug.WriteLine(e.Message+"InsertEmployes*****************************************************************************");
                 //throw new InsertUsersException("Nem lehetet a teszt felhasználokat beszúrni!");
             }
         }

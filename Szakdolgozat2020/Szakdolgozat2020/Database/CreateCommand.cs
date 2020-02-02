@@ -51,12 +51,14 @@ namespace Szakdolgozat2020.Database
                     "CREATE TABLE IF NOT EXISTS `employes_login` ("
                     + "`ID` int(11) NOT NULL,"
                     +"`ename` varchar(50) COLLATE utf8_hungarian_ci NOT NULL,"
+                    +"`emaidenname` varchar(50) COLLATE utf8_hungarian_ci NOT NULL,"
+                    + "`esex` varchar(10) COLLATE utf8_hungarian_ci DEFAULT NULL,"
                     + "`ebirth` date NOT NULL,"
                     +"`ebirthplace` varchar(40) COLLATE utf8_hungarian_ci NOT NULL,"
-                    +"`elocation` varchar(40) COLLATE utf8_hungarian_ci NOT NULL,"
+                    + "`ejob` varchar(18) COLLATE utf8_hungarian_ci NOT NULL,"
+                    + "`elocation` varchar(40) COLLATE utf8_hungarian_ci NOT NULL,"
                     +"`euname` varchar(25) COLLATE utf8_hungarian_ci NOT NULL,"
-                    +"`epassword` varchar(25) COLLATE utf8_hungarian_ci NOT NULL,"
-                    +"`ejob` varchar(18) COLLATE utf8_hungarian_ci NOT NULL"
+                    +"`epassword` varchar(25) COLLATE utf8_hungarian_ci NOT NULL"
                     +") ENGINE = InnoDB DEFAULT CHARSET = utf8 COLLATE = utf8_hungarian_ci;";
                 string queryPrimaryKey =
                     "ALTER TABLE `employes_login` ADD PRIMARY KEY IF NOT EXISTS (`ID`);";
