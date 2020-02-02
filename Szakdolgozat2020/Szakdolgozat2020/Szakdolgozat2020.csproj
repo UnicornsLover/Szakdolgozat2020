@@ -12,6 +12,8 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -100,9 +102,11 @@
     <Compile Include="Forms\LogInScreen.Designer.cs">
       <DependentUpon>LogInScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modell\Employes\GetSQLCommand.cs" />
     <Compile Include="Modell\Employes\Employes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\Employes\RepositoryEmployes.cs" />
     <EmbeddedResource Include="Forms\Boss.resx">
       <DependentUpon>Boss.cs</DependentUpon>
     </EmbeddedResource>
@@ -143,9 +147,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Repository\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icon\key.png" />

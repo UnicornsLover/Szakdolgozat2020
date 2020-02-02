@@ -6,30 +6,27 @@ using System.Threading.Tasks;
 
 namespace Szakdolgozat2020.Modell.Employes
 {
-    class Employes
+    partial class Employe
     {
         private int eID;
         private string ename;
         private string emaidenname;
         private string esex;
-        private string ebirthdayDay;
-        private string ebirthdayMonth;
-        private string ebirthdayYear;
+        private string allbirth;
         private string ebirthplace;
         private string ejob;
         private string elocation;
         private string euname;
         private string epassword;
+        
 
-        public Employes(int eID, string ename, string emaidenname, string esex, string ebirthdayDay, string ebirthdayMonth, string ebirthdayYear, string ebirthplace, string ejob, string elocation, string euname, string epassword)
+        public Employe(int eID, string ename, string emaidenname, string esex, string allbirth, string ebirthplace, string ejob, string elocation, string euname, string epassword)
         {
             this.eID = eID;
             this.ename = ename;
             this.emaidenname = emaidenname;
             this.esex = esex;
-            this.ebirthdayDay = ebirthdayDay;
-            this.ebirthdayMonth = ebirthdayMonth;
-            this.ebirthdayYear = ebirthdayYear;
+            this.allbirth = allbirth;
             this.ebirthplace = ebirthplace;
             this.ejob = ejob;
             this.elocation = elocation;
@@ -57,18 +54,11 @@ namespace Szakdolgozat2020.Modell.Employes
         {
             this.esex = esex;
         }
-        public void setEbirthdayDay(string bday)
+        public void setEallbirth(string allbirth)
         {
-            this.ebirthdayDay = bday;
+            this.allbirth = allbirth;
         }
-        public void setEbirthdayMonth(string bmonth)
-        {
-            this.ebirthdayMonth = bmonth;
-        }
-        public void setEbirthdayYear(string bYear)
-        {
-            this.ebirthdayYear = bYear;
-        }
+
         public void setEbirtplace(string bPlace)
         {
             this.ebirthplace = bPlace;
@@ -106,17 +96,9 @@ namespace Szakdolgozat2020.Modell.Employes
         {
             return esex;
         }
-        public string getEbirthDay()
+        public string getEallbirthday()
         {
-            return ebirthdayDay;
-        }
-        public string getEbirthMonth()
-        {
-            return ebirthdayMonth;
-        }
-        public string getEbirthYear()
-        {
-            return ebirthdayYear;
+            return allbirth;
         }
         public string getEbirthplace()
         {
@@ -138,6 +120,5 @@ namespace Szakdolgozat2020.Modell.Employes
         {
             return epassword;
         }
-        
     }
 }
