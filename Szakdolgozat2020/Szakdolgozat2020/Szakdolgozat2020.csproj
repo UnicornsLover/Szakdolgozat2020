@@ -106,7 +106,12 @@
     <Compile Include="Modell\Employes\Employes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\Employes\ReadDataFromSQL.cs" />
+    <Compile Include="Repository\Employes\RepositoryDatabseAndTableEmploye.cs" />
+    <Compile Include="Repository\Employes\Exception\RepositoryEmloyes_LoginDropException.cs" />
+    <Compile Include="Repository\Employes\Exception\RepositoryDataDeleteFromEmloyes_LoginException.cs" />
     <Compile Include="Repository\Employes\RepositoryEmployes.cs" />
+    <Compile Include="Repository\Employes\Exception\RepositoryReadyDataFromEmployes_LoginException.cs" />
     <EmbeddedResource Include="Forms\Boss.resx">
       <DependentUpon>Boss.cs</DependentUpon>
     </EmbeddedResource>

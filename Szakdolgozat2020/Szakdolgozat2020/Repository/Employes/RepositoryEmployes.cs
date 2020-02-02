@@ -31,7 +31,7 @@ namespace Szakdolgozat2020.Repository.Employes
             this.employes = employes;
         }
 
-        public DataTable EmployesListToDataTable()
+        public DataTable getEmployesListToDataTable()
         {
             DataTable dt = new DataTable();
             dt.Columns.Add("Azonosító",typeof(int));
