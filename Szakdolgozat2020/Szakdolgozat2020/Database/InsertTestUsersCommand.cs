@@ -20,12 +20,12 @@ namespace Szakdolgozat2020.Database
             {
                 connection.Open();
                 string query =
-                    "INSERT INTO `employes_login` (`ID`, `ename`, `emaidenname`, `esex`, `ebirth`, `ebirthplace`,`ejob`, `elocation`, `euname`, `epassword`) VALUES" +
-                    "(1, 'Bálint István','-','férfi', '1999-09-12','Székesfehérvár', 'boss','Kecskemét', 'bisti', 'admin')," +
-                    "(2, 'Chat Elek','-','féfi', '1985-03-14','Kiskunfélegyháza','nevelo','Szeged', 'chaele', 'nevelo1')," +
-                    "(3, 'Zuhany Rózsa','Magyar Izbella','nő', '1963-11-08','Budapest','intvezeto','Szeged', 'zuhroz', 'intv1')," +
-                    "(4, ' Fejet Lenke ','Fejet Lenke','nő', '1977-02-21','Szárszó','intugyintezo','Orosháza','fejlen', 'intu1')," +
-                    "(5, 'Major Anna','Kovács Zita','nő','1972-09-12','Dorozsma','pszichologus','Kőszeg', 'majann', 'lelek1');";
+                    "INSERT INTO `employes_login` (`ID`, `ename`, `emaidenname`, `esex`, `ebirth`, `ebirthplace`, `ejob`, `elocation`, `euname`, `epassword`) VALUES"
+                    + "(1, 'Bálint István', '-', 0, '1999-09-12', 'Székesfehérvár', 'boss', 'Szeged', 'bisti', 'admin'),"
+                    + "(2, 'Chat Elek', '-', 0, '1985-03-14', 'Facebook', 'nevelo', 'Szeged', 'chaele', 'nevelo1'),"
+                    + "(3, 'Zuhany Rózsa', 'Zuhany Rózsa', 1, '1963-11-08', 'Zalakaros', 'intvezeto', 'Szeged', 'zuhroz', 'intv1'),"
+                    + "(4, ' Fejet Lenke ', ' Fejet Lenke ', 1, '1977-02-21', 'Fejes', 'intugyintezo', 'Szeged', 'fejlen', 'intu1'),"
+                    + "(5, 'Major Anna ', 'Kiss Anna ', 1, '1972-09-12', 'Fűszerpor', 'pszichologus', 'Kína', 'majann', 'lelek1');";
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
                 connection.Close();
@@ -127,7 +127,6 @@ namespace Szakdolgozat2020.Database
                    + "(1, 'SNI', 'Nehézen lehet a figyelmét lekötni, inkább a saját útját járja. Ezzel rendszeresen zavarva a társait. Tanulás folyamata sokkal lassan mit vele egy körű társaihoz hasonlítva. Ezért kivonja magát ebből.', 'Speciális oda figyelés, figyelem fejlesztés.', '2017-03-12', 'Major Anna'),"
                    + "(2, 'Dyslexia', 'Nehézkes a szövegértése hangos olvasása  mellett, ha magában többször elolvassa akkor meg is tudja érteni. A helyesírásnál nem érti a ragozást. Betűket kever össze.', 'Korepetálás, gyakorlás. Felmentés magyarból.', '2017-07-09', 'Major Anna '),"
                    + "(3, 'Szemvizsgálat', 'A látása rossz távolra. Szemtengely ferdülése van, vagyis egyik szeme jobb mint a másik. ', 'Szemüveg beszerzése.', '2018-11-01', 'Dr. Tóth Eszter');";
-
                 ;
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();

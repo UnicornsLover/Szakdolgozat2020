@@ -48,20 +48,21 @@ namespace Szakdolgozat2020.Database
             {
                 connection.Open();
                 string queryCreateTable =
-                    "CREATE TABLE IF NOT EXISTS `employes_login` ("
-                    + "`ID` int(11) NOT NULL,"
-                    +"`ename` varchar(50) COLLATE utf8_hungarian_ci NOT NULL,"
-                    +"`emaidenname` varchar(50) COLLATE utf8_hungarian_ci NOT NULL,"
-                    + "`esex` varchar(10) COLLATE utf8_hungarian_ci DEFAULT NULL,"
+                    "CREATE TABLE `employes_login` ("
+                    + "`ID` int(11) AUTO_INCREMENT NOT NULL,"
+                    + "`ename` varchar(50) COLLATE utf8_hungarian_ci NOT NULL,"
+                    + "`emaidenname` varchar(50) COLLATE utf8_hungarian_ci NOT NULL,"
+                    + "`esex` tinyint(1) NOT NULL,"
                     + "`ebirth` date NOT NULL,"
-                    +"`ebirthplace` varchar(40) COLLATE utf8_hungarian_ci NOT NULL,"
+                    + "`ebirthplace` varchar(40) COLLATE utf8_hungarian_ci NOT NULL,"
                     + "`ejob` varchar(18) COLLATE utf8_hungarian_ci NOT NULL,"
                     + "`elocation` varchar(40) COLLATE utf8_hungarian_ci NOT NULL,"
-                    +"`euname` varchar(25) COLLATE utf8_hungarian_ci NOT NULL,"
-                    +"`epassword` varchar(25) COLLATE utf8_hungarian_ci NOT NULL"
-                    +") ENGINE = InnoDB DEFAULT CHARSET = utf8 COLLATE = utf8_hungarian_ci;";
+                    + "`euname` varchar(25) COLLATE utf8_hungarian_ci NOT NULL,"
+                    + "`epassword` varchar(25) COLLATE utf8_hungarian_ci NOT NULL"
+                    + ") ENGINE = InnoDB DEFAULT CHARSET = utf8 COLLATE = utf8_hungarian_ci;";
                 string queryPrimaryKey =
-                    "ALTER TABLE `employes_login` ADD PRIMARY KEY IF NOT EXISTS (`ID`);";
+                    "ALTER TABLE `employes_login` ADD PRIMARY KEY IF NOT EXISTS (`ID`);"
+                    +"ALTER TABLE `employes_login` MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 6; ";
                 MySqlCommand cmdCreateTable = new MySqlCommand(queryCreateTable, connection);
                 cmdCreateTable.ExecuteNonQuery();
                 MySqlCommand cmdPrimaryKey = new MySqlCommand(queryPrimaryKey, connection);
