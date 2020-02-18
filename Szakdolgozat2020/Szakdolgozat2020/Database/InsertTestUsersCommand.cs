@@ -160,7 +160,7 @@ namespace Szakdolgozat2020.Database
             catch (Exception e)
             {
                 connection.Close();
-                Debug.WriteLine(e.Message + "InsertEvents*******************************************************************************");
+                Debug.WriteLine(e.Message + "InsertEvents******************************************************************************");
             }
         }
         //********************************* Kapcsolótáblák ***************************************************

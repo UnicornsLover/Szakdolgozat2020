@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2020. Feb 18. 11:27
+-- Létrehozás ideje: 2020. Feb 18. 13:06
 -- Kiszolgáló verziója: 10.4.6-MariaDB
 -- PHP verzió: 7.3.8
 
@@ -37,6 +37,14 @@ CREATE TABLE `ceventsk` (
   `Timer` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
+--
+-- A tábla adatainak kiíratása `ceventsk`
+--
+
+INSERT INTO `ceventsk` (`ID`, `childrenID`, `eventsID`, `Timer`) VALUES
+(1, 1, 2, '2009-09-15'),
+(2, 2, 1, '2012-08-23');
+
 -- --------------------------------------------------------
 
 --
@@ -46,10 +54,18 @@ CREATE TABLE `ceventsk` (
 CREATE TABLE `children_events` (
   `ID` int(11) NOT NULL,
   `title` varchar(30) COLLATE utf8_hungarian_ci DEFAULT NULL,
-  `details` varchar(120) COLLATE utf8_hungarian_ci DEFAULT NULL,
-  `img` longblob NOT NULL,
+  `details` text COLLATE utf8_hungarian_ci DEFAULT NULL,
+  `img` longblob DEFAULT NULL,
   `by` varchar(20) COLLATE utf8_hungarian_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+
+--
+-- A tábla adatainak kiíratása `children_events`
+--
+
+INSERT INTO `children_events` (`ID`, `title`, `details`, `img`, `by`) VALUES
+(1, 'Kirándulás a mecsekben', 'Osztálykiránduláson vett részt Aranka. Ez 3 napos volt. De nagyon sok mindent mesélt. Például most már a gomba fajtákat is meg tudja különböztetni.', NULL, 'Chat Elek'),
+(2, 'Strand a Balatonon', 'Az intézmény szervezése által jutott el a Balatonra, amit nagyon élvezett mert nem volt még Balatonon. Vizibicklizés volt.', NULL, 'Chat Elek');
 
 -- --------------------------------------------------------
 
@@ -278,13 +294,13 @@ ALTER TABLE `school`
 -- AUTO_INCREMENT a táblához `ceventsk`
 --
 ALTER TABLE `ceventsk`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT a táblához `children_events`
 --
 ALTER TABLE `children_events`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT a táblához `children_fullprofile`
