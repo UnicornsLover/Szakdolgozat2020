@@ -36,21 +36,14 @@ namespace Szakdolgozat2020
             CreateCommand cc = new CreateCommand();
             cc.createDatabase();
             cc.createTableLogIn();
-            cc.createTableParents();
             cc.createTableChildrenFullProfile();
+            cc.createTableParents();
             cc.createTableHealth();
             cc.createTableEvents();
             cc.createTableEventsK();
-            cc.createTableHealthK();
             cc.createTableSchool();
-            cc.fillTestUsers();
-            cc.fillTestParents();
-            cc.fillTestChildren();
-            cc.fillTestSchools();
-            cc.fillTestHealths();
-            cc.fillTestEvents();
-            cc.fillTestEventsK();
-            cc.fillTestHealthsK();
+            cc.createTableChildrenSchool();
+            
         }
     }
 }

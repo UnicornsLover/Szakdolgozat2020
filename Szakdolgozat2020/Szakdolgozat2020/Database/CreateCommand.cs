@@ -120,7 +120,7 @@ namespace Szakdolgozat2020.Database
             }
         }
         /// <summary>
-        /// A gyerkekekkel történt események trolására tábla
+        /// A gyerkekekkel történt események trolására tábla szülőknek
         /// </summary>
         public void createTableEvents()
         {
@@ -237,8 +237,9 @@ namespace Szakdolgozat2020.Database
             }
         }
 
-        
-
+        /// <summary>
+        /// Iskolák tárolása adatbázisban
+        /// </summary>
         public void createTableSchool()
         {
             connectionString = cs.getConnectionString();
@@ -276,6 +277,9 @@ namespace Szakdolgozat2020.Database
         }
         //********************************* Kapcsolótáblák ***************************************************
 
+        /// <summary>
+        /// Gyerek iskolákkal összekapcsolása, erre tábla
+        /// </summary>
         public void createTableChildrenSchool()
         {
             connectionString = cs.getConnectionString();
