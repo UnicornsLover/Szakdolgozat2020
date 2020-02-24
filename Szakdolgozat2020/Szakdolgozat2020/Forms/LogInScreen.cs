@@ -38,6 +38,7 @@ namespace Szakdolgozat2020
             cc.createTableLogIn();
             cc.createTableChildrenFullProfile();
             cc.createTableParents();
+            cc.createTableParentsK();
             cc.createTableHealth();
             cc.createTableEvents();
             cc.createTableEventsK();

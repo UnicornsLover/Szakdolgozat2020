@@ -96,19 +96,16 @@ namespace Szakdolgozat2020.Database
                     +"`ctajnumber` varchar(10) COLLATE utf8_hungarian_ci DEFAULT NULL,"
                     +"`cbirth` date DEFAULT NULL,"
                     +"`cbirthplace` varchar(40) COLLATE utf8_hungarian_ci NOT NULL,"
-                    +"`motherID` int(10) NOT NULL,"
-                    +"`fatherID` int(10) NOT NULL,"
                     +"`ccoming` date DEFAULT NULL,"
                     +"`clocation` varchar(40) COLLATE utf8_hungarian_ci NOT NULL"
                     +") ENGINE = InnoDB DEFAULT CHARSET = utf8 COLLATE = utf8_hungarian_ci;";
                 string queryPrimaryKey =
                 //primary kulcs
-                "ALTER TABLE `children_fullprofile` " 
-                +"ADD PRIMARY KEY IF NOT EXISTS (`ID`);"
+                "ALTER TABLE `children_fullprofile` "
+                + "ADD PRIMARY KEY IF NOT EXISTS (`ID`);"
                 //idegen kulcsok
                  + "ALTER TABLE `children_fullprofile` "
-                 + "ADD CONSTRAINT `children_fullprofile_ibfk_1` FOREIGN KEY(`motherID`) REFERENCES `parents` (`ID`),"
-                 + "ADD CONSTRAINT `children_fullprofile_ibfk_2` FOREIGN KEY(`fatherID`) REFERENCES `parents` (`ID`);";
+                 + "ADD CONSTRAINT `children_fullprofile_ibfk_1` FOREIGN KEY(`ID`) REFERENCES `parentsk` (`childrenID`);";
                 MySqlCommand cmdCreateTable = new MySqlCommand(queryCreateTable, connection);
                 cmdCreateTable.ExecuteNonQuery();
                 MySqlCommand cmdPrimaryKey = new MySqlCommand(queryPrimaryKey, connection);
@@ -223,8 +220,10 @@ namespace Szakdolgozat2020.Database
 
                 string queryPrimaryKey =
                 //primary kulcs
-                "ALTER TABLE `parents` " +
-                "ADD PRIMARY KEY IF NOT EXISTS (`ID`);";
+                "ALTER TABLE `parents` " 
+                + "ADD PRIMARY KEY IF NOT EXISTS (`ID`);"
+                + "ALTER TABLE `parents` " 
+                + "ADD CONSTRAINT `parents_ibfk_1` FOREIGN KEY(`ID`) REFERENCES `parentsk` (`pID`);";
                 MySqlCommand cmdCreateTable = new MySqlCommand(queryCreateTable, connection);
                 cmdCreateTable.ExecuteNonQuery();
                 MySqlCommand cmdPrimaryKey = new MySqlCommand(queryPrimaryKey, connection);
@@ -307,7 +306,7 @@ namespace Szakdolgozat2020.Database
                 //
                 "ALTER TABLE `children_school` " +
                 "ADD CONSTRAINT `children_school_ibfk_1` FOREIGN KEY (`schoolID`) REFERENCES `school` (`ID`)," +
-                "ADD CONSTRAINT `children_school_ibfk_2` FOREIGN KEY(`childrenID`) REFERENCES `children_fullprofile` (`ID`);";
+                "ADD CONSTRAINT `children_school_ibfk_2` FOREIGN KEY (`childrenID`) REFERENCES `children_fullprofile` (`ID`);";
                 MySqlCommand cmdCreateTable = new MySqlCommand(queryCreateTable, connection);
                 cmdCreateTable.ExecuteNonQuery();
                 MySqlCommand cmdPrimaryKey = new MySqlCommand(queryPrimaryKey, connection);
@@ -360,7 +359,37 @@ namespace Szakdolgozat2020.Database
                 //throw new TableCreateException("Tábla lérehozása sikertelen, vagy már létezik."); !!!! javítani
             }
         }
-        
-        
+        public void createTableParentsK()
+        {
+            connectionString = cs.getConnectionString();
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            try
+            {
+                connection.Open();
+                string queryCreateTable =
+                    "CREATE TABLE IF NOT EXISTS `parentsK` ("
+                    + "`ID` int(11) NOT NULL,"
+                    + "`pID` int(11) DEFAULT NULL,"
+                    + "`childrenID` int(11) DEFAULT NULL"
+                    + ") ENGINE = InnoDB DEFAULT CHARSET = utf8 COLLATE = utf8_hungarian_ci;";
+
+                string queryPrimaryKey =
+                "ALTER TABLE `parentsK` ADD PRIMARY KEY IF NOT EXISTS (`ID`);";
+
+
+                MySqlCommand cmdCreateTable = new MySqlCommand(queryCreateTable, connection);
+                cmdCreateTable.ExecuteNonQuery();
+                MySqlCommand cmdPrimaryKey = new MySqlCommand(queryPrimaryKey, connection);
+                cmdPrimaryKey.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception e)
+            {
+                connection.Close();
+                Debug.WriteLine(e.Message + "ParentsK*******************************************************************************");
+                //throw new TableCreateException("Tábla lérehozása sikertelen, vagy már létezik."); !!!! javítani
+            }
+        }
+
     }
 }
