@@ -62,7 +62,8 @@ namespace Szakdolgozat2020.Database
                     +") ENGINE = InnoDB DEFAULT CHARSET = utf8 COLLATE = utf8_hungarian_ci;";
                 string queryPrimaryKey =
                     "ALTER TABLE `employes_login` ADD PRIMARY KEY IF NOT EXISTS (`ID`);"
-                    +"ALTER TABLE `employes_login` MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 1;";
+                    + "ALTER TABLE `employes_login` MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 1;";
+
                 MySqlCommand cmdCreateTable = new MySqlCommand(queryCreateTable, connection);
                 cmdCreateTable.ExecuteNonQuery();
                 MySqlCommand cmdPrimaryKey = new MySqlCommand(queryPrimaryKey, connection);
@@ -102,15 +103,12 @@ namespace Szakdolgozat2020.Database
                     +") ENGINE = InnoDB DEFAULT CHARSET = utf8 COLLATE = utf8_hungarian_ci;";
                 string queryPrimaryKey =
                 //primary kulcs
-                "ALTER TABLE `children_fullprofile`" 
+                "ALTER TABLE `children_fullprofile` " 
                 +"ADD PRIMARY KEY IF NOT EXISTS (`ID`);"
-                //auto increment
-                + "ALTER TABLE `children_fullprofile`"
-                + "MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 1;"
                 //idegen kulcsok
-                + "ALTER TABLE `children_fullprofile`"
-                + "ADD CONSTRAINT `children_fullprofile_ibfk_1` FOREIGN KEY IF NOT EXISTS (`fatherID`) REFERENCES `parents` (`ID`),"
-                + "ADD CONSTRAINT `children_fullprofile_ibfk_2` FOREIGN KEY IF NOT EXISTS (`motherID`) REFERENCES `parents` (`ID`);";
+                 + "ALTER TABLE `children_fullprofile` "
+                 + "ADD CONSTRAINT `children_fullprofile_ibfk_1` FOREIGN KEY(`motherID`) REFERENCES `parents` (`ID`),"
+                 + "ADD CONSTRAINT `children_fullprofile_ibfk_2` FOREIGN KEY(`fatherID`) REFERENCES `parents` (`ID`);";
                 MySqlCommand cmdCreateTable = new MySqlCommand(queryCreateTable, connection);
                 cmdCreateTable.ExecuteNonQuery();
                 MySqlCommand cmdPrimaryKey = new MySqlCommand(queryPrimaryKey, connection);
@@ -145,7 +143,6 @@ namespace Szakdolgozat2020.Database
 
                 string queryPrimaryKey =
                 "ALTER TABLE `children_events` "
-                +"MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1,"
                 + "ADD PRIMARY KEY IF NOT EXISTS (`ID`);";
                 MySqlCommand cmdCreateTable = new MySqlCommand(queryCreateTable, connection);
                 cmdCreateTable.ExecuteNonQuery();
@@ -171,7 +168,7 @@ namespace Szakdolgozat2020.Database
             {
                 connection.Open();
                 string queryCreateTable =
-                    "CREATE TABLE `children_health` ("
+                    "CREATE TABLE `children_healths` ("
                     +"`boardID` int(11) NOT NULL,"
                     +"`childrenID` int(11) NOT NULL,"
                     +"`type` varchar(20) COLLATE utf8_hungarian_ci DEFAULT NULL,"
@@ -184,8 +181,8 @@ namespace Szakdolgozat2020.Database
 
                 string queryPrimaryKey =
                 "ALTER TABLE `children_healths` "
-                +"ADD PRIMARY KEY IF NOT EXISTS (`ID`),"
-                +"MODIFY `boardID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1," 
+                + "ADD PRIMARY KEY IF NOT EXISTS (`boardID`);"
+                + "ALTER TABLE `children_healths` "
                 + "ADD CONSTRAINT `children_health_ibfk_1` FOREIGN KEY (`childrenID`) REFERENCES `children_fullprofile` (`ID`);";
                 MySqlCommand cmdCreateTable = new MySqlCommand(queryCreateTable, connection);
                 cmdCreateTable.ExecuteNonQuery();
@@ -227,10 +224,7 @@ namespace Szakdolgozat2020.Database
                 string queryPrimaryKey =
                 //primary kulcs
                 "ALTER TABLE `parents` " +
-                "ADD PRIMARY KEY IF NOT EXISTS (`ID`);" +
-                //autoincrement
-                "ALTER TABLE `parents`" +
-                "MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;";
+                "ADD PRIMARY KEY IF NOT EXISTS (`ID`);";
                 MySqlCommand cmdCreateTable = new MySqlCommand(queryCreateTable, connection);
                 cmdCreateTable.ExecuteNonQuery();
                 MySqlCommand cmdPrimaryKey = new MySqlCommand(queryPrimaryKey, connection);
@@ -265,11 +259,8 @@ namespace Szakdolgozat2020.Database
 
                 string queryPrimaryKey =
                 //primary kulcs
-                "ALTER TABLE `children_school` " +
-                "ADD PRIMARY KEY IF NOT EXISTS(`ID`);" +
-                //autoincrement
-                "ALTER TABLE `children_school`" +
-                " MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;";
+                "ALTER TABLE `school` " +
+                "ADD PRIMARY KEY IF NOT EXISTS(`ID`);";
 
 
 
@@ -312,10 +303,7 @@ namespace Szakdolgozat2020.Database
                 string queryPrimaryKey =
                 //
                 "ALTER TABLE `children_school` " +
-                "ADD PRIMARY KEY IF NOT EXISTS(`ID`);" +
-                //
-                "ALTER TABLE `children_school` " +
-                "MODIFY `schoolID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;" +
+                "ADD PRIMARY KEY IF NOT EXISTS(`schoolID`);" +
                 //
                 "ALTER TABLE `children_school` " +
                 "ADD CONSTRAINT `children_school_ibfk_1` FOREIGN KEY (`schoolID`) REFERENCES `school` (`ID`)," +
@@ -329,7 +317,7 @@ namespace Szakdolgozat2020.Database
             catch (Exception e)
             {
                 connection.Close();
-                Debug.WriteLine(e.Message + "School*******************************************************************************");
+                Debug.WriteLine(e.Message + "SchoolK*******************************************************************************");
                 //throw new TableCreateException("Tábla lérehozása sikertelen, vagy már létezik."); !!!! javítani
             }
         }
