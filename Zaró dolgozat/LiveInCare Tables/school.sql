@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2020. Feb 18. 11:14
--- Kiszolgáló verziója: 10.4.6-MariaDB
--- PHP verzió: 7.3.8
+-- Létrehozás ideje: 2020. Feb 24. 18:31
+-- Kiszolgáló verziója: 10.4.11-MariaDB
+-- PHP verzió: 7.4.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -40,11 +40,11 @@ CREATE TABLE `school` (
 --
 
 INSERT INTO `school` (`ID`, `schoolName`, `schoolLocation`, `schoolPhone`) VALUES
-(1, 'Kecskeméti Református Általános Iskola', '6000 Kecskemét, Szabadság tér 7.', '0676458796'),
-(2, 'Kecskeméti Református Gimnázium', '6000 Kecskemét, Szabadság tér 7.', '0676458144'),
-(3, 'Károli Gáspár Református Egyetem', '1091 Budapest, Kálvin tér 9.', '0614559060'),
-(4, 'SZTEJKI Kossuth Lajos Általános Iskola', '6771 Szeged, Szerb u. 15.', '0662547134'),
-(5, 'SZSZC Vasvári Pál Gazdasági és Informatikai Szakgimnáziuma', 'Szeged, Gutenberg u. 11, 6722', '0662425322');
+(1, 'Kecskeméti Református Általános Sikola', 'Kecskemét', '0676895214'),
+(2, 'Kecskeméti Református Gimnázium', 'Kecskemét', '0676895123'),
+(3, 'Károli Gáspár Református Egyetem', 'Budapest', '0676478956'),
+(4, 'Kossuth Lajos Általános Iskola', 'Szeged', '0676332112'),
+(5, 'SZSZC Vasvári Pál Gazdasági és Informatikai Szakgimnáziuma', 'Szeged', '0676852225');
 
 --
 -- Indexek a kiírt táblákhoz

@@ -48,8 +48,8 @@ namespace Szakdolgozat2020.Database
             {
                 connection.Open();
                 string queryCreateTable =
-                    "CREATE TABLE `employes_login` ("
-                    +"`ID` int(11) NOT NULL,"
+                    "CREATE TABLE IF NOT EXISTS `employes_login` ("
+                    + "`ID` int(11) NOT NULL,"
                     +"`ename` varchar(50) COLLATE utf8_hungarian_ci NOT NULL,"
                     +"`emaidenname` varchar(50) COLLATE utf8_hungarian_ci NOT NULL,"
                     +"`esex` tinyint(1) NOT NULL,"
@@ -88,8 +88,8 @@ namespace Szakdolgozat2020.Database
             {
                 connection.Open();
                 string queryCreateTable =
-                    "CREATE TABLE `children_fullprofile` ("
-                    +"`ID` int(11) NOT NULL,"
+                    "CREATE TABLE IF NOT EXISTS `children_fullprofile` ("
+                    + "`ID` int(11) NOT NULL,"
                     +"`cname` varchar(50) COLLATE utf8_hungarian_ci DEFAULT NULL,"
                     +"`csex` varchar(10) COLLATE utf8_hungarian_ci DEFAULT NULL,"
                     +"`cidcardnuumber` varchar(10) COLLATE utf8_hungarian_ci DEFAULT NULL,"
@@ -102,10 +102,8 @@ namespace Szakdolgozat2020.Database
                 string queryPrimaryKey =
                 //primary kulcs
                 "ALTER TABLE `children_fullprofile` "
-                + "ADD PRIMARY KEY IF NOT EXISTS (`ID`);"
-                //idegen kulcsok
-                 + "ALTER TABLE `children_fullprofile` "
-                 + "ADD CONSTRAINT `children_fullprofile_ibfk_1` FOREIGN KEY(`ID`) REFERENCES `parentsk` (`childrenID`);";
+                + "ADD PRIMARY KEY IF NOT EXISTS (`ID`);" +
+                "ALTER TABLE `children_fullprofile` MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 1;";
                 MySqlCommand cmdCreateTable = new MySqlCommand(queryCreateTable, connection);
                 cmdCreateTable.ExecuteNonQuery();
                 MySqlCommand cmdPrimaryKey = new MySqlCommand(queryPrimaryKey, connection);
@@ -130,8 +128,8 @@ namespace Szakdolgozat2020.Database
             {
                 connection.Open();
                 string queryCreateTable =
-                    "CREATE TABLE `children_events` ("
-                    +"`ID` int(11) NOT NULL,"
+                    "CREATE TABLE IF NOT EXISTS `children_events` ("
+                    + "`ID` int(11) NOT NULL,"
                     +"`title` varchar(30) COLLATE utf8_hungarian_ci DEFAULT NULL,"
                     +"`details` text COLLATE utf8_hungarian_ci DEFAULT NULL,"
                     +"`img` longblob DEFAULT NULL,"
@@ -140,7 +138,8 @@ namespace Szakdolgozat2020.Database
 
                 string queryPrimaryKey =
                 "ALTER TABLE `children_events` "
-                + "ADD PRIMARY KEY IF NOT EXISTS (`ID`);";
+                + "ADD PRIMARY KEY IF NOT EXISTS (`ID`);" +
+                "ALTER TABLE `children_events` MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 1;";
                 MySqlCommand cmdCreateTable = new MySqlCommand(queryCreateTable, connection);
                 cmdCreateTable.ExecuteNonQuery();
                 MySqlCommand cmdPrimaryKey = new MySqlCommand(queryPrimaryKey, connection);
@@ -165,8 +164,8 @@ namespace Szakdolgozat2020.Database
             {
                 connection.Open();
                 string queryCreateTable =
-                    "CREATE TABLE `children_healths` ("
-                    +"`boardID` int(11) NOT NULL,"
+                    "CREATE TABLE IF NOT EXISTS `children_healths` ("
+                    + "`boardID` int(11) NOT NULL,"
                     +"`childrenID` int(11) NOT NULL,"
                     +"`type` varchar(20) COLLATE utf8_hungarian_ci DEFAULT NULL,"
                     +"`details` text COLLATE utf8_hungarian_ci DEFAULT NULL,"
@@ -180,7 +179,8 @@ namespace Szakdolgozat2020.Database
                 "ALTER TABLE `children_healths` "
                 + "ADD PRIMARY KEY IF NOT EXISTS (`boardID`);"
                 + "ALTER TABLE `children_healths` "
-                + "ADD CONSTRAINT `children_health_ibfk_1` FOREIGN KEY (`childrenID`) REFERENCES `children_fullprofile` (`ID`);";
+                + "ADD CONSTRAINT `children_health_ibfk_1` FOREIGN KEY (`childrenID`) REFERENCES `children_fullprofile` (`ID`);" +
+                "ALTER TABLE `children_healths` MODIFY `boardID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 1; ";
                 MySqlCommand cmdCreateTable = new MySqlCommand(queryCreateTable, connection);
                 cmdCreateTable.ExecuteNonQuery();
                 MySqlCommand cmdPrimaryKey = new MySqlCommand(queryPrimaryKey, connection);
@@ -206,8 +206,8 @@ namespace Szakdolgozat2020.Database
             {
                 connection.Open();
                 string queryCreateTable =
-                    "CREATE TABLE `parents` ("
-                    +"`ID` int(11) NOT NULL,"
+                    "CREATE TABLE IF NOT EXISTS `parents` ("
+                    + "`ID` int(11) NOT NULL,"
                     +"`pname` varchar(40) COLLATE utf8_hungarian_ci DEFAULT NULL,"
                     +"`pmaidenname` varchar(40) COLLATE utf8_hungarian_ci DEFAULT NULL,"
                     +"`pbirth` date DEFAULT NULL,"
@@ -220,10 +220,9 @@ namespace Szakdolgozat2020.Database
 
                 string queryPrimaryKey =
                 //primary kulcs
-                "ALTER TABLE `parents` " 
-                + "ADD PRIMARY KEY IF NOT EXISTS (`ID`);"
-                + "ALTER TABLE `parents` " 
-                + "ADD CONSTRAINT `parents_ibfk_1` FOREIGN KEY(`ID`) REFERENCES `parentsk` (`pID`);";
+                "ALTER TABLE `parents` "
+                + "ADD PRIMARY KEY IF NOT EXISTS (`ID`);" +
+                "ALTER TABLE `parents` MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 1;";
                 MySqlCommand cmdCreateTable = new MySqlCommand(queryCreateTable, connection);
                 cmdCreateTable.ExecuteNonQuery();
                 MySqlCommand cmdPrimaryKey = new MySqlCommand(queryPrimaryKey, connection);
@@ -249,8 +248,8 @@ namespace Szakdolgozat2020.Database
             {
                 connection.Open();
                 string queryCreateTable =
-                    "CREATE TABLE `school` ("
-                    +"`ID` int(11) NOT NULL,"
+                    "CREATE TABLE IF NOT EXISTS `school` ("
+                    + "`ID` int(11) NOT NULL,"
                     +"`schoolName` varchar(80) COLLATE utf8_hungarian_ci DEFAULT NULL,"
                     +"`schoolLocation` varchar(40) COLLATE utf8_hungarian_ci DEFAULT NULL,"
                     +"`schoolPhone` varchar(14) COLLATE utf8_hungarian_ci DEFAULT NULL"
@@ -259,7 +258,8 @@ namespace Szakdolgozat2020.Database
                 string queryPrimaryKey =
                 //primary kulcs
                 "ALTER TABLE `school` " +
-                "ADD PRIMARY KEY IF NOT EXISTS(`ID`);";
+                "ADD PRIMARY KEY (`ID`);" +
+                "ALTER TABLE `school` MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 1;";
 
 
 
@@ -289,7 +289,8 @@ namespace Szakdolgozat2020.Database
             {
                 connection.Open();
                 string queryCreateTable =
-                    "CREATE TABLE `children_school` ("
+                    "CREATE TABLE IF NOT EXISTS `children_school` (" +
+                    "`ID` int(11) NOT NULL,"
                     + "`schoolID` int(11) NOT NULL,"
                     + "`childrenID` int(11) NOT NULL,"
                     + "`fromDate` date DEFAULT NULL,"
@@ -302,7 +303,8 @@ namespace Szakdolgozat2020.Database
                 string queryPrimaryKey =
                 //
                 "ALTER TABLE `children_school` " +
-                "ADD PRIMARY KEY IF NOT EXISTS(`schoolID`);" +
+                "ADD PRIMARY KEY IF NOT EXISTS(`ID`);" +
+                "ALTER TABLE `children_school` MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 1;" +
                 //
                 "ALTER TABLE `children_school` " +
                 "ADD CONSTRAINT `children_school_ibfk_1` FOREIGN KEY (`schoolID`) REFERENCES `school` (`ID`)," +
@@ -340,7 +342,8 @@ namespace Szakdolgozat2020.Database
                     + ") ENGINE = InnoDB DEFAULT CHARSET = utf8 COLLATE = utf8_hungarian_ci;";
 
                 string queryPrimaryKey =
-                "ALTER TABLE `ceventsk` ADD PRIMARY KEY IF NOT EXISTS (`ID`);"
+                "ALTER TABLE `ceventsk` ADD PRIMARY KEY IF NOT EXISTS (`ID`);" +
+                "ALTER TABLE `ceventsk` MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 1;"
                 + "ALTER TABLE `ceventsk`"
                 + "ADD CONSTRAINT `ceventsk_ibfk_1` FOREIGN KEY IF NOT EXISTS (`childrenID`) REFERENCES `children_fullprofile` (`ID`),"
                 + "ADD CONSTRAINT `ceventsk_ibfk_2` FOREIGN KEY IF NOT EXISTS (`eventsID`) REFERENCES `children_events` (`ID`);";
@@ -374,7 +377,11 @@ namespace Szakdolgozat2020.Database
                     + ") ENGINE = InnoDB DEFAULT CHARSET = utf8 COLLATE = utf8_hungarian_ci;";
 
                 string queryPrimaryKey =
-                "ALTER TABLE `parentsK` ADD PRIMARY KEY IF NOT EXISTS (`ID`);";
+                "ALTER TABLE `parentsK` ADD PRIMARY KEY IF NOT EXISTS (`ID`);" +
+                "ALTER TABLE `parentsK` MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 1;"
+                + " ALTER TABLE `parentsk`"
+                + " ADD CONSTRAINT `parentsk_ibfk_1` FOREIGN KEY(`childrenID`) REFERENCES `children_fullprofile` (`ID`),"
+                + " ADD CONSTRAINT `parentsk_ibfk_2` FOREIGN KEY(`pID`) REFERENCES `parents` (`ID`);";
 
 
                 MySqlCommand cmdCreateTable = new MySqlCommand(queryCreateTable, connection);

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2020. Feb 18. 10:32
--- Kiszolgáló verziója: 10.4.6-MariaDB
--- PHP verzió: 7.3.8
+-- Létrehozás ideje: 2020. Feb 24. 18:55
+-- Kiszolgáló verziója: 10.4.11-MariaDB
+-- PHP verzió: 7.4.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -48,7 +48,9 @@ INSERT INTO `parents` (`ID`, `pname`, `pmaidenname`, `pbirth`, `psex`, `pidcardn
 (1, 'Szabó István', '-', '1994-05-17', '0', ' 153678AS', 1, 'szaist', 'szaist01'),
 (2, 'Nagy Viola', 'Nagy Viola', '1996-07-21', '1', '784253QW', 1, 'nagvio', 'nagvio01'),
 (3, 'Tóth József', '-', '1977-05-17', '0', '785693DF', 0, 'totjoz', 'totjoz01'),
-(4, 'Tóthné Bene Aranka', 'Bene Aranka', '1979-01-02', '1', '789566YX', 1, 'totben', 'totben01');
+(4, 'Tóthné Bene Aranka', 'Bene Aranka', '1979-01-02', '1', '789566YX', 1, 'totben', 'totben01'),
+(5, 'Okos Anna', 'Okos Anna', '1985-11-24', '1', '123586VB', 0, '-', '-'),
+(6, 'Kiss Elemér', '-', '1984-07-02', '0', '7854445OP', 0, '-', '-');
 
 --
 -- Indexek a kiírt táblákhoz
@@ -68,7 +70,7 @@ ALTER TABLE `parents`
 -- AUTO_INCREMENT a táblához `parents`
 --
 ALTER TABLE `parents`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

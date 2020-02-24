@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2020. Feb 24. 17:43
+-- Létrehozás ideje: 2020. Feb 24. 18:58
 -- Kiszolgáló verziója: 10.4.11-MariaDB
 -- PHP verzió: 7.4.2
 
@@ -25,40 +25,59 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `children_fullprofile`
+-- Tábla szerkezet ehhez a táblához `parentsk`
 --
 
-CREATE TABLE `children_fullprofile` (
+CREATE TABLE `parentsk` (
   `ID` int(11) NOT NULL,
-  `cname` varchar(50) COLLATE utf8_hungarian_ci DEFAULT NULL,
-  `csex` varchar(10) COLLATE utf8_hungarian_ci DEFAULT NULL,
-  `cidcardnuumber` varchar(10) COLLATE utf8_hungarian_ci DEFAULT NULL,
-  `ctajnumber` varchar(10) COLLATE utf8_hungarian_ci DEFAULT NULL,
-  `cbirth` date DEFAULT NULL,
-  `cbirthplace` varchar(40) COLLATE utf8_hungarian_ci NOT NULL,
-  `ccoming` date DEFAULT NULL,
-  `clocation` varchar(40) COLLATE utf8_hungarian_ci NOT NULL
+  `pID` int(11) DEFAULT NULL,
+  `childrenID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+
+--
+-- A tábla adatainak kiíratása `parentsk`
+--
+
+INSERT INTO `parentsk` (`ID`, `pID`, `childrenID`) VALUES
+(1, 3, 2),
+(2, 4, 2),
+(3, 2, 1),
+(4, 1, 1),
+(5, 5, 2),
+(6, 6, 1);
 
 --
 -- Indexek a kiírt táblákhoz
 --
 
 --
--- A tábla indexei `children_fullprofile`
+-- A tábla indexei `parentsk`
 --
-ALTER TABLE `children_fullprofile`
-  ADD PRIMARY KEY (`ID`);
+ALTER TABLE `parentsk`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `parentsk_ibfk_1` (`childrenID`),
+  ADD KEY `parentsk_ibfk_2` (`pID`);
 
 --
 -- A kiírt táblák AUTO_INCREMENT értéke
 --
 
 --
--- AUTO_INCREMENT a táblához `children_fullprofile`
+-- AUTO_INCREMENT a táblához `parentsk`
 --
-ALTER TABLE `children_fullprofile`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `parentsk`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- Megkötések a kiírt táblákhoz
+--
+
+--
+-- Megkötések a táblához `parentsk`
+--
+ALTER TABLE `parentsk`
+  ADD CONSTRAINT `parentsk_ibfk_1` FOREIGN KEY (`childrenID`) REFERENCES `children_fullprofile` (`ID`),
+  ADD CONSTRAINT `parentsk_ibfk_2` FOREIGN KEY (`pID`) REFERENCES `parents` (`ID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

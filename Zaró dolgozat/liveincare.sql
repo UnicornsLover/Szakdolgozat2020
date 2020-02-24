@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2020. Feb 18. 13:06
--- Kiszolgáló verziója: 10.4.6-MariaDB
--- PHP verzió: 7.3.8
+-- Létrehozás ideje: 2020. Feb 24. 19:02
+-- Kiszolgáló verziója: 10.4.11-MariaDB
+-- PHP verzió: 7.4.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -34,14 +34,14 @@ CREATE TABLE `ceventsk` (
   `ID` int(11) NOT NULL,
   `childrenID` int(11) DEFAULT NULL,
   `eventsID` int(11) DEFAULT NULL,
-  `Timer` date DEFAULT NULL
+  `timer` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 --
 -- A tábla adatainak kiíratása `ceventsk`
 --
 
-INSERT INTO `ceventsk` (`ID`, `childrenID`, `eventsID`, `Timer`) VALUES
+INSERT INTO `ceventsk` (`ID`, `childrenID`, `eventsID`, `timer`) VALUES
 (1, 1, 2, '2009-09-15'),
 (2, 2, 1, '2012-08-23');
 
@@ -81,8 +81,6 @@ CREATE TABLE `children_fullprofile` (
   `ctajnumber` varchar(10) COLLATE utf8_hungarian_ci DEFAULT NULL,
   `cbirth` date DEFAULT NULL,
   `cbirthplace` varchar(40) COLLATE utf8_hungarian_ci NOT NULL,
-  `motherID` int(10) NOT NULL,
-  `fatherID` int(10) NOT NULL,
   `ccoming` date DEFAULT NULL,
   `clocation` varchar(40) COLLATE utf8_hungarian_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
@@ -91,17 +89,17 @@ CREATE TABLE `children_fullprofile` (
 -- A tábla adatainak kiíratása `children_fullprofile`
 --
 
-INSERT INTO `children_fullprofile` (`ID`, `cname`, `csex`, `cidcardnuumber`, `ctajnumber`, `cbirth`, `cbirthplace`, `motherID`, `fatherID`, `ccoming`, `clocation`) VALUES
-(1, 'Szabó Péter', '0', '785962LO', '789963365', '2005-12-04', 'Szeged', 2, 1, '2008-06-01', 'Szeged'),
-(2, 'Tótk Luca', '1', '788522CV', '780120412', '1995-07-29', 'Budapest', 4, 3, '2011-11-01', 'Szeged');
+INSERT INTO `children_fullprofile` (`ID`, `cname`, `csex`, `cidcardnuumber`, `ctajnumber`, `cbirth`, `cbirthplace`, `ccoming`, `clocation`) VALUES
+(1, 'Szabó Péter', '0', '785962LO', '789963365', '2005-12-04', 'Szeged', '2008-06-01', 'Szeged'),
+(2, 'Tótk Luca', '1', '788522CV', '780120412', '1995-07-29', 'Budapest', '2011-11-01', 'Szeged');
 
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `children_health`
+-- Tábla szerkezet ehhez a táblához `children_healths`
 --
 
-CREATE TABLE `children_health` (
+CREATE TABLE `children_healths` (
   `boardID` int(11) NOT NULL,
   `childrenID` int(11) NOT NULL,
   `type` varchar(20) COLLATE utf8_hungarian_ci DEFAULT NULL,
@@ -112,10 +110,10 @@ CREATE TABLE `children_health` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 --
--- A tábla adatainak kiíratása `children_health`
+-- A tábla adatainak kiíratása `children_healths`
 --
 
-INSERT INTO `children_health` (`boardID`, `childrenID`, `type`, `details`, `special_treament`, `treatdate`, `by`) VALUES
+INSERT INTO `children_healths` (`boardID`, `childrenID`, `type`, `details`, `special_treament`, `treatdate`, `by`) VALUES
 (1, 2, 'Diszlekszia', 'Nehézkes a szövegértése hangos olvasása  mellett, ha magában többször elolvassa akkor meg is tudja érteni. A helyesírásnál nem érti a ragozást. Betűket kever össze.', 'Korepetálás, gyakorlás. Felmentés helyesírás alól.', '2011-12-18', 'Major Anna'),
 (2, 2, 'Szemvizsgálat', 'A látása rossz távolra. Szemtengely ferdülése van, vagyis egyik szeme jobb mint a másik.', 'Szemüveg beszerzése.', '2013-06-13', 'Dr. Marton József'),
 (3, 1, 'SNI', 'Nehézen lehet a figyelmét lekötni, inkább a saját útját járja. Ezzel rendszeresen zavarva a társait. Tanulás folyamata sokkal lassan mit vele egy körű társaihoz hasonlítva. Ezért kivonja magát ebből.', 'Speciális oda figyelés, figyelem fejlesztés.', '2008-08-15', 'Major Anna');
@@ -127,6 +125,7 @@ INSERT INTO `children_health` (`boardID`, `childrenID`, `type`, `details`, `spec
 --
 
 CREATE TABLE `children_school` (
+  `ID` int(11) NOT NULL,
   `schoolID` int(11) NOT NULL,
   `childrenID` int(11) NOT NULL,
   `fromDate` date DEFAULT NULL,
@@ -139,12 +138,12 @@ CREATE TABLE `children_school` (
 -- A tábla adatainak kiíratása `children_school`
 --
 
-INSERT INTO `children_school` (`schoolID`, `childrenID`, `fromDate`, `expectedFinish`, `type`, `headteacher`) VALUES
-(1, 2, '2001-09-01', '2009-07-15', 'Általános', 'Szabó Emese'),
-(2, 2, '2009-09-01', '2013-07-31', 'Biólogia és Kémia szak', 'Tóth Attila'),
-(3, 2, '2013-09-01', '2018-05-31', 'Orvosi', '-'),
-(4, 1, '2011-09-01', '2019-07-15', 'Általános', 'Király Attila'),
-(5, 1, '2019-09-01', '2023-05-31', 'Informatikai', 'Forgó Gábor');
+INSERT INTO `children_school` (`ID`, `schoolID`, `childrenID`, `fromDate`, `expectedFinish`, `type`, `headteacher`) VALUES
+(1, 1, 2, '2001-09-01', '2009-07-15', 'Általános', 'Szabó Emese'),
+(2, 2, 2, '2009-09-01', '2013-07-31', 'Biólogia és Kémia szak', 'Tóth Attila'),
+(3, 3, 2, '2013-09-01', '2018-05-31', 'Orvosi', '-'),
+(4, 4, 1, '2011-09-01', '2019-07-15', 'Általános', 'Király Attila'),
+(5, 5, 1, '2019-09-01', '2023-05-31', 'Informatikai', 'Forgó Gábor');
 
 -- --------------------------------------------------------
 
@@ -202,7 +201,33 @@ INSERT INTO `parents` (`ID`, `pname`, `pmaidenname`, `pbirth`, `psex`, `pidcardn
 (1, 'Szabó István', '-', '1994-05-17', '0', ' 153678AS', 1, 'szaist', 'szaist01'),
 (2, 'Nagy Viola', 'Nagy Viola', '1996-07-21', '1', '784253QW', 1, 'nagvio', 'nagvio01'),
 (3, 'Tóth József', '-', '1977-05-17', '0', '785693DF', 0, 'totjoz', 'totjoz01'),
-(4, 'Tóthné Bene Aranka', 'Bene Aranka', '1979-01-02', '1', '789566YX', 1, 'totben', 'totben01');
+(4, 'Tóthné Bene Aranka', 'Bene Aranka', '1979-01-02', '1', '789566YX', 1, 'totben', 'totben01'),
+(5, 'Okos Anna', 'Okos Anna', '1985-11-24', '1', '123586VB', 0, '-', '-'),
+(6, 'Kiss Elemér', '-', '1984-07-02', '0', '7854445OP', 0, '-', '-');
+
+-- --------------------------------------------------------
+
+--
+-- Tábla szerkezet ehhez a táblához `parentsk`
+--
+
+CREATE TABLE `parentsk` (
+  `ID` int(11) NOT NULL,
+  `pID` int(11) DEFAULT NULL,
+  `childrenID` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+
+--
+-- A tábla adatainak kiíratása `parentsk`
+--
+
+INSERT INTO `parentsk` (`ID`, `pID`, `childrenID`) VALUES
+(1, 3, 2),
+(2, 4, 2),
+(3, 2, 1),
+(4, 1, 1),
+(5, 5, 2),
+(6, 6, 1);
 
 -- --------------------------------------------------------
 
@@ -222,11 +247,11 @@ CREATE TABLE `school` (
 --
 
 INSERT INTO `school` (`ID`, `schoolName`, `schoolLocation`, `schoolPhone`) VALUES
-(1, 'Kecskeméti Református Általános Iskola', '6000 Kecskemét, Szabadság tér 7.', '0676458796'),
-(2, 'Kecskeméti Református Gimnázium', '6000 Kecskemét, Szabadság tér 7.', '0676458144'),
-(3, 'Károli Gáspár Református Egyetem', '1091 Budapest, Kálvin tér 9.', '0614559060'),
-(4, 'SZTEJKI Kossuth Lajos Általános Iskola', '6771 Szeged, Szerb u. 15.', '0662547134'),
-(5, 'SZSZC Vasvári Pál Gazdasági és Informatikai Szakgimnáziuma', 'Szeged, Gutenberg u. 11, 6722', '0662425322');
+(1, 'Kecskeméti Református Általános Sikola', 'Kecskemét', '0676895214'),
+(2, 'Kecskeméti Református Gimnázium', 'Kecskemét', '0676895123'),
+(3, 'Károli Gáspár Református Egyetem', 'Budapest', '0676478956'),
+(4, 'Kossuth Lajos Általános Iskola', 'Szeged', '0676332112'),
+(5, 'SZSZC Vasvári Pál Gazdasági és Informatikai Szakgimnáziuma', 'Szeged', '0676852225');
 
 --
 -- Indexek a kiírt táblákhoz
@@ -237,8 +262,8 @@ INSERT INTO `school` (`ID`, `schoolName`, `schoolLocation`, `schoolPhone`) VALUE
 --
 ALTER TABLE `ceventsk`
   ADD PRIMARY KEY (`ID`),
-  ADD KEY `childrenID` (`childrenID`),
-  ADD KEY `eventsID` (`eventsID`);
+  ADD KEY `ceventsk_ibfk_1` (`childrenID`),
+  ADD KEY `ceventsk_ibfk_2` (`eventsID`);
 
 --
 -- A tábla indexei `children_events`
@@ -250,23 +275,22 @@ ALTER TABLE `children_events`
 -- A tábla indexei `children_fullprofile`
 --
 ALTER TABLE `children_fullprofile`
-  ADD PRIMARY KEY (`ID`),
-  ADD KEY `motherID` (`motherID`),
-  ADD KEY `fatherID` (`fatherID`);
+  ADD PRIMARY KEY (`ID`);
 
 --
--- A tábla indexei `children_health`
+-- A tábla indexei `children_healths`
 --
-ALTER TABLE `children_health`
+ALTER TABLE `children_healths`
   ADD PRIMARY KEY (`boardID`),
-  ADD KEY `childrenID` (`childrenID`);
+  ADD KEY `children_health_ibfk_1` (`childrenID`);
 
 --
 -- A tábla indexei `children_school`
 --
 ALTER TABLE `children_school`
-  ADD PRIMARY KEY (`schoolID`),
-  ADD KEY `childrenID` (`childrenID`);
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `children_school_ibfk_1` (`schoolID`),
+  ADD KEY `children_school_ibfk_2` (`childrenID`);
 
 --
 -- A tábla indexei `employes_login`
@@ -279,6 +303,14 @@ ALTER TABLE `employes_login`
 --
 ALTER TABLE `parents`
   ADD PRIMARY KEY (`ID`);
+
+--
+-- A tábla indexei `parentsk`
+--
+ALTER TABLE `parentsk`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `parentsk_ibfk_1` (`childrenID`),
+  ADD KEY `parentsk_ibfk_2` (`pID`);
 
 --
 -- A tábla indexei `school`
@@ -300,7 +332,7 @@ ALTER TABLE `ceventsk`
 -- AUTO_INCREMENT a táblához `children_events`
 --
 ALTER TABLE `children_events`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT a táblához `children_fullprofile`
@@ -309,16 +341,16 @@ ALTER TABLE `children_fullprofile`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT a táblához `children_health`
+-- AUTO_INCREMENT a táblához `children_healths`
 --
-ALTER TABLE `children_health`
+ALTER TABLE `children_healths`
   MODIFY `boardID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT a táblához `children_school`
 --
 ALTER TABLE `children_school`
-  MODIFY `schoolID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT a táblához `employes_login`
@@ -330,7 +362,13 @@ ALTER TABLE `employes_login`
 -- AUTO_INCREMENT a táblához `parents`
 --
 ALTER TABLE `parents`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT a táblához `parentsk`
+--
+ALTER TABLE `parentsk`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT a táblához `school`
@@ -346,20 +384,13 @@ ALTER TABLE `school`
 -- Megkötések a táblához `ceventsk`
 --
 ALTER TABLE `ceventsk`
-  ADD CONSTRAINT `ceventsk_ibfk_2` FOREIGN KEY (`eventsID`) REFERENCES `children_events` (`ID`),
-  ADD CONSTRAINT `ceventsk_ibfk_3` FOREIGN KEY (`childrenID`) REFERENCES `children_fullprofile` (`ID`);
+  ADD CONSTRAINT `ceventsk_ibfk_1` FOREIGN KEY (`childrenID`) REFERENCES `children_fullprofile` (`ID`),
+  ADD CONSTRAINT `ceventsk_ibfk_2` FOREIGN KEY (`eventsID`) REFERENCES `children_events` (`ID`);
 
 --
--- Megkötések a táblához `children_fullprofile`
+-- Megkötések a táblához `children_healths`
 --
-ALTER TABLE `children_fullprofile`
-  ADD CONSTRAINT `children_fullprofile_ibfk_1` FOREIGN KEY (`motherID`) REFERENCES `parents` (`ID`),
-  ADD CONSTRAINT `children_fullprofile_ibfk_2` FOREIGN KEY (`fatherID`) REFERENCES `parents` (`ID`);
-
---
--- Megkötések a táblához `children_health`
---
-ALTER TABLE `children_health`
+ALTER TABLE `children_healths`
   ADD CONSTRAINT `children_health_ibfk_1` FOREIGN KEY (`childrenID`) REFERENCES `children_fullprofile` (`ID`);
 
 --
@@ -368,6 +399,13 @@ ALTER TABLE `children_health`
 ALTER TABLE `children_school`
   ADD CONSTRAINT `children_school_ibfk_1` FOREIGN KEY (`schoolID`) REFERENCES `school` (`ID`),
   ADD CONSTRAINT `children_school_ibfk_2` FOREIGN KEY (`childrenID`) REFERENCES `children_fullprofile` (`ID`);
+
+--
+-- Megkötések a táblához `parentsk`
+--
+ALTER TABLE `parentsk`
+  ADD CONSTRAINT `parentsk_ibfk_1` FOREIGN KEY (`childrenID`) REFERENCES `children_fullprofile` (`ID`),
+  ADD CONSTRAINT `parentsk_ibfk_2` FOREIGN KEY (`pID`) REFERENCES `parents` (`ID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
