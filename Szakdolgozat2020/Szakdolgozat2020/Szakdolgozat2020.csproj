@@ -102,6 +102,7 @@
     <Compile Include="Forms\LogInScreen.Designer.cs">
       <DependentUpon>LogInScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modell\Employes\EmployeeDatabaseCommand.cs" />
     <Compile Include="Modell\Employes\GetSQLCommand.cs" />
     <Compile Include="Modell\Employes\Employes.cs" />
     <Compile Include="Program.cs" />
@@ -112,6 +113,7 @@
     <Compile Include="Repository\Employes\Exception\RepositoryDataDeleteFromEmloyes_LoginException.cs" />
     <Compile Include="Repository\Employes\RepositoryEmployes.cs" />
     <Compile Include="Repository\Employes\Exception\RepositoryReadyDataFromEmployes_LoginException.cs" />
+    <Compile Include="Repository\Employes\Exception\RepositoryException.cs" />
     <EmbeddedResource Include="Forms\Boss.resx">
       <DependentUpon>Boss.cs</DependentUpon>
     </EmbeddedResource>

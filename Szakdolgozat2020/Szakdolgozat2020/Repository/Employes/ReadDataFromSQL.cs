@@ -14,7 +14,7 @@ namespace Szakdolgozat2020.Repository.Employes
         /// <summary>
         /// Adatok kiolvasása adatbázisból (employes_login)
         /// </summary>
-        /// <returns></returns>
+        /// <returns> Dolgozók</returns>
         public List<Employe> getEmployeFromDatabase()
         {
             List<Employe> employes = new List<Employe>();
@@ -55,6 +55,46 @@ namespace Szakdolgozat2020.Repository.Employes
                 throw new RepositoryReadyDataFromEmployes_LoginException("Dolgozók adatainak beolvasása sikertlen.");
             }
             return employes;
+        }
+
+        public void deleteEmployeesFromDatabase(int id)
+        {
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            try
+            {
+                connection.Open();
+                string query = "DELETE FROM employes_login WHERE ID=" + id;
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception e)
+            {
+                connection.Close();
+                Debug.WriteLine(e.Message);
+                Debug.WriteLine(id + " idéjű dolgozó törlése nem sikerült.");
+                throw new RepositoryException("Sikertelen törlés az adatbázisból.");
+            }
+        }
+
+        public void updateEmployeesFromDatabase(int id, Employe modified)
+        {
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            try
+            {
+                connection.Open();
+                string query = modified.getUpdate();
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception e)
+            {
+                connection.Close();
+                Debug.WriteLine(e.Message);
+                Debug.WriteLine(id + " idéjű dolgozó módosítása nem sikerült.");
+                throw new RepositoryException("Sikertelen törlés az adatbázisból.");
+            }
         }
     }
 }
