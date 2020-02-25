@@ -44,7 +44,10 @@ namespace Szakdolgozat2020.Repository.Employes
             this.employees = employees;
         }
 
-
+        /// <summary>
+        /// Adattábla feltöltése
+        /// </summary>
+        /// <returns> Feltöltve a tábla</returns>
         public DataTable getEmployesListToDataTable()
         {
             DataTable dt = new DataTable();
@@ -64,6 +67,11 @@ namespace Szakdolgozat2020.Repository.Employes
             }
             return dt;
         }
+
+        /// <summary>
+        /// Adat táblából a listába töltés
+        /// </summary>
+        /// <param name="dt"></param>
         public void DataTableToEmployeList(DataTable dt)
         {
             foreach (DataRow row in dt.Rows)
