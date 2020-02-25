@@ -114,6 +114,9 @@
     <Compile Include="Repository\Employes\RepositoryEmployes.cs" />
     <Compile Include="Repository\Employes\Exception\RepositoryReadyDataFromEmployes_LoginException.cs" />
     <Compile Include="Repository\Employes\Exception\RepositoryException.cs" />
+    <Compile Include="Repository\Employes\Exception\RepositoryExceptionCantDelete.cs" />
+    <Compile Include="Repository\Employes\Exception\RepositoryExceptionCantMoodify.cs" />
+    <Compile Include="Repository\Employes\Exception\RepositoryExceptionCantAdd.cs" />
     <EmbeddedResource Include="Forms\Boss.resx">
       <DependentUpon>Boss.cs</DependentUpon>
     </EmbeddedResource>

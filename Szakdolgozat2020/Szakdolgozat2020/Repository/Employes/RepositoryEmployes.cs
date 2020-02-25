@@ -10,26 +10,40 @@ namespace Szakdolgozat2020.Repository.Employes
 {
     partial class RepositoryEmployes
     {
-        List<Employe> employes;
+        List<Employe> employees;
+        /// <summary>
+        /// Dolgozók lekérése a listából
+        /// </summary>
+        /// <returns>Dolgozók adatokkal</returns>
         public List<Employe> getEmployes()
         {
-            return employes;
+            return employees;
         }
 
+        /// <summary>
+        /// Dolgozók neveit kigyűjti
+        /// </summary>
+        /// <returns></returns>
         public List<string> getEmployesName()
         {
             //neve tárólására egy lista
             List<string> employesName = new List<string>();
-            foreach (Employe employe in employes)
+            foreach (Employe employe in employees)
             {
                 employesName.Add(employe.getEname());
             }
             return employesName;
         }
-        public void setEmploye(List<Employe> employes)
+
+        /// <summary>
+        /// Beállít dolgozó
+        /// </summary>
+        /// <param name="employees"> Dolgozó </param>
+        public void setEmploye(List<Employe> employees)
         {
-            this.employes = employes;
+            this.employees = employees;
         }
+
 
         public DataTable getEmployesListToDataTable()
         {
@@ -44,7 +58,7 @@ namespace Szakdolgozat2020.Repository.Employes
             dt.Columns.Add("Lakcím:", typeof(string));
             dt.Columns.Add("Felhasználó név:", typeof(string));
             dt.Columns.Add("Jelszó:", typeof(string));
-            foreach (Employe line in employes)
+            foreach (Employe line in employees)
             {
                 dt.Rows.Add(line.getEID(), line.getEname(), line.getEmaidenname(),line.getEsex(),line.getEallbirthday(),line.getEbirthplace(),line.getEjob(),line.getElocation(),line.getEuname(),line.getEpasword());
             }
@@ -65,13 +79,65 @@ namespace Szakdolgozat2020.Repository.Employes
                 string euname = row[8].ToString();
                 string epassword = row[9].ToString();
                 Employe line = new Employe(id, ename, emaidenname, esex, eallbirthday, ebirthplace, ejob, elocation, euname, epassword);
-                employes.Add(line);
+                employees.Add(line);
             }
         }
         public int getEmployNumber(string employeName)
         {
-            Employe employe = employes.Find(f => f.getEname() == employeName);
+            Employe employe = employees.Find(f => f.getEname() == employeName);
             return employe.getEID();
         }
+
+        /// <summary>
+        /// A listából törli a dolgozót
+        /// </summary>
+        /// <param name="id">dolgozó id-ja</param>
+        public void deleteEmployeInList(int id)
+        {
+            Employe emp = employees.Find(x => x.getEID() == id);
+            if (emp != null)
+            {
+                employees.Remove(emp); 
+            }
+            else 
+            {
+                throw new RepositoryExceptionCantDelete("Nem lehet törölni a dolgozót a listából!");
+            }
+        }
+
+        /// <summary>
+        /// A listban a dolgozó módosítása
+        /// </summary>
+        /// <param name="id">Dolgozó id-ja</param>
+        /// <param name="modified">Módosított dolgozó</param>
+        public void updateEmployeeInList(int id, Employe modified)
+        {
+            Employe emp = employees.Find(x => x.getEID() == id);
+            if (emp != null)
+            {
+                emp.updateL(modified);
+            }
+            else
+            {
+                throw new RepositoryExceptionCantMoodify("Nem lehet modósitani a listában!");
+            }
+        }
+
+        /// <summary>
+        /// Az új dolgozó hozzáadása a listához
+        /// </summary>
+        /// <param name="newEmployee">Az új dolgozó</param>
+        public void addEmployeeToList(Employe newEmployee)
+        {
+            try
+            {
+                employees.Add(newEmployee);
+            }
+            catch (Exception e)
+            {
+                throw new RepositoryExceptionCantAdd("Nem lehet új dolgozót hozzáadni!");
+            }
+        }
+
     }
 }

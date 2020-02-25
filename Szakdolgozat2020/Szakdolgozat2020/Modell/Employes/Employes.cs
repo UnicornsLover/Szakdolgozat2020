@@ -19,7 +19,19 @@ namespace Szakdolgozat2020.Modell.Employes
         private string euname;
         private string epassword;
         
-
+        /// <summary>
+        /// Konstruktor a dolgozó létrehozásához
+        /// </summary>
+        /// <param name="eID">Azonosító</param>
+        /// <param name="ename">Neve</param>
+        /// <param name="emaidenname">Lánykori neve, ha férfu ez jelenik meg "-"</param>
+        /// <param name="esex">Neme</param>
+        /// <param name="allbirth">Születési dátum</param>
+        /// <param name="ebirthplace">Születési hely</param>
+        /// <param name="ejob">Munka tipusa</param>
+        /// <param name="elocation">Körzethez való tartózása  acégen belül</param>
+        /// <param name="euname">Felhasználó név</param>
+        /// <param name="epassword">Jelszó</param>
         public Employe(int eID, string ename, string emaidenname, string esex, string allbirth, string ebirthplace, string ejob, string elocation, string euname, string epassword)
         {
             this.eID = eID;
@@ -34,8 +46,22 @@ namespace Szakdolgozat2020.Modell.Employes
             this.epassword = epassword;
         }
 
-        //isValid items !!!!!!!!!!!!!!
-        //Custemer PizzaTobbTabla
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="modified">Módosított dolgozó frissítés a List-hez</param>
+        public void updateL(Employe modified)
+        {
+            this.ename = modified.getEname();
+            this.emaidenname = modified.getEmaidenname();
+            this.esex = modified.getEsex();
+            this.allbirth = modified.getEallbirthday();
+            this.ebirthplace = modified.getEbirthplace();
+            this.ejob = modified.getEjob();
+            this.elocation = modified.getElocation();
+            this.euname = modified.getEuname();
+            this.epassword = modified.getEpasword();
+        }
 
         //******************************************SETTER***************************************
         public void setEID(int id)

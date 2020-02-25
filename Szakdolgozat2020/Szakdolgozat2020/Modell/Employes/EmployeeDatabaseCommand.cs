@@ -12,11 +12,51 @@ namespace Szakdolgozat2020.Modell.Employes
         {
             return
                 "INSERT INTO `employes_login` (`ID`, `ename`, `emaidenname`, `esex`, `ebirth`, `ebirthplace`, `ejob`, `elocation`, `euname`, `epassword`)"
-                +"VALUES(NULL, '', '', '', '', '', '', '', '', '');";
+                +"VALUES('"
+                +eID
+                +"', '"
+                +getEname()
+                +"', '"
+                +getEmaidenname()
+                +"', '" +
+                getEsex()
+                +"', '" +
+                getEallbirthday()
+                +"', '"
+                +getEbirthplace()
+                +"', '" 
+                +getEjob()
+                +"', '"
+                +getElocation()
+                +"', '" 
+                + getEuname()
+                +"', '"
+                +getEpasword()
+                +"');";
         }
         public string getUpdate(int id)
         {
-            return null;
+            return
+                "UPDATE `employes_login` SET `ename`= '"
+                + getEname()
+                + "', `emaidenname` = '"
+                + getEmaidenname()
+                + "', `esex` = '"
+                + getEsex()
+                + "', `ebirth` = '"
+                + getEallbirthday()
+                + "', `ebirthplace` = '"
+                + getEbirthplace()
+                + "', `ejob` = '"
+                + getEjob()
+                + "', `elocation` = '"
+                + getElocation()
+                + "', `euname` = '"
+                + getEuname()
+                + "', `epassword` = '"
+                + getEpasword()
+                + "WHERE `employes_login`.`ID` = "
+                + id + ";";
         }
         public string getAllRecordCommand()
         {

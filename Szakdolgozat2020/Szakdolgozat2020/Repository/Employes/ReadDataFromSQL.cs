@@ -15,7 +15,7 @@ namespace Szakdolgozat2020.Repository.Employes
         /// Adatok kiolvasása adatbázisból (employes_login)
         /// </summary>
         /// <returns> Dolgozók</returns>
-        public List<Employe> getEmployeFromDatabase()
+        public List<Employe> getEmployeesFromDatabase()
         {
             List<Employe> employes = new List<Employe>();
             MySqlConnection connection = new MySqlConnection(connectionString);
@@ -57,7 +57,7 @@ namespace Szakdolgozat2020.Repository.Employes
             return employes;
         }
 
-        public void deleteEmployeesFromDatabase(int id)
+        public void deleteEmployeeFromDatabase(int id)
         {
             MySqlConnection connection = new MySqlConnection(connectionString);
             try
@@ -72,7 +72,7 @@ namespace Szakdolgozat2020.Repository.Employes
             {
                 connection.Close();
                 Debug.WriteLine(e.Message);
-                Debug.WriteLine(id + " idéjű dolgozó törlése nem sikerült.");
+                Debug.WriteLine("DeletEmploye***********************"+id + " idéjű dolgozó törlése nem sikerült.");
                 throw new RepositoryException("Sikertelen törlés az adatbázisból.");
             }
         }
@@ -83,7 +83,7 @@ namespace Szakdolgozat2020.Repository.Employes
             try
             {
                 connection.Open();
-                string query = modified.getUpdate();
+                string query = modified.getUpdate(id);
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
                 connection.Close();
@@ -92,8 +92,28 @@ namespace Szakdolgozat2020.Repository.Employes
             {
                 connection.Close();
                 Debug.WriteLine(e.Message);
-                Debug.WriteLine(id + " idéjű dolgozó módosítása nem sikerült.");
+                Debug.WriteLine("UpdateEmploye***************************"+id + " idéjű dolgozó módosítása nem sikerült.");
                 throw new RepositoryException("Sikertelen törlés az adatbázisból.");
+            }
+        }
+
+        public void insertEmployeeToDatabase(Employe newEmployee)
+        {
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            try
+            {
+                connection.Open();
+                string query = newEmployee.getInsert();
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception e)
+            {
+                connection.Close();
+                Debug.WriteLine(e.Message);
+                Debug.WriteLine("InsertEmploye*******************************"+newEmployee + " pizza beszúrása adatbázisba nem sikerült.");
+                throw new RepositoryException("Sikertelen beszúrás az adatbázisból.");
             }
         }
     }
