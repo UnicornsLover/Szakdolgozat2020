@@ -58,5 +58,23 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
             updateDataInDataGriedViewt();
             setEmployeDataGridView();
         }
+
+        private void metroGridEmployes_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (metroGridEmployes.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            {
+                metroGridEmployes.CurrentRow.Selected = true;
+                metroTextBoxEID.Text = metroGridEmployes.Rows[e.RowIndex].Cells[0].FormattedValue.ToString();
+                metroTextBoxEname.Text = metroGridEmployes.Rows[e.RowIndex].Cells[1].FormattedValue.ToString();
+                metroTextBoxEMaidname.Text = metroGridEmployes.Rows[e.RowIndex].Cells[2].FormattedValue.ToString();
+                metroComboBoxESex.Text = metroGridEmployes.Rows[e.RowIndex].Cells[3].FormattedValue.ToString();
+                metroTextBoxEBirth.Text = metroGridEmployes.Rows[e.RowIndex].Cells[4].FormattedValue.ToString();
+                metroTextBoxBPlace.Text = metroGridEmployes.Rows[e.RowIndex].Cells[5].FormattedValue.ToString();
+                metroComboBoxEjobtype.Text = metroGridEmployes.Rows[e.RowIndex].Cells[6].FormattedValue.ToString();
+                metroComboBoxELocation.Text = metroGridEmployes.Rows[e.RowIndex].Cells[7].FormattedValue.ToString();
+                metroTextBoxEUserName.Text = metroGridEmployes.Rows[e.RowIndex].Cells[8].FormattedValue.ToString();
+                metroTextBoxEPassword.Text = metroGridEmployes.Rows[e.RowIndex].Cells[9].FormattedValue.ToString();
+            }
+        }
     }
 }

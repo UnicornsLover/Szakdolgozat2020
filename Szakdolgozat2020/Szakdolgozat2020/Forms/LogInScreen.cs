@@ -25,7 +25,7 @@ namespace Szakdolgozat2020
 
         private void timerLoad_Tick(object sender, EventArgs e)
         {
-            panelLoad.Width += 2;
+            panelLoad.Width += 4;
             if (panelLoad.Width >= 522)
             {
                 timerLoad.Stop();

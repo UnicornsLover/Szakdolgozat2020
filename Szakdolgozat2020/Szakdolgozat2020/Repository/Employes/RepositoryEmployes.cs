@@ -54,7 +54,7 @@ namespace Szakdolgozat2020.Repository.Employes
             DataTable dt = new DataTable();
             try
             {
-                dt.Columns.Add("Azonosító", typeof(int));
+                dt.Columns.Add("Azonosító:", typeof(int));
                 dt.Columns.Add("Neve:", typeof(string));
                 dt.Columns.Add("Lánykori neve:", typeof(string));
                 dt.Columns.Add("Dolgozó neme:", typeof(string));
