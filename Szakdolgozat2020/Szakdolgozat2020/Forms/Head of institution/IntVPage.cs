@@ -21,8 +21,7 @@ namespace Szakdolgozat2020.Forms
 
         private void IntVPage_Load(object sender, EventArgs e)
         {
-            
-            
+        
         }
 
         private void metroTileReg_Click(object sender, EventArgs e)

@@ -19,15 +19,13 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
         public WorkersRegistration()
         {
             InitializeComponent();
-            updateDataInDataGriedViewt();
-            setEmployeDataGridView();
         }
 
         private void updateDataInDataGriedViewt()
         {
             //Adattáblát feltölti a repoba lévő dolgozók listából
             employesDT = repo.getEmployesListToDataTable();
-            //Dlgozók DataGridView-nak a forrása a employes_lohin adattábla
+            //Dlgozók DataGridView-nak a forrása a employes_login adattábla
             metroGridEmployes.DataSource = null;
             metroGridEmployes.DataSource = employesDT;
         }
@@ -37,13 +35,13 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
             employesDT.Columns[0].ColumnName = "Dolgozó azonosító:";
             employesDT.Columns[1].ColumnName = "Név:";
             employesDT.Columns[2].ColumnName = "Lánykori neve:";
-            employesDT.Columns[2].ColumnName = "Neme:";
-            employesDT.Columns[2].ColumnName = "Születési idő:";
-            employesDT.Columns[2].ColumnName = "Szöletési hely:";
-            employesDT.Columns[2].ColumnName = "Betöltött munkakör:";
-            employesDT.Columns[2].ColumnName = "Lakcím:";
-            employesDT.Columns[2].ColumnName = "Felhasználó név:";
-            employesDT.Columns[2].ColumnName = "Jelszó:";
+            employesDT.Columns[3].ColumnName = "Neme:";
+            employesDT.Columns[4].ColumnName = "Születési idő:";
+            employesDT.Columns[5].ColumnName = "Szöletési hely:";
+            employesDT.Columns[6].ColumnName = "Betöltött munkakör:";
+            employesDT.Columns[7].ColumnName = "Lakcím:";
+            employesDT.Columns[8].ColumnName = "Felhasználó név:";
+            employesDT.Columns[9].ColumnName = "Jelszó:";
 
             metroGridEmployes.SelectionMode =
                 DataGridViewSelectionMode.FullRowSelect;
@@ -51,6 +49,12 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
             metroGridEmployes.AllowUserToDeleteRows = false;
             metroGridEmployes.AllowUserToAddRows = false;
             metroGridEmployes.MultiSelect = false;
+        }
+
+        private void WorkersRegistration_Load(object sender, EventArgs e)
+        {
+            updateDataInDataGriedViewt();
+            setEmployeDataGridView();
         }
     }
 }

@@ -57,6 +57,7 @@ namespace Szakdolgozat2020.Repository.Employes
             return employes;
         }
 
+        
         public void deleteEmployeeFromDatabase(int id)
         {
             MySqlConnection connection = new MySqlConnection(connectionString);

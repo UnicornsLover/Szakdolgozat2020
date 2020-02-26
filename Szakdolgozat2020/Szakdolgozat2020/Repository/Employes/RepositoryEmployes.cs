@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -51,20 +52,28 @@ namespace Szakdolgozat2020.Repository.Employes
         public DataTable getEmployesListToDataTable()
         {
             DataTable dt = new DataTable();
-            dt.Columns.Add("Azonosító",typeof(int));
-            dt.Columns.Add("Neve:",typeof(string));
-            dt.Columns.Add("Lánykori neve:", typeof(string));
-            dt.Columns.Add("Dolgozó neme:", typeof(string));
-            dt.Columns.Add("Születési idő:", typeof(string));
-            dt.Columns.Add("Születési hely:", typeof(string));
-            dt.Columns.Add("Betöltött munkakör:", typeof(string));
-            dt.Columns.Add("Lakcím:", typeof(string));
-            dt.Columns.Add("Felhasználó név:", typeof(string));
-            dt.Columns.Add("Jelszó:", typeof(string));
-            foreach (Employe line in employees)
+            try
             {
-                dt.Rows.Add(line.getEID(), line.getEname(), line.getEmaidenname(),line.getEsex(),line.getEallbirthday(),line.getEbirthplace(),line.getEjob(),line.getElocation(),line.getEuname(),line.getEpasword());
+                dt.Columns.Add("Azonosító", typeof(int));
+                dt.Columns.Add("Neve:", typeof(string));
+                dt.Columns.Add("Lánykori neve:", typeof(string));
+                dt.Columns.Add("Dolgozó neme:", typeof(string));
+                dt.Columns.Add("Születési idő:", typeof(string));
+                dt.Columns.Add("Születési hely:", typeof(string));
+                dt.Columns.Add("Betöltött munkakör:", typeof(string));
+                dt.Columns.Add("Lakcím:", typeof(string));
+                dt.Columns.Add("Felhasználó név:", typeof(string));
+                dt.Columns.Add("Jelszó:", typeof(string));
+                foreach (Employe line in employees)
+                {
+                    dt.Rows.Add(line.getEID(), line.getEname(), line.getEmaidenname(), line.getEsex(), line.getEallbirthday(), line.getEbirthplace(), line.getEjob(), line.getElocation(), line.getEuname(), line.getEpasword());
+                }
             }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+            
             return dt;
         }
 
@@ -147,5 +156,25 @@ namespace Szakdolgozat2020.Repository.Employes
             }
         }
 
+        public Employe getEmploye(int id)
+        {
+            return employees.Find(x => x.getEID() == id);
+        }
+
+        /// <summary>
+        /// Megkeresi a legnagyobb id-t és egyet hozzáad vag ha első akkor egyessel kezdi
+        /// </summary>
+        /// <returns> A következő id</returns>
+        public int getnextEmployesId()
+        {
+            if (employees.Count == 0)
+            {
+                return 1;
+            }
+            else
+            {
+                return employees.Max(x => x.getEID()) + 1;
+            }
+        }
     }
 }

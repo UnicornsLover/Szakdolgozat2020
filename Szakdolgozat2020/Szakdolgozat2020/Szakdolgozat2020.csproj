@@ -107,7 +107,7 @@
     <Compile Include="Modell\Employes\Employes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\Employes\ReadDataFromSQL.cs" />
+    <Compile Include="Repository\Employes\DatabaseCommands.cs" />
     <Compile Include="Repository\Employes\RepositoryDatabseAndTableEmploye.cs" />
     <Compile Include="Repository\Employes\Exception\RepositoryEmloyes_LoginDropException.cs" />
     <Compile Include="Repository\Employes\Exception\RepositoryDataDeleteFromEmloyes_LoginException.cs" />
@@ -117,6 +117,7 @@
     <Compile Include="Repository\Employes\Exception\RepositoryExceptionCantDelete.cs" />
     <Compile Include="Repository\Employes\Exception\RepositoryExceptionCantMoodify.cs" />
     <Compile Include="Repository\Employes\Exception\RepositoryExceptionCantAdd.cs" />
+    <Compile Include="Repository\Repository.cs" />
     <EmbeddedResource Include="Forms\Boss.resx">
       <DependentUpon>Boss.cs</DependentUpon>
     </EmbeddedResource>
