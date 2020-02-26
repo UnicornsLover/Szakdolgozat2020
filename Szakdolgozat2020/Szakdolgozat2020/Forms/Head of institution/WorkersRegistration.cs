@@ -15,10 +15,12 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
     {
         private DataTable employesDT = new DataTable();
         RepositoryEmployes repo = new RepositoryEmployes();
+        RepositoryDatabseAndTableEmploye rep = new RepositoryDatabseAndTableEmploye();
         bool newDataInsert = false;
         public WorkersRegistration()
         {
             InitializeComponent();
+            repo.setEmploye(rep.getEmployeesFromDatabase());
         }
 
         private void updateDataInDataGriedViewt()

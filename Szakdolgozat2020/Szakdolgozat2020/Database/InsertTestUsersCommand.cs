@@ -24,7 +24,7 @@ namespace Szakdolgozat2020.Database
                     + "(1, 'Bálint István', '-', 0, '1999-09-12', 'Székesfehérvár', 'boss', 'Szeged', 'bisti', 'admin'),"
                     + "(2, 'Chat Elek', '-', 0, '1985-03-14', 'Facebook', 'nevelo', 'Szeged', 'chaele', 'nevelo1'),"
                     + "(3, 'Zuhany Rózsa', 'Zuhany Rózsa', 1, '1963-11-08', 'Zalakaros', 'intvezeto', 'Szeged', 'zuhroz', 'intv1'),"
-                    + "(4, ' Fejet Lenke ', ' Fejet Lenke ', 1, '1977-02-21', 'Fejes', 'intugyintezo', 'Szeged', 'fejlen', 'intu1'),"
+                    + "(4, 'Fejet Lenke ', ' Fejet Lenke ', 1, '1977-02-21', 'Fejes', 'intugyintezo', 'Szeged', 'fejlen', 'intu1'),"
                     + "(5, 'Major Anna ', 'Kiss Anna ', 1, '1972-09-12', 'Fűszerpor', 'pszichologus', 'Kína', 'majann', 'lelek1');";
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();

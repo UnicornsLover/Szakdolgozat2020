@@ -64,9 +64,6 @@ namespace Szakdolgozat2020
                 cc.fillTestShool();
                 cc.fillTestSchoolsk();
 
-                //Adatbázis listák feltöltése
-                re.setEmploye(rdat.getEmployeesFromDatabase());
-
             }
             catch (Exception ex)
             {
