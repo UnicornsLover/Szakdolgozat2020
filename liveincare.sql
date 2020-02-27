@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2020. Feb 24. 19:02
--- Kiszolgáló verziója: 10.4.11-MariaDB
--- PHP verzió: 7.4.2
+-- Létrehozás ideje: 2020. Feb 27. 14:24
+-- Kiszolgáló verziója: 10.4.6-MariaDB
+-- PHP verzió: 7.3.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -114,9 +114,9 @@ CREATE TABLE `children_healths` (
 --
 
 INSERT INTO `children_healths` (`boardID`, `childrenID`, `type`, `details`, `special_treament`, `treatdate`, `by`) VALUES
-(1, 2, 'Diszlekszia', 'Nehézkes a szövegértése hangos olvasása  mellett, ha magában többször elolvassa akkor meg is tudja érteni. A helyesírásnál nem érti a ragozást. Betűket kever össze.', 'Korepetálás, gyakorlás. Felmentés helyesírás alól.', '2011-12-18', 'Major Anna'),
+(1, 2, 'Diszlekszia', 'Nehézkes a szövegértése hangos olvasása  mellett, ha magában többször elolvassa akkor meg is tudja érteni. A helyesírásnál nem érti a ragozást. Betuket kever össze.', 'Korepetálás, gyakorlás. Felmentés helyesírás alól.', '2011-12-18', 'Major Anna'),
 (2, 2, 'Szemvizsgálat', 'A látása rossz távolra. Szemtengely ferdülése van, vagyis egyik szeme jobb mint a másik.', 'Szemüveg beszerzése.', '2013-06-13', 'Dr. Marton József'),
-(3, 1, 'SNI', 'Nehézen lehet a figyelmét lekötni, inkább a saját útját járja. Ezzel rendszeresen zavarva a társait. Tanulás folyamata sokkal lassan mit vele egy körű társaihoz hasonlítva. Ezért kivonja magát ebből.', 'Speciális oda figyelés, figyelem fejlesztés.', '2008-08-15', 'Major Anna');
+(3, 1, 'SNI', 'Nehézen lehet a figyelmét lekötni, inkább a saját útját járja. Ezzel rendszeresen zavarva a társait. Tanulás folyamata sokkal lassan mit vele egy köru társaihoz hasonlítva. Ezért kivonja magát ebbol.', 'Speciális oda figyelés, figyelem fejlesztés.', '2008-08-15', 'Major Anna');
 
 -- --------------------------------------------------------
 
@@ -159,7 +159,7 @@ CREATE TABLE `employes_login` (
   `ebirth` date NOT NULL,
   `ebirthplace` varchar(40) COLLATE utf8_hungarian_ci NOT NULL,
   `ejob` varchar(18) COLLATE utf8_hungarian_ci NOT NULL,
-  `elocation` varchar(40) COLLATE utf8_hungarian_ci NOT NULL,
+  `elocation` varchar(90) COLLATE utf8_hungarian_ci NOT NULL,
   `euname` varchar(25) COLLATE utf8_hungarian_ci NOT NULL,
   `epassword` varchar(25) COLLATE utf8_hungarian_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
@@ -169,11 +169,16 @@ CREATE TABLE `employes_login` (
 --
 
 INSERT INTO `employes_login` (`ID`, `ename`, `emaidenname`, `esex`, `ebirth`, `ebirthplace`, `ejob`, `elocation`, `euname`, `epassword`) VALUES
-(1, 'Bálint István', '-', 0, '1999-09-12', 'Székesfehérvár', 'boss', 'Szeged', 'bisti', 'admin'),
-(2, 'Chat Elek', '-', 0, '1985-03-14', 'Facebook', 'nevelo', 'Szeged', 'chaele', 'nevelo1'),
-(3, 'Zuhany Rózsa', 'Zuhany Rózsa', 1, '1963-11-08', 'Zalakaros', 'intvezeto', 'Szeged', 'zuhroz', 'intv1'),
-(4, ' Fejet Lenke ', ' Fejet Lenke ', 1, '1977-02-21', 'Fejes', 'intugyintezo', 'Szeged', 'fejlen', 'intu1'),
-(5, 'Major Anna ', 'Kiss Anna ', 1, '1972-09-12', 'Fűszerpor', 'pszichologus', 'Kína', 'majann', 'lelek1');
+(1, 'Bálint István', '-', 0, '1999-09-12', 'Székesfehérvár', 'boss', 'Kiskunmajsa, Kovács Béla utca 12.', 'bisti', 'admin'),
+(2, 'Chat Elek', '-', 0, '1985-03-14', 'Facebook', 'nevelo', 'Szeged, Kiss Ödön út 1.', 'chaele', 'nevelo1'),
+(3, 'Zuhany Rózsa', 'Zuhany Rózsa', 1, '1963-11-08', 'Zalakaros', 'intvezeto', 'Lajosmizse, Alma körút 456.', 'zuhroz', 'intv1'),
+(4, 'Fejet Lenke ', 'Fejet Lenke ', 1, '1977-02-21', 'Fejes', 'intugyintezo', 'Szeged, Rózsa utca 112.', 'fejlen', 'intu1'),
+(5, 'Major Anna ', 'Kiss Anna ', 1, '1972-09-12', 'Fuszerpor', 'pszichologus', 'Tókió, Humululu Street 43.', 'majann', 'lelek1'),
+(6, 'Szántó tamás', '-', 1, '1998-06-10', 'Szeged', 'pszichologus', 'Vásárhely, Csillag tér 1/a', 'szantam', 'asd123'),
+(7, 'Rózsa István', '-', 0, '1998-12-21', 'Szeged', 'intvezeto', 'Szeged, Alajos utca 32.', 'rozist', 'qwe123'),
+(8, 'Horváth Gellért', '-', 0, '1995-02-12', 'Kalocsa', 'nevelo', 'Kalocsa, Himzes út 54.', 'horgel', 'yxc123'),
+(9, 'Bálint Sára', 'Bálint Sára', 1, '1995-04-22', 'Székesfehérvár', 'nevelo', 'Szeged, Anya utca 13.', 'balsar', 'tzu123'),
+(10, 'Kovács Zsolt', '-', 0, '1976-12-01', 'Gyor', 'intugyintezo', 'Kecskemét, Diósgyor utca 45.', 'kovzso', 'fgh123');
 
 -- --------------------------------------------------------
 
@@ -262,6 +267,8 @@ INSERT INTO `school` (`ID`, `schoolName`, `schoolLocation`, `schoolPhone`) VALUE
 --
 ALTER TABLE `ceventsk`
   ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `ID` (`ID`),
+  ADD UNIQUE KEY `ID_2` (`ID`),
   ADD KEY `ceventsk_ibfk_1` (`childrenID`),
   ADD KEY `ceventsk_ibfk_2` (`eventsID`);
 
@@ -269,19 +276,25 @@ ALTER TABLE `ceventsk`
 -- A tábla indexei `children_events`
 --
 ALTER TABLE `children_events`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `ID` (`ID`),
+  ADD UNIQUE KEY `ID_2` (`ID`);
 
 --
 -- A tábla indexei `children_fullprofile`
 --
 ALTER TABLE `children_fullprofile`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `ID` (`ID`),
+  ADD UNIQUE KEY `ID_2` (`ID`);
 
 --
 -- A tábla indexei `children_healths`
 --
 ALTER TABLE `children_healths`
   ADD PRIMARY KEY (`boardID`),
+  ADD UNIQUE KEY `boardID` (`boardID`),
+  ADD UNIQUE KEY `boardID_2` (`boardID`),
   ADD KEY `children_health_ibfk_1` (`childrenID`);
 
 --
@@ -289,6 +302,8 @@ ALTER TABLE `children_healths`
 --
 ALTER TABLE `children_school`
   ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `ID` (`ID`),
+  ADD UNIQUE KEY `ID_2` (`ID`),
   ADD KEY `children_school_ibfk_1` (`schoolID`),
   ADD KEY `children_school_ibfk_2` (`childrenID`);
 
@@ -296,19 +311,25 @@ ALTER TABLE `children_school`
 -- A tábla indexei `employes_login`
 --
 ALTER TABLE `employes_login`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `ID` (`ID`),
+  ADD UNIQUE KEY `ID_2` (`ID`);
 
 --
 -- A tábla indexei `parents`
 --
 ALTER TABLE `parents`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `ID` (`ID`),
+  ADD UNIQUE KEY `ID_2` (`ID`);
 
 --
 -- A tábla indexei `parentsk`
 --
 ALTER TABLE `parentsk`
   ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `ID` (`ID`),
+  ADD UNIQUE KEY `ID_2` (`ID`),
   ADD KEY `parentsk_ibfk_1` (`childrenID`),
   ADD KEY `parentsk_ibfk_2` (`pID`);
 
@@ -316,7 +337,9 @@ ALTER TABLE `parentsk`
 -- A tábla indexei `school`
 --
 ALTER TABLE `school`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `ID` (`ID`),
+  ADD UNIQUE KEY `ID_2` (`ID`);
 
 --
 -- A kiírt táblák AUTO_INCREMENT értéke
@@ -356,7 +379,7 @@ ALTER TABLE `children_school`
 -- AUTO_INCREMENT a táblához `employes_login`
 --
 ALTER TABLE `employes_login`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT a táblához `parents`
