@@ -31,6 +31,7 @@
             this.metroTileReg = new MetroFramework.Controls.MetroTile();
             this.metroLabelWelcome = new MetroFramework.Controls.MetroLabel();
             this.metroLabelLoggedName = new MetroFramework.Controls.MetroLabel();
+            this.metroButtonLogOut = new MetroFramework.Controls.MetroButton();
             this.SuspendLayout();
             // 
             // metroTileReg
@@ -68,11 +69,22 @@
             this.metroLabelLoggedName.TabIndex = 4;
             this.metroLabelLoggedName.UseCustomForeColor = true;
             // 
+            // metroButtonLogOut
+            // 
+            this.metroButtonLogOut.Location = new System.Drawing.Point(647, 404);
+            this.metroButtonLogOut.Name = "metroButtonLogOut";
+            this.metroButtonLogOut.Size = new System.Drawing.Size(117, 23);
+            this.metroButtonLogOut.TabIndex = 5;
+            this.metroButtonLogOut.Text = "Kijelentkezés";
+            this.metroButtonLogOut.UseSelectable = true;
+            this.metroButtonLogOut.Click += new System.EventHandler(this.metroButtonLogOut_Click);
+            // 
             // IntVPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.metroButtonLogOut);
             this.Controls.Add(this.metroLabelLoggedName);
             this.Controls.Add(this.metroLabelWelcome);
             this.Controls.Add(this.metroTileReg);
@@ -90,5 +102,6 @@
         private MetroFramework.Controls.MetroTile metroTileReg;
         private MetroFramework.Controls.MetroLabel metroLabelWelcome;
         private MetroFramework.Controls.MetroLabel metroLabelLoggedName;
+        private MetroFramework.Controls.MetroButton metroButtonLogOut;
     }
 }

@@ -82,5 +82,19 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
             string rowFilter = string.Format("[{0}] = '{1}'", "Név:", metroTextBoxEname.Text);
             (metroGridEmployes.DataSource as DataTable).DefaultView.RowFilter = rowFilter;
         }
+
+        private void metroButtonCleanCells_Click(object sender, EventArgs e)
+        {
+            metroTextBoxEID.Text = "";
+            metroTextBoxEname.Text = "";
+            metroTextBoxEMaidname.Text = "";
+            metroComboBoxESex.Text = "";
+            metroTextBoxEBirth.Text = "";
+            metroTextBoxBPlace.Text = "";
+            metroComboBoxEjobtype.Text = "";
+            metroTextBoxAddress.Text = "";
+            metroTextBoxEUserName.Text = "";
+            metroTextBoxEPassword.Text = "";
+        }
     }
 }

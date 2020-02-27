@@ -29,5 +29,12 @@ namespace Szakdolgozat2020.Forms
             WorkersRegistration wr = new WorkersRegistration();
             wr.Show();
         }
+
+        private void metroButtonLogOut_Click(object sender, EventArgs e)
+        {
+            LogIn li = new LogIn();
+            li.Show();
+            this.Hide();
+        }
     }
 }

@@ -54,6 +54,9 @@
             this.metroGridEmployes = new MetroFramework.Controls.MetroGrid();
             this.metroButtonSearch = new MetroFramework.Controls.MetroButton();
             this.metroTextBoxAddress = new MetroFramework.Controls.MetroTextBox();
+            this.metroButtonCleanCells = new MetroFramework.Controls.MetroButton();
+            this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.metroButton2 = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.metroGridEmployes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -89,9 +92,9 @@
             // 
             // 
             this.metroTextBoxEID.CustomButton.Image = null;
-            this.metroTextBoxEID.CustomButton.Location = new System.Drawing.Point(134, 1);
+            this.metroTextBoxEID.CustomButton.Location = new System.Drawing.Point(179, 1);
             this.metroTextBoxEID.CustomButton.Name = "";
-            this.metroTextBoxEID.CustomButton.Size = new System.Drawing.Size(16, 17);
+            this.metroTextBoxEID.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.metroTextBoxEID.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroTextBoxEID.CustomButton.TabIndex = 1;
             this.metroTextBoxEID.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -138,9 +141,9 @@
             // 
             // 
             this.metroTextBoxEBirth.CustomButton.Image = null;
-            this.metroTextBoxEBirth.CustomButton.Location = new System.Drawing.Point(135, 1);
+            this.metroTextBoxEBirth.CustomButton.Location = new System.Drawing.Point(180, 1);
             this.metroTextBoxEBirth.CustomButton.Name = "";
-            this.metroTextBoxEBirth.CustomButton.Size = new System.Drawing.Size(16, 17);
+            this.metroTextBoxEBirth.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.metroTextBoxEBirth.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroTextBoxEBirth.CustomButton.TabIndex = 1;
             this.metroTextBoxEBirth.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -177,7 +180,7 @@
             this.metroButtonAddWorker.Name = "metroButtonAddWorker";
             this.metroButtonAddWorker.Size = new System.Drawing.Size(156, 23);
             this.metroButtonAddWorker.TabIndex = 14;
-            this.metroButtonAddWorker.Text = "Dolgozó felvétele";
+            this.metroButtonAddWorker.Text = "Felvétel";
             this.metroButtonAddWorker.UseSelectable = true;
             // 
             // metroTextBoxBPlace
@@ -186,9 +189,9 @@
             // 
             // 
             this.metroTextBoxBPlace.CustomButton.Image = null;
-            this.metroTextBoxBPlace.CustomButton.Location = new System.Drawing.Point(135, 1);
+            this.metroTextBoxBPlace.CustomButton.Location = new System.Drawing.Point(180, 1);
             this.metroTextBoxBPlace.CustomButton.Name = "";
-            this.metroTextBoxBPlace.CustomButton.Size = new System.Drawing.Size(16, 17);
+            this.metroTextBoxBPlace.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.metroTextBoxBPlace.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroTextBoxBPlace.CustomButton.TabIndex = 1;
             this.metroTextBoxBPlace.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -243,9 +246,9 @@
             // 
             // 
             this.metroTextBoxEname.CustomButton.Image = null;
-            this.metroTextBoxEname.CustomButton.Location = new System.Drawing.Point(135, 1);
+            this.metroTextBoxEname.CustomButton.Location = new System.Drawing.Point(180, 1);
             this.metroTextBoxEname.CustomButton.Name = "";
-            this.metroTextBoxEname.CustomButton.Size = new System.Drawing.Size(16, 17);
+            this.metroTextBoxEname.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.metroTextBoxEname.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroTextBoxEname.CustomButton.TabIndex = 1;
             this.metroTextBoxEname.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -273,9 +276,9 @@
             // 
             // 
             this.metroTextBoxEMaidname.CustomButton.Image = null;
-            this.metroTextBoxEMaidname.CustomButton.Location = new System.Drawing.Point(135, 1);
+            this.metroTextBoxEMaidname.CustomButton.Location = new System.Drawing.Point(180, 1);
             this.metroTextBoxEMaidname.CustomButton.Name = "";
-            this.metroTextBoxEMaidname.CustomButton.Size = new System.Drawing.Size(16, 17);
+            this.metroTextBoxEMaidname.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.metroTextBoxEMaidname.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroTextBoxEMaidname.CustomButton.TabIndex = 1;
             this.metroTextBoxEMaidname.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -315,7 +318,7 @@
             "nő",
             "férfi"});
             this.metroComboBoxESex.Location = new System.Drawing.Point(172, 192);
-            this.metroComboBoxESex.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.metroComboBoxESex.Margin = new System.Windows.Forms.Padding(2);
             this.metroComboBoxESex.Name = "metroComboBoxESex";
             this.metroComboBoxESex.Size = new System.Drawing.Size(202, 29);
             this.metroComboBoxESex.TabIndex = 21;
@@ -345,9 +348,9 @@
             // 
             // 
             this.metroTextBoxEUserName.CustomButton.Image = null;
-            this.metroTextBoxEUserName.CustomButton.Location = new System.Drawing.Point(135, 1);
+            this.metroTextBoxEUserName.CustomButton.Location = new System.Drawing.Point(180, 1);
             this.metroTextBoxEUserName.CustomButton.Name = "";
-            this.metroTextBoxEUserName.CustomButton.Size = new System.Drawing.Size(16, 17);
+            this.metroTextBoxEUserName.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.metroTextBoxEUserName.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroTextBoxEUserName.CustomButton.TabIndex = 1;
             this.metroTextBoxEUserName.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -376,9 +379,9 @@
             // 
             // 
             this.metroTextBoxEPassword.CustomButton.Image = null;
-            this.metroTextBoxEPassword.CustomButton.Location = new System.Drawing.Point(135, 1);
+            this.metroTextBoxEPassword.CustomButton.Location = new System.Drawing.Point(180, 1);
             this.metroTextBoxEPassword.CustomButton.Name = "";
-            this.metroTextBoxEPassword.CustomButton.Size = new System.Drawing.Size(16, 17);
+            this.metroTextBoxEPassword.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.metroTextBoxEPassword.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroTextBoxEPassword.CustomButton.TabIndex = 1;
             this.metroTextBoxEPassword.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -429,7 +432,7 @@
             this.metroGridEmployes.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.metroGridEmployes.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.metroGridEmployes.Location = new System.Drawing.Point(22, 261);
-            this.metroGridEmployes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.metroGridEmployes.Margin = new System.Windows.Forms.Padding(2);
             this.metroGridEmployes.Name = "metroGridEmployes";
             this.metroGridEmployes.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -453,7 +456,7 @@
             // metroButtonSearch
             // 
             this.metroButtonSearch.Location = new System.Drawing.Point(971, 192);
-            this.metroButtonSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.metroButtonSearch.Margin = new System.Windows.Forms.Padding(2);
             this.metroButtonSearch.Name = "metroButtonSearch";
             this.metroButtonSearch.Size = new System.Drawing.Size(149, 19);
             this.metroButtonSearch.TabIndex = 27;
@@ -491,11 +494,43 @@
             this.metroTextBoxAddress.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.metroTextBoxAddress.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
+            // metroButtonCleanCells
+            // 
+            this.metroButtonCleanCells.Location = new System.Drawing.Point(971, 160);
+            this.metroButtonCleanCells.Margin = new System.Windows.Forms.Padding(2);
+            this.metroButtonCleanCells.Name = "metroButtonCleanCells";
+            this.metroButtonCleanCells.Size = new System.Drawing.Size(149, 19);
+            this.metroButtonCleanCells.TabIndex = 29;
+            this.metroButtonCleanCells.Text = "Cella ürítés";
+            this.metroButtonCleanCells.UseSelectable = true;
+            this.metroButtonCleanCells.Click += new System.EventHandler(this.metroButtonCleanCells_Click);
+            // 
+            // metroButton1
+            // 
+            this.metroButton1.Location = new System.Drawing.Point(231, 521);
+            this.metroButton1.Name = "metroButton1";
+            this.metroButton1.Size = new System.Drawing.Size(156, 23);
+            this.metroButton1.TabIndex = 30;
+            this.metroButton1.Text = "Törlés";
+            this.metroButton1.UseSelectable = true;
+            // 
+            // metroButton2
+            // 
+            this.metroButton2.Location = new System.Drawing.Point(429, 521);
+            this.metroButton2.Name = "metroButton2";
+            this.metroButton2.Size = new System.Drawing.Size(156, 23);
+            this.metroButton2.TabIndex = 31;
+            this.metroButton2.Text = "Módosítása";
+            this.metroButton2.UseSelectable = true;
+            // 
             // WorkersRegistration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1182, 567);
+            this.Controls.Add(this.metroButton2);
+            this.Controls.Add(this.metroButton1);
+            this.Controls.Add(this.metroButtonCleanCells);
             this.Controls.Add(this.metroTextBoxAddress);
             this.Controls.Add(this.metroButtonSearch);
             this.Controls.Add(this.metroGridEmployes);
@@ -554,5 +589,8 @@
         private MetroFramework.Controls.MetroGrid metroGridEmployes;
         private MetroFramework.Controls.MetroButton metroButtonSearch;
         private MetroFramework.Controls.MetroTextBox metroTextBoxAddress;
+        private MetroFramework.Controls.MetroButton metroButtonCleanCells;
+        private MetroFramework.Controls.MetroButton metroButton1;
+        private MetroFramework.Controls.MetroButton metroButton2;
     }
 }

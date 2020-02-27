@@ -25,7 +25,12 @@ namespace Szakdolgozat2020.Database
                     + "(2, 'Chat Elek', '-', 0, '1985-03-14', 'Facebook', 'nevelo', 'Szeged, Kiss Ödön út 1.', 'chaele', 'nevelo1'),"
                     + "(3, 'Zuhany Rózsa', 'Zuhany Rózsa', 1, '1963-11-08', 'Zalakaros', 'intvezeto', 'Lajosmizse, Alma körút 456.', 'zuhroz', 'intv1'),"
                     + "(4, 'Fejet Lenke ', 'Fejet Lenke ', 1, '1977-02-21', 'Fejes', 'intugyintezo', 'Szeged, Rózsa utca 112.', 'fejlen', 'intu1'),"
-                    + "(5, 'Major Anna ', 'Kiss Anna ', 1, '1972-09-12', 'Fűszerpor', 'pszichologus', 'Tókió, Humululu Street 43.', 'majann', 'lelek1');";
+                    + "(5, 'Major Anna ', 'Kiss Anna ', 1, '1972-09-12', 'Fűszerpor', 'pszichologus', 'Tókió, Humululu Street 43.', 'majann', 'lelek1'),"
+                    + "(6, 'Szántó tamás', '-', 1, '1998-06-10', 'Szeged', 'pszichologus', 'Vásárhely, Csillag tér 1/a', 'szantam', 'asd123'),"
+                    + "(7, 'Rózsa István', '-', 0, '1998-12-21', 'Szeged', 'intvezeto', 'Szeged, Alajos utca 32.', 'rozist', 'qwe123'),"
+                    + "(8, 'Horváth Gellért', '-', 0, '1995-02-12', 'Kalocsa', 'nevelo', 'Kalocsa, Himzes út 54.', 'horgel', 'yxc123'),"
+                    + "(9, 'Bálint Sára', 'Bálint Sára', 1, '1995-04-22', 'Székesfehérvár', 'nevelo', 'Szeged, Anya utca 13.', 'balsar', 'tzu123'),"
+                    + "(10, 'Kovács Zsolt', '-', 0, '1976-12-01', 'Győr', 'intugyintezo', 'Kecskemét, Diósgyőr utca 45.', 'kovzso', 'fgh123');";
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
                 connection.Close();

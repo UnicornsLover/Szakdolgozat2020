@@ -64,13 +64,9 @@ namespace Szakdolgozat2020
                         labelError.Text += hiba;
                         break;
                 }
-                 //bejelenkező neve tárolva
-                //metrolabelnev.Text = LogIn.FnameLoged -> ez kell majd a formra ahova kiírod ki jelentkezett be
             }
             else
             {
-                //errorProviderFName.SetError(metroTextBoxFName, "Hibás felhasználónév, kérlek próbálokozz újból!");
-                //hiba += "Hibás felhasználónév vagy jelszó,\n kérlek próbálokozz újból!";
                 labelError.Text = hiba;
                 MetroMessageBox.Show(this, "Hibás felhasználónév vagy jelszó,\n kérlek próbálokozz újból!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
