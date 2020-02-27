@@ -76,5 +76,11 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
                 metroTextBoxEPassword.Text = metroGridEmployes.Rows[e.RowIndex].Cells[9].FormattedValue.ToString();
             }
         }
+
+        private void metroButtonSearch_Click(object sender, EventArgs e)
+        {
+            string rowFilter = string.Format("[{0}] = '{1}'", "Név:", metroTextBoxEname.Text);
+            (metroGridEmployes.DataSource as DataTable).DefaultView.RowFilter = rowFilter;
+        }
     }
 }
