@@ -56,7 +56,7 @@ namespace Szakdolgozat2020.Database
                     +"`ebirth` date NOT NULL,"
                     +"`ebirthplace` varchar(40) COLLATE utf8_hungarian_ci NOT NULL,"
                     +"`ejob` varchar(18) COLLATE utf8_hungarian_ci NOT NULL,"
-                    +"`elocation` varchar(40) COLLATE utf8_hungarian_ci NOT NULL,"
+                    +"`elocation` varchar(90) COLLATE utf8_hungarian_ci NOT NULL,"
                     +"`euname` varchar(25) COLLATE utf8_hungarian_ci NOT NULL,"
                     +"`epassword` varchar(25) COLLATE utf8_hungarian_ci NOT NULL"
                     +") ENGINE = InnoDB DEFAULT CHARSET = utf8 COLLATE = utf8_hungarian_ci;";

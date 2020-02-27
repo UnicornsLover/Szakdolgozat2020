@@ -38,7 +38,6 @@
             this.metroLabelEDate = new MetroFramework.Controls.MetroLabel();
             this.metroTextBoxEBirth = new MetroFramework.Controls.MetroTextBox();
             this.metroLabelELocation = new MetroFramework.Controls.MetroLabel();
-            this.metroComboBoxELocation = new MetroFramework.Controls.MetroComboBox();
             this.metroButtonAddWorker = new MetroFramework.Controls.MetroButton();
             this.metroTextBoxBPlace = new MetroFramework.Controls.MetroTextBox();
             this.metroLabelBPlace = new MetroFramework.Controls.MetroLabel();
@@ -54,23 +53,23 @@
             this.metroTextBoxEPassword = new MetroFramework.Controls.MetroTextBox();
             this.metroGridEmployes = new MetroFramework.Controls.MetroGrid();
             this.metroButtonSearch = new MetroFramework.Controls.MetroButton();
+            this.metroTextBoxAddress = new MetroFramework.Controls.MetroTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.metroGridEmployes)).BeginInit();
             this.SuspendLayout();
             // 
             // metroLabelUserId
             // 
             this.metroLabelUserId.AutoSize = true;
-            this.metroLabelUserId.Location = new System.Drawing.Point(28, 95);
-            this.metroLabelUserId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.metroLabelUserId.Location = new System.Drawing.Point(21, 77);
             this.metroLabelUserId.Name = "metroLabelUserId";
-            this.metroLabelUserId.Size = new System.Drawing.Size(137, 20);
+            this.metroLabelUserId.Size = new System.Drawing.Size(132, 19);
             this.metroLabelUserId.TabIndex = 0;
             this.metroLabelUserId.Text = "Dolgozó azonosítója:";
             // 
             // metroComboBoxEjobtype
             // 
             this.metroComboBoxEjobtype.FormattingEnabled = true;
-            this.metroComboBoxEjobtype.ItemHeight = 24;
+            this.metroComboBoxEjobtype.ItemHeight = 23;
             this.metroComboBoxEjobtype.Items.AddRange(new object[] {
             "Intézményvezető",
             "Intézmény ügyintéző",
@@ -78,10 +77,9 @@
             "Nevelő",
             "Szülő",
             "Rendszergazda"});
-            this.metroComboBoxEjobtype.Location = new System.Drawing.Point(733, 224);
-            this.metroComboBoxEjobtype.Margin = new System.Windows.Forms.Padding(4);
+            this.metroComboBoxEjobtype.Location = new System.Drawing.Point(550, 192);
             this.metroComboBoxEjobtype.Name = "metroComboBoxEjobtype";
-            this.metroComboBoxEjobtype.Size = new System.Drawing.Size(269, 30);
+            this.metroComboBoxEjobtype.Size = new System.Drawing.Size(202, 29);
             this.metroComboBoxEjobtype.TabIndex = 1;
             this.metroComboBoxEjobtype.UseSelectable = true;
             // 
@@ -91,18 +89,16 @@
             // 
             // 
             this.metroTextBoxEID.CustomButton.Image = null;
-            this.metroTextBoxEID.CustomButton.Location = new System.Drawing.Point(242, 2);
-            this.metroTextBoxEID.CustomButton.Margin = new System.Windows.Forms.Padding(4);
+            this.metroTextBoxEID.CustomButton.Location = new System.Drawing.Point(134, 1);
             this.metroTextBoxEID.CustomButton.Name = "";
-            this.metroTextBoxEID.CustomButton.Size = new System.Drawing.Size(23, 23);
+            this.metroTextBoxEID.CustomButton.Size = new System.Drawing.Size(16, 17);
             this.metroTextBoxEID.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroTextBoxEID.CustomButton.TabIndex = 1;
             this.metroTextBoxEID.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.metroTextBoxEID.CustomButton.UseSelectable = true;
             this.metroTextBoxEID.CustomButton.Visible = false;
             this.metroTextBoxEID.Lines = new string[0];
-            this.metroTextBoxEID.Location = new System.Drawing.Point(230, 95);
-            this.metroTextBoxEID.Margin = new System.Windows.Forms.Padding(4);
+            this.metroTextBoxEID.Location = new System.Drawing.Point(172, 77);
             this.metroTextBoxEID.MaxLength = 32767;
             this.metroTextBoxEID.Name = "metroTextBoxEID";
             this.metroTextBoxEID.PasswordChar = '\0';
@@ -112,7 +108,7 @@
             this.metroTextBoxEID.SelectionLength = 0;
             this.metroTextBoxEID.SelectionStart = 0;
             this.metroTextBoxEID.ShortcutsEnabled = true;
-            this.metroTextBoxEID.Size = new System.Drawing.Size(268, 28);
+            this.metroTextBoxEID.Size = new System.Drawing.Size(201, 23);
             this.metroTextBoxEID.TabIndex = 2;
             this.metroTextBoxEID.UseSelectable = true;
             this.metroTextBoxEID.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -121,20 +117,18 @@
             // metroLabelEJobtype
             // 
             this.metroLabelEJobtype.AutoSize = true;
-            this.metroLabelEJobtype.Location = new System.Drawing.Point(530, 236);
-            this.metroLabelEJobtype.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.metroLabelEJobtype.Location = new System.Drawing.Point(398, 196);
             this.metroLabelEJobtype.Name = "metroLabelEJobtype";
-            this.metroLabelEJobtype.Size = new System.Drawing.Size(130, 20);
+            this.metroLabelEJobtype.Size = new System.Drawing.Size(125, 19);
             this.metroLabelEJobtype.TabIndex = 3;
             this.metroLabelEJobtype.Text = "Betöltött munkakör:";
             // 
             // metroLabelEDate
             // 
             this.metroLabelEDate.AutoSize = true;
-            this.metroLabelEDate.Location = new System.Drawing.Point(531, 102);
-            this.metroLabelEDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.metroLabelEDate.Location = new System.Drawing.Point(398, 83);
             this.metroLabelEDate.Name = "metroLabelEDate";
-            this.metroLabelEDate.Size = new System.Drawing.Size(89, 20);
+            this.metroLabelEDate.Size = new System.Drawing.Size(84, 19);
             this.metroLabelEDate.TabIndex = 4;
             this.metroLabelEDate.Text = "Születési idő:";
             // 
@@ -144,18 +138,16 @@
             // 
             // 
             this.metroTextBoxEBirth.CustomButton.Image = null;
-            this.metroTextBoxEBirth.CustomButton.Location = new System.Drawing.Point(243, 2);
-            this.metroTextBoxEBirth.CustomButton.Margin = new System.Windows.Forms.Padding(4);
+            this.metroTextBoxEBirth.CustomButton.Location = new System.Drawing.Point(135, 1);
             this.metroTextBoxEBirth.CustomButton.Name = "";
-            this.metroTextBoxEBirth.CustomButton.Size = new System.Drawing.Size(23, 23);
+            this.metroTextBoxEBirth.CustomButton.Size = new System.Drawing.Size(16, 17);
             this.metroTextBoxEBirth.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroTextBoxEBirth.CustomButton.TabIndex = 1;
             this.metroTextBoxEBirth.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.metroTextBoxEBirth.CustomButton.UseSelectable = true;
             this.metroTextBoxEBirth.CustomButton.Visible = false;
             this.metroTextBoxEBirth.Lines = new string[0];
-            this.metroTextBoxEBirth.Location = new System.Drawing.Point(733, 94);
-            this.metroTextBoxEBirth.Margin = new System.Windows.Forms.Padding(4);
+            this.metroTextBoxEBirth.Location = new System.Drawing.Point(550, 76);
             this.metroTextBoxEBirth.MaxLength = 32767;
             this.metroTextBoxEBirth.Name = "metroTextBoxEBirth";
             this.metroTextBoxEBirth.PasswordChar = '\0';
@@ -164,7 +156,7 @@
             this.metroTextBoxEBirth.SelectionLength = 0;
             this.metroTextBoxEBirth.SelectionStart = 0;
             this.metroTextBoxEBirth.ShortcutsEnabled = true;
-            this.metroTextBoxEBirth.Size = new System.Drawing.Size(269, 28);
+            this.metroTextBoxEBirth.Size = new System.Drawing.Size(202, 23);
             this.metroTextBoxEBirth.TabIndex = 5;
             this.metroTextBoxEBirth.UseSelectable = true;
             this.metroTextBoxEBirth.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -173,36 +165,17 @@
             // metroLabelELocation
             // 
             this.metroLabelELocation.AutoSize = true;
-            this.metroLabelELocation.Location = new System.Drawing.Point(532, 197);
-            this.metroLabelELocation.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.metroLabelELocation.Location = new System.Drawing.Point(399, 160);
             this.metroLabelELocation.Name = "metroLabelELocation";
-            this.metroLabelELocation.Size = new System.Drawing.Size(55, 20);
+            this.metroLabelELocation.Size = new System.Drawing.Size(52, 19);
             this.metroLabelELocation.TabIndex = 12;
             this.metroLabelELocation.Text = "Lakcím:";
             // 
-            // metroComboBoxELocation
-            // 
-            this.metroComboBoxELocation.FormattingEnabled = true;
-            this.metroComboBoxELocation.ItemHeight = 24;
-            this.metroComboBoxELocation.Items.AddRange(new object[] {
-            "Általános Iskola",
-            "Gimnázium",
-            "Főiskola",
-            "Egyetem",
-            "Doktori (phD)"});
-            this.metroComboBoxELocation.Location = new System.Drawing.Point(733, 184);
-            this.metroComboBoxELocation.Margin = new System.Windows.Forms.Padding(4);
-            this.metroComboBoxELocation.Name = "metroComboBoxELocation";
-            this.metroComboBoxELocation.Size = new System.Drawing.Size(269, 30);
-            this.metroComboBoxELocation.TabIndex = 13;
-            this.metroComboBoxELocation.UseSelectable = true;
-            // 
             // metroButtonAddWorker
             // 
-            this.metroButtonAddWorker.Location = new System.Drawing.Point(44, 641);
-            this.metroButtonAddWorker.Margin = new System.Windows.Forms.Padding(4);
+            this.metroButtonAddWorker.Location = new System.Drawing.Point(33, 521);
             this.metroButtonAddWorker.Name = "metroButtonAddWorker";
-            this.metroButtonAddWorker.Size = new System.Drawing.Size(208, 28);
+            this.metroButtonAddWorker.Size = new System.Drawing.Size(156, 23);
             this.metroButtonAddWorker.TabIndex = 14;
             this.metroButtonAddWorker.Text = "Dolgozó felvétele";
             this.metroButtonAddWorker.UseSelectable = true;
@@ -213,18 +186,16 @@
             // 
             // 
             this.metroTextBoxBPlace.CustomButton.Image = null;
-            this.metroTextBoxBPlace.CustomButton.Location = new System.Drawing.Point(243, 2);
-            this.metroTextBoxBPlace.CustomButton.Margin = new System.Windows.Forms.Padding(4);
+            this.metroTextBoxBPlace.CustomButton.Location = new System.Drawing.Point(135, 1);
             this.metroTextBoxBPlace.CustomButton.Name = "";
-            this.metroTextBoxBPlace.CustomButton.Size = new System.Drawing.Size(23, 23);
+            this.metroTextBoxBPlace.CustomButton.Size = new System.Drawing.Size(16, 17);
             this.metroTextBoxBPlace.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroTextBoxBPlace.CustomButton.TabIndex = 1;
             this.metroTextBoxBPlace.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.metroTextBoxBPlace.CustomButton.UseSelectable = true;
             this.metroTextBoxBPlace.CustomButton.Visible = false;
             this.metroTextBoxBPlace.Lines = new string[0];
-            this.metroTextBoxBPlace.Location = new System.Drawing.Point(733, 141);
-            this.metroTextBoxBPlace.Margin = new System.Windows.Forms.Padding(4);
+            this.metroTextBoxBPlace.Location = new System.Drawing.Point(550, 115);
             this.metroTextBoxBPlace.MaxLength = 32767;
             this.metroTextBoxBPlace.Name = "metroTextBoxBPlace";
             this.metroTextBoxBPlace.PasswordChar = '\0';
@@ -233,7 +204,7 @@
             this.metroTextBoxBPlace.SelectionLength = 0;
             this.metroTextBoxBPlace.SelectionStart = 0;
             this.metroTextBoxBPlace.ShortcutsEnabled = true;
-            this.metroTextBoxBPlace.Size = new System.Drawing.Size(269, 28);
+            this.metroTextBoxBPlace.Size = new System.Drawing.Size(202, 23);
             this.metroTextBoxBPlace.TabIndex = 9;
             this.metroTextBoxBPlace.UseSelectable = true;
             this.metroTextBoxBPlace.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -242,30 +213,27 @@
             // metroLabelBPlace
             // 
             this.metroLabelBPlace.AutoSize = true;
-            this.metroLabelBPlace.Location = new System.Drawing.Point(531, 146);
-            this.metroLabelBPlace.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.metroLabelBPlace.Location = new System.Drawing.Point(398, 119);
             this.metroLabelBPlace.Name = "metroLabelBPlace";
-            this.metroLabelBPlace.Size = new System.Drawing.Size(96, 20);
+            this.metroLabelBPlace.Size = new System.Drawing.Size(88, 19);
             this.metroLabelBPlace.TabIndex = 8;
             this.metroLabelBPlace.Text = "Születési hely:";
             // 
             // metroLabelEName
             // 
             this.metroLabelEName.AutoSize = true;
-            this.metroLabelEName.Location = new System.Drawing.Point(28, 149);
-            this.metroLabelEName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.metroLabelEName.Location = new System.Drawing.Point(21, 121);
             this.metroLabelEName.Name = "metroLabelEName";
-            this.metroLabelEName.Size = new System.Drawing.Size(99, 20);
+            this.metroLabelEName.Size = new System.Drawing.Size(93, 19);
             this.metroLabelEName.TabIndex = 16;
             this.metroLabelEName.Text = "Dolgozó neve:";
             // 
             // metroLabelEMaidenname
             // 
             this.metroLabelEMaidenname.AutoSize = true;
-            this.metroLabelEMaidenname.Location = new System.Drawing.Point(28, 196);
-            this.metroLabelEMaidenname.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.metroLabelEMaidenname.Location = new System.Drawing.Point(21, 159);
             this.metroLabelEMaidenname.Name = "metroLabelEMaidenname";
-            this.metroLabelEMaidenname.Size = new System.Drawing.Size(151, 20);
+            this.metroLabelEMaidenname.Size = new System.Drawing.Size(142, 19);
             this.metroLabelEMaidenname.TabIndex = 17;
             this.metroLabelEMaidenname.Text = "Dolgozó lánykori neve:";
             // 
@@ -275,18 +243,16 @@
             // 
             // 
             this.metroTextBoxEname.CustomButton.Image = null;
-            this.metroTextBoxEname.CustomButton.Location = new System.Drawing.Point(243, 2);
-            this.metroTextBoxEname.CustomButton.Margin = new System.Windows.Forms.Padding(4);
+            this.metroTextBoxEname.CustomButton.Location = new System.Drawing.Point(135, 1);
             this.metroTextBoxEname.CustomButton.Name = "";
-            this.metroTextBoxEname.CustomButton.Size = new System.Drawing.Size(23, 23);
+            this.metroTextBoxEname.CustomButton.Size = new System.Drawing.Size(16, 17);
             this.metroTextBoxEname.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroTextBoxEname.CustomButton.TabIndex = 1;
             this.metroTextBoxEname.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.metroTextBoxEname.CustomButton.UseSelectable = true;
             this.metroTextBoxEname.CustomButton.Visible = false;
             this.metroTextBoxEname.Lines = new string[0];
-            this.metroTextBoxEname.Location = new System.Drawing.Point(230, 141);
-            this.metroTextBoxEname.Margin = new System.Windows.Forms.Padding(4);
+            this.metroTextBoxEname.Location = new System.Drawing.Point(172, 115);
             this.metroTextBoxEname.MaxLength = 32767;
             this.metroTextBoxEname.Name = "metroTextBoxEname";
             this.metroTextBoxEname.PasswordChar = '\0';
@@ -295,7 +261,7 @@
             this.metroTextBoxEname.SelectionLength = 0;
             this.metroTextBoxEname.SelectionStart = 0;
             this.metroTextBoxEname.ShortcutsEnabled = true;
-            this.metroTextBoxEname.Size = new System.Drawing.Size(269, 28);
+            this.metroTextBoxEname.Size = new System.Drawing.Size(202, 23);
             this.metroTextBoxEname.TabIndex = 18;
             this.metroTextBoxEname.UseSelectable = true;
             this.metroTextBoxEname.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -307,18 +273,16 @@
             // 
             // 
             this.metroTextBoxEMaidname.CustomButton.Image = null;
-            this.metroTextBoxEMaidname.CustomButton.Location = new System.Drawing.Point(243, 2);
-            this.metroTextBoxEMaidname.CustomButton.Margin = new System.Windows.Forms.Padding(4);
+            this.metroTextBoxEMaidname.CustomButton.Location = new System.Drawing.Point(135, 1);
             this.metroTextBoxEMaidname.CustomButton.Name = "";
-            this.metroTextBoxEMaidname.CustomButton.Size = new System.Drawing.Size(23, 23);
+            this.metroTextBoxEMaidname.CustomButton.Size = new System.Drawing.Size(16, 17);
             this.metroTextBoxEMaidname.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroTextBoxEMaidname.CustomButton.TabIndex = 1;
             this.metroTextBoxEMaidname.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.metroTextBoxEMaidname.CustomButton.UseSelectable = true;
             this.metroTextBoxEMaidname.CustomButton.Visible = false;
             this.metroTextBoxEMaidname.Lines = new string[0];
-            this.metroTextBoxEMaidname.Location = new System.Drawing.Point(230, 188);
-            this.metroTextBoxEMaidname.Margin = new System.Windows.Forms.Padding(4);
+            this.metroTextBoxEMaidname.Location = new System.Drawing.Point(172, 153);
             this.metroTextBoxEMaidname.MaxLength = 32767;
             this.metroTextBoxEMaidname.Name = "metroTextBoxEMaidname";
             this.metroTextBoxEMaidname.PasswordChar = '\0';
@@ -327,7 +291,7 @@
             this.metroTextBoxEMaidname.SelectionLength = 0;
             this.metroTextBoxEMaidname.SelectionStart = 0;
             this.metroTextBoxEMaidname.ShortcutsEnabled = true;
-            this.metroTextBoxEMaidname.Size = new System.Drawing.Size(269, 28);
+            this.metroTextBoxEMaidname.Size = new System.Drawing.Size(202, 23);
             this.metroTextBoxEMaidname.TabIndex = 19;
             this.metroTextBoxEMaidname.UseSelectable = true;
             this.metroTextBoxEMaidname.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -336,42 +300,42 @@
             // metroLabelESex
             // 
             this.metroLabelESex.AutoSize = true;
-            this.metroLabelESex.Location = new System.Drawing.Point(30, 244);
+            this.metroLabelESex.Location = new System.Drawing.Point(22, 202);
+            this.metroLabelESex.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.metroLabelESex.Name = "metroLabelESex";
-            this.metroLabelESex.Size = new System.Drawing.Size(104, 20);
+            this.metroLabelESex.Size = new System.Drawing.Size(99, 19);
             this.metroLabelESex.TabIndex = 20;
             this.metroLabelESex.Text = "Dolgozó neme:";
             // 
             // metroComboBoxESex
             // 
             this.metroComboBoxESex.FormattingEnabled = true;
-            this.metroComboBoxESex.ItemHeight = 24;
+            this.metroComboBoxESex.ItemHeight = 23;
             this.metroComboBoxESex.Items.AddRange(new object[] {
             "nő",
             "férfi"});
-            this.metroComboBoxESex.Location = new System.Drawing.Point(230, 232);
+            this.metroComboBoxESex.Location = new System.Drawing.Point(172, 192);
+            this.metroComboBoxESex.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.metroComboBoxESex.Name = "metroComboBoxESex";
-            this.metroComboBoxESex.Size = new System.Drawing.Size(268, 30);
+            this.metroComboBoxESex.Size = new System.Drawing.Size(202, 29);
             this.metroComboBoxESex.TabIndex = 21;
             this.metroComboBoxESex.UseSelectable = true;
             // 
             // metroLabelEUname
             // 
             this.metroLabelEUname.AutoSize = true;
-            this.metroLabelEUname.Location = new System.Drawing.Point(1023, 102);
-            this.metroLabelEUname.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.metroLabelEUname.Location = new System.Drawing.Point(767, 83);
             this.metroLabelEUname.Name = "metroLabelEUname";
-            this.metroLabelEUname.Size = new System.Drawing.Size(110, 20);
+            this.metroLabelEUname.Size = new System.Drawing.Size(102, 19);
             this.metroLabelEUname.TabIndex = 22;
             this.metroLabelEUname.Text = "Felhasználónév::";
             // 
             // metroLabelEPassword
             // 
             this.metroLabelEPassword.AutoSize = true;
-            this.metroLabelEPassword.Location = new System.Drawing.Point(1021, 150);
-            this.metroLabelEPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.metroLabelEPassword.Location = new System.Drawing.Point(766, 122);
             this.metroLabelEPassword.Name = "metroLabelEPassword";
-            this.metroLabelEPassword.Size = new System.Drawing.Size(49, 20);
+            this.metroLabelEPassword.Size = new System.Drawing.Size(46, 19);
             this.metroLabelEPassword.TabIndex = 23;
             this.metroLabelEPassword.Text = "Jelszó:";
             // 
@@ -381,18 +345,16 @@
             // 
             // 
             this.metroTextBoxEUserName.CustomButton.Image = null;
-            this.metroTextBoxEUserName.CustomButton.Location = new System.Drawing.Point(243, 2);
-            this.metroTextBoxEUserName.CustomButton.Margin = new System.Windows.Forms.Padding(4);
+            this.metroTextBoxEUserName.CustomButton.Location = new System.Drawing.Point(135, 1);
             this.metroTextBoxEUserName.CustomButton.Name = "";
-            this.metroTextBoxEUserName.CustomButton.Size = new System.Drawing.Size(23, 23);
+            this.metroTextBoxEUserName.CustomButton.Size = new System.Drawing.Size(16, 17);
             this.metroTextBoxEUserName.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroTextBoxEUserName.CustomButton.TabIndex = 1;
             this.metroTextBoxEUserName.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.metroTextBoxEUserName.CustomButton.UseSelectable = true;
             this.metroTextBoxEUserName.CustomButton.Visible = false;
             this.metroTextBoxEUserName.Lines = new string[0];
-            this.metroTextBoxEUserName.Location = new System.Drawing.Point(1224, 94);
-            this.metroTextBoxEUserName.Margin = new System.Windows.Forms.Padding(4);
+            this.metroTextBoxEUserName.Location = new System.Drawing.Point(918, 76);
             this.metroTextBoxEUserName.MaxLength = 32767;
             this.metroTextBoxEUserName.Name = "metroTextBoxEUserName";
             this.metroTextBoxEUserName.PasswordChar = '\0';
@@ -402,7 +364,7 @@
             this.metroTextBoxEUserName.SelectionLength = 0;
             this.metroTextBoxEUserName.SelectionStart = 0;
             this.metroTextBoxEUserName.ShortcutsEnabled = true;
-            this.metroTextBoxEUserName.Size = new System.Drawing.Size(269, 28);
+            this.metroTextBoxEUserName.Size = new System.Drawing.Size(202, 23);
             this.metroTextBoxEUserName.TabIndex = 24;
             this.metroTextBoxEUserName.UseSelectable = true;
             this.metroTextBoxEUserName.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -414,18 +376,16 @@
             // 
             // 
             this.metroTextBoxEPassword.CustomButton.Image = null;
-            this.metroTextBoxEPassword.CustomButton.Location = new System.Drawing.Point(243, 2);
-            this.metroTextBoxEPassword.CustomButton.Margin = new System.Windows.Forms.Padding(4);
+            this.metroTextBoxEPassword.CustomButton.Location = new System.Drawing.Point(135, 1);
             this.metroTextBoxEPassword.CustomButton.Name = "";
-            this.metroTextBoxEPassword.CustomButton.Size = new System.Drawing.Size(23, 23);
+            this.metroTextBoxEPassword.CustomButton.Size = new System.Drawing.Size(16, 17);
             this.metroTextBoxEPassword.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroTextBoxEPassword.CustomButton.TabIndex = 1;
             this.metroTextBoxEPassword.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.metroTextBoxEPassword.CustomButton.UseSelectable = true;
             this.metroTextBoxEPassword.CustomButton.Visible = false;
             this.metroTextBoxEPassword.Lines = new string[0];
-            this.metroTextBoxEPassword.Location = new System.Drawing.Point(1224, 142);
-            this.metroTextBoxEPassword.Margin = new System.Windows.Forms.Padding(4);
+            this.metroTextBoxEPassword.Location = new System.Drawing.Point(918, 115);
             this.metroTextBoxEPassword.MaxLength = 32767;
             this.metroTextBoxEPassword.Name = "metroTextBoxEPassword";
             this.metroTextBoxEPassword.PasswordChar = '\0';
@@ -435,7 +395,7 @@
             this.metroTextBoxEPassword.SelectionLength = 0;
             this.metroTextBoxEPassword.SelectionStart = 0;
             this.metroTextBoxEPassword.ShortcutsEnabled = true;
-            this.metroTextBoxEPassword.Size = new System.Drawing.Size(269, 28);
+            this.metroTextBoxEPassword.Size = new System.Drawing.Size(202, 23);
             this.metroTextBoxEPassword.TabIndex = 25;
             this.metroTextBoxEPassword.UseSelectable = true;
             this.metroTextBoxEPassword.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -468,7 +428,8 @@
             this.metroGridEmployes.EnableHeadersVisualStyles = false;
             this.metroGridEmployes.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.metroGridEmployes.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.metroGridEmployes.Location = new System.Drawing.Point(29, 321);
+            this.metroGridEmployes.Location = new System.Drawing.Point(22, 261);
+            this.metroGridEmployes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.metroGridEmployes.Name = "metroGridEmployes";
             this.metroGridEmployes.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -483,7 +444,7 @@
             this.metroGridEmployes.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.metroGridEmployes.RowTemplate.Height = 24;
             this.metroGridEmployes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.metroGridEmployes.Size = new System.Drawing.Size(1529, 288);
+            this.metroGridEmployes.Size = new System.Drawing.Size(1147, 234);
             this.metroGridEmployes.Style = MetroFramework.MetroColorStyle.Red;
             this.metroGridEmployes.TabIndex = 26;
             this.metroGridEmployes.UseStyleColors = true;
@@ -491,19 +452,51 @@
             // 
             // metroButtonSearch
             // 
-            this.metroButtonSearch.Location = new System.Drawing.Point(1179, 224);
+            this.metroButtonSearch.Location = new System.Drawing.Point(971, 192);
+            this.metroButtonSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.metroButtonSearch.Name = "metroButtonSearch";
-            this.metroButtonSearch.Size = new System.Drawing.Size(199, 23);
+            this.metroButtonSearch.Size = new System.Drawing.Size(149, 19);
             this.metroButtonSearch.TabIndex = 27;
             this.metroButtonSearch.Text = "Keresés";
             this.metroButtonSearch.UseSelectable = true;
             this.metroButtonSearch.Click += new System.EventHandler(this.metroButtonSearch_Click);
             // 
+            // metroTextBoxAddress
+            // 
+            // 
+            // 
+            // 
+            this.metroTextBoxAddress.CustomButton.Image = null;
+            this.metroTextBoxAddress.CustomButton.Location = new System.Drawing.Point(180, 1);
+            this.metroTextBoxAddress.CustomButton.Name = "";
+            this.metroTextBoxAddress.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.metroTextBoxAddress.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroTextBoxAddress.CustomButton.TabIndex = 1;
+            this.metroTextBoxAddress.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.metroTextBoxAddress.CustomButton.UseSelectable = true;
+            this.metroTextBoxAddress.CustomButton.Visible = false;
+            this.metroTextBoxAddress.Lines = new string[0];
+            this.metroTextBoxAddress.Location = new System.Drawing.Point(550, 153);
+            this.metroTextBoxAddress.MaxLength = 32767;
+            this.metroTextBoxAddress.Name = "metroTextBoxAddress";
+            this.metroTextBoxAddress.PasswordChar = '\0';
+            this.metroTextBoxAddress.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.metroTextBoxAddress.SelectedText = "";
+            this.metroTextBoxAddress.SelectionLength = 0;
+            this.metroTextBoxAddress.SelectionStart = 0;
+            this.metroTextBoxAddress.ShortcutsEnabled = true;
+            this.metroTextBoxAddress.Size = new System.Drawing.Size(202, 23);
+            this.metroTextBoxAddress.TabIndex = 28;
+            this.metroTextBoxAddress.UseSelectable = true;
+            this.metroTextBoxAddress.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.metroTextBoxAddress.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
             // WorkersRegistration
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1576, 698);
+            this.ClientSize = new System.Drawing.Size(1182, 567);
+            this.Controls.Add(this.metroTextBoxAddress);
             this.Controls.Add(this.metroButtonSearch);
             this.Controls.Add(this.metroGridEmployes);
             this.Controls.Add(this.metroTextBoxEPassword);
@@ -517,7 +510,6 @@
             this.Controls.Add(this.metroLabelEMaidenname);
             this.Controls.Add(this.metroLabelEName);
             this.Controls.Add(this.metroButtonAddWorker);
-            this.Controls.Add(this.metroComboBoxELocation);
             this.Controls.Add(this.metroLabelELocation);
             this.Controls.Add(this.metroTextBoxBPlace);
             this.Controls.Add(this.metroLabelBPlace);
@@ -527,9 +519,7 @@
             this.Controls.Add(this.metroTextBoxEID);
             this.Controls.Add(this.metroComboBoxEjobtype);
             this.Controls.Add(this.metroLabelUserId);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "WorkersRegistration";
-            this.Padding = new System.Windows.Forms.Padding(27, 74, 27, 25);
             this.Style = MetroFramework.MetroColorStyle.Red;
             this.Text = "Dologozó regisztrálása:";
             this.Load += new System.EventHandler(this.WorkersRegistration_Load);
@@ -548,7 +538,6 @@
         private MetroFramework.Controls.MetroLabel metroLabelEDate;
         private MetroFramework.Controls.MetroTextBox metroTextBoxEBirth;
         private MetroFramework.Controls.MetroLabel metroLabelELocation;
-        private MetroFramework.Controls.MetroComboBox metroComboBoxELocation;
         private MetroFramework.Controls.MetroButton metroButtonAddWorker;
         private MetroFramework.Controls.MetroTextBox metroTextBoxBPlace;
         private MetroFramework.Controls.MetroLabel metroLabelBPlace;
@@ -564,5 +553,6 @@
         private MetroFramework.Controls.MetroTextBox metroTextBoxEPassword;
         private MetroFramework.Controls.MetroGrid metroGridEmployes;
         private MetroFramework.Controls.MetroButton metroButtonSearch;
+        private MetroFramework.Controls.MetroTextBox metroTextBoxAddress;
     }
 }
