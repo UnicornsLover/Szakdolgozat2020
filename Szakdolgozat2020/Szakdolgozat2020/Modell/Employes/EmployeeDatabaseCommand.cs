@@ -55,7 +55,7 @@ namespace Szakdolgozat2020.Modell.Employes
                 + getEuname()
                 + "', `epassword` = '"
                 + getEpasword()
-                + "WHERE `employes_login`.`ID` = "
+                + "' WHERE `employes_login`.`ID` = "
                 + id + ";";
         }
         public string getAllRecordCommand()

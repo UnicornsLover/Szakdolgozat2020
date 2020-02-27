@@ -91,7 +91,7 @@ namespace Szakdolgozat2020.Repository.Employes
             }
         }
 
-        public void updateEmployeesFromDatabase(int id, Employe modified)
+        public void updateEmployeeInDatabase(int id, Employe modified)
         {
             MySqlConnection connection = new MySqlConnection(connectionString);
             try
