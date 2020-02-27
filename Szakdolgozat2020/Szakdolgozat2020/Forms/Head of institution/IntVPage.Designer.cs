@@ -74,9 +74,12 @@
             this.metroButtonLogOut.Location = new System.Drawing.Point(647, 404);
             this.metroButtonLogOut.Name = "metroButtonLogOut";
             this.metroButtonLogOut.Size = new System.Drawing.Size(117, 23);
+            this.metroButtonLogOut.Style = MetroFramework.MetroColorStyle.Red;
             this.metroButtonLogOut.TabIndex = 5;
             this.metroButtonLogOut.Text = "Kijelentkezés";
+            this.metroButtonLogOut.UseCustomBackColor = true;
             this.metroButtonLogOut.UseSelectable = true;
+            this.metroButtonLogOut.UseStyleColors = true;
             this.metroButtonLogOut.Click += new System.EventHandler(this.metroButtonLogOut_Click);
             // 
             // IntVPage
