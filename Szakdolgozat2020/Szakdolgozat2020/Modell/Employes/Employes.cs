@@ -37,14 +37,14 @@ namespace Szakdolgozat2020.Modell.Employes
             this.eID = eID;
             this.ename = ename;
             this.emaidenname = emaidenname;
-            if (esex == "férfi")
+            if (esex == "False")
             {
-                esex = "0";
+                esex = "férfi";
                 this.esex = esex;
             }
-            else if(esex == "nő")
+            else if(esex == "True")
             {
-                esex = "1";
+                esex = "nő";
                 this.esex = esex;
             }
             this.allbirth = allbirth;
