@@ -43,19 +43,6 @@ namespace Szakdolgozat2020.Repository.Employes
                     if (goodResult)
                     {
                         string epassword = dr["epassword"].ToString();
-                        //NEM kezelése
-                        /*switch (esex)
-                        {
-                            case "False":
-                                esex = "férfi";
-                                break;
-                            case "True":
-                                esex = "nő";
-                                break;
-                            default:
-                                esex = "nincs adat";
-                                break;
-                        }*/
                         Debug.WriteLine(esex);
                         Employe emp = new Employe(id,ename,emaidenname,esex,ebirth,ebirthplace,ejob,elocation,euname,epassword);
                         employes.Add(emp);

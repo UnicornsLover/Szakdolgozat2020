@@ -33,6 +33,7 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
             //Dlgozók DataGridView-nak a forrása a employes_login adattábla
             metroGridEmployes.DataSource = null;
             metroGridEmployes.DataSource = employesDT;
+            
         }
 
         public void setEmployeDataGridView()
@@ -48,12 +49,14 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
             employesDT.Columns[8].ColumnName = "Felhasználó név:";
             employesDT.Columns[9].ColumnName = "Jelszó:";
 
+
             metroGridEmployes.SelectionMode =
                 DataGridViewSelectionMode.FullRowSelect;
             metroGridEmployes.ReadOnly = true;
             metroGridEmployes.AllowUserToDeleteRows = false;
             metroGridEmployes.AllowUserToAddRows = false;
             metroGridEmployes.MultiSelect = false;
+            metroGridEmployes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
 
         private void WorkersRegistration_Load(object sender, EventArgs e)
@@ -244,6 +247,22 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
             return password;
         }
 
+        public string insertEsex(string esex)
+        {
+            if (esex == "férfi")
+            {
+                esex = "False";
+            }
+            else if (esex == "nő")
+            {
+                esex = "True";
+            }
+            else
+            {
+                esex = "nincs adat";
+            }
+            return esex;
+        }
         /// <summary>
         /// Dolgozó hozzáadása adatbázidhoz, listához, DatagridView frissítése
         /// </summary>
@@ -258,11 +277,11 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
                 id,
                 metroTextBoxEname.Text,
                 metroTextBoxEMaidname.Text,
-                metroComboBoxESex.Text,
+                insertEsex(metroComboBoxESex.Text),
                 metroDateTimeEBirth.Text,
                 metroTextBoxBPlace.Text,
-                metroTextBoxAddress.Text,
                 metroComboBoxEjobtype.Text,
+                metroTextBoxAddress.Text,
                 getRegUserName(),
                 getRegUserPassword()
                 );

@@ -47,7 +47,11 @@ namespace Szakdolgozat2020.Modell.Employes
                 esex = "nő";
                 this.esex = esex;
             }
-            this.allbirth = allbirth;
+            if (allbirth.Length > 1)
+            {
+                allbirth = allbirth.Substring(0, 13);
+                this.allbirth = allbirth;
+            }
             this.ebirthplace = ebirthplace;
             this.ejob = ejob;
             this.elocation = elocation;
@@ -56,7 +60,7 @@ namespace Szakdolgozat2020.Modell.Employes
         }
 
         /// <summary>
-        /// 
+        /// A dolgozó módosítása
         /// </summary>
         /// <param name="modified">Módosított dolgozó frissítés a List-hez</param>
         public void updateL(Employe modified)
