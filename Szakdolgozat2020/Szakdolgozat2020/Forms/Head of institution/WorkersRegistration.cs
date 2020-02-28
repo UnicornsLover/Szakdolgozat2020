@@ -214,24 +214,43 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
         }
 
         /// <summary>
-        /// Dolgozó hozzáadása adatbázidhoz, listához, DatagridView frissítése
+        /// Beállítja a felhasználó nevét a frissen felvitt dolgozónak
         /// </summary>
-        private void metroButtonAddWorker_Click(object sender, EventArgs e)
+        /// <returns>Felhasználónév</returns>
+        public string getRegUserName()
         {
-            //Felhasználó név készítés a név alapján
             string fname = metroTextBoxEname.Text;
-            char[] betuk=new char[10];
+            char[] betuk = new char[10];
 
-            string name="";
-            for (int i = 0; i < 6; i++)
+            string name = "";
+            for (int i = 0; i < 7; i++)
             {
                 if (fname[i] != ' ')
                 {
 
                     name += Char.ToLower(fname[i]);
                 }
-
             }
+            return name;
+        }
+
+        /// <summary>
+        /// Beállyítja az alapértelmezett jelszót a frissen regisztrált dolgozónak
+        /// </summary>
+        /// <returns> Alapértelmezett jelszó</returns>
+        public string getRegUserPassword()
+        {
+            string password = "abc123";
+            return password;
+        }
+
+        /// <summary>
+        /// Dolgozó hozzáadása adatbázidhoz, listához, DatagridView frissítése
+        /// </summary>
+        private void metroButtonAddWorker_Click(object sender, EventArgs e)
+        {
+            //Felhasználó név készítés a név alapján
+            
 
             int id = repo.getnextEmployesId();
 
@@ -244,8 +263,8 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
                 metroTextBoxBPlace.Text,
                 metroTextBoxAddress.Text,
                 metroComboBoxEjobtype.Text,
-                name,
-                metroTextBoxEPassword.Text
+                getRegUserName(),
+                getRegUserPassword()
                 );
 
             //Hozzáadás a listához
