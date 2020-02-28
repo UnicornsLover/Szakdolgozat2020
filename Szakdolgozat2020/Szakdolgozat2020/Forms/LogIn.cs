@@ -64,6 +64,11 @@ namespace Szakdolgozat2020
                         labelError.Text += hiba;
                         break;
                 }
+
+                /*switch (dr["epassword"].ToString())
+                {
+                    case "abc123":
+                }*/
             }
             else
             {
