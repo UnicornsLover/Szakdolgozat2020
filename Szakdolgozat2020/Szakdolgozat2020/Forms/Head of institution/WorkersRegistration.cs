@@ -218,13 +218,19 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
         /// </summary>
         private void metroButtonAddWorker_Click(object sender, EventArgs e)
         {
-            //Felhasználó név készítés
-            string fname = metroTextBoxEUserName.Text;
-            string[] words = fname.Split(' ');
-            string onewordfname = "";
-            foreach (string word in words)
+            //Felhasználó név készítés a név alapján
+            string fname = metroTextBoxEname.Text;
+            char[] betuk=new char[10];
+
+            string name="";
+            for (int i = 0; i < 6; i++)
             {
-                onewordfname += word;
+                if (fname[i] != ' ')
+                {
+
+                    name += Char.ToLower(fname[i]);
+                }
+
             }
 
             int id = repo.getnextEmployesId();
@@ -238,7 +244,7 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
                 metroTextBoxBPlace.Text,
                 metroTextBoxAddress.Text,
                 metroComboBoxEjobtype.Text,
-                metroTextBoxEUserName.Text,
+                name,
                 metroTextBoxEPassword.Text
                 );
 
