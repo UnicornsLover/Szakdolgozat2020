@@ -49,6 +49,34 @@ namespace Szakdolgozat2020.Modell.Employes
             }
             this.allbirth = allbirth;
             this.ebirthplace = ebirthplace;
+            switch (ejob)
+            {
+                case "boss":
+                    ejob = "Főnök";
+                    this.ejob = ejob;
+                    break;
+                case "nevelo":
+                    ejob = "Nevelő";
+                    this.ejob = ejob;
+                    break;
+                case "intugyintezo":
+                    ejob = "Ügyintéző";
+                    this.ejob = ejob;
+                    break;
+                case "pszichologus":
+                    ejob = "Pszichológus";
+                    this.ejob = ejob;
+                    break;
+                case "intvezeto":
+                    ejob = "Intézményvezető";
+                    this.ejob = ejob;
+                    break;
+
+                default:
+                    ejob = "nincs adat";
+                    this.ejob = ejob;
+                    break;
+            }
             this.ejob = ejob;
             this.elocation = elocation;
             this.euname = euname;
