@@ -47,11 +47,7 @@ namespace Szakdolgozat2020.Modell.Employes
                 esex = "nő";
                 this.esex = esex;
             }
-            if (allbirth.Length > 1)
-            {
-                allbirth = allbirth.Substring(0, 13);
-                this.allbirth = allbirth;
-            }
+            this.allbirth = allbirth;
             this.ebirthplace = ebirthplace;
             this.ejob = ejob;
             this.elocation = elocation;

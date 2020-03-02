@@ -226,7 +226,7 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
             char[] betuk = new char[10];
 
             string name = "";
-            for (int i = 0; i < 7; i++)
+            for (int i = 0; i < 5; i++)
             {
                 if (fname[i] != ' ')
                 {
@@ -263,18 +263,6 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
             }
             return esex;
         }
-        public string getDate(string asd)
-        {
-            switch (metroDateTimeEBirth.Text)
-            {
-                case "asd":
-                    break;
-                default:
-                    break;
-            }
-            return asd;
-        }
-
         /// <summary>
         /// Dolgozó hozzáadása adatbázidhoz, listához, DatagridView frissítése
         /// </summary>
@@ -327,7 +315,7 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
 
         private void metroDateTimeEBirth_ValueChanged(object sender, EventArgs e)
         {
-            metroDateTimeEBirth.CustomFormat = "dd MM yyyy";
+            //metroDateTimeEBirth.CustomFormat = "dd MM yyyy";
         }
     }
 }
