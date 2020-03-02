@@ -263,6 +263,18 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
             }
             return esex;
         }
+        public string getDate(string asd)
+        {
+            switch (metroDateTimeEBirth.Text)
+            {
+                case "asd":
+                    break;
+                default:
+                    break;
+            }
+            return asd;
+        }
+
         /// <summary>
         /// Dolgozó hozzáadása adatbázidhoz, listához, DatagridView frissítése
         /// </summary>
@@ -312,6 +324,10 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
             //DataGridView frissítése
             updateDataInDataGriedViewt();
         }
-        
+
+        private void metroDateTimeEBirth_ValueChanged(object sender, EventArgs e)
+        {
+            metroDateTimeEBirth.CustomFormat = "dd MM yyyy";
+        }
     }
 }
