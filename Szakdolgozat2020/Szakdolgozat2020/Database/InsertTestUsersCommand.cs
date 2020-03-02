@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Szakdolgozat2020.Modell.Employes;
 
 namespace Szakdolgozat2020.Database
 {
@@ -26,7 +27,7 @@ namespace Szakdolgozat2020.Database
                     + "(3, 'Zuhany Rózsa', 'Zuhany Rózsa', 1, '1963-11-08', 'Zalakaros', 'intvezeto', 'Lajosmizse, Alma körút 456.', 'zuhroz', 'intv1'),"
                     + "(4, 'Fejet Lenke ', 'Fejet Lenke ', 1, '1977-02-21', 'Fejes', 'intugyintezo', 'Szeged, Rózsa utca 112.', 'fejlen', 'intu1'),"
                     + "(5, 'Major Anna ', 'Kiss Anna ', 1, '1972-09-12', 'Fűszerpor', 'pszichologus', 'Tókió, Humululu Street 43.', 'majann', 'lelek1'),"
-                    + "(6, 'Szántó tamás', '-', 1, '1998-06-10', 'Szeged', 'pszichologus', 'Vásárhely, Csillag tér 1/a', 'szantam', 'asd123'),"
+                    + "(6, 'Szántó Tamás', '-', 1, '1998-06-10', 'Szeged', 'pszichologus', 'Vásárhely, Csillag tér 1/a', 'szantam', 'abc123'),"
                     + "(7, 'Rózsa István', '-', 0, '1998-12-21', 'Szeged', 'intvezeto', 'Szeged, Alajos utca 32.', 'rozist', 'qwe123'),"
                     + "(8, 'Horváth Gellért', '-', 0, '1995-02-12', 'Kalocsa', 'nevelo', 'Kalocsa, Himzes út 54.', 'horgel', 'yxc123'),"
                     + "(9, 'Bálint Sára', 'Bálint Sára', 1, '1995-04-22', 'Székesfehérvár', 'nevelo', 'Szeged, Anya utca 13.', 'balsar', 'tzu123'),"
@@ -253,5 +254,21 @@ namespace Szakdolgozat2020.Database
             }
         }
 
+        public void changePasswordFirstLogIn(string username, string newPassword)
+        {
+            try
+            {
+                MySqlConnection connection = new MySqlConnection(connectionString);
+                connection.Open();
+                string query = "UPDATE `employes_login` SET `epassword` = '"+newPassword+"' WHERE `employes_login`.`ename` ="+username+";";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
+        }
     }
 }

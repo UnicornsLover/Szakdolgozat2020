@@ -19,6 +19,7 @@ namespace Szakdolgozat2020
     public partial class LogIn : MetroFramework.Forms.MetroForm
     {
         public static string fnameLoged;
+        public static string userId;
         private readonly string connectionString;
         Connection dc = new Connection();
         public LogIn()
@@ -42,33 +43,38 @@ namespace Szakdolgozat2020
             if (dr.Read())
             {
                 this.Hide();
-                switch (dr["ejob"].ToString())
+                if (dr["epassword"].ToString() == "abc123")
                 {
-                    case "boss":
-                        fnameLoged = dr["ename"].ToString();
-                        Boss f = new Boss();
-                        f.Show();
-                        break;
-                    case "nevelo":
-                        fnameLoged = dr["ename"].ToString();
-                        Nevelo f2 = new Nevelo();
-                        f2.Show();
-                        break;
-                    case "intvezeto":
-                        fnameLoged = dr["ename"].ToString();
-                        IntVPage ivp = new IntVPage();
-                        ivp.Show();
-                        break;
-                    default:
-                        hiba += "Nem rendelkezik státusszal!";
-                        labelError.Text += hiba;
-                        break;
+                    fnameLoged = dr["ename"].ToString();
+                    userId = dr["ID"].ToString();
+                    ChangePassword cp = new ChangePassword();
+                    cp.Show();
                 }
-
-                /*switch (dr["epassword"].ToString())
+                else 
                 {
-                    case "abc123":
-                }*/
+                    switch (dr["ejob"].ToString())
+                    {
+                        case "boss":
+                            fnameLoged = dr["ename"].ToString();
+                            Boss f = new Boss();
+                            f.Show();
+                            break;
+                        case "nevelo":
+                            fnameLoged = dr["ename"].ToString();
+                            Nevelo f2 = new Nevelo();
+                            f2.Show();
+                            break;
+                        case "intvezeto":
+                            fnameLoged = dr["ename"].ToString();
+                            IntVPage ivp = new IntVPage();
+                            ivp.Show();
+                            break;
+                        default:
+                            hiba += "Nem rendelkezik státusszal!";
+                            labelError.Text += hiba;
+                            break;
+                    }
+                }
             }
             else
             {

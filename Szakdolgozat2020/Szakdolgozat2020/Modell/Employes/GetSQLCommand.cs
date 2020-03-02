@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Szakdolgozat2020.Modell.Employes
 {
-    partial class Employe
+    public partial class Employe
     {
         public static string getSQLCommandGetAllRecord()
         {

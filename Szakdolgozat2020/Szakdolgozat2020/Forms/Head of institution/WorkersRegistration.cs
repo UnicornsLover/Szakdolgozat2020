@@ -128,7 +128,7 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
             }
             int selectedIndex = metroGridEmployes.SelectedRows[0].Index;
 
-            DialogResult dr = MetroMessageBox.Show(this, "\n\nBiztos szeretné törölni a dolgozót?", "Dolgozó törlése", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            DialogResult dr = MetroMessageBox.Show(this, "\n\nBiztos szeretné törölni a dolgozót?", "Dolgozó törlése", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
                 //Törlés a listából
