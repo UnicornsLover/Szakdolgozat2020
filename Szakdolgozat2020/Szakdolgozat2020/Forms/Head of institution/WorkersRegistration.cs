@@ -88,7 +88,7 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
 
             if (metroTextBoxEname.Text == "")
             {
-                MetroMessageBox.Show(this, "Keresés csak pontos név megadásával lehetséges, a cella kitötése kötelező! \nTöltse ki a \"Dolgozó neve:\" cellát!\nHa esetleg minden adatot újra szeretne látni egy szűrés után, csak is kizárólag írja be ezt a \" * \" (csillag) jelet a \"Dolgozó neve:\" cellábas!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MetroMessageBox.Show(this, "Keresés csak pontos név megadásával lehetséges (pl: Bálint István - nagy betű is fontos), a cella kitötése kötelező! \nTöltse ki a \"Neve:\" cellát!\nHa esetleg minden adatot újra szeretne látni egy szűrés után, csak is kizárólag írja be ezt a \" * \" (csillag) jelet a \"Dolgozó neve:\" cellábas!", "Hiba\n\n", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else if (metroTextBoxEname.Text == "*")
             {
@@ -96,9 +96,13 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
             }
             else
             {
-
                 string rowFilter = string.Format("[{0}] = '{1}'", "Név:", metroTextBoxEname.Text);
                 (metroGridEmployes.DataSource as DataTable).DefaultView.RowFilter = rowFilter;
+
+                if (metroGridEmployes.Rows.Count == 0)
+                {
+                    MetroMessageBox.Show(this, "Keresés csak pontos név megadásával lehetséges (pl: Bálint István - nagy betű is fontos), a cella kitötése kötelező! \nTöltse ki a \"Dolgozó neve:\" cellát!\nHa esetleg minden adatot újra szeretne látni egy szűrés után, csak is kizárólag írja be ezt a \" * \" (csillag) jelet a \"Dolgozó neve:\" cellábas!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
         }
 

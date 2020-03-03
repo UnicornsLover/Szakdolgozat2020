@@ -48,9 +48,8 @@
             this.metroLabelLoggedName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(113)))), ((int)(((byte)(69)))));
             this.metroLabelLoggedName.Location = new System.Drawing.Point(656, 24);
             this.metroLabelLoggedName.Name = "metroLabelLoggedName";
-            this.metroLabelLoggedName.Size = new System.Drawing.Size(49, 19);
+            this.metroLabelLoggedName.Size = new System.Drawing.Size(0, 0);
             this.metroLabelLoggedName.TabIndex = 7;
-            this.metroLabelLoggedName.Text = "ddddd";
             this.metroLabelLoggedName.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.metroLabelLoggedName.UseCustomForeColor = true;
             // 
