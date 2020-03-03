@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Szakdolgozat2020.Database;
+using Szakdolgozat2020.Forms.Head_of_institution;
 using Szakdolgozat2020.Modell.Employes;
 using Szakdolgozat2020.Repository.Employes;
 
@@ -18,6 +19,7 @@ namespace Szakdolgozat2020.Forms
     {
         RepositoryEmployes repo = new RepositoryEmployes();
         CreateCommand cc = new CreateCommand();
+        private DataTable employesDT = new DataTable();
         public ChangePassword()
         {
             InitializeComponent();
@@ -33,10 +35,29 @@ namespace Szakdolgozat2020.Forms
             int userId = Convert.ToInt32(LogIn.userId);
             if (metroTextBoxPassChange.Text == metroTextBoxPassConfirm.Text)
             {
-                //Adatbázisban
-                cc.changePasswordFirstLogIn(username, metroTextBoxPassChange.Text);
-                //Listában
-                //repo.updateChangePassword(userId);
+                try
+                {
+                    //Adatbázisban
+                    cc.changePasswordFirstLogIn(username, metroTextBoxPassChange.Text);
+                }
+                catch (Exception)
+                {
+
+                    throw new newPasswordException("Nem sikerült hozzáadni az adatbázishoz.");
+                }
+
+                try
+                {
+                    //Frissítéss a dtagridviewba
+                    WorkersRegistration wr = new WorkersRegistration();
+                    wr.updateDataInDataGriedViewt();
+                }
+                catch (Exception)
+                {
+
+                    throw new newPasswordException("Nem sikerült hozzáadni a listához.");
+                }
+                
             }
             else
             {

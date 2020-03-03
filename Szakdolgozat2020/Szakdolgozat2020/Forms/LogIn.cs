@@ -35,54 +35,62 @@ namespace Szakdolgozat2020
             string hiba = "";
             labelError.Font = new Font("Times New Roman", 12);
             MySqlConnection con = new MySqlConnection(connectionString);
-            con.Open();
-            string query = "SELECT * FROM employes_login WHERE euname = '" + metroTextBoxFName.Text + "' AND epassword = '" + metroTextBoxPass.Text + "'; ";
-            MySqlCommand cmd = new MySqlCommand(query, con);
-            MySqlDataReader dr = cmd.ExecuteReader();
-            //bool login = false;
-            if (dr.Read())
+            try
             {
-                this.Hide();
-                if (dr["epassword"].ToString() == "abc123")
+                con.Open();
+                string query = "SELECT * FROM employes_login WHERE euname = '" + metroTextBoxFName.Text + "' AND epassword = '" + metroTextBoxPass.Text + "'; ";
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                MySqlDataReader dr = cmd.ExecuteReader();
+                //bool login = false;
+                if (dr.Read())
                 {
-                    fnameLoged = dr["ename"].ToString();
-                    userId = dr["ID"].ToString();
-                    ChangePassword cp = new ChangePassword();
-                    cp.Show();
-                }
-                else 
-                {
-                    switch (dr["ejob"].ToString())
+                    this.Hide();
+                    if (dr["epassword"].ToString() == "abc123")
                     {
-                        case "boss":
-                            fnameLoged = dr["ename"].ToString();
-                            Boss f = new Boss();
-                            f.Show();
-                            break;
-                        case "nevelo":
-                            fnameLoged = dr["ename"].ToString();
-                            Nevelo f2 = new Nevelo();
-                            f2.Show();
-                            break;
-                        case "intvezeto":
-                            fnameLoged = dr["ename"].ToString();
-                            IntVPage ivp = new IntVPage();
-                            ivp.Show();
-                            break;
-                        default:
-                            hiba += "Nem rendelkezik státusszal!";
-                            labelError.Text += hiba;
-                            break;
+                        fnameLoged = dr["ename"].ToString();
+                        userId = dr["ID"].ToString();
+                        ChangePassword cp = new ChangePassword();
+                        cp.Show();
+                    }
+                    else
+                    {
+                        switch (dr["ejob"].ToString())
+                        {
+                            case "boss":
+                                fnameLoged = dr["ename"].ToString();
+                                Boss f = new Boss();
+                                f.Show();
+                                break;
+                            case "nevelo":
+                                fnameLoged = dr["ename"].ToString();
+                                Nevelo f2 = new Nevelo();
+                                f2.Show();
+                                break;
+                            case "intvezeto":
+                                fnameLoged = dr["ename"].ToString();
+                                IntVPage ivp = new IntVPage();
+                                ivp.Show();
+                                break;
+                            default:
+                                hiba += "Nem rendelkezik státusszal!";
+                                labelError.Text += hiba;
+                                break;
+                        }
                     }
                 }
-            }
-            else
-            {
-                labelError.Text = hiba;
-                MetroMessageBox.Show(this, "Hibás felhasználónév vagy jelszó,\n kérlek próbálokozz újból!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-            }
-            con.Close();
+                else
+                {
+                    labelError.Text = hiba;
+                    MetroMessageBox.Show(this, "Hibás felhasználónév vagy jelszó,\n kérlek próbálokozz újból!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                }
 
+                con.Close();
+
+            }
+            catch (Exception)
+            {
+                MetroMessageBox.Show(this, "\n\nHibát észleltünk! Az adatbázis nem érhető el. Kérem próbálja újra később!", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private void LogIn_Load(object sender, EventArgs e)

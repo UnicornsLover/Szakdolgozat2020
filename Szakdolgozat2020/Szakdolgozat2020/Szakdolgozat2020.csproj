@@ -108,6 +108,7 @@
     <Compile Include="Forms\LogInScreen.Designer.cs">
       <DependentUpon>LogInScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\newPasswordexception.cs" />
     <Compile Include="Modell\Employes\EmployeeDatabaseCommand.cs" />
     <Compile Include="Modell\Employes\GetSQLCommand.cs" />
     <Compile Include="Modell\Employes\Employes.cs" />
@@ -172,6 +173,9 @@
     <Content Include="Icon\key.png" />
     <Content Include="Icon\liveincarelogo.png" />
     <Content Include="Icon\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

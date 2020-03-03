@@ -26,7 +26,7 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
             repo.setEmploye(rep.getEmployeesFromDatabase());
         }
 
-        private void updateDataInDataGriedViewt()
+        public void updateDataInDataGriedViewt()
         {
             //Adattáblát feltölti a repoba lévő dolgozók listából
             employesDT = repo.getEmployesListToDataTable();
