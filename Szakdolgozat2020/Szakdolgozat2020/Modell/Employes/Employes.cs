@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Szakdolgozat2020.Modell.Employes
@@ -34,6 +35,29 @@ namespace Szakdolgozat2020.Modell.Employes
         /// <param name="epassword">Jelszó</param>
         public Employe(int eID, string ename, string emaidenname, string esex, string allbirth, string ebirthplace, string ejob, string elocation, string euname, string epassword)
         {
+            //**********Valid**********
+            if (!isValidBirthPlace(ebirthplace))
+            {
+                throw new ModellEmployeNotValidBirthPlacesException("Nem megfelelő 'Születési hely' mező, kezdje nagy betűvel a város nevet. Kérem próbálja újra.");
+            }
+            if (!isValidLocation(elocation))
+            {
+                throw new ModellEmployeNotValidLocationException("Nem megfelelő 'Lakcím (lakcím kártya)' mező , kezdje nagy betűvel a város nevét, irányitó számot ne írjon, tartalmaznia kell a házszámot is. Kérem próbálja újra.");
+            }
+            if (!isValidName(ename))
+            {
+                throw new ModellEmployeNotValidNameException("Nem megfelelő 'Neve' mező, kezdje nagy betűvel a nevet és legalább 4 karakter hosszú legyen.");
+            }
+            if (!isValidSexAndJob(esex))
+            {
+                throw new ModellEmployeNotValidSexException("Nem megfelelő 'Neme' mező, kattintson a lefele mutató nyilra 'Neme' mezőnél és a legördülő menő segítségével válasza ki a nemét.");
+            }
+            if (!isValidSexAndJob(esex))
+            {
+                throw new ModellEmployeNotValidJobExeption("Nem megfelelő 'Betöltött munkakör' mező, kattintson a lefele mutató nyilra 'Betöltött munkakör' mezőnél és a legördülő menő segítségével válasza ki a betöltött munkakör fajtát.");
+            }
+
+            //**********Set******
             this.eID = eID;
             this.ename = ename;
             this.emaidenname = emaidenname;
@@ -49,34 +73,6 @@ namespace Szakdolgozat2020.Modell.Employes
             }
             this.allbirth = allbirth;
             this.ebirthplace = ebirthplace;
-            switch (ejob)
-            {
-                case "boss":
-                    ejob = "Főnök";
-                    this.ejob = ejob;
-                    break;
-                case "nevelo":
-                    ejob = "Nevelő";
-                    this.ejob = ejob;
-                    break;
-                case "intugyintezo":
-                    ejob = "Ügyintéző";
-                    this.ejob = ejob;
-                    break;
-                case "pszichologus":
-                    ejob = "Pszichológus";
-                    this.ejob = ejob;
-                    break;
-                case "intvezeto":
-                    ejob = "Intézményvezető";
-                    this.ejob = ejob;
-                    break;
-
-                default:
-                    ejob = "nincs adat";
-                    this.ejob = ejob;
-                    break;
-            }
             this.ejob = ejob;
             this.elocation = elocation;
             this.euname = euname;
@@ -198,6 +194,83 @@ namespace Szakdolgozat2020.Modell.Employes
         public string getEpasword()
         {
             return epassword;
+        }
+
+        //****************************************************Validation********************************************
+
+
+        public bool isValidBirthPlace(string name)
+        {
+            if (name == string.Empty)
+            {
+                return false;
+            }
+            if (!char.IsUpper(name.ElementAt(0)))
+            {
+                return false;
+            }
+            for (int i = 1; i < name.Length; i = i + 1)
+            {
+                if (!char.IsLetter(name.ElementAt(i)) && (!char.IsWhiteSpace(name.ElementAt(i))))
+                {
+                    return false;
+                } 
+            }
+                
+            return true;
+        }
+        public bool isValidLocation(string name)
+        {
+            if (name == string.Empty)
+            {
+                return false;
+            }
+            if (!char.IsUpper(name.ElementAt(0)))
+            {
+                return false;
+            }
+            if (name.Length <= 15)
+            {
+                return false;
+            }
+            if (name.Contains("([0-9])"))
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public bool isValidName(string name)
+        {
+            if (name == string.Empty)
+            {
+                return false;
+            }
+            if (!char.IsUpper(name.ElementAt(0)))
+            {
+                return false;
+            }
+            if (name.Length <= 4)
+            {
+                return false;
+            }
+            for (int i = 1; i < name.Length; i = i + 1)
+            {
+                if (!char.IsLetter(name.ElementAt(i)) && name.Contains("([0-9])"))
+                {
+                    return false;
+                }   
+            }
+            return true;
+        }
+
+        public bool isValidSexAndJob(string name)
+        {
+            if (name == string.Empty)
+            {
+                return false;
+            }
+            return true;
         }
     }
 }

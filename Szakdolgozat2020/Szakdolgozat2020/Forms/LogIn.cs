@@ -56,17 +56,17 @@ namespace Szakdolgozat2020
                     {
                         switch (dr["ejob"].ToString())
                         {
-                            case "boss":
+                            case "Rendszergazda":
                                 fnameLoged = dr["ename"].ToString();
                                 Boss f = new Boss();
                                 f.Show();
                                 break;
-                            case "nevelo":
+                            case "Nevelő":
                                 fnameLoged = dr["ename"].ToString();
                                 Nevelo f2 = new Nevelo();
                                 f2.Show();
                                 break;
-                            case "intvezeto":
+                            case "Intézményvezető":
                                 fnameLoged = dr["ename"].ToString();
                                 IntVPage ivp = new IntVPage();
                                 ivp.Show();

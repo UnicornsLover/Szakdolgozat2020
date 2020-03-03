@@ -112,6 +112,11 @@
     <Compile Include="Modell\Employes\EmployeeDatabaseCommand.cs" />
     <Compile Include="Modell\Employes\GetSQLCommand.cs" />
     <Compile Include="Modell\Employes\Employes.cs" />
+    <Compile Include="Modell\Employes\Employe Exception\ModellEmployeNotValidBirthPlacesException.cs" />
+    <Compile Include="Modell\Employes\Employe Exception\ModellEmployeNotValidLocationException.cs" />
+    <Compile Include="Modell\Employes\Employe Exception\ModellEmployeNotValidNameException.cs" />
+    <Compile Include="Modell\Employes\Employe Exception\ModellEmployeNotValidSexException.cs" />
+    <Compile Include="Modell\Employes\Employe Exception\ModellEmployeNotValidJobExeption.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\Employes\DatabaseCommands.cs" />

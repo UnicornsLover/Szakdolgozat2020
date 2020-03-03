@@ -179,7 +179,15 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
         /// </summary>
         private void metroButtonModify_Click(object sender, EventArgs e)
         {
-            Employe modified = new Employe(
+            errorProviderBPlace.Clear();
+            errorProviderJob.Clear();
+            errorProviderMaidenName.Clear();
+            errorProviderName.Clear();
+            errorProviderLocation.Clear();
+
+            try
+            {
+                Employe modified = new Employe(
                 Convert.ToInt32(metroTextBoxEID.Text),
                 metroTextBoxEname.Text,
                 metroTextBoxEMaidname.Text,
@@ -191,35 +199,63 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
                 metroTextBoxEUserName.Text,
                 metroTextBoxEPassword.Text
                 );
-            int id = Convert.ToInt32(metroTextBoxEID.Text);
+                int id = Convert.ToInt32(metroTextBoxEID.Text);
 
-            //Módosítás a listában
-            try
-            {
-                repo.updateEmployeeInList(id, modified);
+                //Módosítás a listában
+                try
+                {
+                    repo.updateEmployeeInList(id, modified);
+                }
+                catch (Exception ex)
+                {
+
+                    Debug.WriteLine("A dolgozó módosítása sikertelen volt a listában");
+                    MetroMessageBox.Show(this, "\n\nHibát észleltünk, a módosítása sikertelen volt az adatbázisból.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
+                //Módosítás az adatbázisban
+                try
+                {
+                    rep.updateEmployeeInDatabase(id, modified);
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine("A dolgozó módosítása sikertelen volt az adatbázisba");
+                    MetroMessageBox.Show(this, "\n\nHibát észleltünk, a módosítás sikertelen volt az adatbázisba.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
+                //Módosítás miatt DataGridView updatelése
+                updateDataInDataGriedViewt();
             }
-            catch (Exception ex)
+            catch (ModellEmployeNotValidBirthPlacesException mex)
+            {
+                errorProviderBPlace.SetError(metroTextBoxBPlace, mex.Message);
+            }
+            catch (ModellEmployeNotValidJobExeption mje)
+            {
+                errorProviderJob.SetError(metroComboBoxEjobtype, mje.Message);
+            }
+            catch (ModellEmployeNotValidLocationException mle)
+            {
+                errorProviderLocation.SetError(metroTextBoxAddress, mle.Message);
+            }
+            catch (ModellEmployeNotValidNameException mne)
+            {
+                errorProviderName.SetError(metroTextBoxEname, mne.Message);
+            }
+            catch (ModellEmployeNotValidSexException mse)
+            {
+                errorProviderSex.SetError(metroComboBoxESex, mse.Message);
+            }
+            catch (Exception)
             {
 
-                Debug.WriteLine("A dolgozó módosítása sikertelen volt a listában");
-                MetroMessageBox.Show(this, "\n\nHibát észleltünk, a módosítása sikertelen volt az adatbázisból.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                throw;
             }
-
-            //Módosítás az adatbázisban
-            try
-            {
-                rep.updateEmployeeInDatabase(id, modified);
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine("A dolgozó módosítása sikertelen volt az adatbázisba");
-                MetroMessageBox.Show(this, "\n\nHibát észleltünk, a módosítás sikertelen volt az adatbázisba.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-
-            //Módosítás miatt DataGridView updatelése
-            updateDataInDataGriedViewt();
+            
         }
 
+        //********************************************************Átalakítás a hozzáadáshoz**********************************************
         /// <summary>
         /// Beállítja a felhasználó nevét a frissen felvitt dolgozónak
         /// </summary>
@@ -267,59 +303,96 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
             }
             return esex;
         }
-        /// <summary>
-        /// Dolgozó hozzáadása adatbázidhoz, listához, DatagridView frissítése
-        /// </summary>
         private void metroButtonAddWorker_Click(object sender, EventArgs e)
         {
-            //Felhasználó név készítés a név alapján
+            errorProviderBPlace.Clear();
+            errorProviderJob.Clear();
+            errorProviderMaidenName.Clear();
+            errorProviderName.Clear();
+            errorProviderLocation.Clear();
+            try
+            {
+                int id = repo.getnextEmployesId();
+                Employe newEmployee = new Employe(
+                    id,
+                    metroTextBoxEname.Text,
+                    metroTextBoxEMaidname.Text,
+                    insertEsex(metroComboBoxESex.Text),
+                    metroDateTimeEBirth.Text,
+                    metroTextBoxBPlace.Text,
+                    metroComboBoxEjobtype.Text,
+                    metroTextBoxAddress.Text,
+                    getRegUserName(),
+                    getRegUserPassword()
+                    );
+
+                //Hozzáadás a listához
+                try
+                {
+                    repo.addEmployeeToList(newEmployee);
+                }
+                catch (Exception)
+                {
+
+                    Debug.WriteLine("A dolgozó felvétele sikertelen volt a listához");
+                    MetroMessageBox.Show(this, "\n\nHibát észleltünk, a felvétel sikertelen volt a listához.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
+                //Hozzáadás az adatbázishoz
+                try
+                {
+                    rep.insertEmployeeToDatabase(newEmployee);
+                }
+                catch (Exception)
+                {
+                    Debug.WriteLine("A dolgozó felvétele sikertelen volt az adatbázishoz");
+                    MetroMessageBox.Show(this, "\n\nHibát észleltünk, a felvétel sikertelen volt az adatbázishoz.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
+
+                //DataGridView frissítése
+                updateDataInDataGriedViewt();
+            }
+            catch (ModellEmployeNotValidBirthPlacesException mex)
+            {
+                errorProviderBPlace.SetError(metroTextBoxBPlace, mex.Message);
+            }
+            catch (ModellEmployeNotValidJobExeption mje)
+            {
+                errorProviderJob.SetError(metroComboBoxEjobtype, mje.Message);
+            }
+            catch (ModellEmployeNotValidLocationException mle)
+            {
+                errorProviderLocation.SetError(metroTextBoxAddress, mle.Message);
+            }
+            catch (ModellEmployeNotValidNameException mne)
+            {
+                errorProviderName.SetError(metroTextBoxEname, mne.Message);
+            }
+            catch (ModellEmployeNotValidSexException mse)
+            {
+                errorProviderSex.SetError(metroComboBoxESex, mse.Message);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
             
-
-            int id = repo.getnextEmployesId();
-
-            Employe newEmployee = new Employe(
-                id,
-                metroTextBoxEname.Text,
-                metroTextBoxEMaidname.Text,
-                insertEsex(metroComboBoxESex.Text),
-                metroDateTimeEBirth.Text,
-                metroTextBoxBPlace.Text,
-                metroComboBoxEjobtype.Text,
-                metroTextBoxAddress.Text,
-                getRegUserName(),
-                getRegUserPassword()
-                );
-
-            //Hozzáadás a listához
-            try
-            {
-                repo.addEmployeeToList(newEmployee);
-            }
-            catch (Exception)
-            {
-
-                Debug.WriteLine("A dolgozó felvétele sikertelen volt a listához");
-                MetroMessageBox.Show(this, "\n\nHibát észleltünk, a felvétel sikertelen volt a listához.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-
-            //Hozzáadás az adatbázishoz
-            try
-            {
-                rep.insertEmployeeToDatabase(newEmployee);
-            }
-            catch (Exception)
-            {
-                Debug.WriteLine("A dolgozó felvétele sikertelen volt az adatbázishoz");
-                MetroMessageBox.Show(this, "\n\nHibát észleltünk, a felvétel sikertelen volt az adatbázishoz.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-
-            //DataGridView frissítése
-            updateDataInDataGriedViewt();
         }
 
         private void metroDateTimeEBirth_ValueChanged(object sender, EventArgs e)
         {
-            //metroDateTimeEBirth.CustomFormat = "dd MM yyyy";
+            metroDateTimeEBirth.MaxDate = DateTime.Now;
+        }
+
+        private void metroButtonTheSame_Click(object sender, EventArgs e)
+        {
+            metroTextBoxEMaidname.Text = metroTextBoxEname.Text;
+        }
+
+        private void metroButtonNone_Click(object sender, EventArgs e)
+        {
+            metroTextBoxEMaidname.Text = "-";
         }
     }
 }
