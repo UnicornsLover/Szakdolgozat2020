@@ -52,7 +52,7 @@ namespace Szakdolgozat2020.Modell.Employes
             {
                 throw new ModellEmployeNotValidSexException("Nem megfelelő 'Neme' mező, kattintson a lefele mutató nyilra 'Neme' mezőnél és a legördülő menő segítségével válasza ki a nemét.");
             }
-            if (!isValidSexAndJob(esex))
+            if (!isValidSexAndJob(ejob))
             {
                 throw new ModellEmployeNotValidJobExeption("Nem megfelelő 'Betöltött munkakör' mező, kattintson a lefele mutató nyilra 'Betöltött munkakör' mezőnél és a legördülő menő segítségével válasza ki a betöltött munkakör fajtát.");
             }
@@ -215,8 +215,7 @@ namespace Szakdolgozat2020.Modell.Employes
                 {
                     return false;
                 } 
-            }
-                
+            } 
             return true;
         }
         public bool isValidLocation(string name)

@@ -262,17 +262,33 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
         /// <returns>Felhasználónév</returns>
         public string getRegUserName()
         {
-            string fname = metroTextBoxEname.Text;
-            char[] betuk = new char[10];
-
+            errorProviderName.Clear();
             string name = "";
-            for (int i = 0; i < 5; i++)
+            try
             {
-                if (fname[i] != ' ')
-                {
+                string fname = metroTextBoxEname.Text;
+                char[] betuk = new char[10];
 
-                    name += Char.ToLower(fname[i]);
+                if (fname == null)
+                {
+                    for (int i = 0; i < 5; i++)
+                    {
+                        if (fname[i] != ' ')
+                        {
+
+                            name += Char.ToLower(fname[i]);
+                        }
+                    }
                 }
+                else
+                {
+                    throw new ModellEmployeNotValidNameException("Töltse ki 'Neve' mezőt!");
+                }
+                
+            }
+            catch (ModellEmployeNotValidNameException mne)
+            {
+                errorProviderName.SetError(metroTextBoxEname, mne.Message);
             }
             return name;
         }
@@ -289,17 +305,33 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
 
         public string insertEsex(string esex)
         {
-            if (esex == "férfi")
+            try
             {
-                esex = "False";
+                if (esex == null)
+                {
+                    if (esex == "férfi")
+                    {
+                        esex = "False";
+                    }
+                    else if (esex == "nő")
+                    {
+                        esex = "True";
+                    }
+                    else
+                    {
+                        esex = "nincs adat";
+                    }
+                }
+                else
+                {
+                    throw new ModellEmployeNotValidSexException("Töltse ki 'Neme' mezőt!");
+                }
+                
             }
-            else if (esex == "nő")
+            catch (ModellEmployeNotValidSexException mse)
             {
-                esex = "True";
-            }
-            else
-            {
-                esex = "nincs adat";
+
+                errorProviderSex.SetError(metroComboBoxESex, mse.Message);
             }
             return esex;
         }
@@ -349,7 +381,6 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
                     MetroMessageBox.Show(this, "\n\nHibát észleltünk, a felvétel sikertelen volt az adatbázishoz.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
-
                 //DataGridView frissítése
                 updateDataInDataGriedViewt();
             }
@@ -372,10 +403,6 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
             catch (ModellEmployeNotValidSexException mse)
             {
                 errorProviderSex.SetError(metroComboBoxESex, mse.Message);
-            }
-            catch (Exception)
-            {
-                throw;
             }
             
         }
