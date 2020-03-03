@@ -30,9 +30,13 @@ namespace Szakdolgozat2020.Forms
         private void metroButtonChangePassword_Click(object sender, EventArgs e)
         {
             string username = LogIn.fnameLoged;
+            int userId = Convert.ToInt32(LogIn.userId);
             if (metroTextBoxPassChange.Text == metroTextBoxPassConfirm.Text)
             {
-                cc.changePasswordFirstLogIn(username, metroLabelPasswordConfig.Text);
+                //Adatbázisban
+                cc.changePasswordFirstLogIn(username, metroTextBoxPassChange.Text);
+                //Listában
+                //repo.updateChangePassword(userId);
             }
             else
             {

@@ -21,6 +21,18 @@ namespace Szakdolgozat2020.Repository.Employes
             return employees;
         }
 
+        public void updateChangePassword(int id)
+        {
+            Employe emp = employees.Find(x => x.getEID() == id);
+            if (emp != null)
+            {
+                emp.updateL2(emp);
+            }
+            else
+            {
+                throw new RepositoryExceptionCantMoodify("Nem lehet modósitani a listában!");
+            }
+        }
         /// <summary>
         /// Dolgozók neveit kigyűjti
         /// </summary>

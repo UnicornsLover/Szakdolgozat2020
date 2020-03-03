@@ -16,6 +16,7 @@ namespace Szakdolgozat2020.Database
         /// </summary>
         public void fillTestUsers()
         {
+            Connection cs = new Connection();
             MySqlConnection connection = new MySqlConnection(connectionString);
             try
             {
@@ -256,12 +257,17 @@ namespace Szakdolgozat2020.Database
 
         public void changePasswordFirstLogIn(string username, string newPassword)
         {
+            string connectionString = "SERVER=\"localhost\";DATABASE=\"liveincare\";UID=\"root\";PASSWORD=\"\";PORT=\"3306\";";
+            MySqlConnection connection = new MySqlConnection(connectionString);
             try
             {
-                MySqlConnection connection = new MySqlConnection(connectionString);
                 connection.Open();
-                string query = "UPDATE `employes_login` SET `epassword` = '"+newPassword+"' WHERE `employes_login`.`ename` ="+username+";";
+                string query = "UPDATE `employes_login` SET `epassword` = @epassword WHERE `employes_login`.`ename` = @ename";
                 MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@epassword", newPassword);
+                cmd.Parameters.AddWithValue("@ename", username);
+                cmd.ExecuteNonQuery();
+                connection.Close();
             }
             catch (Exception)
             {
