@@ -264,32 +264,25 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
         {
             errorProviderName.Clear();
             string name = "";
-            try
+            string fname = metroTextBoxEname.Text;
+            char[] betuk = new char[10];
+
+            if (fname == null)
             {
-                string fname = metroTextBoxEname.Text;
-                char[] betuk = new char[10];
-
-                if (fname == null)
+                for (int i = 0; i < 5; i++)
                 {
-                    for (int i = 0; i < 5; i++)
+                    if (fname[i] != ' ')
                     {
-                        if (fname[i] != ' ')
-                        {
 
-                            name += Char.ToLower(fname[i]);
-                        }
+                        name += Char.ToLower(fname[i]);
                     }
                 }
-                else
-                {
-                    throw new ModellEmployeNotValidNameException("Töltse ki 'Neve' mezőt!");
-                }
-                
             }
-            catch (ModellEmployeNotValidNameException mne)
+            else
             {
-                errorProviderName.SetError(metroTextBoxEname, mne.Message);
+                throw new ModellEmployeNotValidNameException("Töltse ki 'Neve' mezőt, megadása kötelező.");
             }
+
             return name;
         }
 
@@ -305,34 +298,26 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
 
         public string insertEsex(string esex)
         {
-            try
+            if (esex == null)
             {
-                if (esex == null)
+                if (esex == "férfi")
                 {
-                    if (esex == "férfi")
-                    {
-                        esex = "False";
-                    }
-                    else if (esex == "nő")
-                    {
-                        esex = "True";
-                    }
-                    else
-                    {
-                        esex = "nincs adat";
-                    }
+                    esex = "False";
+                }
+                else if (esex == "nő")
+                {
+                    esex = "True";
                 }
                 else
                 {
-                    throw new ModellEmployeNotValidSexException("Töltse ki 'Neme' mezőt!");
+                    esex = "nincs adat";
                 }
-                
             }
-            catch (ModellEmployeNotValidSexException mse)
+            else
             {
-
-                errorProviderSex.SetError(metroComboBoxESex, mse.Message);
+                throw new ModellEmployeNotValidSexException("Töltse ki 'Neme' mezőt!");
             }
+
             return esex;
         }
         private void metroButtonAddWorker_Click(object sender, EventArgs e)
