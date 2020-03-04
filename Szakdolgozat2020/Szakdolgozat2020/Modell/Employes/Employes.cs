@@ -36,27 +36,30 @@ namespace Szakdolgozat2020.Modell.Employes
         public Employe(int eID, string ename, string emaidenname, string esex, string allbirth, string ebirthplace, string ejob, string elocation, string euname, string epassword)
         {
             //**********Valid**********
+            if (!isValidName(ename))
+            {
+                throw new ModellEmployeNotValidNameException("Nem megfelelő 'Neve' mező, kezdje nagy betűvel a nevet és legalább 4 karakter hosszú legyen.");
+            }
+            if (!isValidMaidenName(emaidenname))
+            {
+                throw new ModellEmployeNotValidMaidenNameException("Nem megfelelő 'Lánykori neve' mező, kezdje nagy betűvel a nevet. U = ugyan az, X = nincs változás a nevében");
+            }
+            if (!isValidSex(esex))
+            {
+                throw new ModellEmployeNotValidSexException("Nem megfelelő 'Neme' mező, kattintson a lefele mutató nyilra 'Neme' mezőnél és a legördülő menő segítségével válasza ki a nemét.");
+            }
             if (!isValidBirthPlace(ebirthplace))
             {
                 throw new ModellEmployeNotValidBirthPlacesException("Nem megfelelő 'Születési hely' mező, kezdje nagy betűvel a város nevet. Kérem próbálja újra.");
+            }
+            if (!isValidJob(ejob))
+            {
+                throw new ModellEmployeNotValidJobExeption("Nem megfelelő 'Betöltött munkakör' mező, kattintson a lefele mutató nyilra 'Betöltött munkakör' mezőnél és a legördülő menő segítségével válasza ki a betöltött munkakör fajtát.");
             }
             if (!isValidLocation(elocation))
             {
                 throw new ModellEmployeNotValidLocationException("Nem megfelelő 'Lakcím (lakcím kártya)' mező , kezdje nagy betűvel a város nevét, irányitó számot ne írjon, tartalmaznia kell a házszámot is. Kérem próbálja újra.");
             }
-            if (!isValidName(ename))
-            {
-                throw new ModellEmployeNotValidNameException("Nem megfelelő 'Neve' mező, kezdje nagy betűvel a nevet és legalább 4 karakter hosszú legyen.");
-            }
-            if (!isValidSexAndJob(esex))
-            {
-                throw new ModellEmployeNotValidSexException("Nem megfelelő 'Neme' mező, kattintson a lefele mutató nyilra 'Neme' mezőnél és a legördülő menő segítségével válasza ki a nemét.");
-            }
-            if (!isValidSexAndJob(ejob))
-            {
-                throw new ModellEmployeNotValidJobExeption("Nem megfelelő 'Betöltött munkakör' mező, kattintson a lefele mutató nyilra 'Betöltött munkakör' mezőnél és a legördülő menő segítségével válasza ki a betöltött munkakör fajtát.");
-            }
-
             //**********Set******
             this.eID = eID;
             this.ename = ename;
@@ -262,10 +265,33 @@ namespace Szakdolgozat2020.Modell.Employes
             }
             return true;
         }
-
-        public bool isValidSexAndJob(string name)
+        public bool isValidMaidenName(string name)
         {
             if (name == string.Empty)
+            {
+                return false;
+            }
+            for (int i = 1; i < name.Length; i = i + 1)
+            {
+                if (name.Contains("([0-9])"))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        public bool isValidJob(string name)
+        {
+            if (name == string.Empty)
+            {
+                return false;
+            }
+            return true;
+        }
+        public bool isValidSex(string name)
+        {
+            if (name == "")
             {
                 return false;
             }

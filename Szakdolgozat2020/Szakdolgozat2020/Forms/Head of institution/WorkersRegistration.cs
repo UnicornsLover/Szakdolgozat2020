@@ -267,7 +267,7 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
             string fname = metroTextBoxEname.Text;
             char[] betuk = new char[10];
 
-            if (fname == null)
+            if (fname != "")
             {
                 for (int i = 0; i < 5; i++)
                 {
@@ -280,7 +280,7 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
             }
             else
             {
-                throw new ModellEmployeNotValidNameException("Töltse ki 'Neve' mezőt, megadása kötelező.");
+                throw new ModellEmployeNotValidNameException("Kérem töltse ki 'Neve' mezőt, a megadása kötelező.");
             }
 
             return name;
@@ -298,7 +298,7 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
 
         public string insertEsex(string esex)
         {
-            if (esex == null)
+            if (esex != "")
             {
                 if (esex == "férfi")
                 {
@@ -315,7 +315,7 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
             }
             else
             {
-                throw new ModellEmployeNotValidSexException("Töltse ki 'Neme' mezőt!");
+                throw new ModellEmployeNotValidSexException("Töltse ki 'Neme' mezőt, a megadása kötelező.");
             }
 
             return esex;

@@ -53,7 +53,7 @@ namespace Szakdolgozat2020.Repository.Employes
             {
                 connection.Close();
                 Debug.WriteLine(ex.Message+"Dolgozók adatainak beolvasása************************************************************");
-                throw new RepositoryReadyDataFromEmployes_LoginException("Dolgozók adatainak beolvasása sikertlen.");
+                throw new RepositoryReadyDataFromEmployes_LoginException("Dolgozók adatainak beolvasása sikertlen, nem elérthető az adatbázis.");
             }
             return employes;
         }

@@ -115,6 +115,7 @@
     <Compile Include="Modell\Employes\ModellEmployeNotValidBirthPlacesException.cs" />
     <Compile Include="Modell\Employes\ModellEmployeNotValidJobExeption.cs" />
     <Compile Include="Modell\Employes\ModellEmployeNotValidLocationException.cs" />
+    <Compile Include="Modell\Employes\ModellEmployeNotValidMaidenNameException.cs" />
     <Compile Include="Modell\Employes\ModellEmployeNotValidNameException.cs" />
     <Compile Include="Modell\Employes\ModellEmployeNotValidSexException.cs" />
     <Compile Include="Program.cs" />
