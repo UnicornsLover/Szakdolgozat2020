@@ -184,6 +184,7 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
             errorProviderMaidenName.Clear();
             errorProviderName.Clear();
             errorProviderLocation.Clear();
+            errorProviderSex.Clear();
 
             try
             {
@@ -296,32 +297,9 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
             return password;
         }
 
-        public string insertEsex(string esex)
-        {
-            if (esex != "")
-            {
-                if (esex == "férfi")
-                {
-                    esex = "False";
-                }
-                else if (esex == "nő")
-                {
-                    esex = "True";
-                }
-                else
-                {
-                    esex = "nincs adat";
-                }
-            }
-            else
-            {
-                throw new ModellEmployeNotValidSexException("Töltse ki 'Neme' mezőt, a megadása kötelező.");
-            }
-
-            return esex;
-        }
         private void metroButtonAddWorker_Click(object sender, EventArgs e)
         {
+            
             errorProviderBPlace.Clear();
             errorProviderJob.Clear();
             errorProviderMaidenName.Clear();
@@ -329,19 +307,37 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
             errorProviderLocation.Clear();
             try
             {
+                if (metroComboBoxESex.SelectedItem.ToString() != "")
+                {
+                    if (metroComboBoxESex.SelectedItem.ToString() == "férfi")
+                    {
+                        metroComboBoxESex.Text = "False";
+                    }
+                    else if (metroComboBoxESex.SelectedItem.ToString() == "nő")
+                    {
+                        metroComboBoxESex.Text = "True";
+                    }
+                    else
+                    {
+                        metroComboBoxESex.Text = "nincs adat";
+                    }
+                }
+
                 int id = repo.getnextEmployesId();
                 Employe newEmployee = new Employe(
                     id,
                     metroTextBoxEname.Text,
                     metroTextBoxEMaidname.Text,
-                    insertEsex(metroComboBoxESex.Text),
+                    metroComboBoxESex.Text,
                     metroDateTimeEBirth.Text,
                     metroTextBoxBPlace.Text,
                     metroComboBoxEjobtype.Text,
                     metroTextBoxAddress.Text,
                     getRegUserName(),
                     getRegUserPassword()
-                    );
+                   );
+
+                
 
                 //Hozzáadás a listához
                 try
@@ -388,6 +384,10 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
             catch (ModellEmployeNotValidSexException mse)
             {
                 errorProviderSex.SetError(metroComboBoxESex, mse.Message);
+            }
+            catch (ModellEmployeNotValidMaidenNameException mme)
+            {
+                errorProviderMaidenName.SetError(metroButtonNone, mme.Message);
             }
             
         }

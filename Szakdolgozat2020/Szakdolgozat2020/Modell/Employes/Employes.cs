@@ -52,13 +52,13 @@ namespace Szakdolgozat2020.Modell.Employes
             {
                 throw new ModellEmployeNotValidBirthPlacesException("Nem megfelelő 'Születési hely' mező, kezdje nagy betűvel a város nevet. Kérem próbálja újra.");
             }
-            if (!isValidJob(ejob))
-            {
-                throw new ModellEmployeNotValidJobExeption("Nem megfelelő 'Betöltött munkakör' mező, kattintson a lefele mutató nyilra 'Betöltött munkakör' mezőnél és a legördülő menő segítségével válasza ki a betöltött munkakör fajtát.");
-            }
             if (!isValidLocation(elocation))
             {
                 throw new ModellEmployeNotValidLocationException("Nem megfelelő 'Lakcím (lakcím kártya)' mező , kezdje nagy betűvel a város nevét, irányitó számot ne írjon, tartalmaznia kell a házszámot is. Kérem próbálja újra.");
+            }
+            if (!isValidJob(ejob))
+            {
+                throw new ModellEmployeNotValidJobExeption("Nem megfelelő 'Betöltött munkakör' mező, kattintson a lefele mutató nyilra 'Betöltött munkakör' mezőnél és a legördülő menő segítségével válasza ki a betöltött munkakör fajtát.");
             }
             //**********Set******
             this.eID = eID;
@@ -231,7 +231,7 @@ namespace Szakdolgozat2020.Modell.Employes
             {
                 return false;
             }
-            if (name.Length <= 15)
+            if (name.Length <= 10)
             {
                 return false;
             }
