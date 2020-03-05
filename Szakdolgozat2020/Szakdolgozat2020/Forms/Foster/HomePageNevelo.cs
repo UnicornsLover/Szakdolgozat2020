@@ -9,12 +9,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Szakdolgozat2020.Forms.Nevelo;
+using Szakdolgozat2020.Repository.Employes;
 
-namespace Szakdolgozat2020.Forms
+namespace Szakdolgozat2020.Forms.Foster
 {
-    public partial class Nevelo : MetroFramework.Forms.MetroForm
+    public partial class HomePageNevelo : MetroFramework.Forms.MetroForm
     {
-        public Nevelo()
+        public HomePageNevelo()
         {
             InitializeComponent();
             metroLabelLoggedName.Text = LogIn.fnameLoged;
@@ -22,12 +24,14 @@ namespace Szakdolgozat2020.Forms
 
         private void metroTileChildrenReg_Click(object sender, EventArgs e)
         {
+            
+
             try
             {
-                Nevelo n = new Nevelo();
-                n.Show();
+                ChildrenReg cr = new ChildrenReg();
+                cr.Show();
             }
-            catch (Exception ex)
+            catch (RepositoryReadyDataFromEmployes_LoginException ex)
             {
                 Debug.WriteLine(ex.Message);
                 MetroMessageBox.Show(this, "\n\nHibát észleltünk! Az adatbázis nem érhető el, vagy a bemeneti adatt nem megfelelő. Kérem próbálja újra később!", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);

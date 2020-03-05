@@ -39,7 +39,7 @@
             // 
             this.metroLabelWelcome.AutoSize = true;
             this.metroLabelWelcome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.metroLabelWelcome.Location = new System.Drawing.Point(667, 30);
+            this.metroLabelWelcome.Location = new System.Drawing.Point(673, 51);
             this.metroLabelWelcome.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.metroLabelWelcome.Name = "metroLabelWelcome";
             this.metroLabelWelcome.Size = new System.Drawing.Size(172, 20);
@@ -50,7 +50,7 @@
             // 
             this.metroLabelLoggedName.AutoSize = true;
             this.metroLabelLoggedName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.metroLabelLoggedName.Location = new System.Drawing.Point(875, 30);
+            this.metroLabelLoggedName.Location = new System.Drawing.Point(881, 51);
             this.metroLabelLoggedName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.metroLabelLoggedName.Name = "metroLabelLoggedName";
             this.metroLabelLoggedName.Size = new System.Drawing.Size(0, 0);
@@ -60,7 +60,7 @@
             // metroButtonLogOut
             // 
             this.metroButtonLogOut.Location = new System.Drawing.Point(863, 497);
-            this.metroButtonLogOut.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.metroButtonLogOut.Margin = new System.Windows.Forms.Padding(4);
             this.metroButtonLogOut.Name = "metroButtonLogOut";
             this.metroButtonLogOut.Size = new System.Drawing.Size(156, 28);
             this.metroButtonLogOut.Style = MetroFramework.MetroColorStyle.Red;
@@ -108,7 +108,7 @@
             this.Controls.Add(this.metroButtonLogOut);
             this.Controls.Add(this.metroLabelLoggedName);
             this.Controls.Add(this.metroLabelWelcome);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "IntVPage";
             this.Padding = new System.Windows.Forms.Padding(27, 74, 27, 25);
             this.Style = MetroFramework.MetroColorStyle.Red;

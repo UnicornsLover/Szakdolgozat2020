@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Szakdolgozat2020.Database;
 using Szakdolgozat2020.Forms;
+using Szakdolgozat2020.Forms.Foster;
 
 namespace Szakdolgozat2020
 {
@@ -63,7 +64,7 @@ namespace Szakdolgozat2020
                                 break;
                             case "Nevelő":
                                 fnameLoged = dr["ename"].ToString();
-                                Nevelo f2 = new Nevelo();
+                                HomePageNevelo f2 = new HomePageNevelo();
                                 f2.Show();
                                 break;
                             case "Intézményvezető":
