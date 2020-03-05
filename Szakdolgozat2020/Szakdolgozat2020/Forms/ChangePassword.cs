@@ -29,6 +29,11 @@ namespace Szakdolgozat2020.Forms
             metroLabelUserId.Text = userId.ToString();
         }
 
+        public void getEmploye()
+        { 
+            
+        }
+
         private void metroButtonChangePassword_Click(object sender, EventArgs e)
         {
             string username = LogIn.fnameLoged;
@@ -57,6 +62,10 @@ namespace Szakdolgozat2020.Forms
 
                     throw new newPasswordException("Nem sikerült hozzáadni a listához.");
                 }
+
+                LogIn li = new LogIn();
+                li.Show();
+                this.Hide();
                 
             }
             else

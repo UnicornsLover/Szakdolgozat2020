@@ -19,11 +19,10 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
         private DataTable employesDT = new DataTable();
         RepositoryEmployes repo = new RepositoryEmployes();
         RepositoryDatabseAndTableEmploye rep = new RepositoryDatabseAndTableEmploye();
-        bool newDataInsert = false;
         public WorkersRegistration()
         {
             InitializeComponent();
-            repo.setEmploye(rep.getEmployeesFromDatabase());
+            repo.setEmploye(rep.getEmployeesFromDatabase());  
         }
 
         public void updateDataInDataGriedViewt()
@@ -32,8 +31,7 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
             employesDT = repo.getEmployesListToDataTable();
             //Dlgozók DataGridView-nak a forrása a employes_login adattábla
             metroGridEmployes.DataSource = null;
-            metroGridEmployes.DataSource = employesDT;
-            
+            metroGridEmployes.DataSource = employesDT;  
         }
 
         public void setEmployeDataGridView()
@@ -63,6 +61,7 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
         {
             updateDataInDataGriedViewt();
             setEmployeDataGridView();
+            metroDateTimeEBirth.Text = "1753-01-01";
         }
 
         private void metroGridEmployes_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -132,7 +131,7 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
             }
             int selectedIndex = metroGridEmployes.SelectedRows[0].Index;
 
-            DialogResult dr = MetroMessageBox.Show(this, "\n\nBiztos szeretné törölni a dolgozót?", "Dolgozó törlése", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult dr = MetroMessageBox.Show(this, "\n\nBiztos szeretné törölni a dolgozót?", "Dolgozó törlése", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (dr == DialogResult.Yes)
             {
                 //Törlés a listából
@@ -185,6 +184,7 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
             errorProviderName.Clear();
             errorProviderLocation.Clear();
             errorProviderSex.Clear();
+            errorProviderBirthdayDate.Clear();
 
             try
             {
@@ -248,6 +248,10 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
             {
                 errorProviderSex.SetError(metroComboBoxESex, mse.Message);
             }
+            catch (ModellNotValidBirthDayDateException mbe)
+            {
+                errorProviderBirthdayDate.SetError(metroDateTimeEBirth, mbe.Message);
+            }
             catch (Exception)
             {
 
@@ -306,6 +310,8 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
             errorProviderName.Clear();
             errorProviderLocation.Clear();
             errorProviderSex.Clear();
+            errorProviderBirthdayDate.Clear();
+            
             try
             {
                 
@@ -341,7 +347,6 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
                     getRegUserName(),
                     getRegUserPassword()
                    );
-
                 
 
                 //Hozzáadás a listához
@@ -394,12 +399,16 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
             {
                 errorProviderMaidenName.SetError(metroButtonNone, mme.Message);
             }
-            
-        }
+            catch (ModellNotValidBirthDayDateException mbe)
+            {
+                errorProviderBirthdayDate.SetError(metroDateTimeEBirth, mbe.Message);
+            }
+            catch (Exception)
+            {
 
-        private void metroDateTimeEBirth_ValueChanged(object sender, EventArgs e)
-        {
-            metroDateTimeEBirth.MaxDate = DateTime.Now;
+                throw;
+            }
+
         }
 
         private void metroButtonTheSame_Click(object sender, EventArgs e)

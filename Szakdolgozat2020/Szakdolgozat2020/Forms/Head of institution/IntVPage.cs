@@ -48,5 +48,24 @@ namespace Szakdolgozat2020.Forms
             li.Show();
             this.Hide();
         }
+
+        private void metroTileChildrenReg_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void metroTileWorkerReg_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                WorkersRegistration wr = new WorkersRegistration();
+                wr.Show();
+            }
+            catch (RepositoryReadyDataFromEmployes_LoginException ex)
+            {
+                Debug.WriteLine(ex.Message);
+                MetroMessageBox.Show(this, "\n\nHibát észleltünk! Az adatbázis nem érhető el, vagy a bemeneti adatt nem megfelelő. Kérem próbálja újra később!", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
     }
 }

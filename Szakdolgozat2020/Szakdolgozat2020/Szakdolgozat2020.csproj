@@ -84,10 +84,10 @@
     <Compile Include="Forms\Head of institution\WorkersRegistration.Designer.cs">
       <DependentUpon>WorkersRegistration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Nevelo.cs">
+    <Compile Include="Forms\Nevelo\Nevelo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Nevelo.Designer.cs">
+    <Compile Include="Forms\Nevelo\Nevelo.Designer.cs">
       <DependentUpon>Nevelo.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Head of institution\IntVPage.cs">
@@ -118,6 +118,7 @@
     <Compile Include="Modell\Employes\ModellEmployeNotValidMaidenNameException.cs" />
     <Compile Include="Modell\Employes\ModellEmployeNotValidNameException.cs" />
     <Compile Include="Modell\Employes\ModellEmployeNotValidSexException.cs" />
+    <Compile Include="Modell\Employes\ModellNotValidBirthDayDateException.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\Employes\DatabaseCommands.cs" />
@@ -140,7 +141,7 @@
     <EmbeddedResource Include="Forms\Head of institution\WorkersRegistration.resx">
       <DependentUpon>WorkersRegistration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Nevelo.resx">
+    <EmbeddedResource Include="Forms\Nevelo\Nevelo.resx">
       <DependentUpon>Nevelo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Head of institution\IntVPage.resx">

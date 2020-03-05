@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -47,6 +48,10 @@ namespace Szakdolgozat2020.Modell.Employes
             if (!isValidSex(esex))
             {
                 throw new ModellEmployeNotValidSexException("Nem megfelelő 'Neme' mező, kattintson a lefele mutató nyilra 'Neme' mezőnél és a legördülő menő segítségével válasza ki a nemét.");
+            }
+            if (!isValidBirthDay(allbirth))
+            {
+                throw new ModellNotValidBirthDayDateException("Nem megfelelő 'Születési idő:' mező, kérem állítsa be a felvett személy születési dátumát.");
             }
             if (!isValidBirthPlace(ebirthplace))
             {
@@ -296,6 +301,15 @@ namespace Szakdolgozat2020.Modell.Employes
                 return false;
             }
             return true;
+        }
+        public bool isValidBirthDay(string name)
+        {
+            //Console.WriteLine(name);
+            if (name != "1753-01-01")
+            {
+                return true;
+            }
+            return false; 
         }
     }
 }
