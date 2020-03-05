@@ -39,7 +39,7 @@ namespace Szakdolgozat2020.Repository.Children
         /// Adattábla feltöltése
         /// </summary>
         /// <returns>A tábla szerkezete adattal feltöltve </returns>
-        public DataTable getChildrenlsitToDatabse()
+        public DataTable getChildrenListToDatabse()
         {
             DataTable dt = new DataTable();
             try

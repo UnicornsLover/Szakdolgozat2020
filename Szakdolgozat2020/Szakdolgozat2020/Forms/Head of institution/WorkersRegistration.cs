@@ -19,22 +19,27 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
         private DataTable employesDT = new DataTable();
         RepositoryEmployes repo = new RepositoryEmployes();
         RepositoryDatabseAndTableEmploye rep = new RepositoryDatabseAndTableEmploye();
-        public int db = 0;
         public WorkersRegistration()
         {
             InitializeComponent();
             repo.setEmploye(rep.getEmployeesFromDatabase());  
         }
 
+        /// <summary>
+        /// DataGridview frissitése
+        /// </summary>
         public void updateDataInDataGriedViewt()
         {
             //Adattáblát feltölti a repoba lévő dolgozók listából
             employesDT = repo.getEmployesListToDataTable();
-            //Dlgozók DataGridView-nak a forrása a employes_login adattábla
-            metroGridEmployes.DataSource = null;
-            metroGridEmployes.DataSource = employesDT;  
+            //Dolgozók DataGridView-nak a forrása a employes_login adattábla
+            metroGridEmployees.DataSource = null;
+            metroGridEmployees.DataSource = employesDT;  
         }
 
+        /// <summary>
+        /// Beállít Datagridview oszlopait és egyébb dolgot
+        /// </summary>
         public void setEmployeDataGridView()
         {
             employesDT.Columns[0].ColumnName = "Dolgozó azonosító:";
@@ -42,22 +47,25 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
             employesDT.Columns[2].ColumnName = "Lánykori neve:";
             employesDT.Columns[3].ColumnName = "Neme:";
             employesDT.Columns[4].ColumnName = "Születési idő:";
-            employesDT.Columns[5].ColumnName = "Szöletési hely:";
+            employesDT.Columns[5].ColumnName = "Születési hely:";
             employesDT.Columns[6].ColumnName = "Betöltött munkakör:";
             employesDT.Columns[7].ColumnName = "Lakcím:";
             employesDT.Columns[8].ColumnName = "Felhasználó név:";
             employesDT.Columns[9].ColumnName = "Jelszó:";
 
 
-            metroGridEmployes.SelectionMode =
+            metroGridEmployees.SelectionMode =
                 DataGridViewSelectionMode.FullRowSelect;
-            metroGridEmployes.ReadOnly = true;
-            metroGridEmployes.AllowUserToDeleteRows = false;
-            metroGridEmployes.AllowUserToAddRows = false;
-            metroGridEmployes.MultiSelect = false;
-            metroGridEmployes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            metroGridEmployees.ReadOnly = true;
+            metroGridEmployees.AllowUserToDeleteRows = false;
+            metroGridEmployees.AllowUserToAddRows = false;
+            metroGridEmployees.MultiSelect = false;
+            metroGridEmployees.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
 
+        /// <summary>
+        /// Form elinduláskor való meghívás
+        /// </summary>
         private void WorkersRegistration_Load(object sender, EventArgs e)
         {
             updateDataInDataGriedViewt();
@@ -66,24 +74,30 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
             updateEmployeesNumber();
         }
 
+        /// <summary>
+        /// Kiválasztott cell adatok jelenjenek meg a cellákban
+        /// </summary>
         private void metroGridEmployes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (metroGridEmployes.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            if (metroGridEmployees.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
             {
-                metroGridEmployes.CurrentRow.Selected = true;
-                metroTextBoxEID.Text = metroGridEmployes.Rows[e.RowIndex].Cells[0].FormattedValue.ToString();
-                metroTextBoxEname.Text = metroGridEmployes.Rows[e.RowIndex].Cells[1].FormattedValue.ToString();
-                metroTextBoxEMaidname.Text = metroGridEmployes.Rows[e.RowIndex].Cells[2].FormattedValue.ToString();
-                metroComboBoxESex.Text = metroGridEmployes.Rows[e.RowIndex].Cells[3].FormattedValue.ToString();
-                metroDateTimeEBirth.Text = metroGridEmployes.Rows[e.RowIndex].Cells[4].FormattedValue.ToString();
-                metroTextBoxBPlace.Text = metroGridEmployes.Rows[e.RowIndex].Cells[5].FormattedValue.ToString();
-                metroComboBoxEjobtype.Text = metroGridEmployes.Rows[e.RowIndex].Cells[6].FormattedValue.ToString();
-                metroTextBoxAddress.Text = metroGridEmployes.Rows[e.RowIndex].Cells[7].FormattedValue.ToString();
-                metroTextBoxEUserName.Text = metroGridEmployes.Rows[e.RowIndex].Cells[8].FormattedValue.ToString();
-                metroTextBoxEPassword.Text = metroGridEmployes.Rows[e.RowIndex].Cells[9].FormattedValue.ToString();
+                metroGridEmployees.CurrentRow.Selected = true;
+                metroTextBoxEID.Text = metroGridEmployees.Rows[e.RowIndex].Cells[0].FormattedValue.ToString();
+                metroTextBoxEname.Text = metroGridEmployees.Rows[e.RowIndex].Cells[1].FormattedValue.ToString();
+                metroTextBoxEMaidname.Text = metroGridEmployees.Rows[e.RowIndex].Cells[2].FormattedValue.ToString();
+                metroComboBoxESex.Text = metroGridEmployees.Rows[e.RowIndex].Cells[3].FormattedValue.ToString();
+                metroDateTimeEBirth.Text = metroGridEmployees.Rows[e.RowIndex].Cells[4].FormattedValue.ToString();
+                metroTextBoxBPlace.Text = metroGridEmployees.Rows[e.RowIndex].Cells[5].FormattedValue.ToString();
+                metroComboBoxEjobtype.Text = metroGridEmployees.Rows[e.RowIndex].Cells[6].FormattedValue.ToString();
+                metroTextBoxAddress.Text = metroGridEmployees.Rows[e.RowIndex].Cells[7].FormattedValue.ToString();
+                metroTextBoxEUserName.Text = metroGridEmployees.Rows[e.RowIndex].Cells[8].FormattedValue.ToString();
+                metroTextBoxEPassword.Text = metroGridEmployees.Rows[e.RowIndex].Cells[9].FormattedValue.ToString();
             }
         }
 
+        /// <summary>
+        /// Datgridview-ba való kereseés a 'Neve:' cella segítségével
+        /// </summary>
         private void metroButtonSearch_Click(object sender, EventArgs e)
         {
 
@@ -98,15 +112,18 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
             else
             {
                 string rowFilter = string.Format("[{0}] = '{1}'", "Név:", metroTextBoxEname.Text);
-                (metroGridEmployes.DataSource as DataTable).DefaultView.RowFilter = rowFilter;
+                (metroGridEmployees.DataSource as DataTable).DefaultView.RowFilter = rowFilter;
 
-                if (metroGridEmployes.Rows.Count == 0)
+                if (metroGridEmployees.Rows.Count == 0)
                 {
-                    MetroMessageBox.Show(this, "Keresés csak pontos név megadásával lehetséges (pl: Bálint István - nagy betű is fontos), a cella kitötése kötelező! \nTöltse ki a \"Dolgozó neve:\" cellát!\nHa esetleg minden adatot újra szeretne látni egy szűrés után, csak is kizárólag írja be ezt a \" * \" (csillag) jelet a \"Dolgozó neve:\" cellábas!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MetroMessageBox.Show(this, "Keresés csak pontos név megadásával lehetséges (pl: Bálint István - nagy betű is fontos), a cella kitötése kötelező! \nTöltse ki a \"Neve:\" cellát!\nHa esetleg minden adatot újra szeretne látni egy szűrés után, csak is kizárólag írja be ezt a \" * \" (csillag) jelet a \"Neve:\" cellábas!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
         }
 
+        /// <summary>
+        /// Cellák ürítése
+        /// </summary>
         private void metroButtonCleanCells_Click(object sender, EventArgs e)
         {
             metroTextBoxEID.Text = "";
@@ -127,18 +144,18 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
         private void metroButtonDelete_Click(object sender, EventArgs e)
         {
             //Ha sor nullat ad vissza ne történjen 
-            if ((metroGridEmployes.Rows) == null || (metroGridEmployes.Rows.Count == 0))
+            if ((metroGridEmployees.Rows) == null || (metroGridEmployees.Rows.Count == 0))
             {
                 return;
             }
-            int selectedIndex = metroGridEmployes.SelectedRows[0].Index;
+            int selectedIndex = metroGridEmployees.SelectedRows[0].Index;
 
             DialogResult dr = MetroMessageBox.Show(this, "\n\nBiztos szeretné törölni a dolgozót?", "Dolgozó törlése", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (dr == DialogResult.Yes)
             {
                 //Törlés a listából
                 int id = -1;
-                if (!int.TryParse(metroGridEmployes.SelectedRows[0].Cells[0].Value.ToString(), out id))
+                if (!int.TryParse(metroGridEmployees.SelectedRows[0].Cells[0].Value.ToString(), out id))
                 {
                     return;
                 }
