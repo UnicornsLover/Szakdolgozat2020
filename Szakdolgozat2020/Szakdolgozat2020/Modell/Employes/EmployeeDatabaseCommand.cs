@@ -58,9 +58,5 @@ namespace Szakdolgozat2020.Modell.Employes
                 + "' WHERE `employes_login`.`ID` = "
                 + id + ";";
         }
-        public string getAllRecordCommand()
-        {
-            return "SELECT * FROM employes_login";
-        }
     }
 }

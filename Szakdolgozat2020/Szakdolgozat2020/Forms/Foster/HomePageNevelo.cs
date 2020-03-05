@@ -37,5 +37,12 @@ namespace Szakdolgozat2020.Forms.Foster
                 MetroMessageBox.Show(this, "\n\nHibát észleltünk! Az adatbázis nem érhető el, vagy a bemeneti adatt nem megfelelő. Kérem próbálja újra később!", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
+
+        private void metroButtonLogOut_Click(object sender, EventArgs e)
+        {
+            LogIn li = new LogIn();
+            li.Show();
+            this.Hide();
+        }
     }
 }

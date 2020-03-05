@@ -65,7 +65,7 @@ namespace Szakdolgozat2020.Modell.Employes
             {
                 throw new ModellEmployeNotValidJobExeption("Nem megfelelő 'Betöltött munkakör' mező, kattintson a lefele mutató nyilra 'Betöltött munkakör' mezőnél és a legördülő menő segítségével válasza ki a betöltött munkakör fajtát.");
             }
-            //**********Set******
+            //**********Set***********
             this.eID = eID;
             this.ename = ename;
             this.emaidenname = emaidenname;

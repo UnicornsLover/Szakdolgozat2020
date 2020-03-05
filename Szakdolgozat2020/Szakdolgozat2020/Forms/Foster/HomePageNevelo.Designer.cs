@@ -80,6 +80,7 @@
             this.metroButtonLogOut.UseCustomBackColor = true;
             this.metroButtonLogOut.UseSelectable = true;
             this.metroButtonLogOut.UseStyleColors = true;
+            this.metroButtonLogOut.Click += new System.EventHandler(this.metroButtonLogOut_Click);
             // 
             // HomePageNevelo
             // 
