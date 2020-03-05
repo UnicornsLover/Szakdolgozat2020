@@ -12,32 +12,12 @@ namespace Szakdolgozat2020.Repository.Employes
     partial class RepositoryEmployes
     {
         List<Employe> employees;
-        /// <summary>
-        /// Dolgozók lekérése a listából
-        /// </summary>
-        /// <returns>Dolgozók adatokkal</returns>
-        public List<Employe> getEmployes()
-        {
-            return employees;
-        }
 
-        public void updateChangePassword(int id)
-        {
-            Employe emp = employees.Find(x => x.getEID() == id);
-            if (emp != null)
-            {
-                emp.updateL2(emp);
-            }
-            else
-            {
-                throw new RepositoryExceptionCantMoodify("Nem lehet modósitani a listában!");
-            }
-        }
         /// <summary>
         /// Dolgozók neveit kigyűjti
         /// </summary>
-        /// <returns></returns>
-        public List<string> getEmployesName()
+        /// <returns>Dolgozó nevekpublic</returns>
+        public List<string> getEmployeesName()
         {
             //neve tárólására egy lista
             List<string> employesName = new List<string>();
@@ -60,7 +40,7 @@ namespace Szakdolgozat2020.Repository.Employes
         /// <summary>
         /// Adattábla feltöltése
         /// </summary>
-        /// <returns> Feltöltve a tábla</returns>
+        /// <returns> A tábla szerkezete adattal feltöltve </returns>
         public DataTable getEmployesListToDataTable()
         {
             DataTable dt = new DataTable();
@@ -111,12 +91,19 @@ namespace Szakdolgozat2020.Repository.Employes
                 employees.Add(line);
             }
         }
-        public int getEmployNumber(string employeName)
+        /// <summary>
+        /// Megszámolja  a dolgozókat
+        /// </summary>
+        /// <returns>Dolgozók száma</returns>
+        public int getEmployeesNumber()
         {
-            Employe employe = employees.Find(f => f.getEname() == employeName);
-            return employe.getEID();
+            int db = 0;
+            foreach (Employe s in employees)
+            {
+                db++;
+            }
+            return db;
         }
-
         /// <summary>
         /// A listából törli a dolgozót
         /// </summary>
@@ -130,7 +117,7 @@ namespace Szakdolgozat2020.Repository.Employes
             }
             else 
             {
-                throw new RepositoryExceptionCantDelete("Nem lehet törölni a dolgozót a listából!");
+                throw new RepositoryEmployeExceptionCantDelete("Nem lehet törölni a dolgozót a listából!");
             }
         }
 
@@ -139,7 +126,7 @@ namespace Szakdolgozat2020.Repository.Employes
         /// </summary>
         /// <param name="id">Dolgozó id-ja</param>
         /// <param name="modified">Módosított dolgozó</param>
-        public void updateEmployeeInList(int id, Employe modified)
+        public void updateEmployeInList(int id, Employe modified)
         {
             Employe emp = employees.Find(x => x.getEID() == id);
             if (emp != null)
@@ -148,7 +135,7 @@ namespace Szakdolgozat2020.Repository.Employes
             }
             else
             {
-                throw new RepositoryExceptionCantMoodify("Nem lehet modósitani a listában!");
+                throw new RepositoryEmployeExceptionCantMoodify("Nem lehet modósitani a listában a dolgozot!");
             }
         }
 
@@ -164,20 +151,15 @@ namespace Szakdolgozat2020.Repository.Employes
             }
             catch (Exception e)
             {
-                throw new RepositoryExceptionCantAdd("Nem lehet új dolgozót hozzáadni!");
+                throw new RepositoryEmployeExceptionCantAdd("Nem lehet új dolgozót hozzáadni a lsitához!");
             }
         }
 
-        public Employe getEmploye(int id)
-        {
-            return employees.Find(x => x.getEID() == id);
-        }
-
         /// <summary>
-        /// Megkeresi a legnagyobb id-t és egyet hozzáad vag ha első akkor egyessel kezdi
+        /// Megkeresi a legnagyobb id-t és egyet hozzáad vagy ha első akkor egyessel kezdi
         /// </summary>
         /// <returns> A következő id</returns>
-        public int getnextEmployesId()
+        public int getnextEmployeId()
         {
             if (employees.Count == 0)
             {

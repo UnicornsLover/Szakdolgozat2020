@@ -53,7 +53,7 @@ namespace Szakdolgozat2020.Forms
 
                 try
                 {
-                    //Frissítéss a dtagridviewba
+                    //Frissítéss a datagridviewba
                     WorkersRegistration wr = new WorkersRegistration();
                     wr.updateDataInDataGriedViewt();
                 }

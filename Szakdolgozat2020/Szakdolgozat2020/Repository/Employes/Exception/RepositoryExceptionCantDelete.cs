@@ -4,21 +4,21 @@ using System.Runtime.Serialization;
 namespace Szakdolgozat2020.Repository.Employes
 {
     [Serializable]
-    internal class RepositoryExceptionCantDelete : Exception
+    internal class RepositoryEmployeExceptionCantDelete : Exception
     {
-        public RepositoryExceptionCantDelete()
+        public RepositoryEmployeExceptionCantDelete()
         {
         }
 
-        public RepositoryExceptionCantDelete(string message) : base(message)
+        public RepositoryEmployeExceptionCantDelete(string message) : base(message)
         {
         }
 
-        public RepositoryExceptionCantDelete(string message, Exception innerException) : base(message, innerException)
+        public RepositoryEmployeExceptionCantDelete(string message, Exception innerException) : base(message, innerException)
         {
         }
 
-        protected RepositoryExceptionCantDelete(SerializationInfo info, StreamingContext context) : base(info, context)
+        protected RepositoryEmployeExceptionCantDelete(SerializationInfo info, StreamingContext context) : base(info, context)
         {
         }
     }

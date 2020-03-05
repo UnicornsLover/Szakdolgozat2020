@@ -69,6 +69,7 @@
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.errorProviderMaidenName = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderBirthdayDate = new System.Windows.Forms.ErrorProvider(this.components);
+            this.metroLabelDB = new MetroFramework.Controls.MetroLabel();
             ((System.ComponentModel.ISupportInitialize)(this.metroGridEmployes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderBPlace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderName)).BeginInit();
@@ -661,11 +662,24 @@
             // 
             this.errorProviderBirthdayDate.ContainerControl = this;
             // 
+            // metroLabelDB
+            // 
+            this.metroLabelDB.AutoSize = true;
+            this.metroLabelDB.BackColor = System.Drawing.Color.White;
+            this.metroLabelDB.ForeColor = System.Drawing.Color.Black;
+            this.metroLabelDB.Location = new System.Drawing.Point(957, 680);
+            this.metroLabelDB.Name = "metroLabelDB";
+            this.metroLabelDB.Size = new System.Drawing.Size(0, 0);
+            this.metroLabelDB.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroLabelDB.TabIndex = 36;
+            this.metroLabelDB.UseStyleColors = true;
+            // 
             // WorkersRegistration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1580, 729);
+            this.Controls.Add(this.metroLabelDB);
             this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.metroButtonNone);
             this.Controls.Add(this.metroButtonTheSame);
@@ -752,5 +766,6 @@
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private System.Windows.Forms.ErrorProvider errorProviderMaidenName;
         private System.Windows.Forms.ErrorProvider errorProviderBirthdayDate;
+        private MetroFramework.Controls.MetroLabel metroLabelDB;
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Szakdolgozat2020.Modell.Children
 {
-    public partial class Children
+    public partial class Child
     {
         public static string getSQLCommandGetAllRecord()
         {

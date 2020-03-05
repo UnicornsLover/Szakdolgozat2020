@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Szakdolgozat2020.Modell.Children
 {
-    public partial class Children
+    public partial class Child
     {
         private int cID;
         private string cname;
@@ -18,7 +18,7 @@ namespace Szakdolgozat2020.Modell.Children
         private string ccomming;
         private string clocation;
 
-        public Children(int cID, string cname, string csex, string cidcard, string ctajnumber, string cbirthday, string cbirthdayplace, string ccomming, string clocation)
+        public Child(int cID, string cname, string csex, string cidcard, string ctajnumber, string cbirthday, string cbirthdayplace, string ccomming, string clocation)
         {
             this.cID = cID;
             this.cname = cname;
@@ -40,7 +40,7 @@ namespace Szakdolgozat2020.Modell.Children
             this.clocation = clocation;
         }
 
-        public void updateL(Children modified)
+        public void updateL(Child modified)
         {
             this.cname = modified.getCname();
             this.csex = modified.getCsex();

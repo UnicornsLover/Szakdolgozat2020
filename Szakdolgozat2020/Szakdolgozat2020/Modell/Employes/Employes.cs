@@ -103,22 +103,6 @@ namespace Szakdolgozat2020.Modell.Employes
             this.euname = modified.getEuname();
             this.epassword = modified.getEpasword();
         }
-        public void updateL2(Employe emp)
-        {
-            this.epassword = emp.getEpasword();
-        }
-        public void updateLPassword(Employe modified)
-        {
-            this.ename = modified.getEname();
-            this.emaidenname = modified.getEmaidenname();
-            this.esex = modified.getEsex();
-            this.allbirth = modified.getEallbirthday();
-            this.ebirthplace = modified.getEbirthplace();
-            this.ejob = modified.getEjob();
-            this.elocation = modified.getElocation();
-            this.euname = modified.getEuname();
-            this.epassword = modified.getEpasword();
-        }
 
         //******************************************SETTER***************************************
         public void setEID(int id)

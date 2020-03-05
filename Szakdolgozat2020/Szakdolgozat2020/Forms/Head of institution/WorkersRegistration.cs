@@ -19,6 +19,7 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
         private DataTable employesDT = new DataTable();
         RepositoryEmployes repo = new RepositoryEmployes();
         RepositoryDatabseAndTableEmploye rep = new RepositoryDatabseAndTableEmploye();
+        public int db = 0;
         public WorkersRegistration()
         {
             InitializeComponent();
@@ -62,6 +63,7 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
             updateDataInDataGriedViewt();
             setEmployeDataGridView();
             metroDateTimeEBirth.Text = "1753-01-01";
+            updateEmployeesNumber();
         }
 
         private void metroGridEmployes_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -145,7 +147,7 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
                 {
                     repo.deleteEmployeInList(id);
                 }
-                catch (RepositoryExceptionCantDelete ex)
+                catch (RepositoryEmployeExceptionCantDelete ex)
                 {
 
                     Debug.WriteLine("A dolgozó törlése sikertelen volt a listából!");
@@ -165,7 +167,7 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
 
                 //DataGridView frissítése
                 updateDataInDataGriedViewt();
-
+                updateEmployeesNumber();
             }
             else
             {
@@ -205,7 +207,7 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
                 //Módosítás a listában
                 try
                 {
-                    repo.updateEmployeeInList(id, modified);
+                    repo.updateEmployeInList(id, modified);
                 }
                 catch (Exception ex)
                 {
@@ -316,7 +318,7 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
             {
                 
 
-                int id = repo.getnextEmployesId();
+                int id = repo.getnextEmployeId();
                 string sex = "";
 
                 if (metroComboBoxESex.Text == "")
@@ -374,6 +376,7 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
 
                 //DataGridView frissítése
                 updateDataInDataGriedViewt();
+                updateEmployeesNumber();
             }
             catch (ModellEmployeNotValidBirthPlacesException mex)
             {
@@ -419,6 +422,11 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
         private void metroButtonNone_Click(object sender, EventArgs e)
         {
             metroTextBoxEMaidname.Text = "-";
+        }
+
+        public void updateEmployeesNumber()
+        {
+            metroLabelDB.Text ="Jelenleg dolgozók száma az intézménybe: "+repo.getEmployeesNumber().ToString()+" ember.";
         }
     }
 }
