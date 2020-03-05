@@ -551,7 +551,7 @@
             // 
             // metroButtonDelete
             // 
-            this.metroButtonDelete.Location = new System.Drawing.Point(301, 672);
+            this.metroButtonDelete.Location = new System.Drawing.Point(304, 672);
             this.metroButtonDelete.Margin = new System.Windows.Forms.Padding(4);
             this.metroButtonDelete.Name = "metroButtonDelete";
             this.metroButtonDelete.Size = new System.Drawing.Size(208, 28);
@@ -565,7 +565,7 @@
             // 
             // metroButtonModify
             // 
-            this.metroButtonModify.Location = new System.Drawing.Point(565, 672);
+            this.metroButtonModify.Location = new System.Drawing.Point(576, 672);
             this.metroButtonModify.Margin = new System.Windows.Forms.Padding(4);
             this.metroButtonModify.Name = "metroButtonModify";
             this.metroButtonModify.Size = new System.Drawing.Size(208, 28);
@@ -657,10 +657,12 @@
             // errorProviderMaidenName
             // 
             this.errorProviderMaidenName.ContainerControl = this;
+            this.errorProviderMaidenName.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProviderMaidenName.Icon")));
             // 
             // errorProviderBirthdayDate
             // 
             this.errorProviderBirthdayDate.ContainerControl = this;
+            this.errorProviderBirthdayDate.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProviderBirthdayDate.Icon")));
             // 
             // metroLabelDB
             // 
