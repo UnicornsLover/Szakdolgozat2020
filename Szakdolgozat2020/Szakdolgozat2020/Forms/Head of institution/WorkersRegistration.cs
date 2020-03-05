@@ -305,30 +305,35 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
             errorProviderMaidenName.Clear();
             errorProviderName.Clear();
             errorProviderLocation.Clear();
+            errorProviderSex.Clear();
             try
             {
-                if (metroComboBoxESex.SelectedItem.ToString() != "")
+                
+
+                int id = repo.getnextEmployesId();
+                string sex = "";
+
+                if (metroComboBoxESex.Text == "")
                 {
-                    if (metroComboBoxESex.SelectedItem.ToString() == "férfi")
+                    throw new ModellEmployeNotValidSexException();
+                }
+                else
+                {
+                    if (metroComboBoxESex.Text == "férfi")
                     {
-                        metroComboBoxESex.Text = "False";
+                        sex = "False";
                     }
-                    else if (metroComboBoxESex.SelectedItem.ToString() == "nő")
+                    else if (metroComboBoxESex.Text == "nő")
                     {
-                        metroComboBoxESex.Text = "True";
-                    }
-                    else
-                    {
-                        metroComboBoxESex.Text = "nincs adat";
+                        sex = "True";
                     }
                 }
 
-                int id = repo.getnextEmployesId();
                 Employe newEmployee = new Employe(
                     id,
                     metroTextBoxEname.Text,
                     metroTextBoxEMaidname.Text,
-                    metroComboBoxESex.Text,
+                    sex,
                     metroDateTimeEBirth.Text,
                     metroTextBoxBPlace.Text,
                     metroComboBoxEjobtype.Text,
