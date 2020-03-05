@@ -132,9 +132,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\Children\Exception\RepositoryChildExceptionCantAdd.cs" />
     <Compile Include="Repository\Children\Exception\RepositoryChildExceptionCantMoodify.cs" />
+    <Compile Include="Repository\Children\Exception\RepositoryChildException.cs" />
     <Compile Include="Repository\Children\RepositoryChildren.cs" />
     <Compile Include="Repository\Children\Exception\RepositoryChilrenExceptionCantDelete.cs" />
     <Compile Include="Repository\Children\DatabaseCommandsC.cs" />
+    <Compile Include="Repository\Children\Exception\RepositoryChildrenReadyDataFromEmployes_LoginException.cs" />
     <Compile Include="Repository\Children\RepositoryDatabaseChildren.cs" />
     <Compile Include="Repository\Employes\DatabaseCommandsE.cs" />
     <Compile Include="Repository\Employes\RepositoryDatabseAndTableEmploye.cs" />
@@ -146,7 +148,7 @@
     <Compile Include="Repository\Employes\Exception\RepositoryExceptionCantDelete.cs" />
     <Compile Include="Repository\Employes\Exception\RepositoryExceptionCantMoodify.cs" />
     <Compile Include="Repository\Employes\Exception\RepositoryExceptionCantAdd.cs" />
-    <Compile Include="Repository\Repository.cs" />
+    <Compile Include="Repository\RepositoryE.cs" />
     <Compile Include="Repository\RepositoryC.cs" />
     <EmbeddedResource Include="Forms\Boss.resx">
       <DependentUpon>Boss.cs</DependentUpon>

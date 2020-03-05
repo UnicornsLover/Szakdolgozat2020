@@ -62,7 +62,7 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
         {
             updateDataInDataGriedViewt();
             setEmployeDataGridView();
-            metroDateTimeEBirth.Text = "1753-01-01";
+            metroDateTimeEBirth.Text = "2000-01-01";
             updateEmployeesNumber();
         }
 
@@ -157,7 +157,7 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
                 //Törlés az adatbázisból
                 try
                 {
-                    rep.deleteEmployeeFromDatabase(id);
+                    rep.deleteEmployeFromDatabase(id);
                 }
                 catch (Exception ex)
                 {

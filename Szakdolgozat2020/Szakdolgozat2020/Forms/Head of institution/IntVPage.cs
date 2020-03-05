@@ -34,7 +34,7 @@ namespace Szakdolgozat2020.Forms
                 WorkersRegistration wr = new WorkersRegistration();
                 wr.Show();
             }
-            catch (RepositoryReadyDataFromEmployes_LoginException ex)
+            catch (RepositoryEmployeesReadyDataFromEmployes_LoginException ex)
             {
                 Debug.WriteLine(ex.Message);
                 MetroMessageBox.Show(this, "\n\nHibát észleltünk! Az adatbázis nem érhető el, vagy a bemeneti adatt nem megfelelő. Kérem próbálja újra később!", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -61,7 +61,7 @@ namespace Szakdolgozat2020.Forms
                 WorkersRegistration wr = new WorkersRegistration();
                 wr.Show();
             }
-            catch (RepositoryReadyDataFromEmployes_LoginException ex)
+            catch (RepositoryEmployeesReadyDataFromEmployes_LoginException ex)
             {
                 Debug.WriteLine(ex.Message);
                 MetroMessageBox.Show(this, "\n\nHibát észleltünk! Az adatbázis nem érhető el, vagy a bemeneti adatt nem megfelelő. Kérem próbálja újra később!", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);

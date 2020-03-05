@@ -4,21 +4,21 @@ using System.Runtime.Serialization;
 namespace Szakdolgozat2020.Repository.Employes
 {
     [Serializable]
-    internal class RepositoryException : Exception
+    internal class RepositoryEmployeException : Exception
     {
-        public RepositoryException()
+        public RepositoryEmployeException()
         {
         }
 
-        public RepositoryException(string message) : base(message)
+        public RepositoryEmployeException(string message) : base(message)
         {
         }
 
-        public RepositoryException(string message, Exception innerException) : base(message, innerException)
+        public RepositoryEmployeException(string message, Exception innerException) : base(message, innerException)
         {
         }
 
-        protected RepositoryException(SerializationInfo info, StreamingContext context) : base(info, context)
+        protected RepositoryEmployeException(SerializationInfo info, StreamingContext context) : base(info, context)
         {
         }
     }

@@ -17,7 +17,7 @@ namespace Szakdolgozat2020.Repository.Employes
         /// <returns> Dolgozók</returns>
         public List<Employe> getEmployeesFromDatabase()
         {
-            List<Employe> employes = new List<Employe>();
+            List<Employe> employees = new List<Employe>();
             MySqlConnection connection = new MySqlConnection(connectionString);
             try
             {
@@ -43,9 +43,8 @@ namespace Szakdolgozat2020.Repository.Employes
                     if (goodResult)
                     {
                         string epassword = dr["epassword"].ToString();
-                        Debug.WriteLine(esex);
                         Employe emp = new Employe(id,ename,emaidenname,esex,ebirth,ebirthplace,ejob,elocation,euname,epassword);
-                        employes.Add(emp);
+                        employees.Add(emp);
                     }
                 }
                 connection.Close();
@@ -53,13 +52,16 @@ namespace Szakdolgozat2020.Repository.Employes
             {
                 connection.Close();
                 Debug.WriteLine(ex.Message+"Dolgozók adatainak beolvasása************************************************************");
-                throw new RepositoryReadyDataFromEmployes_LoginException("Dolgozók adatainak beolvasása sikertlen, nem elérthető az adatbázis.");
+                throw new RepositoryEmployeesReadyDataFromEmployes_LoginException("Dolgozók adatainak beolvasása sikertlen, nem elérthető az adatbázis.");
             }
-            return employes;
+            return employees;
         }
 
-        
-        public void deleteEmployeeFromDatabase(int id)
+        /// <summary>
+        /// Dolgozók törlése az adatbázisból
+        /// </summary>
+        /// <param name="id">Adott dolgozó id-ja</param>
+        public void deleteEmployeFromDatabase(int id)
         {
             MySqlConnection connection = new MySqlConnection(connectionString);
             try
@@ -74,11 +76,16 @@ namespace Szakdolgozat2020.Repository.Employes
             {
                 connection.Close();
                 Debug.WriteLine(e.Message);
-                Debug.WriteLine("DeletEmploye***********************"+id + " idéjű dolgozó törlése nem sikerült.");
-                throw new RepositoryException("Sikertelen törlés az adatbázisból.");
+                Debug.WriteLine("DeleteEmploye***********************"+id + " idéjű dolgozó törlése nem sikerült.");
+                throw new RepositoryEmployeException("Sikertelen törlés az adatbázisból.");
             }
         }
 
+        /// <summary>
+        /// Dolgozó módosítás az adatbázisban
+        /// </summary>
+        /// <param name="id">Dolgozó id-ja</param>
+        /// <param name="modified">Módosítando dolgozó</param>
         public void updateEmployeeInDatabase(int id, Employe modified)
         {
             MySqlConnection connection = new MySqlConnection(connectionString);
@@ -95,10 +102,14 @@ namespace Szakdolgozat2020.Repository.Employes
                 connection.Close();
                 Debug.WriteLine(e.Message);
                 Debug.WriteLine("UpdateEmploye***************************"+id + " idéjű dolgozó módosítása nem sikerült.");
-                throw new RepositoryException("Sikertelen törlés az adatbázisból.");
+                throw new RepositoryEmployeException("Sikertelen módosítás az adatbázisból.");
             }
         }
 
+        /// <summary>
+        /// Dolgozó beszúrása az adatbázishoz
+        /// </summary>
+        /// <param name="newEmployee"> Az adoot dolgozó akit beszúrunk</param>
         public void insertEmployeeToDatabase(Employe newEmployee)
         {
             MySqlConnection connection = new MySqlConnection(connectionString);
@@ -114,8 +125,8 @@ namespace Szakdolgozat2020.Repository.Employes
             {
                 connection.Close();
                 Debug.WriteLine(e.Message);
-                Debug.WriteLine("InsertEmploye*******************************"+newEmployee + " pizza beszúrása adatbázisba nem sikerült.");
-                throw new RepositoryException("Sikertelen beszúrás az adatbázisból.");
+                Debug.WriteLine("InsertEmploye*******************************"+newEmployee + " dolgozó beszúrása adatbázisba nem sikerült.");
+                throw new RepositoryEmployeException("Sikertelen beszúrás az adatbázisból.");
             }
         }
     }

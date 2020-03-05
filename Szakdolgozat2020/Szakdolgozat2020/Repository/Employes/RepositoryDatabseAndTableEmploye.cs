@@ -17,7 +17,7 @@ namespace Szakdolgozat2020.Repository.Employes
         {
             Connection cs = new Connection();
             connectionString = cs.getConnectionString();
-         }
+        }
         public void deleteTableEmploye()
         {
             string query =
