@@ -36,6 +36,18 @@ namespace Szakdolgozat2020.Forms.Nevelo
             metroGridChildren.DataSource = null;
             metroGridChildren.DataSource = childrenDT;
         }
+        public void emptyCells()
+        {
+            metroTextBoxID.Text = "";
+            metroTextBoxName.Text = "";
+            metroComboBoxSex.Text = "";
+            metroTextBoxIdCard.Text = "";
+            metroTextBoxTaj.Text = "";
+            metroDateTimeBDate.Text = "1990-01-01";
+            metroTextBoxBPlace.Text = "";
+            metroDateTimeComing.Text = "1990-01-01";
+            metroTextBoxLocation.Text = "";
+        }
 
         /// <summary>
         /// Beállít Datagridview oszlopait és egyébb dolgot
@@ -75,8 +87,8 @@ namespace Szakdolgozat2020.Forms.Nevelo
         {
             updateDataInDataGriedViewt();
             setChildrenDataGridView();
-            metroDateTimeBDate.Text = "2000-01-01";
-            metroDateTimeComing.Text = "2000-01-01";
+            metroDateTimeBDate.Text = "1990-01-01";
+            metroDateTimeComing.Text = "1990-01-01";
             updateCildrenNumber();
         }
 
@@ -130,15 +142,7 @@ namespace Szakdolgozat2020.Forms.Nevelo
         /// </summary>
         private void metroButtonClearCells_Click(object sender, EventArgs e)
         {
-            metroTextBoxID.Text = "";
-            metroTextBoxName.Text = "";
-            metroComboBoxSex.Text = "";
-            metroTextBoxIdCard.Text = "";
-            metroTextBoxTaj.Text = "";
-            metroDateTimeBDate.Text = "";
-            metroTextBoxBPlace.Text = "";
-            metroDateTimeComing.Text = "";
-            metroTextBoxLocation.Text = "";
+            emptyCells();
         }
 
         private void metroButtonDelete_Click(object sender, EventArgs e)
@@ -194,11 +198,128 @@ namespace Szakdolgozat2020.Forms.Nevelo
 
         private void metroButtonAdd_Click(object sender, EventArgs e)
         {
+            errorProviderName.Clear();
+            errorProviderSex.Clear();
+            errorProviderTaj.Clear();
+            errorProviderIdCard.Clear();
+            errorProviderBdate.Clear();
+            errorProviderBPlace.Clear();
+            errorProviderComing.Clear();
+            errorProviderLocation.Clear();
+            try
+            {
+                int id = repo.getnextChildId();
+                string sex = "";
 
+                if (metroComboBoxSex.Text == "")
+                {
+                    throw new ModellChildNotValidSexException();
+                }
+                else
+                {
+                    if (metroComboBoxSex.Text == "férfi")
+                    {
+                        sex = "False";
+                    }
+                    else if (metroComboBoxSex.Text == "nő")
+                    {
+                        sex = "True";
+                    }
+                }
+
+                Child newEmployee = new Child(
+                    id,
+                    metroTextBoxName.Text,
+                    sex,
+                    metroTextBoxIdCard.Text,
+                    metroTextBoxTaj.Text,
+                    metroDateTimeBDate.Text,
+                    metroTextBoxBPlace.Text,
+                    metroDateTimeComing.Text,
+                    metroTextBoxLocation.Text
+                   );
+
+                //Hozzáadás az adatbázishoz
+                try
+                {
+                    rep.insertChildrenToDatabase(newEmployee);
+                }
+                catch (Exception)
+                {
+                    
+                    throw new insertChildException();
+                }
+
+                //Hozzáadás a listához
+                try
+                {
+                    repo.addChildToList(newEmployee);
+                }
+                catch (Exception)
+                {
+
+                    Debug.WriteLine("A dolgozó felvétele sikertelen volt a listához");
+                    MetroMessageBox.Show(this, "\n\nHibát észleltünk, a felvétel sikertelen volt a listához.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
+                //DataGridView frissítése
+                updateDataInDataGriedViewt();
+                updateCildrenNumber();
+                emptyCells();
+            }
+            catch (insertChildException ice)
+            {
+                Debug.WriteLine("A dolgozó felvétele sikertelen volt az adatbázishoz, " + ice.Message);
+                MetroMessageBox.Show(this, "\n\nHibát észleltünk, a felvétel sikertelen volt. Nem lehet ugyan olyna személyigazolvány szám és taj szám, mint ami már van a DataGridView-ba és az adatbázisba.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (ModellChildNotValidNameException mne)
+            {
+                errorProviderName.SetError(metroTextBoxName, mne.Message);
+            }
+            catch (ModellChildNotValidSexException mse)
+            {
+                errorProviderSex.SetError(metroComboBoxSex, mse.Message);
+            }
+            catch (MedellNotValidChiIdcardException mie)
+            {
+                errorProviderIdCard.SetError(metroTextBoxIdCard, mie.Message);
+            }
+            catch (ModellChildNotValidTajnumberException mte)
+            {
+                errorProviderTaj.SetError(metroTextBoxTaj, mte.Message);
+            }
+            catch (ModellChildNotValidBirthdayException mbe)
+            {
+                errorProviderBdate.SetError(metroDateTimeBDate, mbe.Message);
+            }
+            catch (ModellChildNotValidBirthplaceException mbpe)
+            {
+                errorProviderBPlace.SetError(metroTextBoxBPlace, mbpe.Message);
+            }
+            catch (ModellChildNotValidComingException mle)
+            {
+                errorProviderComing.SetError(metroDateTimeComing, mle.Message);
+            }
+            catch (ModellChildNotValidLocationException mle)
+            {
+                errorProviderLocation.SetError(metroTextBoxLocation, mle.Message);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
         }
 
         private void metroButtonModify_Click(object sender, EventArgs e)
         {
+            errorProviderName.Clear();
+            errorProviderSex.Clear();
+            errorProviderTaj.Clear();
+            errorProviderIdCard.Clear();
+            errorProviderBdate.Clear();
+            errorProviderBPlace.Clear();
+            errorProviderComing.Clear();
+            errorProviderLocation.Clear();
             try
             {
                 Child modified = new Child(
@@ -222,7 +343,7 @@ namespace Szakdolgozat2020.Forms.Nevelo
                 catch (Exception ex)
                 {
 
-                    Debug.WriteLine("A dolgozó módosítása sikertelen volt a listában");
+                    Debug.WriteLine("A gyermek módosítása sikertelen volt a listában");
                     MetroMessageBox.Show(this, "\n\nHibát észleltünk, a módosítása sikertelen volt az adatbázisból.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
@@ -239,6 +360,38 @@ namespace Szakdolgozat2020.Forms.Nevelo
 
                 //Módosítás miatt DataGridView updatelése
                 updateDataInDataGriedViewt();
+            }
+            catch (ModellChildNotValidNameException mne)
+            {
+                errorProviderName.SetError(metroTextBoxName, mne.Message);
+            }
+            catch (ModellChildNotValidSexException mse)
+            {
+                errorProviderSex.SetError(metroComboBoxSex, mse.Message);
+            }
+            catch (MedellNotValidChiIdcardException mie)
+            {
+                errorProviderIdCard.SetError(metroTextBoxIdCard, mie.Message);
+            }
+            catch (ModellChildNotValidTajnumberException mte)
+            {
+                errorProviderTaj.SetError(metroTextBoxTaj, mte.Message);
+            }
+            catch (ModellChildNotValidBirthdayException mbe)
+            {
+                errorProviderBdate.SetError(metroDateTimeBDate, mbe.Message);
+            }
+            catch (ModellChildNotValidBirthplaceException mbpe)
+            {
+                errorProviderBPlace.SetError(metroTextBoxBPlace, mbpe.Message);
+            }
+            catch (ModellChildNotValidComingException mle)
+            {
+                errorProviderComing.SetError(metroDateTimeComing, mle.Message);
+            }
+            catch (ModellChildNotValidLocationException mle)
+            {
+                errorProviderLocation.SetError(metroTextBoxLocation, mle.Message);
             }
             catch (Exception)
             {

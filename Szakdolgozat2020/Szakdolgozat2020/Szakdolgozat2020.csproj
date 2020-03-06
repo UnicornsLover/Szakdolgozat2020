@@ -84,7 +84,9 @@
     <Compile Include="Forms\Foster\HomePageNevelo.Designer.cs">
       <DependentUpon>HomePageNevelo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Foster\InsertChildException.cs" />
     <Compile Include="Forms\Foster\RepositoryChildExceptionCantDelete.cs" />
+    <Compile Include="Forms\Head of institution\insertEmployeException.cs" />
     <Compile Include="Forms\Head of institution\WorkersRegistration.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +121,14 @@
     <Compile Include="Modell\Children\ChildrenDatabaseCommand.cs" />
     <Compile Include="Modell\Children\getSQLCommand.cs" />
     <Compile Include="Modell\Children\Child.cs" />
+    <Compile Include="Modell\Children\Exception\MedellNotValidIdcardException.cs" />
+    <Compile Include="Modell\Children\Exception\ModellChildNotValidBirthdayException.cs" />
+    <Compile Include="Modell\Children\Exception\ModellChildNotValidBirthplaceException.cs" />
+    <Compile Include="Modell\Children\Exception\ModellChildNotValidComingException.cs" />
+    <Compile Include="Modell\Children\Exception\ModellChildNotValidLocationException.cs" />
+    <Compile Include="Modell\Children\Exception\ModellChildNotValidNameEXception.cs" />
+    <Compile Include="Modell\Children\Exception\ModellChildNotValidSexException.cs" />
+    <Compile Include="Modell\Children\Exception\ModellChildNotValidTajnumberException.cs" />
     <Compile Include="Modell\Employes\EmployeeDatabaseCommand.cs" />
     <Compile Include="Modell\Employes\GetSQLCommand.cs" />
     <Compile Include="Modell\Employes\Employes.cs" />
@@ -129,6 +139,7 @@
     <Compile Include="Modell\Employes\Exception\ModellEmployeNotValidNameException.cs" />
     <Compile Include="Modell\Employes\Exception\ModellEmployeNotValidSexException.cs" />
     <Compile Include="Modell\Employes\Exception\ModellNotValidBirthDayDateException.cs" />
+    <Compile Include="Modell\Employes\MedellNotValidEmpIdcardException.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\Children\Exception\RepositoryChildExceptionCantAdd.cs" />
@@ -206,8 +217,6 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Modell\Children\Exception\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

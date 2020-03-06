@@ -138,7 +138,7 @@ namespace Szakdolgozat2020.Repository.Children
         /// Újy gyermek hozzáadaása a listához
         /// </summary>
         /// <param name="newChild"></param>
-        public void addEmployeeToList(Child newChild)
+        public void addChildToList(Child newChild)
         {
             try
             {

@@ -50,8 +50,9 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
             employesDT.Columns[5].ColumnName = "Születési hely:";
             employesDT.Columns[6].ColumnName = "Betöltött munkakör:";
             employesDT.Columns[7].ColumnName = "Lakcím:";
-            employesDT.Columns[8].ColumnName = "Felhasználó név:";
-            employesDT.Columns[9].ColumnName = "Jelszó:";
+            employesDT.Columns[8].ColumnName = "Személyigazolvány szám:";
+            employesDT.Columns[9].ColumnName = "Felhasználó név:";
+            employesDT.Columns[10].ColumnName = "Jelszó:";
 
 
             metroGridEmployees.SelectionMode =
@@ -70,7 +71,7 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
         {
             updateDataInDataGriedViewt();
             setEmployeDataGridView();
-            metroDateTimeEBirth.Text = "1980-01-01";
+            metroDateTimeEBirth.Text = "1945-01-01";
             updateEmployeesNumber();
         }
 
@@ -90,8 +91,9 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
                 metroTextBoxBPlace.Text = metroGridEmployees.Rows[e.RowIndex].Cells[5].FormattedValue.ToString();
                 metroComboBoxEjobtype.Text = metroGridEmployees.Rows[e.RowIndex].Cells[6].FormattedValue.ToString();
                 metroTextBoxAddress.Text = metroGridEmployees.Rows[e.RowIndex].Cells[7].FormattedValue.ToString();
-                metroTextBoxEUserName.Text = metroGridEmployees.Rows[e.RowIndex].Cells[8].FormattedValue.ToString();
-                metroTextBoxEPassword.Text = metroGridEmployees.Rows[e.RowIndex].Cells[9].FormattedValue.ToString();
+                metroTextBoxIdCard.Text = metroGridEmployees.Rows[e.RowIndex].Cells[8].FormattedValue.ToString();
+                metroTextBoxEUserName.Text = metroGridEmployees.Rows[e.RowIndex].Cells[9].FormattedValue.ToString();
+                metroTextBoxEPassword.Text = metroGridEmployees.Rows[e.RowIndex].Cells[10].FormattedValue.ToString();
             }
         }
 
@@ -120,22 +122,26 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
                 }
             }
         }
-
-        /// <summary>
-        /// Cellák ürítése
-        /// </summary>
-        private void metroButtonCleanCells_Click(object sender, EventArgs e)
+        public void emptyCells()
         {
             metroTextBoxEID.Text = "";
             metroTextBoxEname.Text = "";
             metroTextBoxEMaidname.Text = "";
             metroComboBoxESex.Text = "";
-            metroDateTimeEBirth.Text = "";
+            metroDateTimeEBirth.Text = "1945 - 01 - 01";
             metroTextBoxBPlace.Text = "";
             metroComboBoxEjobtype.Text = "";
             metroTextBoxAddress.Text = "";
+            metroTextBoxIdCard.Text = "";
             metroTextBoxEUserName.Text = "";
             metroTextBoxEPassword.Text = "";
+        }
+        /// <summary>
+        /// Cellák ürítése
+        /// </summary>
+        private void metroButtonCleanCells_Click(object sender, EventArgs e)
+        {
+            emptyCells();
         }
 
         /// <summary>
@@ -204,6 +210,7 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
             errorProviderLocation.Clear();
             errorProviderSex.Clear();
             errorProviderBirthdayDate.Clear();
+            errorProviderIdcard.Clear();
 
             try
             {
@@ -216,6 +223,7 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
                 metroTextBoxBPlace.Text,
                 metroTextBoxAddress.Text,
                 metroComboBoxEjobtype.Text,
+                metroTextBoxIdCard.Text,
                 metroTextBoxEUserName.Text,
                 metroTextBoxEPassword.Text
                 );
@@ -246,6 +254,10 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
 
                 //Módosítás miatt DataGridView updatelése
                 updateDataInDataGriedViewt();
+            }
+            catch (MedellNotValidEmpIdcardException mie)
+            {
+                errorProviderIdcard.SetError(metroTextBoxIdCard, mie.Message);
             }
             catch (ModellEmployeNotValidBirthPlacesException mex)
             {
@@ -330,10 +342,11 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
             errorProviderLocation.Clear();
             errorProviderSex.Clear();
             errorProviderBirthdayDate.Clear();
-            
+            errorProviderIdcard.Clear();
+
             try
             {
-                
+
 
                 int id = repo.getnextEmployeId();
                 string sex = "";
@@ -363,10 +376,20 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
                     metroTextBoxBPlace.Text,
                     metroComboBoxEjobtype.Text,
                     metroTextBoxAddress.Text,
+                    metroTextBoxIdCard.Text,
                     getRegUserName(),
                     getRegUserPassword()
                    );
-                
+
+                //Hozzáadás az adatbázishoz
+                try
+                {
+                    rep.insertEmployeeToDatabase(newEmployee);
+                }
+                catch (Exception)
+                {
+                    throw new insertEmployeException();
+                }
 
                 //Hozzáadás a listához
                 try
@@ -380,20 +403,20 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
                     MetroMessageBox.Show(this, "\n\nHibát észleltünk, a felvétel sikertelen volt a listához.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
-                //Hozzáadás az adatbázishoz
-                try
-                {
-                    rep.insertEmployeeToDatabase(newEmployee);
-                }
-                catch (Exception)
-                {
-                    Debug.WriteLine("A dolgozó felvétele sikertelen volt az adatbázishoz");
-                    MetroMessageBox.Show(this, "\n\nHibát észleltünk, a felvétel sikertelen volt az adatbázishoz.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
 
                 //DataGridView frissítése
                 updateDataInDataGriedViewt();
                 updateEmployeesNumber();
+                emptyCells();
+            }
+            catch (insertEmployeException iee)
+            {
+                Debug.WriteLine("A dolgozó felvétele sikertelen volt az adatbázishoz, " + iee.Message);
+                MetroMessageBox.Show(this, "\n\nHibát észleltünk, a felvétel sikertelen volt. Nem lehet két ugyanolyan személy az adatbázisba, akiknek ugyan az a személyigazolvány számuk.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (MedellNotValidEmpIdcardException mie)
+            {
+                errorProviderIdcard.SetError(metroTextBoxIdCard, mie.Message);
             }
             catch (ModellEmployeNotValidBirthPlacesException mex)
             {

@@ -18,9 +18,10 @@ namespace Szakdolgozat2020.Modell.Employes
         private string ebirthplace;
         private string ejob;
         private string elocation;
+        private string idcard;
         private string euname;
         private string epassword;
-        
+
         /// <summary>
         /// Konstruktor a dolgozó létrehozásához
         /// </summary>
@@ -32,14 +33,15 @@ namespace Szakdolgozat2020.Modell.Employes
         /// <param name="ebirthplace">Születési hely</param>
         /// <param name="ejob">Munka tipusa</param>
         /// <param name="elocation">Körzethez való tartózása  acégen belül</param>
+        /// /// <param name="idcard">Személyigazolványszám</param>
         /// <param name="euname">Felhasználó név</param>
         /// <param name="epassword">Jelszó</param>
-        public Employe(int eID, string ename, string emaidenname, string esex, string allbirth, string ebirthplace, string ejob, string elocation, string euname, string epassword)
+        public Employe(int eID, string ename, string emaidenname, string esex, string allbirth, string ebirthplace, string ejob, string elocation, string idcard, string euname, string epassword)
         {
             //**********Valid**********
             if (!isValidName(ename))
             {
-                throw new ModellEmployeNotValidNameException("Nem megfelelő 'Neve' mező, kezdje nagy betűvel a nevet és legalább 4 karakter hosszú legyen.");
+                throw new ModellEmployeNotValidNameException("Nem megfelelő 'Neve' mező, kezdje nagy betűvel a nevet és legalább 4 karakter hosszú legyen. Számot ne tartalamzzon. Kérlek próbáld újra!");
             }
             if (!isValidMaidenName(emaidenname))
             {
@@ -65,6 +67,10 @@ namespace Szakdolgozat2020.Modell.Employes
             {
                 throw new ModellEmployeNotValidJobExeption("Nem megfelelő 'Betöltött munkakör' mező, kattintson a lefele mutató nyilra 'Betöltött munkakör' mezőnél és a legördülő menő segítségével válasza ki a betöltött munkakör fajtát.");
             }
+            if (!isValidIdCard(idcard))
+            {
+                throw new MedellNotValidEmpIdcardException("Nem megfelelő 'Személyigazolvány szám:' mező. Kérlek figyelj a formátumra. Pl: 123456AB");
+            }
             //**********Set***********
             this.eID = eID;
             this.ename = ename;
@@ -83,6 +89,7 @@ namespace Szakdolgozat2020.Modell.Employes
             this.ebirthplace = ebirthplace;
             this.ejob = ejob;
             this.elocation = elocation;
+            this.idcard = idcard;
             this.euname = euname;
             this.epassword = epassword;
         }
@@ -100,6 +107,7 @@ namespace Szakdolgozat2020.Modell.Employes
             this.ebirthplace = modified.getEbirthplace();
             this.ejob = modified.getEjob();
             this.elocation = modified.getElocation();
+            this.idcard = modified.getIdcard();
             this.euname = modified.getEuname();
             this.epassword = modified.getEpasword();
         }
@@ -137,6 +145,10 @@ namespace Szakdolgozat2020.Modell.Employes
         public void setElocation(string location)
         {
             this.elocation = location;
+        }
+        public void setIdcard(string idcard)
+        {
+            this.idcard = idcard;
         }
         public void setEuname(string uname)
         {
@@ -179,6 +191,10 @@ namespace Szakdolgozat2020.Modell.Employes
         {
             return elocation;
         }
+        public string getIdcard()
+        {
+            return idcard;
+        }
         public string getEuname()
         {
             return euname;
@@ -220,7 +236,7 @@ namespace Szakdolgozat2020.Modell.Employes
             {
                 return false;
             }
-            if (name.Length <= 10)
+            if (name.Length <= 5)
             {
                 return false;
             }
@@ -278,6 +294,7 @@ namespace Szakdolgozat2020.Modell.Employes
             }
             return true;
         }
+
         public bool isValidSex(string name)
         {
             if (name == "")
@@ -289,11 +306,78 @@ namespace Szakdolgozat2020.Modell.Employes
         public bool isValidBirthDay(string name)
         {
             Console.WriteLine(name);
-            if (name != "1980-01-01 ")
+            if (name != "1945-01-01 ")
             {
                 return true;
             }
             return false; 
+        }
+        public bool isValidIdCard(string name)
+        {
+            if (name != string.Empty)
+            {
+                if (char.IsDigit(name.ElementAt(0)))
+                {
+                    if (char.IsDigit(name.ElementAt(1)))
+                    {
+                        if (char.IsDigit(name.ElementAt(2)))
+                        {
+                            if (char.IsDigit(name.ElementAt(3)))
+                            {
+                                if (char.IsDigit(name.ElementAt(4)))
+                                {
+                                    if (char.IsDigit(name.ElementAt(5)))
+                                    {
+                                        if (char.IsLetter(name.ElementAt(6)) && char.IsUpper(name.ElementAt(6)))
+                                        {
+                                            if (char.IsLetter(name.ElementAt(7)) && char.IsUpper(name.ElementAt(6)))
+                                            {
+                                                return true;
+                                            }
+                                            else
+                                            {
+                                                return false;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            return false;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        return false;
+                                    }
+                                }
+                                else
+                                {
+                                    return false;
+                                }
+                            }
+                            else
+                            {
+                                return false;
+                            }
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

@@ -11,7 +11,7 @@ namespace Szakdolgozat2020.Modell.Children
         public string getInsert()
         {
             return
-                "INSERT INTO `childen_fullprofile` (`ID`, `cname`, `csex`, `cidcardnumber`, `ctajnumber`, `cbirthday`, `cbirthdplace`, `ccoming`, `clocation`)"
+                "INSERT INTO `children_fullprofile` (`ID`, `cname`, `csex`, `cidcardnumber`, `ctajnumber`, `cbirth`, `cbirthplace`, `ccoming`, `clocation`)"
                 +"VALUES ('"
                 +cID 
                 +"', '"
@@ -30,7 +30,7 @@ namespace Szakdolgozat2020.Modell.Children
                 +getCcoming()
                 +"', '"
                 +getClocation()
-                +"')";
+                +"');";
         }
 
         public string getUpdate(int id)

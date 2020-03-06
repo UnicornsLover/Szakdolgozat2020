@@ -38,12 +38,13 @@ namespace Szakdolgozat2020.Repository.Employes
                     string ebirthplace = dr["ebirthplace"].ToString();
                     string ejob = dr["ejob"].ToString();
                     string elocation = dr["elocation"].ToString();
+                    string idcard = dr["idcard"].ToString();
                     string euname = dr["euname"].ToString();
 
                     if (goodResult)
                     {
                         string epassword = dr["epassword"].ToString();
-                        Employe emp = new Employe(id,ename,emaidenname,esex,ebirth,ebirthplace,ejob,elocation,euname,epassword);
+                        Employe emp = new Employe(id,ename,emaidenname,esex,ebirth,ebirthplace,ejob,elocation,idcard,euname,epassword);
                         employees.Add(emp);
                     }
                 }

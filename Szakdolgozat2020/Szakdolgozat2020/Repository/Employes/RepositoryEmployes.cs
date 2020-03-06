@@ -54,11 +54,12 @@ namespace Szakdolgozat2020.Repository.Employes
                 dt.Columns.Add("Születési hely:", typeof(string));
                 dt.Columns.Add("Betöltött munkakör:", typeof(string));
                 dt.Columns.Add("Lakcím:", typeof(string));
+                dt.Columns.Add("Személyigazolvány:", typeof(string));
                 dt.Columns.Add("Felhasználó név:", typeof(string));
                 dt.Columns.Add("Jelszó:", typeof(string));
                 foreach (Employe line in employees)
                 {
-                    dt.Rows.Add(line.getEID(), line.getEname(), line.getEmaidenname(), line.getEsex(), line.getEallbirthday(), line.getEbirthplace(), line.getEjob(), line.getElocation(), line.getEuname(), line.getEpasword());
+                    dt.Rows.Add(line.getEID(), line.getEname(), line.getEmaidenname(), line.getEsex(), line.getEallbirthday(), line.getEbirthplace(), line.getEjob(), line.getElocation(),line.getIdcard(), line.getEuname(), line.getEpasword());
                 }
             }
             catch (Exception ex)
@@ -85,9 +86,10 @@ namespace Szakdolgozat2020.Repository.Employes
                 string ebirthplace = row[5].ToString();
                 string ejob = row[6].ToString();
                 string elocation = row[7].ToString();
-                string euname = row[8].ToString();
-                string epassword = row[9].ToString();
-                Employe line = new Employe(id, ename, emaidenname, esex, eallbirthday, ebirthplace, ejob, elocation, euname, epassword);
+                string idcard = row[8].ToString();
+                string euname = row[9].ToString();
+                string epassword = row[10].ToString();
+                Employe line = new Employe(id, ename, emaidenname, esex, eallbirthday, ebirthplace, ejob, elocation,idcard, euname, epassword);
                 employees.Add(line);
             }
         }

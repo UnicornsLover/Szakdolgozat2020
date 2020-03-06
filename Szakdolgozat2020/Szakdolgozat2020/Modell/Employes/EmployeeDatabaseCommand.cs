@@ -11,24 +11,26 @@ namespace Szakdolgozat2020.Modell.Employes
         public string getInsert()
         {
             return
-                "INSERT INTO `employes_login` (`ID`, `ename`, `emaidenname`, `esex`, `ebirth`, `ebirthplace`, `ejob`, `elocation`, `euname`, `epassword`)"
-                +"VALUES('"
-                +eID
-                +"', '"
-                +getEname()
-                +"', '"
-                +getEmaidenname()
-                +"', '" +
+                "INSERT INTO `employes_login` (`ID`, `ename`, `emaidenname`, `esex`, `ebirth`, `ebirthplace`, `ejob`, `elocation`,`idcard`, `euname`, `epassword`)"
+                + "VALUES('"
+                + eID
+                + "', '"
+                + getEname()
+                + "', '"
+                + getEmaidenname()
+                + "', '" +
                 getEsex()
-                +"', '" +
+                + "', '" +
                 getEallbirthday()
-                +"', '"
-                +getEbirthplace()
-                +"', '" 
-                +getEjob()
-                +"', '"
-                +getElocation()
-                +"', '" 
+                + "', '"
+                + getEbirthplace()
+                + "', '"
+                + getEjob()
+                + "', '"
+                + getElocation()
+                + "', '"
+                + getIdcard()
+                + "', '"
                 + getEuname()
                 +"', '"
                 +getEpasword()

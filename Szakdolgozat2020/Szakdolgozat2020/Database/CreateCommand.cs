@@ -50,20 +50,22 @@ namespace Szakdolgozat2020.Database
                 string queryCreateTable =
                     "CREATE TABLE IF NOT EXISTS `employes_login` ("
                     + "`ID` int(11) NOT NULL,"
-                    +"`ename` varchar(50) COLLATE utf8_hungarian_ci NOT NULL,"
-                    +"`emaidenname` varchar(50) COLLATE utf8_hungarian_ci NOT NULL,"
-                    +"`esex` tinyint(1) NOT NULL,"
-                    +"`ebirth` date NOT NULL,"
-                    +"`ebirthplace` varchar(40) COLLATE utf8_hungarian_ci NOT NULL,"
-                    +"`ejob` varchar(18) COLLATE utf8_hungarian_ci NOT NULL,"
-                    +"`elocation` varchar(90) COLLATE utf8_hungarian_ci NOT NULL,"
-                    +"`euname` varchar(25) COLLATE utf8_hungarian_ci NOT NULL,"
+                    + "`ename` varchar(50) COLLATE utf8_hungarian_ci DEFAULT NULL,"
+                    + "`emaidenname` varchar(50) COLLATE utf8_hungarian_ci DEFAULT NULL,"
+                    + "`esex` tinyint(1) DEFAULT NULL,"
+                    + "`ebirth` date DEFAULT NULL,"
+                    + "`ebirthplace` varchar(40) COLLATE utf8_hungarian_ci DEFAULT NULL,"
+                    + "`ejob` varchar(18) COLLATE utf8_hungarian_ci DEFAULT NULL,"
+                    + "`elocation` varchar(90) COLLATE utf8_hungarian_ci DEFAULT NULL,"
+                    + "`idcard` varchar(10) COLLATE utf8_hungarian_ci DEFAULT NULL,"
+                    + "`euname` varchar(25) COLLATE utf8_hungarian_ci NOT NULL,"
                     +"`epassword` varchar(25) COLLATE utf8_hungarian_ci NOT NULL"
                     +") ENGINE = InnoDB DEFAULT CHARSET = utf8 COLLATE = utf8_hungarian_ci;";
                 string queryPrimaryKey =
                     "ALTER TABLE `employes_login` ADD PRIMARY KEY IF NOT EXISTS (`ID`);"
                     + "ALTER TABLE `employes_login` MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 1;" +
-                    "ALTER TABLE employes_login ADD UNIQUE INDEX (`ID`);"; //-------------------------------------------
+                    "ALTER TABLE employes_login ADD UNIQUE INDEX (`ID`);"
+                    + "ALTER TABLE `employes_login` ADD UNIQUE( `idcard`);";
 
                 MySqlCommand cmdCreateTable = new MySqlCommand(queryCreateTable, connection);
                 cmdCreateTable.ExecuteNonQuery();
@@ -105,7 +107,8 @@ namespace Szakdolgozat2020.Database
                 "ALTER TABLE `children_fullprofile` "
                 + "ADD PRIMARY KEY IF NOT EXISTS (`ID`);" +
                 "ALTER TABLE `children_fullprofile` MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 1;" +
-                "ALTER TABLE children_fullprofile ADD UNIQUE INDEX(`ID`); ";
+                "ALTER TABLE children_fullprofile ADD UNIQUE INDEX(`ID`); "
+                + "ALTER TABLE `children_fullprofile` ADD UNIQUE( `cidcardnumber`, `ctajnumber`);";
                 MySqlCommand cmdCreateTable = new MySqlCommand(queryCreateTable, connection);
                 cmdCreateTable.ExecuteNonQuery();
                 MySqlCommand cmdPrimaryKey = new MySqlCommand(queryPrimaryKey, connection);

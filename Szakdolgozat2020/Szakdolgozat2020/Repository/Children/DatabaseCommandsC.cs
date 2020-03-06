@@ -118,13 +118,13 @@ namespace Szakdolgozat2020.Repository.Children
         /// Gyermek hozzáadása a z adatbázishoz
         /// </summary>
         /// <param name="newEmployee">Az adott gyermek akit beszúrunk</param>
-        public void insertChildrenToDatabase(Child newEmployee)
+        public void insertChildrenToDatabase(Child newChild)
         {
             MySqlConnection connection = new MySqlConnection(connectionString);
             try
             {
                 connection.Open();
-                string query = newEmployee.getInsert();
+                string query = newChild.getInsert();
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
                 connection.Close();
@@ -133,7 +133,7 @@ namespace Szakdolgozat2020.Repository.Children
             {
                 connection.Close();
                 Debug.WriteLine(e.Message);
-                Debug.WriteLine("InsertChild*******************************" + newEmployee + " gyermek beszúrása adatbázisba nem sikerült.");
+                Debug.WriteLine("InsertChild*******************************" + newChild + " gyermek beszúrása adatbázisba nem sikerült.");
                 throw new RepositoryChildException("Sikertelen beszúrás az adatbázisból.");
             }
         }

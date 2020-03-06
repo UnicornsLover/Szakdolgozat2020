@@ -22,17 +22,17 @@ namespace Szakdolgozat2020.Database
             {
                 connection.Open();
                 string query =
-                    "INSERT IGNORE  INTO `employes_login` (`ID`, `ename`, `emaidenname`, `esex`, `ebirth`, `ebirthplace`, `ejob`, `elocation`, `euname`, `epassword`) VALUES"
-                    + "(1, 'Bálint István', '-', 0, '1999-09-12', 'Székesfehérvár', 'Rendszergazda', 'Kiskunmajsa, Kovács Béla utca 12.', 'bisti', 'admin'),"
-                    + "(2, 'Chat Elek', '-', 0, '1985-03-14', 'Facebook', 'Nevelő', 'Szeged, Kiss Ödön út 1.', 'chaele', 'nevelo1'),"
-                    + "(3, 'Zuhany Rózsa', 'Zuhany Rózsa', 1, '1963-11-08', 'Zalakaros', 'Intézményvezető', 'Lajosmizse, Alma körút 456.', 'zuhroz', 'intv1'),"
-                    + "(4, 'Fejet Lenke ', 'Fejet Lenke ', 1, '1977-02-21', 'Fejes', 'Ügyintéző', 'Szeged, Rózsa utca 112.', 'fejlen', 'intu1'),"
-                    + "(5, 'Major Anna ', 'Kiss Anna ', 1, '1972-09-12', 'Fűszerpor', 'Pszichológus', 'Tókió, Humululu Street 43.', 'majann', 'lelek1'),"
-                    + "(6, 'Szántó Tamás', '-', 1, '1998-06-10', 'Szeged', 'Pszichológus', 'Vásárhely, Csillag tér 1/a', 'szantam', 'abc123'),"
-                    + "(7, 'Rózsa István', '-', 0, '1998-12-21', 'Szeged', 'Intézményvezető', 'Szeged, Alajos utca 32.', 'rozist', 'qwe123'),"
-                    + "(8, 'Horváth Gellért', '-', 0, '1995-02-12', 'Kalocsa', 'Nevelő', 'Kalocsa, Himzes út 54.', 'horgel', 'nev1'),"
-                    + "(9, 'Bálint Sára', 'Bálint Sára', 1, '1995-04-22', 'Székesfehérvár', 'Nevelő', 'Szeged, Anya utca 13.', 'balsar', 'tzu123'),"
-                    + "(10, 'Kovács Zsolt', '-', 0, '1976-12-01', 'Győr', 'Ügyintéző', 'Kecskemét, Diósgyőr utca 45.', 'kovzso', 'fgh123');";
+                    "INSERT IGNORE  INTO `employes_login` (`ID`, `ename`, `emaidenname`, `esex`, `ebirth`, `ebirthplace`, `ejob`, `elocation`,`idcard`, `euname`, `epassword`) VALUES"
+                    + "(1, 'Bálint István', '-', 0, '1999-09-12', 'Székesfehérvár', 'Rendszergazda', 'Kiskunmajsa, Kovács Béla utca 12.','120123AA', 'bisti', 'admin'),"
+                    + "(2, 'Chat Elek', '-', 0, '1985-03-14', 'Facebook', 'Nevelő', 'Szeged, Kiss Ödön út 1.','121345AB', 'chaele', 'nevelo1'),"
+                    + "(3, 'Zuhany Rózsa', 'Zuhany Rózsa', 1, '1963-11-08', 'Zalakaros', 'Intézményvezető', 'Lajosmizse, Alma körút 456.', '124543AC','zuhroz', 'intv1'),"
+                    + "(4, 'Fejet Lenke ', 'Fejet Lenke ', 1, '1977-02-21', 'Fejes', 'Ügyintéző', 'Szeged, Rózsa utca 112.', '345231XC','fejlen', 'intu1'),"
+                    + "(5, 'Major Anna ', 'Kiss Anna ', 1, '1972-09-12', 'Fűszerpor', 'Pszichológus', 'Tókió, Humululu Street 43.', '200123VB','majann', 'lelek1'),"
+                    + "(6, 'Szántó Tamás', '-', 1, '1998-06-10', 'Szeged', 'Pszichológus', 'Vásárhely, Csillag tér 1/a', '250123AS','szantam', 'abc123'),"
+                    + "(7, 'Rózsa István', '-', 0, '1998-12-21', 'Szeged', 'Intézményvezető', 'Szeged, Alajos utca 32.', '345200QW','rozist', 'qwe123'),"
+                    + "(8, 'Horváth Gellért', '-', 0, '1995-02-12', 'Kalocsa', 'Nevelő', 'Kalocsa, Himzes út 54.','670120FG', 'horgel', 'nev1'),"
+                    + "(9, 'Bálint Sára', 'Bálint Sára', 1, '1995-04-22', 'Székesfehérvár', 'Nevelő', 'Szeged, Anya utca 13.','420123NM', 'balsar', 'tzu123'),"
+                    + "(10, 'Kovács Zsolt', '-', 0, '1976-12-01', 'Győr', 'Ügyintéző', 'Kecskemét, Diósgyőr utca 45.', '567800PL','kovzso', 'fgh123');";
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
                 connection.Close();
@@ -83,7 +83,7 @@ namespace Szakdolgozat2020.Database
             {
                 connection.Open();
                 string query =
-                    "INSERT IGNORE INTO `children_fullprofile` (`ID`, `cname`, `csex`, `cidcardnhorumber`, `ctajnumber`, `cbirth`, `cbirthplace`, `ccoming`, `clocation`) VALUES"
+                    "INSERT IGNORE INTO `children_fullprofile` (`ID`, `cname`, `csex`, `cidcardnumber`, `ctajnumber`, `cbirth`, `cbirthplace`, `ccoming`, `clocation`) VALUES"
                     + "(1, 'Szabó Péter', '0', '785962LO', '789963365', '2005-12-04', 'Szeged', '2008-06-01', 'Szeged'),"
                     + "(2, 'Tótk Luca', '1', '788522CV', '780120412', '1995-07-29', 'Budapest', '2011-11-01', 'Szeged'),"
                     +"(3, 'Erős István', 0, '147852DF', '785236941', '2007-07-26', 'Kecskemét', '2012-12-01', 'Kecskemét'),"
