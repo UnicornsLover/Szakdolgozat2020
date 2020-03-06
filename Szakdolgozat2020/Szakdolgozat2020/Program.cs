@@ -18,7 +18,7 @@ namespace Szakdolgozat2020
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new IntVPage());
+            Application.Run(new LogInScreen());
         }
     }
 }

@@ -45,7 +45,7 @@ namespace Szakdolgozat2020.Forms.Nevelo
             childrenDT.Columns[2].ColumnName = "Neme:";
             childrenDT.Columns[3].ColumnName = "Személyigazolvány száma:";
             childrenDT.Columns[4].ColumnName = "TAJ száma:";
-            childrenDT.Columns[5].ColumnName = "Születési hely:";
+            childrenDT.Columns[5].ColumnName = "Születési idő:";
             childrenDT.Columns[6].ColumnName = "Születési hely:";
             childrenDT.Columns[7].ColumnName = "Belépés ideje:";
             childrenDT.Columns[8].ColumnName = "Tartózkódás (int.):";
@@ -138,5 +138,6 @@ namespace Szakdolgozat2020.Forms.Nevelo
             metroDateTimeComing.Text = "";
             metroTextBoxLocation.Text = "";
         }
+       
     }
 }
