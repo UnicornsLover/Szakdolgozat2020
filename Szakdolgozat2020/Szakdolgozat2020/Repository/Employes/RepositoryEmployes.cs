@@ -69,30 +69,6 @@ namespace Szakdolgozat2020.Repository.Employes
             
             return dt;
         }
-
-        /// <summary>
-        /// Adat táblából a listába töltés
-        /// </summary>
-        /// <param name="dt"></param>
-        public void DataTableToEmployeList(DataTable dt)
-        {
-            foreach (DataRow row in dt.Rows)
-            {
-                int id = Convert.ToInt32(row[0]);
-                string ename = row[1].ToString();
-                string emaidenname = row[2].ToString();
-                string esex = row[3].ToString();
-                string  eallbirthday= row[4].ToString();
-                string ebirthplace = row[5].ToString();
-                string ejob = row[6].ToString();
-                string elocation = row[7].ToString();
-                string idcard = row[8].ToString();
-                string euname = row[9].ToString();
-                string epassword = row[10].ToString();
-                Employe line = new Employe(id, ename, emaidenname, esex, eallbirthday, ebirthplace, ejob, elocation,idcard, euname, epassword);
-                employees.Add(line);
-            }
-        }
         /// <summary>
         /// Megszámolja  a dolgozókat
         /// </summary>

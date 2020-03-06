@@ -66,25 +66,6 @@ namespace Szakdolgozat2020.Repository.Children
             return dt;
         }
 
-        public void DataTableToChildList(DataTable dt)
-        {
-            foreach (DataRow row in dt.Rows)
-            {
-                int id = Convert.ToInt32(row[0]);
-                string cname = row[1].ToString();
-                string csex = row[2].ToString();
-                string cidcard = row[3].ToString();
-                string ctajnumber = row[4].ToString();
-                string cbirthday = row[5].ToString();
-                string cbirthdayplace = row[6].ToString();
-                string ccoming = row[7].ToString();
-                string clocation = row[8].ToString();
-
-                Child line = new Child(id, cname, csex, cidcard, ctajnumber, cbirthday, cbirthdayplace, ccoming, clocation);
-                children.Add(line);
-            }
-        }
-
         /// <summary>
         /// Mgszámolj  agyerekeket
         /// </summary>
@@ -112,7 +93,7 @@ namespace Szakdolgozat2020.Repository.Children
             }
             else
             {
-                throw new RepositoryChilrenExceptionCantDelete("Nem lehet törölni a gyermeket a listából!");
+                throw new RepositoryChildExceptionCantDelete("Nem lehet törölni a gyermeket a listából!");
             }
         }
 

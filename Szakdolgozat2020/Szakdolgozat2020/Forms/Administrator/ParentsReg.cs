@@ -16,5 +16,10 @@ namespace Szakdolgozat2020.Forms.Administrator
         {
             InitializeComponent();
         }
+
+        private void ParentsReg_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

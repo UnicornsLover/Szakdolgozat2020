@@ -39,6 +39,17 @@ namespace Szakdolgozat2020.Modell.Parents
             this.user = user;
             this.password = password;
         }
+        public void updateL(Parent modified)
+        {
+            this.pname = modified.getPname();
+            this.psex = modified.getPSex();
+            this.pbirth = modified.getPBirth();
+            this.pidcard = modified.getPIdcard();
+            this.loginpermission = modified.getPLoginpermission();
+            this.user = modified.getPLoginpermission();
+            this.password = modified.getPUser();
+
+        }
         //*****************************Setter*****************************
         public void setpID(int pID)
         {

@@ -4,21 +4,21 @@ using System.Runtime.Serialization;
 namespace Szakdolgozat2020.Repository.Children
 {
     [Serializable]
-    internal class RepositoryChilrenExceptionCantDelete : Exception
+    internal class RepositoryChildExceptionCantDelete : Exception
     {
-        public RepositoryChilrenExceptionCantDelete()
+        public RepositoryChildExceptionCantDelete()
         {
         }
 
-        public RepositoryChilrenExceptionCantDelete(string message) : base(message)
+        public RepositoryChildExceptionCantDelete(string message) : base(message)
         {
         }
 
-        public RepositoryChilrenExceptionCantDelete(string message, Exception innerException) : base(message, innerException)
+        public RepositoryChildExceptionCantDelete(string message, Exception innerException) : base(message, innerException)
         {
         }
 
-        protected RepositoryChilrenExceptionCantDelete(SerializationInfo info, StreamingContext context) : base(info, context)
+        protected RepositoryChildExceptionCantDelete(SerializationInfo info, StreamingContext context) : base(info, context)
         {
         }
     }

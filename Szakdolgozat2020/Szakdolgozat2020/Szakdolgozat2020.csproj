@@ -158,7 +158,6 @@
     <Compile Include="Repository\Children\Exception\RepositoryChilrenExceptionCantDelete.cs" />
     <Compile Include="Repository\Children\DatabaseCommandsC.cs" />
     <Compile Include="Repository\Children\Exception\RepositoryChildrenReadyDataFromEmployes_LoginException.cs" />
-    <Compile Include="Repository\Children\RepositoryDatabaseChildren.cs" />
     <Compile Include="Repository\Employes\DatabaseCommandsE.cs" />
     <Compile Include="Repository\Employes\RepositoryDatabseAndTableEmploye.cs" />
     <Compile Include="Repository\Employes\Exception\RepositoryEmloyes_LoginDropException.cs" />
@@ -169,8 +168,16 @@
     <Compile Include="Repository\Employes\Exception\RepositoryExceptionCantDelete.cs" />
     <Compile Include="Repository\Employes\Exception\RepositoryExceptionCantMoodify.cs" />
     <Compile Include="Repository\Employes\Exception\RepositoryExceptionCantAdd.cs" />
+    <Compile Include="Repository\Parents\Exception\RepositoryParentExceptionCantAdd.cs" />
+    <Compile Include="Repository\Parents\Exception\RepositoryParentExceptionCantMoodify.cs" />
+    <Compile Include="Repository\Parents\DatabaseCommand.cs" />
+    <Compile Include="Repository\Parents\RepositoryParents.cs" />
+    <Compile Include="Repository\Parents\Exception\RepositoryParentsExceptionCantDelete.cs" />
+    <Compile Include="Repository\Parents\RepositoryParentsException.cs" />
+    <Compile Include="Repository\Parents\RepositoryParentsReadyDataFromEmployes_LoginException.cs" />
     <Compile Include="Repository\RepositoryE.cs" />
     <Compile Include="Repository\RepositoryC.cs" />
+    <Compile Include="Repository\RepositoryP.cs" />
     <EmbeddedResource Include="Forms\Administrator\ParentsReg.resx">
       <DependentUpon>ParentsReg.cs</DependentUpon>
     </EmbeddedResource>

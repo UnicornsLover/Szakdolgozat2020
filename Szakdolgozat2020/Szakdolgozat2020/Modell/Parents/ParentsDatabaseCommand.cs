@@ -50,5 +50,7 @@ namespace Szakdolgozat2020.Modell.Parents
                 + "' WHERE `parents`.`ID` = "
                 + id + ";";
         }
+
+        
     }
 }
