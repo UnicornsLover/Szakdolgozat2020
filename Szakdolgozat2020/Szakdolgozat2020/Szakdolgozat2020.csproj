@@ -84,6 +84,7 @@
     <Compile Include="Forms\Foster\HomePageNevelo.Designer.cs">
       <DependentUpon>HomePageNevelo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Foster\RepositoryChildExceptionCantDelete.cs" />
     <Compile Include="Forms\Head of institution\WorkersRegistration.cs">
       <SubType>Form</SubType>
     </Compile>

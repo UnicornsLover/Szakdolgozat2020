@@ -70,7 +70,7 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
         {
             updateDataInDataGriedViewt();
             setEmployeDataGridView();
-            metroDateTimeEBirth.Text = "2000-01-01";
+            metroDateTimeEBirth.Text = "1980-01-01";
             updateEmployeesNumber();
         }
 

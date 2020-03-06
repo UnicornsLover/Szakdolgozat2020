@@ -288,8 +288,8 @@ namespace Szakdolgozat2020.Modell.Employes
         }
         public bool isValidBirthDay(string name)
         {
-            //Console.WriteLine(name);
-            if (name != "1753-01-01")
+            Console.WriteLine(name);
+            if (name != "1980-01-01 ")
             {
                 return true;
             }

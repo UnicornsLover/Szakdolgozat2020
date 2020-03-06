@@ -3,11 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Szakdolgozat2020.Modell.Children;
 using Szakdolgozat2020.Repository.Children;
 
 namespace Szakdolgozat2020.Forms.Nevelo
@@ -20,7 +22,7 @@ namespace Szakdolgozat2020.Forms.Nevelo
         public ChildrenReg()
         {
             InitializeComponent();
-            repo.setChild(rep.getEmployeesFromDatabase());
+            repo.setChild(rep.getChildrenFromDatabase());
         }
 
         /// <summary>
@@ -138,6 +140,111 @@ namespace Szakdolgozat2020.Forms.Nevelo
             metroDateTimeComing.Text = "";
             metroTextBoxLocation.Text = "";
         }
-       
+
+        private void metroButtonDelete_Click(object sender, EventArgs e)
+        {
+            //Ha sor nullat ad vissza ne történjen 
+            if ((metroGridChildren.Rows) == null || (metroGridChildren.Rows.Count == 0))
+            {
+                return;
+            }
+            int selectedIndex = metroGridChildren.SelectedRows[0].Index;
+
+            DialogResult dr = MetroMessageBox.Show(this, "\n\nBiztos szeretné törölni a gyermeket?", "Dolgozó törlése", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dr == DialogResult.Yes)
+            {
+                //Törlés a listából
+                int id = -1;
+                if (!int.TryParse(metroGridChildren.SelectedRows[0].Cells[0].Value.ToString(), out id))
+                {
+                    return;
+                }
+
+                try
+                {
+                    repo.deleteChildInList(id);
+                }
+                catch (RepositoryChildExceptionCantDelete ex)
+                {
+
+                    Debug.WriteLine("A dolgozó törlése sikertelen volt a listából!");
+                    MetroMessageBox.Show(this, "\n\nHibát észleltünk, a törlés sikertelen volt az listából.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
+                //Törlés az adatbázisból
+                try
+                {
+                    rep.deleteChildFromDatabase(id);
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine("A gyermek törlése sikertelen volt az adatbázisból");
+                    MetroMessageBox.Show(this, "\n\nHibát észleltünk, a törlés sikertelen volt az adatbázisból.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
+                //DataGridView frissítése
+                updateDataInDataGriedViewt();
+                updateCildrenNumber();
+            }
+            else
+            {
+                Debug.WriteLine("'DialogResult.No'-ra futott rá!");
+            }
+        }
+
+        private void metroButtonAdd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroButtonModify_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Child modified = new Child(
+                Convert.ToInt32(metroTextBoxID.Text),
+                metroTextBoxName.Text,
+                metroComboBoxSex.Text,
+                metroTextBoxIdCard.Text,
+                metroTextBoxTaj.Text,
+                metroDateTimeBDate.Text,
+                metroTextBoxBPlace.Text,
+                metroDateTimeComing.Text,
+                metroTextBoxLocation.Text
+                );
+                int id = Convert.ToInt32(metroTextBoxID.Text);
+
+                //Módosítás a listában
+                try
+                {
+                    repo.updateChildInList(id, modified);
+                }
+                catch (Exception ex)
+                {
+
+                    Debug.WriteLine("A dolgozó módosítása sikertelen volt a listában");
+                    MetroMessageBox.Show(this, "\n\nHibát észleltünk, a módosítása sikertelen volt az adatbázisból.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
+                //Módosítás az adatbázisban
+                try
+                {
+                    rep.updateChildrenInDatabase(id, modified);
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine("A gyermek módosítása sikertelen volt az adatbázisba");
+                    MetroMessageBox.Show(this, "\n\nHibát észleltünk, a módosítás sikertelen volt az adatbázisba.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
+                //Módosítás miatt DataGridView updatelése
+                updateDataInDataGriedViewt();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

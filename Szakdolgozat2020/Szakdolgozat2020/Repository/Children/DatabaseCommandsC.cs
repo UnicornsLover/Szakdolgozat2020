@@ -23,7 +23,7 @@ namespace Szakdolgozat2020.Repository.Children
         /// Gyerekek kiolvasása az adatbázisból
         /// </summary>
         /// <returns>Gyerekek</returns>
-        public List<Child> getEmployeesFromDatabase()
+        public List<Child> getChildrenFromDatabase()
         {
             List<Child> children = new List<Child>();
             MySqlConnection connection = new MySqlConnection(connectionString);
@@ -94,7 +94,7 @@ namespace Szakdolgozat2020.Repository.Children
         /// </summary>
         /// <param name="id">Gyermek id-ja</param>
         /// <param name="modified">Adott gyermek módosítása</param>
-        public void updateEmployeeInDatabase(int id, Child modified)
+        public void updateChildrenInDatabase(int id, Child modified)
         {
             MySqlConnection connection = new MySqlConnection(connectionString);
             try
@@ -118,7 +118,7 @@ namespace Szakdolgozat2020.Repository.Children
         /// Gyermek hozzáadása a z adatbázishoz
         /// </summary>
         /// <param name="newEmployee">Az adott gyermek akit beszúrunk</param>
-        public void insertEmployeeToDatabase(Child newEmployee)
+        public void insertChildrenToDatabase(Child newEmployee)
         {
             MySqlConnection connection = new MySqlConnection(connectionString);
             try

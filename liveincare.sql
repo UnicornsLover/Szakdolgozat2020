@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2020. Feb 27. 14:24
--- Kiszolgáló verziója: 10.4.6-MariaDB
--- PHP verzió: 7.3.8
+-- Létrehozás ideje: 2020. Már 06. 12:38
+-- Kiszolgáló verziója: 10.4.11-MariaDB
+-- PHP verzió: 7.4.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -76,8 +76,8 @@ INSERT INTO `children_events` (`ID`, `title`, `details`, `img`, `by`) VALUES
 CREATE TABLE `children_fullprofile` (
   `ID` int(11) NOT NULL,
   `cname` varchar(50) COLLATE utf8_hungarian_ci DEFAULT NULL,
-  `csex` varchar(10) COLLATE utf8_hungarian_ci DEFAULT NULL,
-  `cidcardnuumber` varchar(10) COLLATE utf8_hungarian_ci DEFAULT NULL,
+  `csex` tinyint(1) DEFAULT NULL,
+  `cidcardnumber` varchar(10) COLLATE utf8_hungarian_ci DEFAULT NULL,
   `ctajnumber` varchar(10) COLLATE utf8_hungarian_ci DEFAULT NULL,
   `cbirth` date DEFAULT NULL,
   `cbirthplace` varchar(40) COLLATE utf8_hungarian_ci NOT NULL,
@@ -89,9 +89,13 @@ CREATE TABLE `children_fullprofile` (
 -- A tábla adatainak kiíratása `children_fullprofile`
 --
 
-INSERT INTO `children_fullprofile` (`ID`, `cname`, `csex`, `cidcardnuumber`, `ctajnumber`, `cbirth`, `cbirthplace`, `ccoming`, `clocation`) VALUES
-(1, 'Szabó Péter', '0', '785962LO', '789963365', '2005-12-04', 'Szeged', '2008-06-01', 'Szeged'),
-(2, 'Tótk Luca', '1', '788522CV', '780120412', '1995-07-29', 'Budapest', '2011-11-01', 'Szeged');
+INSERT INTO `children_fullprofile` (`ID`, `cname`, `csex`, `cidcardnumber`, `ctajnumber`, `cbirth`, `cbirthplace`, `ccoming`, `clocation`) VALUES
+(1, 'Szabó Péter', 0, '785962LO', '789963365', '2005-12-04', 'Szeged', '2008-06-01', 'Szeged'),
+(2, 'Tótk Luca', 1, '788522CV', '780120412', '1995-07-29', 'Budapest', '2011-11-01', 'Szeged'),
+(3, 'Erős István', 0, '147852DF', '785236941', '2007-07-26', 'Kecskemét', '2012-12-01', 'Kecskemét'),
+(4, 'Nagy Irma', 1, '124578NM', '120125478', '1999-07-12', 'Szeged', '2004-12-01', 'Szeged'),
+(5, 'Horváth Eperke', 1, '175415KL', '120125169', '1999-12-31', 'Kecskemét', '2001-01-01', 'Kecskemét'),
+(6, 'Almos Adrienn', 1, '123568MN', '1205470123', '2002-03-24', 'Orosháza', '2004-05-01', 'Szeged');
 
 -- --------------------------------------------------------
 
@@ -114,9 +118,9 @@ CREATE TABLE `children_healths` (
 --
 
 INSERT INTO `children_healths` (`boardID`, `childrenID`, `type`, `details`, `special_treament`, `treatdate`, `by`) VALUES
-(1, 2, 'Diszlekszia', 'Nehézkes a szövegértése hangos olvasása  mellett, ha magában többször elolvassa akkor meg is tudja érteni. A helyesírásnál nem érti a ragozást. Betuket kever össze.', 'Korepetálás, gyakorlás. Felmentés helyesírás alól.', '2011-12-18', 'Major Anna'),
+(1, 2, 'Diszlekszia', 'Nehézkes a szövegértése hangos olvasása  mellett, ha magában többször elolvassa akkor meg is tudja érteni. A helyesírásnál nem érti a ragozást. Betűket kever össze.', 'Korepetálás, gyakorlás. Felmentés helyesírás alól.', '2011-12-18', 'Major Anna'),
 (2, 2, 'Szemvizsgálat', 'A látása rossz távolra. Szemtengely ferdülése van, vagyis egyik szeme jobb mint a másik.', 'Szemüveg beszerzése.', '2013-06-13', 'Dr. Marton József'),
-(3, 1, 'SNI', 'Nehézen lehet a figyelmét lekötni, inkább a saját útját járja. Ezzel rendszeresen zavarva a társait. Tanulás folyamata sokkal lassan mit vele egy köru társaihoz hasonlítva. Ezért kivonja magát ebbol.', 'Speciális oda figyelés, figyelem fejlesztés.', '2008-08-15', 'Major Anna');
+(3, 1, 'SNI', 'Nehézen lehet a figyelmét lekötni, inkább a saját útját járja. Ezzel rendszeresen zavarva a társait. Tanulás folyamata sokkal lassan mit vele egy körű társaihoz hasonlítva. Ezért kivonja magát ebből.', 'Speciális oda figyelés, figyelem fejlesztés.', '2008-08-15', 'Major Anna');
 
 -- --------------------------------------------------------
 
@@ -169,16 +173,16 @@ CREATE TABLE `employes_login` (
 --
 
 INSERT INTO `employes_login` (`ID`, `ename`, `emaidenname`, `esex`, `ebirth`, `ebirthplace`, `ejob`, `elocation`, `euname`, `epassword`) VALUES
-(1, 'Bálint István', '-', 0, '1999-09-12', 'Székesfehérvár', 'boss', 'Kiskunmajsa, Kovács Béla utca 12.', 'bisti', 'admin'),
-(2, 'Chat Elek', '-', 0, '1985-03-14', 'Facebook', 'nevelo', 'Szeged, Kiss Ödön út 1.', 'chaele', 'nevelo1'),
-(3, 'Zuhany Rózsa', 'Zuhany Rózsa', 1, '1963-11-08', 'Zalakaros', 'intvezeto', 'Lajosmizse, Alma körút 456.', 'zuhroz', 'intv1'),
-(4, 'Fejet Lenke ', 'Fejet Lenke ', 1, '1977-02-21', 'Fejes', 'intugyintezo', 'Szeged, Rózsa utca 112.', 'fejlen', 'intu1'),
-(5, 'Major Anna ', 'Kiss Anna ', 1, '1972-09-12', 'Fuszerpor', 'pszichologus', 'Tókió, Humululu Street 43.', 'majann', 'lelek1'),
-(6, 'Szántó tamás', '-', 1, '1998-06-10', 'Szeged', 'pszichologus', 'Vásárhely, Csillag tér 1/a', 'szantam', 'asd123'),
-(7, 'Rózsa István', '-', 0, '1998-12-21', 'Szeged', 'intvezeto', 'Szeged, Alajos utca 32.', 'rozist', 'qwe123'),
-(8, 'Horváth Gellért', '-', 0, '1995-02-12', 'Kalocsa', 'nevelo', 'Kalocsa, Himzes út 54.', 'horgel', 'yxc123'),
-(9, 'Bálint Sára', 'Bálint Sára', 1, '1995-04-22', 'Székesfehérvár', 'nevelo', 'Szeged, Anya utca 13.', 'balsar', 'tzu123'),
-(10, 'Kovács Zsolt', '-', 0, '1976-12-01', 'Gyor', 'intugyintezo', 'Kecskemét, Diósgyor utca 45.', 'kovzso', 'fgh123');
+(1, 'Bálint István', '-', 0, '1999-09-12', 'Székesfehérvár', 'Rendszergazda', 'Kiskunmajsa, Kovács Béla utca 12.', 'bisti', 'admin'),
+(2, 'Chat Elek', '-', 0, '1985-03-14', 'Facebook', 'Nevelő', 'Szeged, Kiss Ödön út 1.', 'chaele', 'nevelo1'),
+(3, 'Zuhany Rózsa', 'Zuhany Rózsa', 1, '1963-11-08', 'Zalakaros', 'Intézményvezető', 'Lajosmizse, Alma körút 456.', 'zuhroz', 'intv1'),
+(4, 'Fejet Lenke ', 'Fejet Lenke ', 1, '1977-02-21', 'Fejes', 'Ügyintéző', 'Szeged, Rózsa utca 112.', 'fejlen', 'intu1'),
+(5, 'Major Anna ', 'Kiss Anna ', 1, '1972-09-12', 'Fűszerpor', 'Pszichológus', 'Tókió, Humululu Street 43.', 'majann', 'lelek1'),
+(6, 'Szántó Tamás', '-', 1, '1998-06-10', 'Szeged', 'Pszichológus', 'Vásárhely, Csillag tér 1/a', 'szantam', 'abc123'),
+(7, 'Rózsa István', '-', 0, '1998-12-21', 'Szeged', 'Intézményvezető', 'Szeged, Alajos utca 32.', 'rozist', 'qwe123'),
+(8, 'Horváth Gellért', '-', 0, '1995-02-12', 'Kalocsa', 'Nevelő', 'Kalocsa, Himzes út 54.', 'horgel', 'nev1'),
+(9, 'Bálint Sára', 'Bálint Sára', 1, '1995-04-22', 'Székesfehérvár', 'Nevelő', 'Szeged, Anya utca 13.', 'balsar', 'tzu123'),
+(10, 'Kovács Zsolt', '-', 0, '1976-12-01', 'Győr', 'Ügyintéző', 'Kecskemét, Diósgyőr utca 45.', 'kovzso', 'fgh123');
 
 -- --------------------------------------------------------
 
@@ -361,7 +365,7 @@ ALTER TABLE `children_events`
 -- AUTO_INCREMENT a táblához `children_fullprofile`
 --
 ALTER TABLE `children_fullprofile`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT a táblához `children_healths`
