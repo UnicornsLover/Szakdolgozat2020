@@ -83,9 +83,13 @@ namespace Szakdolgozat2020.Database
             {
                 connection.Open();
                 string query =
-                    "INSERT IGNORE INTO `children_fullprofile` (`ID`, `cname`, `csex`, `cidcardnuumber`, `ctajnumber`, `cbirth`, `cbirthplace`, `ccoming`, `clocation`) VALUES"
+                    "INSERT IGNORE INTO `children_fullprofile` (`ID`, `cname`, `csex`, `cidcardnhorumber`, `ctajnumber`, `cbirth`, `cbirthplace`, `ccoming`, `clocation`) VALUES"
                     + "(1, 'Szabó Péter', '0', '785962LO', '789963365', '2005-12-04', 'Szeged', '2008-06-01', 'Szeged'),"
-                    + "(2, 'Tótk Luca', '1', '788522CV', '780120412', '1995-07-29', 'Budapest', '2011-11-01', 'Szeged');";
+                    + "(2, 'Tótk Luca', '1', '788522CV', '780120412', '1995-07-29', 'Budapest', '2011-11-01', 'Szeged'),"
+                    +"(3, 'Erős István', 0, '147852DF', '785236941', '2007-07-26', 'Kecskemét', '2012-12-01', 'Kecskemét'),"
+                    +"(4, 'Nagy Irma', 1, '124578NM', '120125478', '1999-07-12', 'Szeged', '2004-12-01', 'Szeged'),"
+                    +"(5, 'Horváth Eperke', 1, '175415KL', '120125169', '1999-12-31', 'Kecskemét', '2001-01-01', 'Kecskemét'),"
+                    +"(6, 'Almos Adrienn', 1, '123568MN', '1205470123', '2002-03-24', 'Orosháza', '2004-05-01', 'Szeged');";
 
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
