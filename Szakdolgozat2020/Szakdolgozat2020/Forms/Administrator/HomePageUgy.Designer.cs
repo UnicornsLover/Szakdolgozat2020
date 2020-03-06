@@ -1,6 +1,6 @@
 ﻿namespace Szakdolgozat2020.Forms.Foster
 {
-    partial class HomePageNevelo
+    partial class HomePageUgy
     {
         /// <summary>
         /// Required designer variable.
@@ -32,6 +32,7 @@
             this.metroLabelLoggedName = new MetroFramework.Controls.MetroLabel();
             this.metroLabelWelcome = new MetroFramework.Controls.MetroLabel();
             this.metroButtonLogOut = new MetroFramework.Controls.MetroButton();
+            this.metroTile1 = new MetroFramework.Controls.MetroTile();
             this.SuspendLayout();
             // 
             // metroTileChildrenReg
@@ -42,7 +43,7 @@
             this.metroTileChildrenReg.Name = "metroTileChildrenReg";
             this.metroTileChildrenReg.Size = new System.Drawing.Size(191, 123);
             this.metroTileChildrenReg.TabIndex = 0;
-            this.metroTileChildrenReg.Text = "Gyermek regisztráció";
+            this.metroTileChildrenReg.Text = "Gyermek adatbázis";
             this.metroTileChildrenReg.UseCustomBackColor = true;
             this.metroTileChildrenReg.UseSelectable = true;
             this.metroTileChildrenReg.Click += new System.EventHandler(this.metroTileChildrenReg_Click);
@@ -82,18 +83,32 @@
             this.metroButtonLogOut.UseStyleColors = true;
             this.metroButtonLogOut.Click += new System.EventHandler(this.metroButtonLogOut_Click);
             // 
-            // HomePageNevelo
+            // metroTile1
+            // 
+            this.metroTile1.ActiveControl = null;
+            this.metroTile1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(113)))), ((int)(((byte)(69)))));
+            this.metroTile1.Location = new System.Drawing.Point(285, 106);
+            this.metroTile1.Name = "metroTile1";
+            this.metroTile1.Size = new System.Drawing.Size(191, 123);
+            this.metroTile1.TabIndex = 8;
+            this.metroTile1.Text = "Szülő adatbázis";
+            this.metroTile1.UseCustomBackColor = true;
+            this.metroTile1.UseSelectable = true;
+            this.metroTile1.Click += new System.EventHandler(this.metroTile1_Click);
+            // 
+            // HomePageUgy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.metroTile1);
             this.Controls.Add(this.metroButtonLogOut);
             this.Controls.Add(this.metroLabelLoggedName);
             this.Controls.Add(this.metroLabelWelcome);
             this.Controls.Add(this.metroTileChildrenReg);
-            this.Name = "HomePageNevelo";
+            this.Name = "HomePageUgy";
             this.Style = MetroFramework.MetroColorStyle.Green;
-            this.Text = "Nevelő:";
+            this.Text = "Ügyintéző:";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -105,5 +120,6 @@
         private MetroFramework.Controls.MetroLabel metroLabelLoggedName;
         private MetroFramework.Controls.MetroLabel metroLabelWelcome;
         private MetroFramework.Controls.MetroButton metroButtonLogOut;
+        private MetroFramework.Controls.MetroTile metroTile1;
     }
 }

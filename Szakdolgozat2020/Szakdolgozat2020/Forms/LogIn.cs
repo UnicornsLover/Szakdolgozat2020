@@ -62,9 +62,9 @@ namespace Szakdolgozat2020
                                 Boss f = new Boss();
                                 f.Show();
                                 break;
-                            case "Nevelő":
+                            case "Ügyintéző":
                                 fnameLoged = dr["ename"].ToString();
-                                HomePageNevelo f2 = new HomePageNevelo();
+                                HomePageUgy f2 = new HomePageUgy();
                                 f2.Show();
                                 break;
                             case "Intézményvezető":

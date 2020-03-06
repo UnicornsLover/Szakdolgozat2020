@@ -350,7 +350,7 @@
             // metroLabelEUname
             // 
             this.metroLabelEUname.AutoSize = true;
-            this.metroLabelEUname.Location = new System.Drawing.Point(1075, 160);
+            this.metroLabelEUname.Location = new System.Drawing.Point(1041, 159);
             this.metroLabelEUname.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.metroLabelEUname.Name = "metroLabelEUname";
             this.metroLabelEUname.Size = new System.Drawing.Size(117, 20);
@@ -360,7 +360,7 @@
             // metroLabelEPassword
             // 
             this.metroLabelEPassword.AutoSize = true;
-            this.metroLabelEPassword.Location = new System.Drawing.Point(1075, 204);
+            this.metroLabelEPassword.Location = new System.Drawing.Point(1041, 206);
             this.metroLabelEPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.metroLabelEPassword.Name = "metroLabelEPassword";
             this.metroLabelEPassword.Size = new System.Drawing.Size(59, 20);
@@ -683,7 +683,7 @@
             // metroLabelIdcard
             // 
             this.metroLabelIdcard.AutoSize = true;
-            this.metroLabelIdcard.Location = new System.Drawing.Point(1075, 103);
+            this.metroLabelIdcard.Location = new System.Drawing.Point(1041, 104);
             this.metroLabelIdcard.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.metroLabelIdcard.Name = "metroLabelIdcard";
             this.metroLabelIdcard.Size = new System.Drawing.Size(165, 20);
@@ -731,7 +731,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1580, 729);
+            this.ClientSize = new System.Drawing.Size(1720, 729);
             this.Controls.Add(this.metroTextBoxIdCard);
             this.Controls.Add(this.metroLabelIdcard);
             this.Controls.Add(this.metroLabelDB);

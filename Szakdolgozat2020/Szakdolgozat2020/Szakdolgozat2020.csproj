@@ -66,6 +66,12 @@
     <Compile Include="Database\Connection.cs" />
     <Compile Include="Database\Exception\InsertUsersException.cs" />
     <Compile Include="Database\Exception\TableCreateException.cs" />
+    <Compile Include="Forms\Administrator\ParentsReg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Administrator\ParentsReg.Designer.cs">
+      <DependentUpon>ParentsReg.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Boss.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,25 +84,25 @@
     <Compile Include="Forms\ChangePassword.Designer.cs">
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Foster\HomePageNevelo.cs">
+    <Compile Include="Forms\Administrator\HomePageUgy.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Foster\HomePageNevelo.Designer.cs">
-      <DependentUpon>HomePageNevelo.cs</DependentUpon>
+    <Compile Include="Forms\Administrator\HomePageUgy.Designer.cs">
+      <DependentUpon>HomePageUgy.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Foster\InsertChildException.cs" />
-    <Compile Include="Forms\Foster\RepositoryChildExceptionCantDelete.cs" />
-    <Compile Include="Forms\Head of institution\insertEmployeException.cs" />
+    <Compile Include="Forms\Administrator\Exception\InsertChildException.cs" />
+    <Compile Include="Forms\Administrator\Exception\RepositoryChildExceptionCantDelete.cs" />
+    <Compile Include="Forms\Head of institution\Exception\insertEmployeException.cs" />
     <Compile Include="Forms\Head of institution\WorkersRegistration.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Head of institution\WorkersRegistration.Designer.cs">
       <DependentUpon>WorkersRegistration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Foster\ChildrenReg.cs">
+    <Compile Include="Forms\Administrator\ChildrenReg.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Foster\ChildrenReg.Designer.cs">
+    <Compile Include="Forms\Administrator\ChildrenReg.Designer.cs">
       <DependentUpon>ChildrenReg.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Head of institution\IntVPage.cs">
@@ -139,7 +145,10 @@
     <Compile Include="Modell\Employes\Exception\ModellEmployeNotValidNameException.cs" />
     <Compile Include="Modell\Employes\Exception\ModellEmployeNotValidSexException.cs" />
     <Compile Include="Modell\Employes\Exception\ModellNotValidBirthDayDateException.cs" />
-    <Compile Include="Modell\Employes\MedellNotValidEmpIdcardException.cs" />
+    <Compile Include="Modell\Employes\Exception\MedellNotValidEmpIdcardException.cs" />
+    <Compile Include="Modell\Parents\GetSQLCommand.cs" />
+    <Compile Include="Modell\Parents\ParentsDatabaseCommand.cs" />
+    <Compile Include="Modell\Parents\Parent.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\Children\Exception\RepositoryChildExceptionCantAdd.cs" />
@@ -162,17 +171,20 @@
     <Compile Include="Repository\Employes\Exception\RepositoryExceptionCantAdd.cs" />
     <Compile Include="Repository\RepositoryE.cs" />
     <Compile Include="Repository\RepositoryC.cs" />
+    <EmbeddedResource Include="Forms\Administrator\ParentsReg.resx">
+      <DependentUpon>ParentsReg.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Boss.resx">
       <DependentUpon>Boss.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ChangePassword.resx">
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Foster\ChildrenReg.resx">
+    <EmbeddedResource Include="Forms\Administrator\ChildrenReg.resx">
       <DependentUpon>ChildrenReg.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Foster\HomePageNevelo.resx">
-      <DependentUpon>HomePageNevelo.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Administrator\HomePageUgy.resx">
+      <DependentUpon>HomePageUgy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Head of institution\WorkersRegistration.resx">
       <DependentUpon>WorkersRegistration.cs</DependentUpon>
@@ -217,6 +229,8 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Modell\Parents\Exception\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

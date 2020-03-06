@@ -32,6 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChildrenReg));
             this.metroLabelID = new MetroFramework.Controls.MetroLabel();
             this.metroLabelName = new MetroFramework.Controls.MetroLabel();
             this.metroLabelIdCard = new MetroFramework.Controls.MetroLabel();
@@ -411,7 +412,7 @@
             this.metroGridChildren.EnableHeadersVisualStyles = false;
             this.metroGridChildren.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.metroGridChildren.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.metroGridChildren.Location = new System.Drawing.Point(23, 302);
+            this.metroGridChildren.Location = new System.Drawing.Point(37, 302);
             this.metroGridChildren.Name = "metroGridChildren";
             this.metroGridChildren.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -426,7 +427,7 @@
             this.metroGridChildren.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.metroGridChildren.RowTemplate.Height = 24;
             this.metroGridChildren.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.metroGridChildren.Size = new System.Drawing.Size(1504, 318);
+            this.metroGridChildren.Size = new System.Drawing.Size(1461, 318);
             this.metroGridChildren.Style = MetroFramework.MetroColorStyle.Green;
             this.metroGridChildren.TabIndex = 20;
             this.metroGridChildren.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.metroGridChildren_CellClick);
@@ -488,7 +489,7 @@
             // metroButtonClearCells
             // 
             this.metroButtonClearCells.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(113)))), ((int)(((byte)(69)))));
-            this.metroButtonClearCells.Location = new System.Drawing.Point(1014, 256);
+            this.metroButtonClearCells.Location = new System.Drawing.Point(1290, 252);
             this.metroButtonClearCells.Name = "metroButtonClearCells";
             this.metroButtonClearCells.Size = new System.Drawing.Size(208, 28);
             this.metroButtonClearCells.Style = MetroFramework.MetroColorStyle.Green;
@@ -502,7 +503,7 @@
             // metroButtonSearch
             // 
             this.metroButtonSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(113)))), ((int)(((byte)(69)))));
-            this.metroButtonSearch.Location = new System.Drawing.Point(1290, 256);
+            this.metroButtonSearch.Location = new System.Drawing.Point(1014, 252);
             this.metroButtonSearch.Name = "metroButtonSearch";
             this.metroButtonSearch.Size = new System.Drawing.Size(208, 28);
             this.metroButtonSearch.Style = MetroFramework.MetroColorStyle.Green;
@@ -516,40 +517,48 @@
             // errorProviderName
             // 
             this.errorProviderName.ContainerControl = this;
+            this.errorProviderName.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProviderName.Icon")));
             // 
             // errorProviderSex
             // 
             this.errorProviderSex.ContainerControl = this;
+            this.errorProviderSex.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProviderSex.Icon")));
             // 
             // errorProviderIdCard
             // 
             this.errorProviderIdCard.ContainerControl = this;
+            this.errorProviderIdCard.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProviderIdCard.Icon")));
             // 
             // errorProviderTaj
             // 
             this.errorProviderTaj.ContainerControl = this;
+            this.errorProviderTaj.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProviderTaj.Icon")));
             // 
             // errorProviderBdate
             // 
             this.errorProviderBdate.ContainerControl = this;
+            this.errorProviderBdate.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProviderBdate.Icon")));
             // 
             // errorProviderBPlace
             // 
             this.errorProviderBPlace.ContainerControl = this;
+            this.errorProviderBPlace.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProviderBPlace.Icon")));
             // 
             // errorProviderComing
             // 
             this.errorProviderComing.ContainerControl = this;
+            this.errorProviderComing.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProviderComing.Icon")));
             // 
             // errorProviderLocation
             // 
             this.errorProviderLocation.ContainerControl = this;
+            this.errorProviderLocation.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProviderLocation.Icon")));
             // 
             // ChildrenReg
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1580, 729);
+            this.ClientSize = new System.Drawing.Size(1558, 716);
             this.Controls.Add(this.metroButtonSearch);
             this.Controls.Add(this.metroButtonClearCells);
             this.Controls.Add(this.metroLabelDb);

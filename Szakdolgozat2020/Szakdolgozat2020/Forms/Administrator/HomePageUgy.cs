@@ -9,14 +9,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Szakdolgozat2020.Forms.Administrator;
 using Szakdolgozat2020.Forms.Nevelo;
 using Szakdolgozat2020.Repository.Employes;
 
 namespace Szakdolgozat2020.Forms.Foster
 {
-    public partial class HomePageNevelo : MetroFramework.Forms.MetroForm
+    public partial class HomePageUgy : MetroFramework.Forms.MetroForm
     {
-        public HomePageNevelo()
+        public HomePageUgy()
         {
             InitializeComponent();
             metroLabelLoggedName.Text = LogIn.fnameLoged;
@@ -43,6 +44,12 @@ namespace Szakdolgozat2020.Forms.Foster
             LogIn li = new LogIn();
             li.Show();
             this.Hide();
+        }
+
+        private void metroTile1_Click(object sender, EventArgs e)
+        {
+            ParentsReg p = new ParentsReg();
+            p.Show();
         }
     }
 }

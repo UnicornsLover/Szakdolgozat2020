@@ -33,6 +33,7 @@
             this.metroButtonLogOut = new MetroFramework.Controls.MetroButton();
             this.metroTileChildrenReg = new MetroFramework.Controls.MetroTile();
             this.metroTileWorkerReg = new MetroFramework.Controls.MetroTile();
+            this.metroTile1 = new MetroFramework.Controls.MetroTile();
             this.SuspendLayout();
             // 
             // metroLabelWelcome
@@ -75,14 +76,14 @@
             // 
             this.metroTileChildrenReg.ActiveControl = null;
             this.metroTileChildrenReg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(113)))), ((int)(((byte)(69)))));
-            this.metroTileChildrenReg.Location = new System.Drawing.Point(284, 142);
+            this.metroTileChildrenReg.Location = new System.Drawing.Point(278, 142);
             this.metroTileChildrenReg.Name = "metroTileChildrenReg";
             this.metroTileChildrenReg.Size = new System.Drawing.Size(191, 123);
-            this.metroTileChildrenReg.Style = MetroFramework.MetroColorStyle.Green;
             this.metroTileChildrenReg.TabIndex = 6;
             this.metroTileChildrenReg.Text = "Gyermek regisztráció";
             this.metroTileChildrenReg.UseCustomBackColor = true;
             this.metroTileChildrenReg.UseSelectable = true;
+            this.metroTileChildrenReg.UseTileImage = true;
             this.metroTileChildrenReg.Click += new System.EventHandler(this.metroTileChildrenReg_Click);
             // 
             // metroTileWorkerReg
@@ -98,11 +99,26 @@
             this.metroTileWorkerReg.UseSelectable = true;
             this.metroTileWorkerReg.Click += new System.EventHandler(this.metroTileWorkerReg_Click);
             // 
+            // metroTile1
+            // 
+            this.metroTile1.ActiveControl = null;
+            this.metroTile1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(113)))), ((int)(((byte)(69)))));
+            this.metroTile1.Location = new System.Drawing.Point(516, 142);
+            this.metroTile1.Name = "metroTile1";
+            this.metroTile1.Size = new System.Drawing.Size(191, 123);
+            this.metroTile1.Style = MetroFramework.MetroColorStyle.Green;
+            this.metroTile1.TabIndex = 8;
+            this.metroTile1.Text = "Szülő adatbázis";
+            this.metroTile1.UseCustomBackColor = true;
+            this.metroTile1.UseSelectable = true;
+            this.metroTile1.Click += new System.EventHandler(this.metroTile1_Click);
+            // 
             // IntVPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.metroTile1);
             this.Controls.Add(this.metroTileWorkerReg);
             this.Controls.Add(this.metroTileChildrenReg);
             this.Controls.Add(this.metroButtonLogOut);
@@ -125,5 +141,6 @@
         private MetroFramework.Controls.MetroButton metroButtonLogOut;
         private MetroFramework.Controls.MetroTile metroTileChildrenReg;
         private MetroFramework.Controls.MetroTile metroTileWorkerReg;
+        private MetroFramework.Controls.MetroTile metroTile1;
     }
 }

@@ -9,7 +9,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Szakdolgozat2020.Forms.Administrator;
 using Szakdolgozat2020.Forms.Head_of_institution;
+using Szakdolgozat2020.Forms.Nevelo;
 using Szakdolgozat2020.Repository.Employes;
 
 namespace Szakdolgozat2020.Forms
@@ -51,7 +53,8 @@ namespace Szakdolgozat2020.Forms
 
         private void metroTileChildrenReg_Click(object sender, EventArgs e)
         {
-            
+            ChildrenReg c = new ChildrenReg();
+            c.Show();
         }
 
         private void metroTileWorkerReg_Click(object sender, EventArgs e)
@@ -66,6 +69,12 @@ namespace Szakdolgozat2020.Forms
                 Debug.WriteLine(ex.Message);
                 MetroMessageBox.Show(this, "\n\nHibát észleltünk! Az adatbázis nem érhető el, vagy a bemeneti adatt nem megfelelő. Kérem próbálja újra később!", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+        }
+
+        private void metroTile1_Click(object sender, EventArgs e)
+        {
+            ParentsReg p = new ParentsReg();
+            p.Show();
         }
     }
 }

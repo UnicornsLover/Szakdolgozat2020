@@ -61,7 +61,7 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
             metroGridEmployees.AllowUserToDeleteRows = false;
             metroGridEmployees.AllowUserToAddRows = false;
             metroGridEmployees.MultiSelect = false;
-            metroGridEmployees.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            
         }
 
         /// <summary>

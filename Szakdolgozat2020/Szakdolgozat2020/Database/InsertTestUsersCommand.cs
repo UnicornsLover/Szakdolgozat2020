@@ -54,13 +54,13 @@ namespace Szakdolgozat2020.Database
             {
                 connection.Open();
                 string query =
-                    "INSERT IGNORE INTO `parents` (`ID`, `pname`, `pmaidenname`, `pbirth`, `psex`, `pidcardnumber`, `loginpermission`, `loginuser`, `loginpsw`) VALUES"
-                    + "(1, 'Szabó István', '-', '1994-05-17', '0', ' 153678AS', 1, 'szaist', 'szaist01'),"
-                    +"(2, 'Nagy Viola', 'Nagy Viola', '1996-07-21', '1', '784253QW', 1, 'nagvio', 'nagvio01'),"
-                    +"(3, 'Tóth József', '-', '1977-05-17', '0', '785693DF', 0, 'totjoz', 'totjoz01'),"
-                    +"(4, 'Tóthné Bene Aranka', 'Bene Aranka', '1979-01-02', '1', '789566YX', 1, 'totben', 'totben01'),"
-                    +"(5, 'Okos Anna', 'Okos Anna', '1985-11-24', '1', '123586VB', 0, '-', '-'),"
-                    +"(6, 'Kiss Elemér', '-', '1984-07-02', '0', '7854445OP', 0, '-', '-');";
+                    "INSERT IGNORE INTO `parents` (`ID`, `pname`, `pbirth`, `psex`, `pidcardnumber`, `loginpermission`, `loginuser`, `loginpsw`) VALUES"
+                    + "(1, 'Szabó István', '1994-05-17', '0', ' 153678AS', 1, 'szaist', 'szaist01'),"
+                    +"(2, 'Nagy Viola', '1996-07-21', '1', '784253QW', 1, 'nagvio', 'nagvio01'),"
+                    +"(3, 'Tóth József', '1977-05-17', '0', '785693DF', 0, 'totjoz', 'totjoz01'),"
+                    +"(4, 'Tóthné Bene Aranka', '1979-01-02', '1', '789566YX', 1, 'totben', 'totben01'),"
+                    +"(5, 'Okos Anna', '1985-11-24', '1', '123586VB', 0, 'okoann', 'abc123'),"
+                    +"(6, 'Kiss Elemér', '1984-07-02', '0', '7854445OP', 0, 'kisele', 'asd123');";
 
 
                 MySqlCommand cmd = new MySqlCommand(query, connection);
