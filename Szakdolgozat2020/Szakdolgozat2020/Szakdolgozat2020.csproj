@@ -66,15 +66,16 @@
     <Compile Include="Database\Connection.cs" />
     <Compile Include="Database\Exception\InsertUsersException.cs" />
     <Compile Include="Database\Exception\TableCreateException.cs" />
-    <Compile Include="Forms\Administrator\insertParentException.cs" />
-    <Compile Include="Forms\Administrator\ModellParentNotValidSexException.cs" />
+    <Compile Include="Forms\Administrator\Exception\insertParentException.cs" />
+    <Compile Include="Forms\Administrator\Exception\ModellParentNotValidSexException.cs" />
     <Compile Include="Forms\Administrator\ParentsReg.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Administrator\ParentsReg.Designer.cs">
       <DependentUpon>ParentsReg.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Administrator\updateChildException.cs" />
+    <Compile Include="Forms\Administrator\Exception\updateChildException.cs" />
+    <Compile Include="Forms\Administrator\updateParentException.cs" />
     <Compile Include="Forms\Boss.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,7 +97,7 @@
     <Compile Include="Forms\Administrator\Exception\InsertChildException.cs" />
     <Compile Include="Forms\Administrator\Exception\RepositoryChildExceptionCantDelete.cs" />
     <Compile Include="Forms\Head of institution\Exception\insertEmployeException.cs" />
-    <Compile Include="Forms\Head of institution\updateEmployeException.cs" />
+    <Compile Include="Forms\Head of institution\Exception\updateEmployeException.cs" />
     <Compile Include="Forms\Head of institution\WorkersRegistration.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +152,11 @@
     <Compile Include="Modell\Employes\Exception\ModellNotValidBirthDayDateException.cs" />
     <Compile Include="Modell\Employes\Exception\MedellNotValidEmpIdcardException.cs" />
     <Compile Include="Modell\Parents\GetSQLCommand.cs" />
+    <Compile Include="Modell\Parents\Exception\MedellNotValidParentIdcardException.cs" />
+    <Compile Include="Modell\Parents\Exception\ModellNotValidParentBirthDayDateException.cs" />
+    <Compile Include="Modell\Parents\Exception\ModellNotValidParentName.cs" />
+    <Compile Include="Modell\Parents\Exception\MedellNotValidParentLoginPerException.cs" />
+    <Compile Include="Modell\Parents\Exception\ModellNotValidParentNamee.cs" />
     <Compile Include="Modell\Parents\ParentsDatabaseCommand.cs" />
     <Compile Include="Modell\Parents\Parent.cs" />
     <Compile Include="Program.cs" />
@@ -240,8 +246,6 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Modell\Parents\Exception\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

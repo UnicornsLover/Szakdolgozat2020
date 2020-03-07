@@ -53,7 +53,7 @@ namespace Szakdolgozat2020.Modell.Employes
             }
             if (!isValidBirthDay(allbirth))
             {
-                throw new ModellNotValidBirthDayDateException("Nem megfelelő 'Születési idő:' mező, kérem állítsa be a felvett személy születési dátumát.");
+                throw new ModellNotValidEmployeBirthDayDateException("Nem megfelelő 'Születési idő:' mező, kérem állítsa be a felvett személy születési dátumát.");
             }
             if (!isValidBirthPlace(ebirthplace))
             {

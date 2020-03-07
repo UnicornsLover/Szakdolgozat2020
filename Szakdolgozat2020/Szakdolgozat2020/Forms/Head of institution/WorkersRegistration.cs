@@ -286,7 +286,7 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
             {
                 errorProviderSex.SetError(metroComboBoxESex, mse.Message);
             }
-            catch (ModellNotValidBirthDayDateException mbe)
+            catch (ModellNotValidEmployeBirthDayDateException mbe)
             {
                 errorProviderBirthdayDate.SetError(metroDateTimeEBirth, mbe.Message);
             }
@@ -449,7 +449,7 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
             {
                 errorProviderMaidenName.SetError(metroButtonNone, mme.Message);
             }
-            catch (ModellNotValidBirthDayDateException mbe)
+            catch (ModellNotValidEmployeBirthDayDateException mbe)
             {
                 errorProviderBirthdayDate.SetError(metroDateTimeEBirth, mbe.Message);
             }

@@ -4,21 +4,21 @@ using System.Runtime.Serialization;
 namespace Szakdolgozat2020.Modell.Employes
 {
     [Serializable]
-    internal class ModellNotValidBirthDayDateException : Exception
+    internal class ModellNotValidEmployeBirthDayDateException : Exception
     {
-        public ModellNotValidBirthDayDateException()
+        public ModellNotValidEmployeBirthDayDateException()
         {
         }
 
-        public ModellNotValidBirthDayDateException(string message) : base(message)
+        public ModellNotValidEmployeBirthDayDateException(string message) : base(message)
         {
         }
 
-        public ModellNotValidBirthDayDateException(string message, Exception innerException) : base(message, innerException)
+        public ModellNotValidEmployeBirthDayDateException(string message, Exception innerException) : base(message, innerException)
         {
         }
 
-        protected ModellNotValidBirthDayDateException(SerializationInfo info, StreamingContext context) : base(info, context)
+        protected ModellNotValidEmployeBirthDayDateException(SerializationInfo info, StreamingContext context) : base(info, context)
         {
         }
     }

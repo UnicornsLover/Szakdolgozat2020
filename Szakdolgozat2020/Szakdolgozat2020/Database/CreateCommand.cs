@@ -216,10 +216,9 @@ namespace Szakdolgozat2020.Database
                     "CREATE TABLE IF NOT EXISTS `parents` ("
                     + "`ID` int(11) NOT NULL,"
                     +"`pname` varchar(40) COLLATE utf8_hungarian_ci DEFAULT NULL,"
-                    +"`pmaidenname` varchar(40) COLLATE utf8_hungarian_ci DEFAULT NULL,"
                     +"`pbirth` date DEFAULT NULL,"
-                    +"`psex` varchar(10) COLLATE utf8_hungarian_ci DEFAULT NULL,"
-                    +"`pidcardnumber` varchar(10) COLLATE utf8_hungarian_ci DEFAULT NULL,"
+                    + "`psex` tinyint(1) COLLATE utf8_hungarian_ci DEFAULT NULL,"
+                    + "`pidcardnumber` varchar(10) COLLATE utf8_hungarian_ci DEFAULT NULL,"
                     +"`loginpermission` tinyint(1) NOT NULL,"
                     +"`loginuser` varchar(25) COLLATE utf8_hungarian_ci NOT NULL,"
                     +"`loginpsw` varchar(25) COLLATE utf8_hungarian_ci NOT NULL"
@@ -230,7 +229,8 @@ namespace Szakdolgozat2020.Database
                 "ALTER TABLE `parents` "
                 + "ADD PRIMARY KEY IF NOT EXISTS (`ID`);" +
                 "ALTER TABLE `parents` MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 1;" +
-                "ALTER TABLE parents ADD UNIQUE INDEX(`ID`);";
+                "ALTER TABLE parents ADD UNIQUE INDEX(`ID`);"
+                + "ALTER TABLE `parents` ADD UNIQUE( `pidcardnumber`);" ;
                 MySqlCommand cmdCreateTable = new MySqlCommand(queryCreateTable, connection);
                 cmdCreateTable.ExecuteNonQuery();
                 MySqlCommand cmdPrimaryKey = new MySqlCommand(queryPrimaryKey, connection);

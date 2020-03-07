@@ -46,9 +46,9 @@ namespace Szakdolgozat2020.Repository.Parents
             DataTable dt = new DataTable();
             try
             {
-                dt.Columns.Add("Azonosító:", typeof(int));
+                dt.Columns.Add("Szülő azonosító:", typeof(int));
                 dt.Columns.Add("Neve:", typeof(string));
-                dt.Columns.Add("Dolgozó neme:", typeof(string));
+                dt.Columns.Add("Neme:", typeof(string));
                 dt.Columns.Add("Születési idő:", typeof(string));
                 dt.Columns.Add("Személyigazolvány szám:", typeof(string));
                 dt.Columns.Add("Engedély:", typeof(string));
@@ -56,7 +56,7 @@ namespace Szakdolgozat2020.Repository.Parents
                 dt.Columns.Add("Jelszó:", typeof(string));
                 foreach (Parent line in parents)
                 {
-                    dt.Rows.Add(line.getPID(), line.getPname(), line.getPSex(), line.getPIdcard(), line.getPLoginpermission(), line.getPUser(), line.getPPassword());
+                    dt.Rows.Add(line.getPID(), line.getPname(), line.getPSex(),line.getPBirth(), line.getPIdcard(), line.getPLoginpermission(), line.getPUser(), line.getPPassword());
                 }
             }
             catch (Exception ex)

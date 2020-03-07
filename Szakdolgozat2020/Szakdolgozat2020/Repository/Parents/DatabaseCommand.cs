@@ -132,7 +132,7 @@ namespace Szakdolgozat2020.Repository.Parents
             {
                 connection.Close();
                 Debug.WriteLine(e.Message);
-                Debug.WriteLine("InsertParent*******************************" + newChild + " gyermek beszúrása adatbázisba nem sikerült.");
+                Debug.WriteLine("InsertParent*******************************" + newParent + " gyermek beszúrása adatbázisba nem sikerült.");
                 throw new RepositoryParentException("Sikertelen beszúrás az adatbázisból.");
             }
         }

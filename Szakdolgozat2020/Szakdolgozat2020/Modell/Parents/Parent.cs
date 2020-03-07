@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Szakdolgozat2020.Forms.Administrator;
 
 namespace Szakdolgozat2020.Modell.Parents
 {
@@ -20,6 +21,26 @@ namespace Szakdolgozat2020.Modell.Parents
         public Parent(int pID, string pname, string psex, string pbirth, string pidcard,  string loginpermission, string user, string password)
         {
             //*************************Valid********************
+            if (!isValidName(pname))
+            {
+                throw new ModellNotValidParentNamee("Nem megfelelő 'Neve' mező, kezdje nagy betűvel a nevet és legalább 4 karakter hosszú legyen.Számot ne tartalamzzon.Kérlek próbáld újra!");
+            }
+            if (!isValidSex(psex))
+            {
+                throw new ModellParentNotValidSexException("Nem megfelelő 'Neme' mező, kattintson a lefele mutató nyilra 'Neme' mezőnél és a legördülő menő segítségével válasza ki a nemét.");
+            }
+            if (!isValidBirthDay(pbirth))
+            {
+                throw new ModellNotValidParentBirthDayDateException("Nem megfelelő 'Születési idő:' mező, kérem állítsa be a felvett személy születési dátumát.");
+            }
+            if (!isValidIdCard(pidcard))
+            {
+                throw new MedellNotValidParentIdcardException("Nem megfelelő 'Személyigazolvány szám:' mező. Kérlek figyelj a formátumra. Pl: 123456AB");
+            }
+            if (!isValidPermission(loginpermission))
+            {
+                throw new MedellNotValidParentLoginPerException("Nem megfelelő 'Engedély mező, kérem töltse ki. Kötelző.'");
+            }
             //*************************Set********************
             this.pID = pID;
             this.pname = pname;
@@ -35,7 +56,16 @@ namespace Szakdolgozat2020.Modell.Parents
             }
             this.pbirth = pbirth;
             this.pidcard = pidcard;
-            this.loginpermission = loginpermission;
+            if (loginpermission == "False")
+            {
+                loginpermission = "Tiltás";
+                this.loginpermission = loginpermission;
+            }
+            else if (loginpermission == "True")
+            {
+                loginpermission = "Engedélyezés";
+                this.loginpermission = loginpermission;
+            }
             this.user = user;
             this.password = password;
         }
@@ -117,5 +147,121 @@ namespace Szakdolgozat2020.Modell.Parents
         {
             return user;
         }
+        //****************************Validation*************************
+        public bool isValidName(string name)
+        {
+            if (name == string.Empty)
+            {
+                return false;
+            }
+            if (!char.IsUpper(name.ElementAt(0)))
+            {
+                return false;
+            }
+            if (name.Length <= 4)
+            {
+                return false;
+            }
+            for (int i = 1; i < name.Length; i = i + 1)
+            {
+                if (!char.IsLetter(name.ElementAt(i)) && name.Contains("([0-9])"))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        public bool isValidSex(string name)
+        {
+            if (name == "")
+            {
+                return false;
+            }
+            return true;
+        }
+        public bool isValidPermission(string name)
+        {
+            if (name == "")
+            {
+                return false;
+            }
+            return true;
+        }
+        public bool isValidBirthDay(string name)
+        {
+            if (name != "1950-01-01")
+            {
+                return true;
+            }
+            return false;
+        }
+        public bool isValidIdCard(string name)
+        {
+            if (name != string.Empty)
+            {
+                if (char.IsDigit(name.ElementAt(0)))
+                {
+                    if (char.IsDigit(name.ElementAt(1)))
+                    {
+                        if (char.IsDigit(name.ElementAt(2)))
+                        {
+                            if (char.IsDigit(name.ElementAt(3)))
+                            {
+                                if (char.IsDigit(name.ElementAt(4)))
+                                {
+                                    if (char.IsDigit(name.ElementAt(5)))
+                                    {
+                                        if (char.IsLetter(name.ElementAt(6)) && char.IsUpper(name.ElementAt(6)))
+                                        {
+                                            if (char.IsLetter(name.ElementAt(7)) && char.IsUpper(name.ElementAt(6)))
+                                            {
+                                                return true;
+                                            }
+                                            else
+                                            {
+                                                return false;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            return false;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        return false;
+                                    }
+                                }
+                                else
+                                {
+                                    return false;
+                                }
+                            }
+                            else
+                            {
+                                return false;
+                            }
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+
     }
 }

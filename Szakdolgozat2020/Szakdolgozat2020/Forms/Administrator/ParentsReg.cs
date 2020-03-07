@@ -63,14 +63,14 @@ namespace Szakdolgozat2020.Forms.Administrator
         /// </summary>
         public void setParentsDataGridView()
         {
-            parentsTD.Columns[0].ColumnName = "Gyermek azonosító:";
+            parentsTD.Columns[0].ColumnName = "Szülő azonosító:";
             parentsTD.Columns[1].ColumnName = "Név:";
             parentsTD.Columns[2].ColumnName = "Neme:";
-            parentsTD.Columns[5].ColumnName = "Születési idő:";
-            parentsTD.Columns[3].ColumnName = "Személyigazolvány száma:";   
-            parentsTD.Columns[6].ColumnName = "Engedély:";
-            parentsTD.Columns[7].ColumnName = "Felhasználó név:";
-            parentsTD.Columns[8].ColumnName = "Jelszó:";
+            parentsTD.Columns[3].ColumnName = "Születési idő:";
+            parentsTD.Columns[4].ColumnName = "Személyigazolvány száma:";   
+            parentsTD.Columns[5].ColumnName = "Engedély:";
+            parentsTD.Columns[6].ColumnName = "Felhasználó név:";
+            parentsTD.Columns[7].ColumnName = "Jelszó:";
 
 
             metroGridParents.SelectionMode =
@@ -98,8 +98,8 @@ namespace Szakdolgozat2020.Forms.Administrator
                 metroTextBoxID.Text = metroGridParents.Rows[e.RowIndex].Cells[0].FormattedValue.ToString();
                 metroTextBoxName.Text = metroGridParents.Rows[e.RowIndex].Cells[1].FormattedValue.ToString();
                 metroComboBoxSex.Text = metroGridParents.Rows[e.RowIndex].Cells[2].FormattedValue.ToString();
-                metroTextBoxIdCard.Text = metroGridParents.Rows[e.RowIndex].Cells[3].FormattedValue.ToString();
-                metroDateTimeBDate.Text = metroGridParents.Rows[e.RowIndex].Cells[4].FormattedValue.ToString();
+                metroDateTimeBDate.Text = metroGridParents.Rows[e.RowIndex].Cells[3].FormattedValue.ToString();
+                metroTextBoxIdCard.Text = metroGridParents.Rows[e.RowIndex].Cells[4].FormattedValue.ToString();
                 metroComboBoxLoginPermission.Text = metroGridParents.Rows[e.RowIndex].Cells[5].FormattedValue.ToString();
                 metroTextBoxUser.Text = metroGridParents.Rows[e.RowIndex].Cells[6].FormattedValue.ToString();
                 metroTextBoxPassword.Text = metroGridParents.Rows[e.RowIndex].Cells[7].FormattedValue.ToString();
@@ -195,6 +195,23 @@ namespace Szakdolgozat2020.Forms.Administrator
             {
                 int id = repo.getnextParentId();
                 string sex = "";
+                string lp = "";
+
+                if (metroComboBoxLoginPermission.Text == "")
+                {
+                    throw new MedellNotValidParentLoginPerException();
+                }
+                else
+                {
+                    if (metroComboBoxSex.Text == "Engedélyezés")
+                    {
+                        lp = "False";
+                    }
+                    else if (metroComboBoxSex.Text == "Tiltás")
+                    {
+                        lp = "True";
+                    }
+                }
 
                 if (metroComboBoxSex.Text == "")
                 {
@@ -212,13 +229,15 @@ namespace Szakdolgozat2020.Forms.Administrator
                     }
                 }
 
+                
+
                 Parent newEmployee = new Parent(
                     id,
                     metroTextBoxName.Text,
                     sex,
                     metroDateTimeBDate.Text,
                     metroTextBoxID.Text,
-                    metroComboBoxLoginPermission.Text,
+                    lp,
                     metroTextBoxUser.Text,
                     metroTextBoxPassword.Text
                    );
@@ -256,6 +275,22 @@ namespace Szakdolgozat2020.Forms.Administrator
                 Debug.WriteLine("A szülő felvétele sikertelen volt az adatbázishoz, " + ipe.Message);
                 MetroMessageBox.Show(this, "\n\nHibát észleltünk, a felvétel sikertelen volt. Nem lehet két ugyan olyna személyigazolvány szám.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            catch (ModellNotValidParentNamee npe)
+            {
+                errorProviderName.SetError(metroTextBoxName, npe.Message);
+            }
+            catch (MedellNotValidParentLoginPerException nle)
+            {
+                errorProviderPermission.SetError(metroComboBoxLoginPermission, nle.Message);
+            }
+            catch (ModellParentNotValidSexException mse)
+            {
+                errorProviderSex.SetError(metroComboBoxSex, mse.Message);
+            }
+            catch (MedellNotValidParentIdcardException pie)
+            {
+                errorProviderIdCard.SetError(metroTextBoxName, pie.Message);
+            }
             catch (Exception)
             {
                 throw;
@@ -278,6 +313,16 @@ namespace Szakdolgozat2020.Forms.Administrator
                    );
                 int id = Convert.ToInt32(metroTextBoxID.Text);
 
+                //Módosítás az adatbázisban
+                try
+                {
+                    rep.updateParentInDatabase(id, modified);
+                }
+                catch (Exception ex)
+                {
+                    throw new updateParentException();
+                }
+
                 //Módosítás a listában
                 try
                 {
@@ -290,19 +335,31 @@ namespace Szakdolgozat2020.Forms.Administrator
                     MetroMessageBox.Show(this, "\n\nHibát észleltünk, a módosítása sikertelen volt az adatbázisból.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
-                //Módosítás az adatbázisban
-                try
-                {
-                    rep.updateParentInDatabase(id, modified);
-                }
-                catch (Exception ex)
-                {
-                    Debug.WriteLine("A szülő módosítása sikertelen volt az adatbázisba");
-                    MetroMessageBox.Show(this, "\n\nHibát észleltünk, a módosítás sikertelen volt az adatbázisba.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+
 
                 //Módosítás miatt DataGridView updatelése
                 updateDataInDataGriedViewt();
+            }
+            catch (updateParentException upe)
+            {
+                Debug.WriteLine("A szülő módositása sikertelen volt az adatbázishoz, " + upe.Message);
+                MetroMessageBox.Show(this, "\n\nHibát észleltünk, a módosítása sikertelen volt. Nem lehet két ugyan olyna személyigazolvány szám.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (ModellNotValidParentName npe)
+            {
+                errorProviderName.SetError(metroTextBoxName, npe.Message);
+            }
+            catch (MedellNotValidParentLoginPerException nle)
+            {
+                errorProviderPermission.SetError(metroComboBoxLoginPermission, nle.Message);
+            }
+            catch (ModellParentNotValidSexException mse)
+            {
+                errorProviderSex.SetError(metroComboBoxSex, mse.Message);
+            }
+            catch (MedellNotValidParentIdcardException pie)
+            {
+                errorProviderIdCard.SetError(metroTextBoxName, pie.Message);
             }
             catch (Exception)
             {
