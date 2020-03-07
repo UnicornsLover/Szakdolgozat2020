@@ -42,20 +42,20 @@
             // 
             // panelBack
             // 
-            this.panelBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(179)))), ((int)(((byte)(219)))));
+            this.panelBack.BackColor = System.Drawing.Color.White;
             this.panelBack.Controls.Add(this.panelLoad);
             this.panelBack.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelBack.Location = new System.Drawing.Point(27, 323);
-            this.panelBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelBack.Margin = new System.Windows.Forms.Padding(4);
             this.panelBack.Name = "panelBack";
             this.panelBack.Size = new System.Drawing.Size(642, 22);
             this.panelBack.TabIndex = 0;
             // 
             // panelLoad
             // 
-            this.panelLoad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(161)))), ((int)(((byte)(226)))));
+            this.panelLoad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(171)))), ((int)(((byte)(169)))));
             this.panelLoad.Location = new System.Drawing.Point(0, 0);
-            this.panelLoad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelLoad.Margin = new System.Windows.Forms.Padding(4);
             this.panelLoad.Name = "panelLoad";
             this.panelLoad.Size = new System.Drawing.Size(48, 22);
             this.panelLoad.TabIndex = 1;
@@ -70,7 +70,7 @@
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(68, 123);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(179, 138);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -81,7 +81,7 @@
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(307, 63);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(299, 223);
             this.pictureBox1.TabIndex = 4;
@@ -95,9 +95,10 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.panelBack);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "LogInScreen";
             this.Padding = new System.Windows.Forms.Padding(27, 74, 27, 25);
+            this.Style = MetroFramework.MetroColorStyle.Teal;
             this.Text = "Betöltés...";
             this.Load += new System.EventHandler(this.LogInScreen_Load);
             this.panelBack.ResumeLayout(false);

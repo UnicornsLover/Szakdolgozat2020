@@ -34,6 +34,7 @@
             this.metroTileChildrenReg = new MetroFramework.Controls.MetroTile();
             this.metroTileWorkerReg = new MetroFramework.Controls.MetroTile();
             this.metroTile1 = new MetroFramework.Controls.MetroTile();
+            this.metroTileAddSchool = new MetroFramework.Controls.MetroTile();
             this.SuspendLayout();
             // 
             // metroLabelWelcome
@@ -113,11 +114,24 @@
             this.metroTile1.UseSelectable = true;
             this.metroTile1.Click += new System.EventHandler(this.metroTile1_Click);
             // 
+            // metroTileAddSchool
+            // 
+            this.metroTileAddSchool.ActiveControl = null;
+            this.metroTileAddSchool.Location = new System.Drawing.Point(753, 142);
+            this.metroTileAddSchool.Name = "metroTileAddSchool";
+            this.metroTileAddSchool.Size = new System.Drawing.Size(191, 123);
+            this.metroTileAddSchool.Style = MetroFramework.MetroColorStyle.Silver;
+            this.metroTileAddSchool.TabIndex = 9;
+            this.metroTileAddSchool.Text = "Közoktatás";
+            this.metroTileAddSchool.UseSelectable = true;
+            this.metroTileAddSchool.Click += new System.EventHandler(this.metroTileAddSchool_Click);
+            // 
             // IntVPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.metroTileAddSchool);
             this.Controls.Add(this.metroTile1);
             this.Controls.Add(this.metroTileWorkerReg);
             this.Controls.Add(this.metroTileChildrenReg);
@@ -142,5 +156,6 @@
         private MetroFramework.Controls.MetroTile metroTileChildrenReg;
         private MetroFramework.Controls.MetroTile metroTileWorkerReg;
         private MetroFramework.Controls.MetroTile metroTile1;
+        private MetroFramework.Controls.MetroTile metroTileAddSchool;
     }
 }

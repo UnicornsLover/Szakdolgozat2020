@@ -97,6 +97,12 @@
     </Compile>
     <Compile Include="Forms\Administrator\Exception\InsertChildException.cs" />
     <Compile Include="Forms\Administrator\Exception\RepositoryChildExceptionCantDelete.cs" />
+    <Compile Include="Forms\Foster\School.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Foster\School.Designer.cs">
+      <DependentUpon>School.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Head of institution\Exception\insertEmployeException.cs" />
     <Compile Include="Forms\Head of institution\Exception\updateEmployeException.cs" />
     <Compile Include="Forms\Head of institution\WorkersRegistration.cs">
@@ -204,6 +210,9 @@
     <EmbeddedResource Include="Forms\Administrator\HomePageUgy.resx">
       <DependentUpon>HomePageUgy.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Foster\School.resx">
+      <DependentUpon>School.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Head of institution\WorkersRegistration.resx">
       <DependentUpon>WorkersRegistration.cs</DependentUpon>
     </EmbeddedResource>
@@ -247,6 +256,8 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Forms\Foster\Exception\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

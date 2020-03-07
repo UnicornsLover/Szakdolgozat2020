@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Szakdolgozat2020.Forms.Administrator;
+using Szakdolgozat2020.Forms.Foster;
 using Szakdolgozat2020.Forms.Head_of_institution;
 using Szakdolgozat2020.Forms.Nevelo;
 using Szakdolgozat2020.Repository.Employes;
@@ -75,6 +76,12 @@ namespace Szakdolgozat2020.Forms
         {
             ParentsReg p = new ParentsReg();
             p.Show();
+        }
+
+        private void metroTileAddSchool_Click(object sender, EventArgs e)
+        {
+            School sc = new School;
+            sc.Show();
         }
     }
 }
