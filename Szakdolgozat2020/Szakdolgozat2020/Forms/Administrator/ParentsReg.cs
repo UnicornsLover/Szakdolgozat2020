@@ -52,9 +52,9 @@ namespace Szakdolgozat2020.Forms.Administrator
             metroTextBoxName.Text = "";
             metroDateTimeBDate.Text = "1950-01-01";
             metroTextBoxIdCard.Text = "";
-            metroComboBoxSex.Text = "";
+            metroComboBoxSex.SelectedItem = null;
             metroTextBoxIdCard.Text = "";
-            metroComboBoxLoginPermission.Text = "";
+            metroComboBoxLoginPermission.SelectedItem = null;
             metroTextBoxUser.Text = "";
             metroTextBoxPassword.Text = "";
         }
@@ -84,7 +84,7 @@ namespace Szakdolgozat2020.Forms.Administrator
 
         public void updateParentsNumber()
         {
-            metroLabelPdb.Text = "Jelenleg gyermekek száma az intézménybe: " + repo.getnextParentId().ToString() + " .";
+            metroLabelPdb.Text = "Jelenleg gyermekek száma az intézménybe: " + repo.getParentsNumber().ToString() + " .";
         }
 
         /// <summary>
@@ -188,7 +188,41 @@ namespace Szakdolgozat2020.Forms.Administrator
                 Debug.WriteLine("'DialogResult.No'-ra futott rá!");
             }
         }
+        public string getRegUserName()
+        {
+            errorProviderName.Clear();
+            string name = "";
+            string fname = metroTextBoxName.Text;
+            char[] betuk = new char[10];
 
+            if (fname != "")
+            {
+                for (int i = 0; i < 5; i++)
+                {
+                    if (fname[i] != ' ')
+                    {
+
+                        name += Char.ToLower(fname[i]);
+                    }
+                }
+            }
+            else
+            {
+                throw new ModellParentNotValidNameException("Kérem töltse ki 'Neve' mezőt, a megadása kötelező.");
+            }
+
+            return name;
+        }
+
+        /// <summary>
+        /// Beállyítja az alapértelmezett jelszót a frissen regisztrált dolgozónak
+        /// </summary>
+        /// <returns> Alapértelmezett jelszó</returns>
+        public string getRegUserPassword()
+        {
+            string password = "abc123";
+            return password;
+        }
         private void metroButtonAdd_Click(object sender, EventArgs e)
         {
             try
@@ -238,8 +272,8 @@ namespace Szakdolgozat2020.Forms.Administrator
                     metroDateTimeBDate.Text,
                     metroTextBoxID.Text,
                     lp,
-                    metroTextBoxUser.Text,
-                    metroTextBoxPassword.Text
+                    getRegUserName(),
+                    getRegUserPassword()
                    );
 
                 //Hozzáadás az adatbázishoz

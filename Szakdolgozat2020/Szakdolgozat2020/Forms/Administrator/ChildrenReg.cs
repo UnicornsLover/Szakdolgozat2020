@@ -40,7 +40,7 @@ namespace Szakdolgozat2020.Forms.Nevelo
         {
             metroTextBoxID.Text = "";
             metroTextBoxName.Text = "";
-            metroComboBoxSex.Text = "";
+            metroComboBoxSex.SelectedItem = null;
             metroTextBoxIdCard.Text = "";
             metroTextBoxTaj.Text = "";
             metroDateTimeBDate.Text = "1990-01-01";

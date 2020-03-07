@@ -68,6 +68,7 @@
     <Compile Include="Database\Exception\TableCreateException.cs" />
     <Compile Include="Forms\Administrator\Exception\insertParentException.cs" />
     <Compile Include="Forms\Administrator\Exception\ModellParentNotValidSexException.cs" />
+    <Compile Include="Forms\Administrator\ModellParentNotValidNameException.cs" />
     <Compile Include="Forms\Administrator\ParentsReg.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -127,10 +127,10 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
             metroTextBoxEID.Text = "";
             metroTextBoxEname.Text = "";
             metroTextBoxEMaidname.Text = "";
-            metroComboBoxESex.Text = "";
+            metroComboBoxESex.SelectedItem = null;
             metroDateTimeEBirth.Text = "1945 - 01 - 01";
             metroTextBoxBPlace.Text = "";
-            metroComboBoxEjobtype.Text = "";
+            metroComboBoxEjobtype.SelectedItem = null;
             metroTextBoxAddress.Text = "";
             metroTextBoxIdCard.Text = "";
             metroTextBoxEUserName.Text = "";

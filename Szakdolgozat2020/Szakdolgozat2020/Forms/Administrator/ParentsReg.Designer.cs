@@ -165,6 +165,7 @@
             // 
             // metroTextBoxPassword
             // 
+            this.metroTextBoxPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(113)))), ((int)(((byte)(69)))));
             // 
             // 
             // 
@@ -177,6 +178,7 @@
             this.metroTextBoxPassword.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.metroTextBoxPassword.CustomButton.UseSelectable = true;
             this.metroTextBoxPassword.CustomButton.Visible = false;
+            this.metroTextBoxPassword.ForeColor = System.Drawing.Color.White;
             this.metroTextBoxPassword.Lines = new string[0];
             this.metroTextBoxPassword.Location = new System.Drawing.Point(1195, 136);
             this.metroTextBoxPassword.MaxLength = 32767;
@@ -191,12 +193,15 @@
             this.metroTextBoxPassword.Size = new System.Drawing.Size(269, 28);
             this.metroTextBoxPassword.Style = MetroFramework.MetroColorStyle.Green;
             this.metroTextBoxPassword.TabIndex = 9;
+            this.metroTextBoxPassword.UseCustomBackColor = true;
+            this.metroTextBoxPassword.UseCustomForeColor = true;
             this.metroTextBoxPassword.UseSelectable = true;
             this.metroTextBoxPassword.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.metroTextBoxPassword.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // metroTextBoxUser
             // 
+            this.metroTextBoxUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(113)))), ((int)(((byte)(69)))));
             // 
             // 
             // 
@@ -209,6 +214,7 @@
             this.metroTextBoxUser.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.metroTextBoxUser.CustomButton.UseSelectable = true;
             this.metroTextBoxUser.CustomButton.Visible = false;
+            this.metroTextBoxUser.ForeColor = System.Drawing.Color.White;
             this.metroTextBoxUser.Lines = new string[0];
             this.metroTextBoxUser.Location = new System.Drawing.Point(1195, 86);
             this.metroTextBoxUser.MaxLength = 32767;
@@ -223,6 +229,8 @@
             this.metroTextBoxUser.Size = new System.Drawing.Size(269, 28);
             this.metroTextBoxUser.Style = MetroFramework.MetroColorStyle.Green;
             this.metroTextBoxUser.TabIndex = 10;
+            this.metroTextBoxUser.UseCustomBackColor = true;
+            this.metroTextBoxUser.UseCustomForeColor = true;
             this.metroTextBoxUser.UseSelectable = true;
             this.metroTextBoxUser.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.metroTextBoxUser.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -280,6 +288,7 @@
             // 
             // metroTextBoxID
             // 
+            this.metroTextBoxID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(113)))), ((int)(((byte)(69)))));
             // 
             // 
             // 
@@ -292,6 +301,7 @@
             this.metroTextBoxID.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.metroTextBoxID.CustomButton.UseSelectable = true;
             this.metroTextBoxID.CustomButton.Visible = false;
+            this.metroTextBoxID.ForeColor = System.Drawing.Color.White;
             this.metroTextBoxID.Lines = new string[0];
             this.metroTextBoxID.Location = new System.Drawing.Point(169, 86);
             this.metroTextBoxID.MaxLength = 32767;
@@ -305,6 +315,8 @@
             this.metroTextBoxID.Size = new System.Drawing.Size(269, 28);
             this.metroTextBoxID.Style = MetroFramework.MetroColorStyle.Green;
             this.metroTextBoxID.TabIndex = 17;
+            this.metroTextBoxID.UseCustomBackColor = true;
+            this.metroTextBoxID.UseCustomForeColor = true;
             this.metroTextBoxID.UseSelectable = true;
             this.metroTextBoxID.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.metroTextBoxID.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -390,7 +402,6 @@
             this.metroButtonDelete.Location = new System.Drawing.Point(561, 672);
             this.metroButtonDelete.Name = "metroButtonDelete";
             this.metroButtonDelete.Size = new System.Drawing.Size(208, 28);
-            this.metroButtonDelete.Style = MetroFramework.MetroColorStyle.Green;
             this.metroButtonDelete.TabIndex = 29;
             this.metroButtonDelete.Text = "Törlés";
             this.metroButtonDelete.UseCustomBackColor = true;
@@ -457,7 +468,8 @@
             // metroLabelPdb
             // 
             this.metroLabelPdb.AutoSize = true;
-            this.metroLabelPdb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(113)))), ((int)(((byte)(69)))));
+            this.metroLabelPdb.BackColor = System.Drawing.Color.White;
+            this.metroLabelPdb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(113)))), ((int)(((byte)(69)))));
             this.metroLabelPdb.Location = new System.Drawing.Point(942, 680);
             this.metroLabelPdb.Name = "metroLabelPdb";
             this.metroLabelPdb.Size = new System.Drawing.Size(0, 0);
