@@ -145,6 +145,11 @@ namespace Szakdolgozat2020.Forms.Nevelo
             emptyCells();
         }
 
+        /// <summary>
+        /// Gyerek törlése
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void metroButtonDelete_Click(object sender, EventArgs e)
         {
             //Ha sor nullat ad vissza ne történjen 
@@ -196,6 +201,11 @@ namespace Szakdolgozat2020.Forms.Nevelo
             }
         }
 
+        /// <summary>
+        /// Gyerek hozzáadása
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void metroButtonAdd_Click(object sender, EventArgs e)
         {
             errorProviderName.Clear();
@@ -335,6 +345,16 @@ namespace Szakdolgozat2020.Forms.Nevelo
                 );
                 int id = Convert.ToInt32(metroTextBoxID.Text);
 
+                //Módosítás az adatbázisban
+                try
+                {
+                    rep.updateChildrenInDatabase(id, modified);
+                }
+                catch (Exception ex)
+                {
+                    throw new updateChildException();
+                }
+
                 //Módosítás a listában
                 try
                 {
@@ -347,19 +367,14 @@ namespace Szakdolgozat2020.Forms.Nevelo
                     MetroMessageBox.Show(this, "\n\nHibát észleltünk, a módosítása sikertelen volt az adatbázisból.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
-                //Módosítás az adatbázisban
-                try
-                {
-                    rep.updateChildrenInDatabase(id, modified);
-                }
-                catch (Exception ex)
-                {
-                    Debug.WriteLine("A gyermek módosítása sikertelen volt az adatbázisba");
-                    MetroMessageBox.Show(this, "\n\nHibát észleltünk, a módosítás sikertelen volt az adatbázisba.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
 
                 //Módosítás miatt DataGridView updatelése
                 updateDataInDataGriedViewt();
+            }
+            catch (updateChildException uce)
+            {
+                Debug.WriteLine("A dolgozó módosítás sikertelen volt az adatbázishoz, " + uce.Message);
+                MetroMessageBox.Show(this, "\n\nHibát észleltünk, a módosítás sikertelen volt. Nem lehet ugyan olyna személyigazolvány szám és taj szám, mint ami már van a DataGridView-ba és az adatbázisba.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             catch (ModellChildNotValidNameException mne)
             {

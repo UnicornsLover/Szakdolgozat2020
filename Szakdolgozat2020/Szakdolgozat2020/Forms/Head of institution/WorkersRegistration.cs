@@ -229,6 +229,17 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
                 );
                 int id = Convert.ToInt32(metroTextBoxEID.Text);
 
+                //Módosítás az adatbázisban
+                try
+                {
+                    rep.updateEmployeeInDatabase(id, modified);
+                }
+                catch (Exception ex)
+                {
+                    throw new updateEmployeException();
+                }
+
+
                 //Módosítás a listában
                 try
                 {
@@ -241,19 +252,15 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
                     MetroMessageBox.Show(this, "\n\nHibát észleltünk, a módosítása sikertelen volt az adatbázisból.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
-                //Módosítás az adatbázisban
-                try
-                {
-                    rep.updateEmployeeInDatabase(id, modified);
-                }
-                catch (Exception ex)
-                {
-                    Debug.WriteLine("A dolgozó módosítása sikertelen volt az adatbázisba");
-                    MetroMessageBox.Show(this, "\n\nHibát észleltünk, a módosítás sikertelen volt az adatbázisba.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+
 
                 //Módosítás miatt DataGridView updatelése
                 updateDataInDataGriedViewt();
+            }
+            catch (updateEmployeException uee)
+            {
+                Debug.WriteLine("A dolgozó módosítás sikertelen volt az adatbázishoz, " + uee.Message);
+                MetroMessageBox.Show(this, "\n\nHibát észleltünk, a módosítás sikertelen volt. Nem lehet két ugyan olyna személyigazolvány szám az adatbázsban.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             catch (MedellNotValidEmpIdcardException mie)
             {

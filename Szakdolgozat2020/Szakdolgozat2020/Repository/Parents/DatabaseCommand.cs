@@ -49,7 +49,7 @@ namespace Szakdolgozat2020.Repository.Parents
                     if (goodResult)
                     {
                         string pass = dr["loginpsw"].ToString();
-                        Parent par = new Parent(id, pname, pbirth, psex, pidcard, ploginper, user, pass);
+                        Parent par = new Parent(id, pname, psex, pbirth, pidcard, ploginper, user, pass);
                         parents.Add(par);
                     }
                 }

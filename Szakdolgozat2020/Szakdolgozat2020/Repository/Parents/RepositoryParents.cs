@@ -41,7 +41,7 @@ namespace Szakdolgozat2020.Repository.Parents
         /// Adattábla feltöltése
         /// </summary>
         /// <returns> A tábla szerkezete adattal feltöltve </returns>
-        public DataTable getParentsListToDataTable()
+        public DataTable getParentsListToDatabase()
         {
             DataTable dt = new DataTable();
             try
