@@ -6,31 +6,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Szakdolgozat2020.Database;
-using Szakdolgozat2020.Modell.Parents;
+using Szakdolgozat2020.Modell.School;
 
-namespace Szakdolgozat2020.Repository.Parents
+namespace Szakdolgozat2020.Repository.Schools
 {
-    partial class RepositoryDatabaseParents
+    partial class DatabaseCommand
     {
         private readonly string connectionString;
-        public RepositoryDatabaseParents()
+        public DatabaseCommand()
         {
             Connection cs = new Connection();
             connectionString = cs.getConnectionString();
         }
 
         /// <summary>
-        /// Szülők kiolvasása az adatbázisból
+        /// Az iskolák kiolvasása az adatbázisból
         /// </summary>
-        /// <returns>Szülők</returns>
-        public List<Parent> getParentsFromDatabase()
+        /// <returns>Iskolák</returns>
+        public List<School> getSchoolsFromDatabase()
         {
-            List<Parent> parents = new List<Parent>();
+            List<School> schools = new List<School>();
             MySqlConnection connection = new MySqlConnection(connectionString);
             try
             {
                 connection.Open();
-                string query = Parent.getSQLCommandGetAllRecord();
+                string query = School.getSQLCommandGetAllRecord();
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 MySqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
@@ -39,18 +39,14 @@ namespace Szakdolgozat2020.Repository.Parents
                     int id = -1;
 
                     goodResult = int.TryParse(dr["ID"].ToString(), out id);
-                    string pname = dr["pname"].ToString();
-                    string pbirth = dr["pbirth"].ToString();
-                    string psex = dr["psex"].ToString();
-                    string pidcard = dr["pidcardnumber"].ToString();
-                    string ploginper = dr["loginpermission"].ToString();
-                    string user = dr["loginuser"].ToString();
+                    string sname = dr["schoolName"].ToString();
+                    string sLocation = dr["schoolLocation"].ToString();
 
                     if (goodResult)
                     {
-                        string pass = dr["loginpsw"].ToString();
-                        Parent par = new Parent(id, pname, psex, pbirth, pidcard, ploginper, user, pass);
-                        parents.Add(par);
+                        string sPhone = dr["schoolPhone"].ToString();
+                        School sch = new School(id, sname, sLocation, sPhone);
+                        schools.Add(sch);
                     }
                 }
                 connection.Close();
@@ -58,23 +54,23 @@ namespace Szakdolgozat2020.Repository.Parents
             catch (Exception ex)
             {
                 connection.Close();
-                Debug.WriteLine(ex.Message + "Szülők adatainak beolvasása************************************************************");
-                throw new RepositoryParentsReadyDataFromEmployes_LoginException("Szülők adatainak beolvasása sikertlen, nem elérthető az adatbázis.");
+                Debug.WriteLine(ex.Message + "Iskola adatainak beolvasása************************************************************");
+                throw new RepositorySchoolsReadyDataFromEmployes_LoginException("Iskola adatainak beolvasása sikertlen,vagy nem érthető el az adatbázis.");
             }
-            return parents;
+            return schools;
         }
 
         /// <summary>
-        /// Szülők törlése az adatbázisól
+        /// Iskola törlése az adatbázisól
         /// </summary>
-        /// <param name="id">Adott szülő id-ja</param>
-        public void deleteParentFromDatabase(int id)
+        /// <param name="id">Adott iskola id-ja</param>
+        public void deleteSchoolFromDatabase(int id)
         {
             MySqlConnection connection = new MySqlConnection(connectionString);
             try
             {
                 connection.Open();
-                string query = "DELETE FROM parents WHERE ID=" + id;
+                string query = "DELETE FROM school WHERE ID=" + id;
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
                 connection.Close();
@@ -83,17 +79,17 @@ namespace Szakdolgozat2020.Repository.Parents
             {
                 connection.Close();
                 Debug.WriteLine(e.Message);
-                Debug.WriteLine("DeleteParent***********************" + id + " idéjű szülő törlése nem sikerült.");
-                throw new RepositoryParentException("Sikertelen törlés az adatbázisból.");
+                Debug.WriteLine("DeleteSchool***********************" + id + " idéjű iskola törlése nem sikerült.");
+                throw new RepositorySchoolException("Sikertelen törlés az adatbázisból.");
             }
         }
 
         /// <summary>
-        /// Szülő módsítása az adatbázisban
+        /// Iskola módsítása az adatbázisban
         /// </summary>
-        /// <param name="id">Szülő id-ja</param>
-        /// <param name="modified">Adott szülö módosítása</param>
-        public void updateParentInDatabase(int id, Parent modified)
+        /// <param name="id">Iskola id-ja</param>
+        /// <param name="modified">Adott iskola módosítása</param>
+        public void updateParentInDatabase(int id, School modified)
         {
             MySqlConnection connection = new MySqlConnection(connectionString);
             try
@@ -108,22 +104,22 @@ namespace Szakdolgozat2020.Repository.Parents
             {
                 connection.Close();
                 Debug.WriteLine(e.Message);
-                Debug.WriteLine("UpdateParent***************************" + id + " idéjű szülő módosítása nem sikerült.");
-                throw new RepositoryParentException("Sikertelen módosítás az adatbázisból.");
+                Debug.WriteLine("UpdateSchool***************************" + id + " idéjű iskola módosítása nem sikerült.");
+                throw new RepositorySchoolException("Sikertelen módosítás az adatbázisból.");
             }
         }
 
         /// <summary>
-        /// Szülő hozzáadása a z adatbázishoz
+        /// Iskola hozzáadása a z adatbázishoz
         /// </summary>
-        /// <param name="newParent">Az adott szülő akit beszúrunk</param>
-        public void insertParentToDatabase(Parent newParent)
+        /// <param name="newSchool">Az adott iskola amit beszúrunk</param>
+        public void insertParentToDatabase(School newSchool)
         {
             MySqlConnection connection = new MySqlConnection(connectionString);
             try
             {
                 connection.Open();
-                string query = newParent.getInsert();
+                string query = newSchool.getInsert();
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
                 connection.Close();
@@ -132,8 +128,8 @@ namespace Szakdolgozat2020.Repository.Parents
             {
                 connection.Close();
                 Debug.WriteLine(e.Message);
-                Debug.WriteLine("InsertParent*******************************" + newParent + " gyermek beszúrása adatbázisba nem sikerült.");
-                throw new RepositoryParentException("Sikertelen beszúrás az adatbázisból.");
+                Debug.WriteLine("InsertSchool*******************************" + newSchool + " gyermek beszúrása adatbázisba nem sikerült.");
+                throw new RepositorySchoolException("Sikertelen beszúrás az adatbázisból.");
             }
         }
     }

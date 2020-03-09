@@ -39,9 +39,9 @@ namespace Szakdolgozat2020.Forms.Administrator
         /// </summary>
         public void updateDataInDataGriedViewt()
         {
-            //Adattáblát feltölti a repoba lévő gyermek listából
+            //Adattáblát feltölti a repoba lévő Szülő listából
             parentsTD = repo.getParentsListToDatabase();
-            //Gyermek DataGridView-nak a forrása a children_fullprofile adattábla
+            //Szülő DataGridView-nak a forrása a children_fullprofile adattábla
             metroGridParents.DataSource = null;
             metroGridParents.DataSource = parentsTD;
         }
@@ -110,7 +110,7 @@ namespace Szakdolgozat2020.Forms.Administrator
         {
             if (metroTextBoxName.Text == "")
             {
-                MetroMessageBox.Show(this, "Keresés csak pontos név megadásával lehetséges (pl: Bálint István - nagy betű is fontos), a cella kitötése kötelező! \nTöltse ki a \"Neve:\" cellát!\nHa esetleg minden adatot újra szeretne látni egy szűrés után, csak is kizárólag írja be ezt a \" * \" (csillag) jelet a \"Dolgozó neve:\" cellábas!", "Hiba\n\n", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MetroMessageBox.Show(this, "Keresés csak pontos név megadásával lehetséges (pl: Bálint István - nagy betű is fontos), a cella kitötése kötelező! \nTöltse ki a \"Neve:\" cellát!\nHa esetleg minden adatot újra szeretne látni egy szűrés után, csak is kizárólag írja be ezt a \" * \" (csillag) jelet a \"Neve:\" cellábas!", "Hiba\n\n", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else if (metroTextBoxName.Text == "*")
             {
@@ -128,16 +128,16 @@ namespace Szakdolgozat2020.Forms.Administrator
             }
         }
 
+        
+        private void metroButtonClearCells_Click(object sender, EventArgs e)
+        {
+            emptyCells();
+        }
         /// <summary>
         /// szülő törlése
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void metroButtonClearCells_Click(object sender, EventArgs e)
-        {
-            emptyCells();
-        }
-
         private void metroButtonDelete_Click(object sender, EventArgs e)
         {
             //Ha sor nullat ad vissza ne történjen 
@@ -147,7 +147,7 @@ namespace Szakdolgozat2020.Forms.Administrator
             }
             int selectedIndex = metroGridParents.SelectedRows[0].Index;
 
-            DialogResult dr = MetroMessageBox.Show(this, "\n\nBiztos szeretné törölni a gyermeket?", "Dolgozó törlése", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            DialogResult dr = MetroMessageBox.Show(this, "\n\nBiztos szeretné törölni a szülőt?", "Szülő törlése", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (dr == DialogResult.Yes)
             {
                 //Törlés a listából
@@ -161,10 +161,10 @@ namespace Szakdolgozat2020.Forms.Administrator
                 {
                     repo.deleteParentInList(id);
                 }
-                catch (RepositoryChildExceptionCantDelete ex)
+                catch (RepositoryParentExceptionCantDelete)
                 {
 
-                    Debug.WriteLine("A dolgozó törlése sikertelen volt a listából!");
+                    Debug.WriteLine("A szülő törlése sikertelen volt a listából!");
                     MetroMessageBox.Show(this, "\n\nHibát észleltünk, a törlés sikertelen volt az listából.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 

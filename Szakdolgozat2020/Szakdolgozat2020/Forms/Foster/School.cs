@@ -16,5 +16,18 @@ namespace Szakdolgozat2020.Forms.Foster
         {
             InitializeComponent();
         }
+
+        private void metroButtonAddSchool_Click(object sender, EventArgs e)
+        {
+            AddSchool sch = new AddSchool();
+            sch.Show();
+        }
+
+        private void metroButtonLogOut_Click(object sender, EventArgs e)
+        {
+            LogIn li = new LogIn();
+            li.Show();
+            this.Hide();
+        }
     }
 }

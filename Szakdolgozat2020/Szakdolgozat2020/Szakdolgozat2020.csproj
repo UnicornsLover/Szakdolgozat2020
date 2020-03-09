@@ -68,7 +68,7 @@
     <Compile Include="Database\Exception\TableCreateException.cs" />
     <Compile Include="Forms\Administrator\Exception\insertParentException.cs" />
     <Compile Include="Forms\Administrator\Exception\ModellParentNotValidSexException.cs" />
-    <Compile Include="Forms\Administrator\ModellParentNotValidNameException.cs" />
+    <Compile Include="Forms\Administrator\Exception\ModellParentNotValidNameException.cs" />
     <Compile Include="Forms\Administrator\ParentsReg.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,7 +76,8 @@
       <DependentUpon>ParentsReg.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Administrator\Exception\updateChildException.cs" />
-    <Compile Include="Forms\Administrator\updateParentException.cs" />
+    <Compile Include="Forms\Administrator\Exception\updateParentException.cs" />
+    <Compile Include="Forms\Administrator\Exception\RepositoryParentExceptionCantDelete.cs" />
     <Compile Include="Forms\Boss.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +98,12 @@
     </Compile>
     <Compile Include="Forms\Administrator\Exception\InsertChildException.cs" />
     <Compile Include="Forms\Administrator\Exception\RepositoryChildExceptionCantDelete.cs" />
+    <Compile Include="Forms\Foster\AddSchool.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Foster\AddSchool.Designer.cs">
+      <DependentUpon>AddSchool.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Foster\School.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,6 +173,12 @@
     <Compile Include="Modell\Parents\Exception\ModellNotValidParentNamee.cs" />
     <Compile Include="Modell\Parents\ParentsDatabaseCommand.cs" />
     <Compile Include="Modell\Parents\Parent.cs" />
+    <Compile Include="Modell\School\Exception\ModellNotValidSchoolLocationException.cs" />
+    <Compile Include="Modell\School\Exception\ModellNotValidSchoolNameExceeption.cs" />
+    <Compile Include="Modell\School\Exception\ModellNotValidSchoolphoneException.cs" />
+    <Compile Include="Modell\School\GetSQLCommand.cs" />
+    <Compile Include="Modell\School\SchoolDatabaseCommand.cs" />
+    <Compile Include="Modell\School\School.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\Children\Exception\RepositoryChildExceptionCantAdd.cs" />
@@ -190,11 +203,19 @@
     <Compile Include="Repository\Parents\DatabaseCommand.cs" />
     <Compile Include="Repository\Parents\RepositoryParents.cs" />
     <Compile Include="Repository\Parents\Exception\RepositoryParentsExceptionCantDelete.cs" />
-    <Compile Include="Repository\Parents\RepositoryParentsException.cs" />
-    <Compile Include="Repository\Parents\RepositoryParentsReadyDataFromEmployes_LoginException.cs" />
+    <Compile Include="Repository\Parents\Exception\RepositoryParentsException.cs" />
+    <Compile Include="Repository\Parents\Exception\RepositoryParentsReadyDataFromEmployes_LoginException.cs" />
     <Compile Include="Repository\RepositoryE.cs" />
     <Compile Include="Repository\RepositoryC.cs" />
     <Compile Include="Repository\RepositoryP.cs" />
+    <Compile Include="Repository\RepositoryS.cs" />
+    <Compile Include="Repository\Schools\DatabaseCommand.cs" />
+    <Compile Include="Repository\Schools\Exception\RepositorySchoolExceptionCantAdd.cs" />
+    <Compile Include="Repository\Schools\Exception\RepositorySchoolExceptionCantMoodify.cs" />
+    <Compile Include="Repository\Schools\Exception\RepositorySchoolException.cs" />
+    <Compile Include="Repository\Schools\RepositorySchools.cs" />
+    <Compile Include="Repository\Schools\Exception\RepositorySchoolsExceptionCantDelete.cs" />
+    <Compile Include="Repository\Schools\Exception\RepositorySchoolsReadyDataFromEmployes_LoginException.cs" />
     <EmbeddedResource Include="Forms\Administrator\ParentsReg.resx">
       <DependentUpon>ParentsReg.cs</DependentUpon>
     </EmbeddedResource>
@@ -209,6 +230,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Administrator\HomePageUgy.resx">
       <DependentUpon>HomePageUgy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Foster\AddSchool.resx">
+      <DependentUpon>AddSchool.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Foster\School.resx">
       <DependentUpon>School.cs</DependentUpon>
