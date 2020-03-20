@@ -268,7 +268,8 @@ namespace Szakdolgozat2020.Database
                 "ALTER TABLE `school` " +
                 "ADD PRIMARY KEY IF NOT EXISTS (`ID`);" +
                 "ALTER TABLE `school` MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 1;" +
-                "ALTER TABLE school ADD UNIQUE INDEX(`ID`);";
+                "ALTER TABLE school ADD UNIQUE INDEX(`ID`);" +
+                "ALTER TABLE `school` ADD UNIQUE( `schoolName`);";
 
 
 

@@ -74,7 +74,7 @@ namespace Szakdolgozat2020
                                 break;
                             case "Nevelő":
                                 fnameLoged = dr["ename"].ToString();
-                                School sc = new School();
+                                Schools sc = new Schools();
                                 sc.Show();
                                 break;
                             default:

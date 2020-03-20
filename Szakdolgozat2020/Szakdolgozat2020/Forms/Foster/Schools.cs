@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Szakdolgozat2020.Forms.Foster
 {
-    public partial class School : MetroFramework.Forms.MetroForm
+    public partial class Schools : MetroFramework.Forms.MetroForm
     {
-        public School()
+        public Schools()
         {
             InitializeComponent();
         }

@@ -108,7 +108,7 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
         public void emptyCells()
         {
             metroTextBoxEID.Text = "";
-            metroTextBoxEname.Text = "";
+            metroTextBoxEname.Text = ""; 
             metroTextBoxEMaidname.Text = "";
             metroComboBoxESex.SelectedItem = null;
             metroDateTimeEBirth.Text = "1945 - 01 - 01";
@@ -243,7 +243,7 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
             catch (updateEmployeException uee)
             {
                 Debug.WriteLine("A dolgozó módosítás sikertelen volt az adatbázishoz, " + uee.Message);
-                MetroMessageBox.Show(this, "\n\nHibát észleltünk, a módosítás sikertelen volt. Nem lehet két ugyan olyna személyigazolvány szám az adatbázsban.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MetroMessageBox.Show(this, "\n\nHibát észleltünk, a módosítás sikertelen volt. Nem lehet két ugyan olyan személyigazolvány szám az adatbázsban.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             catch (MedellNotValidEmpIdcardException mie)
             {

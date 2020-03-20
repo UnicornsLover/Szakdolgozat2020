@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Szakdolgozat2020.Modell.School;
 using Szakdolgozat2020.Repository.Schools;
 
 namespace Szakdolgozat2020.Forms.Foster
@@ -28,7 +29,6 @@ namespace Szakdolgozat2020.Forms.Foster
         {
             updateDataInDataGriedViewt();
             setSchoolsDataGridView();
-            //updateSchooolsNumber();
         }
 
         /// <summary>
@@ -162,6 +162,152 @@ namespace Szakdolgozat2020.Forms.Foster
                 metroTextBoxName.Text = metroGridSchoolBasic.SelectedRows[0].Cells[1].Value.ToString();
                 metroTextBoxLocation.Text = metroGridSchoolBasic.SelectedRows[0].Cells[2].Value.ToString();
                 metroTextBoxPhone.Text = metroGridSchoolBasic.SelectedRows[0].Cells[3].Value.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Iskola módosítása adatbázisban, listában, DatagridView frissítése
+        /// </summary>
+        private void metroButtonModify_Click(object sender, EventArgs e)
+        {
+            errorProviderName.Clear();
+            errorProviderLocation.Clear();
+            errorProviderPhone.Clear();
+
+            try
+            {
+                School modified = new School(
+                Convert.ToInt32(metroTextBoxSID.Text),
+                metroTextBoxName.Text,
+                metroTextBoxLocation.Text,
+                metroTextBoxPhone.Text
+                );
+                int id = Convert.ToInt32(metroTextBoxSID.Text);
+
+                //Módosítás az adatbázisban
+                try
+                {
+                    rep.updateParentInDatabase(id, modified);
+                }
+                catch (Exception ex)
+                {
+                    throw new updateSchoolException();
+                }
+
+
+                //Módosítás a listában
+                try
+                {
+                    repo.updateSchoolInList(id, modified);
+                }
+                catch (Exception ex)
+                {
+
+                    Debug.WriteLine("A dolgozó módosítása sikertelen volt a listában");
+                    MetroMessageBox.Show(this, "\n\nHibát észleltünk, a módosítása sikertelen volt az adatbázisból.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
+
+
+                //Módosítás miatt DataGridView updatelése
+                updateDataInDataGriedViewt();
+            }
+            catch (updateSchoolException uee)
+            {
+                Debug.WriteLine("Az intézmény módosítás sikertelen volt az adatbázishoz, " + uee.Message);
+                MetroMessageBox.Show(this, "\n\nHibát észleltünk, a módosítás sikertelen volt. Nem lehet két ugyan olyan nevű intézmény.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (ModellNotValidSchoolNameException mne)
+            {
+                errorProviderName.SetError(metroTextBoxName, mne.Message);
+            }
+            catch (ModellNotValidSchoolLocationException msl)
+            {
+                errorProviderLocation.SetError(metroTextBoxLocation, msl.Message);
+            }
+            catch (ModellNotValidSchoolphoneException mpe)
+            {
+                errorProviderPhone.SetError(metroTextBoxPhone, mpe.Message);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Iskola intézmény hozzáadása
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void metroButtonAddSchool_Click(object sender, EventArgs e)
+        {
+            errorProviderName.Clear();
+            errorProviderLocation.Clear();
+            errorProviderPhone.Clear();
+
+            try
+            {
+
+
+                int id = repo.getnextSchoolId();
+
+                School newEmployee = new School(
+                    id,
+                    metroTextBoxName.Text,
+                    metroTextBoxLocation.Text,
+                    metroTextBoxPhone.Text
+                   );
+
+                //Hozzáadás az adatbázishoz
+                try
+                {
+                    rep.insertParentToDatabase(newEmployee);
+                }
+                catch (Exception)
+                {
+                    throw new insertSchoolException();
+                }
+
+                //Hozzáadás a listához
+                try
+                {
+                    repo.addSchoolToList(newEmployee);
+                }
+                catch (Exception)
+                {
+
+                    Debug.WriteLine("Az intézmény felvétele sikertelen volt a listához");
+                    MetroMessageBox.Show(this, "\n\nHibát észleltünk, a felvétel sikertelen volt a listához.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
+
+                //DataGridView frissítése
+                updateDataInDataGriedViewt();
+                emptyCells();
+            }
+            catch (insertSchoolException ise)
+            {
+                Debug.WriteLine("Az intézmény felvétele sikertelen volt az adatbázishoz, " + ise.Message);
+                MetroMessageBox.Show(this, "\n\nHibát észleltünk, a felvétel sikertelen volt. Nem lehet két ugyanolyan nevű intézmény az adatbázisba.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (ModellNotValidSchoolNameException mne)
+            {
+                errorProviderName.SetError(metroTextBoxName, mne.Message);
+            }
+            catch (ModellNotValidSchoolLocationException msl)
+            {
+                errorProviderLocation.SetError(metroTextBoxLocation, msl.Message);
+            }
+            catch (ModellNotValidSchoolphoneException mpe)
+            {
+                errorProviderPhone.SetError(metroTextBoxPhone, mpe.Message);
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
     }

@@ -17,15 +17,15 @@ namespace Szakdolgozat2020.Modell.School
         {
             if (!isValidName(sName))
             {
-                throw new ModellNotValidSchoolNameException("");
+                throw new ModellNotValidSchoolNameException("Nem megfelelő 'Neve:', legalább 10 karakter hosszú legyen és ne tartalmazón számót. Nagy betűvel kezdje a nevét. Kötelező  kitöltése.");
             }
             if (!isValidLocation(sLocation))
             {
-                throw new ModellNotValidSchoolLocationException("");
+                throw new ModellNotValidSchoolLocationException("Nem megfelelő az elhelyezkedés, kezdje nagybetűvel és ne tartalmazon számokat. Minimum  karakter legyen. Kötelező  kitöltése.");
             }
             if (!isValidPhone(sPhone))
             {
-                throw new ModellNotValidSchoolphoneException("");
+                throw new ModellNotValidSchoolphoneException("Formai követelménye:+76456852. Ne írjon be több számot és '+3676'-tal kezdje");
             }
             //*************************Set********************
             this.sID = sID;
@@ -111,7 +111,7 @@ namespace Szakdolgozat2020.Modell.School
             {
                 return false;
             }
-            if (name.Length <= 5)
+            if (name.Length < 3)
             {
                 return false;
             }

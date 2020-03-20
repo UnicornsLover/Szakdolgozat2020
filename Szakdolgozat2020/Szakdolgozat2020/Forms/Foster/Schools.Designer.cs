@@ -1,6 +1,6 @@
 ﻿namespace Szakdolgozat2020.Forms.Foster
 {
-    partial class School
+    partial class Schools
     {
         /// <summary>
         /// Required designer variable.
