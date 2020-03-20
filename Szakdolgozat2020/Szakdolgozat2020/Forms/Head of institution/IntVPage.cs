@@ -80,7 +80,7 @@ namespace Szakdolgozat2020.Forms
 
         private void metroTileAddSchool_Click(object sender, EventArgs e)
         {
-            School sc = new School;
+            School sc = new School();
             sc.Show();
         }
     }

@@ -27,8 +27,8 @@ namespace Szakdolgozat2020.Forms.Foster
         private void AddSchool_Load(object sender, EventArgs e)
         {
             updateDataInDataGriedViewt();
-            setSchoolssDataGridView();
-            updateSchooolsNumber();
+            setSchoolsDataGridView();
+            //updateSchooolsNumber();
         }
 
         /// <summary>
@@ -54,13 +54,12 @@ namespace Szakdolgozat2020.Forms.Foster
         /// <summary>
         /// Beállít Datagridview oszlopait és egyébb dolgot
         /// </summary>
-        public void setParentsDataGridView()
+        public void setSchoolsDataGridView()
         {
             schoolTD.Columns[0].ColumnName = "Iskola azonosító:";
             schoolTD.Columns[1].ColumnName = "Név:";
             schoolTD.Columns[2].ColumnName = "Elheyezkedés:";
-            schoolTD.Columns[3].ColumnName = "vzetékes telefonszám:";
-
+            schoolTD.Columns[3].ColumnName = "Vezetékes telefonszám:";
 
             metroGridSchoolBasic.SelectionMode =
                 DataGridViewSelectionMode.FullRowSelect;
@@ -71,17 +70,6 @@ namespace Szakdolgozat2020.Forms.Foster
             metroGridSchoolBasic.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
 
-        private void metroGridSchoolBasic_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (metroGridSchoolBasic.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
-            {
-                metroGridSchoolBasic.CurrentRow.Selected = true;
-                metroTextBoxSID.Text = metroGridSchoolBasic.Rows[e.RowIndex].Cells[0].FormattedValue.ToString();
-                metroTextBoxName.Text = metroGridSchoolBasic.Rows[e.RowIndex].Cells[1].FormattedValue.ToString();
-                metroTextBoxLocation.Text = metroGridSchoolBasic.Rows[e.RowIndex].Cells[2].FormattedValue.ToString();
-                metroTextBoxPhone.Text = metroGridSchoolBasic.Rows[e.RowIndex].Cells[3].FormattedValue.ToString();
-            }
-        }
 
         private void metroButtonSearch_Click(object sender, EventArgs e)
         {
@@ -162,6 +150,18 @@ namespace Szakdolgozat2020.Forms.Foster
             else
             {
                 Debug.WriteLine("'DialogResult.No'-ra futott rá!");
+            }
+        }
+
+        private void metroGridSchoolBasic_SelectionChanged(object sender, EventArgs e)
+        {
+            if (metroGridSchoolBasic.SelectedRows.Count != 0)
+            {
+                metroGridSchoolBasic.CurrentRow.Selected = true;
+                metroTextBoxSID.Text = metroGridSchoolBasic.SelectedRows[0].Cells[0].Value.ToString();
+                metroTextBoxName.Text = metroGridSchoolBasic.SelectedRows[0].Cells[1].Value.ToString();
+                metroTextBoxLocation.Text = metroGridSchoolBasic.SelectedRows[0].Cells[2].Value.ToString();
+                metroTextBoxPhone.Text = metroGridSchoolBasic.SelectedRows[0].Cells[3].Value.ToString();
             }
         }
     }

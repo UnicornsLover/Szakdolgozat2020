@@ -72,6 +72,11 @@ namespace Szakdolgozat2020
                                 IntVPage ivp = new IntVPage();
                                 ivp.Show();
                                 break;
+                            case "Nevelő":
+                                fnameLoged = dr["ename"].ToString();
+                                School sc = new School();
+                                sc.Show();
+                                break;
                             default:
                                 hiba += "Nem rendelkezik státusszal!";
                                 labelError.Text += hiba;

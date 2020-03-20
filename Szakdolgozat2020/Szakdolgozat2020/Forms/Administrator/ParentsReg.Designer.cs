@@ -366,7 +366,7 @@
             this.metroGridParents.Size = new System.Drawing.Size(1412, 357);
             this.metroGridParents.Style = MetroFramework.MetroColorStyle.Green;
             this.metroGridParents.TabIndex = 18;
-            this.metroGridParents.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.metroGridParents_CellClick);
+            this.metroGridParents.SelectionChanged += new System.EventHandler(this.metroGridParents_SelectionChanged);
             // 
             // metroButtonSearch
             // 

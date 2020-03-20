@@ -93,26 +93,6 @@ namespace Szakdolgozat2020.Forms.Nevelo
         }
 
         /// <summary>
-        /// Kiválasztott cell adatok jelenjenek meg a cellákban
-        /// </summary>
-        private void metroGridChildren_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (metroGridChildren.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
-            {
-                metroGridChildren.CurrentRow.Selected = true;
-                metroTextBoxID.Text = metroGridChildren.Rows[e.RowIndex].Cells[0].FormattedValue.ToString();
-                metroTextBoxName.Text = metroGridChildren.Rows[e.RowIndex].Cells[1].FormattedValue.ToString();
-                metroComboBoxSex.Text = metroGridChildren.Rows[e.RowIndex].Cells[2].FormattedValue.ToString();
-                metroTextBoxIdCard.Text = metroGridChildren.Rows[e.RowIndex].Cells[3].FormattedValue.ToString();
-                metroTextBoxTaj.Text = metroGridChildren.Rows[e.RowIndex].Cells[4].FormattedValue.ToString();
-                metroDateTimeBDate.Text = metroGridChildren.Rows[e.RowIndex].Cells[5].FormattedValue.ToString();
-                metroTextBoxBPlace.Text = metroGridChildren.Rows[e.RowIndex].Cells[6].FormattedValue.ToString();
-                metroDateTimeComing.Text = metroGridChildren.Rows[e.RowIndex].Cells[7].FormattedValue.ToString();
-                metroTextBoxLocation.Text = metroGridChildren.Rows[e.RowIndex].Cells[8].FormattedValue.ToString();
-            }
-        }
-
-        /// <summary>
         /// Datgridview-ba való kereseés a 'Neve:' cella segítségével
         /// </summary>
         private void metroButtonSearch_Click(object sender, EventArgs e)
@@ -412,6 +392,23 @@ namespace Szakdolgozat2020.Forms.Nevelo
             {
 
                 throw;
+            }
+        }
+
+        private void metroGridChildren_SelectionChanged(object sender, EventArgs e)
+        {
+            if (metroGridChildren.SelectedRows.Count != 0)
+            {
+                metroGridChildren.CurrentRow.Selected = true;
+                metroTextBoxID.Text = metroGridChildren.SelectedRows[0].Cells[0].Value.ToString();
+                metroTextBoxName.Text = metroGridChildren.SelectedRows[0].Cells[1].Value.ToString();
+                metroComboBoxSex.Text = metroGridChildren.SelectedRows[0].Cells[2].Value.ToString();
+                metroTextBoxIdCard.Text = metroGridChildren.SelectedRows[0].Cells[3].Value.ToString();
+                metroTextBoxTaj.Text = metroGridChildren.SelectedRows[0].Cells[4].Value.ToString();
+                metroDateTimeBDate.Text = metroGridChildren.SelectedRows[0].Cells[5].Value.ToString();
+                metroTextBoxBPlace.Text = metroGridChildren.SelectedRows[0].Cells[6].Value.ToString();
+                metroDateTimeComing.Text = metroGridChildren.SelectedRows[0].Cells[7].Value.ToString();
+                metroTextBoxLocation.Text = metroGridChildren.SelectedRows[0].Cells[8].Value.ToString();
             }
         }
     }

@@ -490,7 +490,7 @@
             this.metroGridEmployees.Style = MetroFramework.MetroColorStyle.Red;
             this.metroGridEmployees.TabIndex = 26;
             this.metroGridEmployees.UseStyleColors = true;
-            this.metroGridEmployees.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.metroGridEmployes_CellClick);
+            this.metroGridEmployees.SelectionChanged += new System.EventHandler(this.metroGridEmployees_SelectionChanged);
             // 
             // metroButtonSearch
             // 

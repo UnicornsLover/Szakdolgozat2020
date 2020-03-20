@@ -78,24 +78,7 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
         /// <summary>
         /// Kiválasztott cell adatok jelenjenek meg a cellákban
         /// </summary>
-        private void metroGridEmployes_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (metroGridEmployees.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
-            {
-                metroGridEmployees.CurrentRow.Selected = true;
-                metroTextBoxEID.Text = metroGridEmployees.Rows[e.RowIndex].Cells[0].FormattedValue.ToString();
-                metroTextBoxEname.Text = metroGridEmployees.Rows[e.RowIndex].Cells[1].FormattedValue.ToString();
-                metroTextBoxEMaidname.Text = metroGridEmployees.Rows[e.RowIndex].Cells[2].FormattedValue.ToString();
-                metroComboBoxESex.Text = metroGridEmployees.Rows[e.RowIndex].Cells[3].FormattedValue.ToString();
-                metroDateTimeEBirth.Text = metroGridEmployees.Rows[e.RowIndex].Cells[4].FormattedValue.ToString();
-                metroTextBoxBPlace.Text = metroGridEmployees.Rows[e.RowIndex].Cells[5].FormattedValue.ToString();
-                metroComboBoxEjobtype.Text = metroGridEmployees.Rows[e.RowIndex].Cells[6].FormattedValue.ToString();
-                metroTextBoxAddress.Text = metroGridEmployees.Rows[e.RowIndex].Cells[7].FormattedValue.ToString();
-                metroTextBoxIdCard.Text = metroGridEmployees.Rows[e.RowIndex].Cells[8].FormattedValue.ToString();
-                metroTextBoxEUserName.Text = metroGridEmployees.Rows[e.RowIndex].Cells[9].FormattedValue.ToString();
-                metroTextBoxEPassword.Text = metroGridEmployees.Rows[e.RowIndex].Cells[10].FormattedValue.ToString();
-            }
-        }
+
 
         /// <summary>
         /// Datgridview-ba való kereseés a 'Neve:' cella segítségével
@@ -474,6 +457,25 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
         public void updateEmployeesNumber()
         {
             metroLabelDB.Text ="Jelenleg dolgozók száma az intézménybe: "+repo.getEmployeesNumber().ToString()+" ember.";
+        }
+
+        private void metroGridEmployees_SelectionChanged(object sender, EventArgs e)
+        {
+            if (metroGridEmployees.SelectedRows.Count != 0)
+            {
+                metroGridEmployees.CurrentRow.Selected = true;
+                metroTextBoxEID.Text = metroGridEmployees.SelectedRows[0].Cells[0].Value.ToString();
+                metroTextBoxEname.Text = metroGridEmployees.SelectedRows[0].Cells[1].Value.ToString();
+                metroTextBoxEMaidname.Text = metroGridEmployees.SelectedRows[0].Cells[2].Value.ToString();
+                metroComboBoxESex.Text = metroGridEmployees.SelectedRows[0].Cells[3].Value.ToString();
+                metroDateTimeEBirth.Text = metroGridEmployees.SelectedRows[0].Cells[4].Value.ToString();
+                metroTextBoxBPlace.Text = metroGridEmployees.SelectedRows[0].Cells[5].Value.ToString();
+                metroComboBoxEjobtype.Text = metroGridEmployees.SelectedRows[0].Cells[6].Value.ToString();
+                metroTextBoxAddress.Text = metroGridEmployees.SelectedRows[0].Cells[7].Value.ToString();
+                metroTextBoxIdCard.Text = metroGridEmployees.SelectedRows[0].Cells[8].Value.ToString();
+                metroTextBoxEUserName.Text = metroGridEmployees.SelectedRows[0].Cells[9].Value.ToString();
+                metroTextBoxEPassword.Text = metroGridEmployees.SelectedRows[0].Cells[10].Value.ToString();
+            }
         }
     }
 }

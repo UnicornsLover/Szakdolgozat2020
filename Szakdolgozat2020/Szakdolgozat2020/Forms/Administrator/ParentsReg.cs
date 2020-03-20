@@ -87,24 +87,6 @@ namespace Szakdolgozat2020.Forms.Administrator
             metroLabelPdb.Text = "Jelenleg gyermekek száma az intézménybe: " + repo.getParentsNumber().ToString() + " .";
         }
 
-        /// <summary>
-        /// Kiválasztott cell adatok jelenjenek meg a cellákban
-        /// </summary>
-        private void metroGridParents_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (metroGridParents.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
-            {
-                metroGridParents.CurrentRow.Selected = true;
-                metroTextBoxID.Text = metroGridParents.Rows[e.RowIndex].Cells[0].FormattedValue.ToString();
-                metroTextBoxName.Text = metroGridParents.Rows[e.RowIndex].Cells[1].FormattedValue.ToString();
-                metroComboBoxSex.Text = metroGridParents.Rows[e.RowIndex].Cells[2].FormattedValue.ToString();
-                metroDateTimeBDate.Text = metroGridParents.Rows[e.RowIndex].Cells[3].FormattedValue.ToString();
-                metroTextBoxIdCard.Text = metroGridParents.Rows[e.RowIndex].Cells[4].FormattedValue.ToString();
-                metroComboBoxLoginPermission.Text = metroGridParents.Rows[e.RowIndex].Cells[5].FormattedValue.ToString();
-                metroTextBoxUser.Text = metroGridParents.Rows[e.RowIndex].Cells[6].FormattedValue.ToString();
-                metroTextBoxPassword.Text = metroGridParents.Rows[e.RowIndex].Cells[7].FormattedValue.ToString();
-            }
-        }
 
         private void metroButtonSearch_Click(object sender, EventArgs e)
         {
@@ -398,6 +380,22 @@ namespace Szakdolgozat2020.Forms.Administrator
             catch (Exception)
             {
                 throw;
+            }
+        }
+
+        private void metroGridParents_SelectionChanged(object sender, EventArgs e)
+        {
+            if(metroGridParents.SelectedRows.Count != 0)
+            {
+                metroGridParents.CurrentRow.Selected = true;
+                metroTextBoxID.Text = metroGridParents.SelectedRows[0].Cells[0].Value.ToString();
+                metroTextBoxName.Text = metroGridParents.SelectedRows[0].Cells[1].Value.ToString();
+                metroComboBoxSex.Text = metroGridParents.SelectedRows[0].Cells[2].Value.ToString();
+                metroDateTimeBDate.Text = metroGridParents.SelectedRows[0].Cells[3].Value.ToString();
+                metroTextBoxIdCard.Text = metroGridParents.SelectedRows[0].Cells[4].Value.ToString();
+                metroComboBoxLoginPermission.Text = metroGridParents.SelectedRows[0].Cells[5].Value.ToString();
+                metroTextBoxUser.Text = metroGridParents.SelectedRows[0].Cells[6].Value.ToString();
+                metroTextBoxPassword.Text = metroGridParents.SelectedRows[0].Cells[7].Value.ToString();
             }
         }
     }

@@ -124,15 +124,15 @@ namespace Szakdolgozat2020.Modell.School
 
         public bool isValidPhone(string phone)
         {
-            if (phone != string.Empty && phone.Length == 9)
+            if (phone != string.Empty && phone.Length == 10)
             {
-                if (char.IsDigit(phone.ElementAt(0)) && phone.ElementAt(0).Equals("0"))
+                if (char.IsDigit(phone.ElementAt(0)) && phone.ElementAt(0).Equals('0'))
                 {
-                    if (char.IsDigit(phone.ElementAt(1)) && phone.ElementAt(0).Equals("6"))
+                    if (char.IsDigit(phone.ElementAt(1)) && phone.ElementAt(1).Equals('6'))
                     {
-                        if (char.IsDigit(phone.ElementAt(2)) && phone.ElementAt(0).Equals("7"))
+                        if (char.IsDigit(phone.ElementAt(2)) && phone.ElementAt(2).Equals('7'))
                         {
-                            if (char.IsDigit(phone.ElementAt(3)) && phone.ElementAt(0).Equals("6"))
+                            if (char.IsDigit(phone.ElementAt(3)) && phone.ElementAt(3).Equals('6'))
                             {
                                 if (char.IsDigit(phone.ElementAt(4)))
                                 {
@@ -202,7 +202,6 @@ namespace Szakdolgozat2020.Modell.School
             {
                 return false;
             }
-            return false;
         }
     }
 }
