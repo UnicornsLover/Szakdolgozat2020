@@ -137,5 +137,21 @@ namespace Szakdolgozat2020.Repository.Schools
                 return schools.Max(x => x.getSID()) + 1;
             }
         }
+
+        public List<string> getSchoolName()
+        {
+            List<string> school2 = new List<string>();
+            foreach (School s in schools)
+            {
+                school2.Add(s.getName());
+            }
+            return school2;
+        }
+
+        public int getSchoolId(string schoolName)
+        {
+            return schools.Find(x=>x.getName()== schoolName).getSID();
+        }
+
     }
 }
