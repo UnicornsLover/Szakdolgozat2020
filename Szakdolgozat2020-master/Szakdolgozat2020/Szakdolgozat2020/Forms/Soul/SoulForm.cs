@@ -22,5 +22,12 @@ namespace Szakdolgozat2020.Forms.Soul
             SoulReg sr = new SoulReg();
             sr.Show();
         }
+
+        private void metroButtonLogOut_Click(object sender, EventArgs e)
+        {
+            LogIn li = new LogIn();
+            li.Show();
+            this.Hide();
+        }
     }
 }

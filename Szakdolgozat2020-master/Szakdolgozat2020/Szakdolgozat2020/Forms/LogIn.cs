@@ -75,7 +75,7 @@ namespace Szakdolgozat2020
                                 break;
                             case "Nevelő":
                                 fnameLoged = dr["ename"].ToString();
-                                Schools sc = new Schools();
+                                Fosterhomepage sc = new Fosterhomepage();
                                 sc.Show();
                                 break;
                             case "Pszichológus":

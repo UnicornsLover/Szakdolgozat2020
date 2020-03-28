@@ -1,6 +1,6 @@
-﻿namespace Szakdolgozat2020.Forms.Soul
+﻿namespace Szakdolgozat2020.Forms.Foster
 {
-    partial class SoulForm
+    partial class Fosterhomepage
     {
         /// <summary>
         /// Required designer variable.
@@ -28,73 +28,73 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.metroTileAddMEvents = new MetroFramework.Controls.MetroTile();
             this.metroLabelLoggedName = new MetroFramework.Controls.MetroLabel();
             this.metroLabelWelcome = new MetroFramework.Controls.MetroLabel();
             this.metroButtonLogOut = new MetroFramework.Controls.MetroButton();
+            this.metroTile1 = new MetroFramework.Controls.MetroTile();
             this.SuspendLayout();
-            // 
-            // metroTileAddMEvents
-            // 
-            this.metroTileAddMEvents.ActiveControl = null;
-            this.metroTileAddMEvents.Location = new System.Drawing.Point(42, 115);
-            this.metroTileAddMEvents.Name = "metroTileAddMEvents";
-            this.metroTileAddMEvents.Size = new System.Drawing.Size(191, 123);
-            this.metroTileAddMEvents.Style = MetroFramework.MetroColorStyle.Pink;
-            this.metroTileAddMEvents.TabIndex = 10;
-            this.metroTileAddMEvents.Text = "Vizsgálat felvétele: ";
-            this.metroTileAddMEvents.UseSelectable = true;
-            this.metroTileAddMEvents.Click += new System.EventHandler(this.metroTileAddMEvents_Click);
             // 
             // metroLabelLoggedName
             // 
             this.metroLabelLoggedName.AutoSize = true;
-            this.metroLabelLoggedName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(114)))), ((int)(((byte)(208)))));
-            this.metroLabelLoggedName.Location = new System.Drawing.Point(785, 32);
+            this.metroLabelLoggedName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
+            this.metroLabelLoggedName.Location = new System.Drawing.Point(875, 34);
             this.metroLabelLoggedName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.metroLabelLoggedName.Name = "metroLabelLoggedName";
             this.metroLabelLoggedName.Size = new System.Drawing.Size(0, 0);
-            this.metroLabelLoggedName.TabIndex = 12;
+            this.metroLabelLoggedName.TabIndex = 8;
             this.metroLabelLoggedName.UseCustomForeColor = true;
             // 
             // metroLabelWelcome
             // 
             this.metroLabelWelcome.AutoSize = true;
             this.metroLabelWelcome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.metroLabelWelcome.Location = new System.Drawing.Point(577, 32);
+            this.metroLabelWelcome.Location = new System.Drawing.Point(667, 34);
             this.metroLabelWelcome.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.metroLabelWelcome.Name = "metroLabelWelcome";
             this.metroLabelWelcome.Size = new System.Drawing.Size(172, 20);
-            this.metroLabelWelcome.TabIndex = 11;
+            this.metroLabelWelcome.TabIndex = 7;
             this.metroLabelWelcome.Text = "Üdvözölek a rendszerben:";
             // 
             // metroButtonLogOut
             // 
-            this.metroButtonLogOut.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.metroButtonLogOut.Location = new System.Drawing.Point(826, 444);
-            this.metroButtonLogOut.Margin = new System.Windows.Forms.Padding(4);
+            this.metroButtonLogOut.Location = new System.Drawing.Point(890, 495);
             this.metroButtonLogOut.Name = "metroButtonLogOut";
             this.metroButtonLogOut.Size = new System.Drawing.Size(156, 28);
-            this.metroButtonLogOut.Style = MetroFramework.MetroColorStyle.Pink;
-            this.metroButtonLogOut.TabIndex = 13;
+            this.metroButtonLogOut.Style = MetroFramework.MetroColorStyle.Silver;
+            this.metroButtonLogOut.TabIndex = 9;
             this.metroButtonLogOut.Text = "Kijelentkezés";
             this.metroButtonLogOut.UseCustomBackColor = true;
             this.metroButtonLogOut.UseSelectable = true;
             this.metroButtonLogOut.UseStyleColors = true;
             this.metroButtonLogOut.Click += new System.EventHandler(this.metroButtonLogOut_Click);
             // 
-            // SoulForm
+            // metroTile1
+            // 
+            this.metroTile1.ActiveControl = null;
+            this.metroTile1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
+            this.metroTile1.Location = new System.Drawing.Point(44, 103);
+            this.metroTile1.Name = "metroTile1";
+            this.metroTile1.Size = new System.Drawing.Size(191, 123);
+            this.metroTile1.TabIndex = 10;
+            this.metroTile1.Text = "Oktatás";
+            this.metroTile1.UseCustomBackColor = true;
+            this.metroTile1.UseSelectable = true;
+            this.metroTile1.Click += new System.EventHandler(this.metroTile1_Click);
+            // 
+            // Fosterhomepage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1006, 496);
+            this.ClientSize = new System.Drawing.Size(1069, 546);
+            this.Controls.Add(this.metroTile1);
             this.Controls.Add(this.metroButtonLogOut);
             this.Controls.Add(this.metroLabelLoggedName);
             this.Controls.Add(this.metroLabelWelcome);
-            this.Controls.Add(this.metroTileAddMEvents);
-            this.Name = "SoulForm";
-            this.Style = MetroFramework.MetroColorStyle.Pink;
-            this.Text = "Orvosi ellátás:";
+            this.Name = "Fosterhomepage";
+            this.Style = MetroFramework.MetroColorStyle.Silver;
+            this.Text = "Nevelő";
+            this.Load += new System.EventHandler(this.Fosterhomepage_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -102,9 +102,9 @@
 
         #endregion
 
-        private MetroFramework.Controls.MetroTile metroTileAddMEvents;
         private MetroFramework.Controls.MetroLabel metroLabelLoggedName;
         private MetroFramework.Controls.MetroLabel metroLabelWelcome;
         private MetroFramework.Controls.MetroButton metroButtonLogOut;
+        private MetroFramework.Controls.MetroTile metroTile1;
     }
 }

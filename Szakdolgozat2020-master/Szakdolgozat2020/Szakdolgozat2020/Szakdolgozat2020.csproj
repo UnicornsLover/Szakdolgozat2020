@@ -107,6 +107,12 @@
     <Compile Include="Forms\Foster\Exception\insertSchoolException.cs" />
     <Compile Include="Forms\Foster\Exception\RepositoryChildrenViewExceptionCantDelete.cs" />
     <Compile Include="Forms\Foster\Exception\insertChildrenViewException.cs" />
+    <Compile Include="Forms\Foster\Fosterhomepage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Foster\Fosterhomepage.Designer.cs">
+      <DependentUpon>Fosterhomepage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Foster\Schools.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -288,6 +294,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Foster\AddSchool.resx">
       <DependentUpon>AddSchool.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Foster\Fosterhomepage.resx">
+      <DependentUpon>Fosterhomepage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Foster\Schools.resx">
       <DependentUpon>Schools.cs</DependentUpon>

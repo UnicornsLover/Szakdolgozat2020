@@ -65,6 +65,7 @@
             this.metroTextBoxPassChange.SelectionStart = 0;
             this.metroTextBoxPassChange.ShortcutsEnabled = true;
             this.metroTextBoxPassChange.Size = new System.Drawing.Size(287, 28);
+            this.metroTextBoxPassChange.Style = MetroFramework.MetroColorStyle.Teal;
             this.metroTextBoxPassChange.TabIndex = 0;
             this.metroTextBoxPassChange.UseSelectable = true;
             this.metroTextBoxPassChange.UseSystemPasswordChar = true;
@@ -98,6 +99,7 @@
             this.metroTextBoxPassConfirm.SelectionStart = 0;
             this.metroTextBoxPassConfirm.ShortcutsEnabled = true;
             this.metroTextBoxPassConfirm.Size = new System.Drawing.Size(287, 28);
+            this.metroTextBoxPassConfirm.Style = MetroFramework.MetroColorStyle.Teal;
             this.metroTextBoxPassConfirm.TabIndex = 1;
             this.metroTextBoxPassConfirm.UseSelectable = true;
             this.metroTextBoxPassConfirm.UseSystemPasswordChar = true;
@@ -130,7 +132,7 @@
             this.metroButtonChangePassword.Margin = new System.Windows.Forms.Padding(4);
             this.metroButtonChangePassword.Name = "metroButtonChangePassword";
             this.metroButtonChangePassword.Size = new System.Drawing.Size(177, 28);
-            this.metroButtonChangePassword.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroButtonChangePassword.Style = MetroFramework.MetroColorStyle.Teal;
             this.metroButtonChangePassword.TabIndex = 4;
             this.metroButtonChangePassword.Text = "Jelszó megváltoztatása";
             this.metroButtonChangePassword.UseCustomBackColor = true;
@@ -190,6 +192,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ChangePassword";
             this.Padding = new System.Windows.Forms.Padding(27, 74, 27, 25);
+            this.Style = MetroFramework.MetroColorStyle.Teal;
             this.Text = "Jelszó változtatás";
             this.ResumeLayout(false);
             this.PerformLayout();

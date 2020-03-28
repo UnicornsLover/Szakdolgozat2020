@@ -50,6 +50,7 @@
             this.metroLabel21 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel22 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel18 = new MetroFramework.Controls.MetroLabel();
+            this.metroButtonLogOut = new MetroFramework.Controls.MetroButton();
             this.SuspendLayout();
             // 
             // metroLabel1
@@ -338,11 +339,28 @@
             this.metroLabel18.Text = "Bálint István";
             this.metroLabel18.UseCustomForeColor = true;
             // 
+            // metroButtonLogOut
+            // 
+            this.metroButtonLogOut.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.metroButtonLogOut.Location = new System.Drawing.Point(860, 513);
+            this.metroButtonLogOut.Margin = new System.Windows.Forms.Padding(4);
+            this.metroButtonLogOut.Name = "metroButtonLogOut";
+            this.metroButtonLogOut.Size = new System.Drawing.Size(156, 28);
+            this.metroButtonLogOut.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroButtonLogOut.TabIndex = 22;
+            this.metroButtonLogOut.Text = "Kijelentkezés";
+            this.metroButtonLogOut.UseCustomBackColor = true;
+            this.metroButtonLogOut.UseMnemonic = false;
+            this.metroButtonLogOut.UseSelectable = true;
+            this.metroButtonLogOut.UseStyleColors = true;
+            this.metroButtonLogOut.Click += new System.EventHandler(this.metroButtonLogOut_Click);
+            // 
             // Boss
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1047, 570);
+            this.Controls.Add(this.metroButtonLogOut);
             this.Controls.Add(this.metroLabel18);
             this.Controls.Add(this.metroLabel12);
             this.Controls.Add(this.metroLabel13);
@@ -365,7 +383,7 @@
             this.Controls.Add(this.metroLabel3);
             this.Controls.Add(this.metroLabel2);
             this.Controls.Add(this.metroLabel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Boss";
             this.Padding = new System.Windows.Forms.Padding(27, 74, 27, 25);
             this.Text = "Készítette:";
@@ -398,5 +416,6 @@
         private MetroFramework.Controls.MetroLabel metroLabel21;
         private MetroFramework.Controls.MetroLabel metroLabel22;
         private MetroFramework.Controls.MetroLabel metroLabel18;
+        private MetroFramework.Controls.MetroButton metroButtonLogOut;
     }
 }

@@ -8,13 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Szakdolgozat2020.Forms
+namespace Szakdolgozat2020.Forms.Foster
 {
-    public partial class Boss : MetroFramework.Forms.MetroForm
+    public partial class Fosterhomepage : MetroFramework.Forms.MetroForm
     {
-        public Boss()
+        public Fosterhomepage()
         {
             InitializeComponent();
+            metroLabelLoggedName.Text = LogIn.fnameLoged;
+        }
+
+        private void Fosterhomepage_Load(object sender, EventArgs e)
+        {
+
         }
 
         private void metroButtonLogOut_Click(object sender, EventArgs e)
@@ -22,6 +28,12 @@ namespace Szakdolgozat2020.Forms
             LogIn li = new LogIn();
             li.Show();
             this.Hide();
+        }
+
+        private void metroTile1_Click(object sender, EventArgs e)
+        {
+            Schools sc = new Schools();
+            sc.Show();
         }
     }
 }

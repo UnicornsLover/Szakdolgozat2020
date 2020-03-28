@@ -151,7 +151,7 @@ namespace Szakdolgozat2020.Modell.SchoolChildren
         {
             DateTime dateTime1 = DateTime.Parse(start);
             DateTime dateTime2 = DateTime.Parse(finish);
-            if (dateTime1 < dateTime2)
+            if (dateTime1 > dateTime2)
             {
                 return false;
             }
