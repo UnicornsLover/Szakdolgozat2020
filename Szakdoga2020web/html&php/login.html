@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+--><link rel="stylesheet" href="CSS/login.css">
+<link rel="shortcut icon" type="image/x-icon" href="icons/login.png" />
+<title>Bejelentkezés</title>
+</head>
+<body>
+
+<div class="login-wp">
+<br>
+<br>
+<br>
+<form action="/action_page.php" method="post">
+  <h2>Bejelentkezés</h2>
+  <div class="imgcontainer">
+    <img src="icons/avatar.png" alt="Avatar" class="avatar">
+  </div>
+
+  <div class="container">
+    <label for="uname"><b>Felhasználónév:</b></label>
+    <input type="text" placeholder="felhasználónév" name="uname" required>
+
+    <label for="psw"><b>Jelszó:</b></label>
+    <input type="password" placeholder="jelszó" name="psw" required>
+        
+    <button type="submit">Bejelentkezés</button>
+    <label style="color:#5bc0de">
+      <input type="checkbox" checked="checked" name="remember"> Emlékezz rám
+    </label>
+  </div>
+
+  <div class="container" style="background-color:#5bc0de">
+    <span class="cancel" style="color:white"><a href="homepage2.html"><&nbsp;&nbsp;Vissza a weboldalra</a></span>
+  </div>
+</form>
+</div>
+<!--Footer-->
+<div id="footer">© 2020 Copyright:
+  <a id="footertext" href="https://www.facebook.com/balint.istvan.902"><span>Live<sup>in</sup>Care</span></a>
+</div>
+</body>
+</html>

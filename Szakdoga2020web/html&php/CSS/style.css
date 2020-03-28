@@ -1,0 +1,622 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body
+{
+    font-family: poppins;
+}
+html
+{
+    scroll-behavior: smooth;
+}
+#conts {
+  height: 10%;
+}
+/*--------------------------------------- Header rész ---------------------------------------*/
+.flash:hover {
+  -webkit-animation: shake 0.5s;
+  animation: shake 0.5s;
+}
+ul,
+nav
+{
+  list-style: none;
+}
+a
+{
+  text-decoration: none;
+  /*kéz jel*/
+  cursor: pointer;
+  /*színezés kivételezés, plusz a link formátum*/
+  color: inherit;
+}
+a:hover {
+  color: #00aba9;
+}
+#color:hover
+{
+  color: #00aba9;
+}
+#aboutus
+{
+  background-color: #00aba9;
+  color: white;
+}
+#aboutus:hover
+{
+  background-color: white;
+  color: #00aba9;
+}
+.tabletop
+{
+  background-color: #00aba9 !important;
+  color: white !important;
+}
+.tbodycol
+{
+  color: #00aba9 !important;
+}
+.second
+{
+  color: #00aba9;
+  font-size: 50px;
+}
+#btn1
+{
+  background-color:  #00aba9;
+  color: white;
+}
+#btn1:hover
+{
+  background-color:  white;
+  color: #00aba9;
+}
+#date
+{
+  width: 1110px;
+  border-color: #00aba9;
+}
+header
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 13;
+  width: 100%;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  padding:  35px 100px 0;
+}
+header h2
+{
+  /*nagy betűvel*/
+  text-transform:uppercase;;
+}
+header nav
+{
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+}
+.start-btn:hover{
+  text-decoration: none;
+}
+header nav li
+{
+  margin: 0 15px;
+}
+/*menü igazítás a gyerek elemek*/
+header nav li:first-child
+{
+  margin-left: 0;
+}
+header nav li:last-child
+{
+  margin-right: 0;
+}
+/*kisebb felbontásnál összébb tólás (header padding)*/
+@media(max-width:1000px)
+{
+  header
+  {
+    padding: 20px;
+  }
+}
+/*sorokba rendezés ha eléri 700px*/
+@media(max-width:700px)
+{
+  header
+  {   
+    flex-direction: column;
+  }
+  header h2
+  {
+    margin-bottom: 15px;
+  }
+  header nav li
+  {
+    margin: 0 7px;
+  }
+}
+/*--------------------------------------- Kezdő form ---------------------------------------*/
+section
+{
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 110px 100px;
+}
+/*kisebb felbontásnál összébb tólás 1000px*/
+@media(max-width:1000px)
+{
+  section
+  {
+    padding: 100px 50px;
+  }
+}
+/*tóvolság szerkeztés 600px*/
+@media(max-width:600px)
+{
+  section
+  {
+    padding: 125px 30px;
+  }
+}
+section p
+{
+  max-width: 800px;
+  text-align: center;
+  margin-bottom: 35px;
+  padding:0 20px;
+  line-height: 2;
+}
+.start-area
+{
+  position: relative;
+  justify-content: center;
+  min-height: 100vh;
+  color: #fff;
+  text-align: center;
+}
+/*háttér kép formázása*/
+.start-area .start-img
+{
+  background-image: url(../Pics/backgroundpic1.jpg);
+  position:absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size:cover;
+  z-index:-1;
+}
+/*fekete séma rakás*/
+.start-area .start-img:after
+{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: .8;
+}
+
+/*Üdvözlet formázása*/
+.start-area h1
+{
+  margin-bottom: 15px;
+  font-size: 35px;
+  font-family: "Comic Sans MS";
+}
+/*Idézet formázása*/
+.start-area h3
+{
+  margin-bottom: 40px;
+  font-size: 20px;
+}
+/*gomb formázása*/
+.start-area a.start-btn
+{
+  padding: 15px 35px;
+  background:#5bc0de;
+  border-radius: 50px;
+  text-transform: uppercase;
+}
+@media (max-width:800px)
+{
+  .start-area
+  {
+    min-height: 600px;
+  }
+  .start-area h1
+  {
+    font-size: 16px;
+  }
+  .start-area h3
+  {
+    font-size: 10px;
+  }
+    .start-area a.start-btn
+  {
+    padding: 15px 40px;
+  }
+}
+/*--------------------------------------- A cégről form ---------------------------------------*/
+#info
+{
+  position: relative;
+  top: -20px;
+  left: 0px;
+  padding: 15px 35px;
+  background-color:#00aba9;
+  border-radius: 50px;
+  text-transform: uppercase;
+  color:white;
+}
+#info:hover
+{
+  background-color: grey;
+}
+ul.company-content
+{
+  width: 100%;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.company-content li
+{
+  padding: 20px;
+  height: 290px;
+  background-clip: content-box;
+  background-size: cover;
+  background-position: center;
+}
+.company-left
+{
+  flex-basis: 40%;
+  background-image: url("../Pics/company.jpg");
+}
+.company-right
+{
+  flex-basis: 60%;
+}
+.company-area p
+{
+  max-width: 800px;
+  margin-bottom: 35px;
+  line-height: 2;
+  text-align: left;
+  padding-left: 0;
+}
+.company-title
+{
+  text-transform: uppercase;
+  font-size: 50px;
+  margin-bottom: 5%;
+}
+.company-right h2
+{
+  margin-bottom: 5%;
+}
+.company-learnmore
+{
+  padding: 10px 30px;
+  background: #5bc0de;
+  border-radius: 50px;
+  text-transform: uppercase;
+  color: white;
+}
+@media (max-width: 1000px)
+{
+  .company-left,
+  .company-right
+  {
+    flex-basis: 100%;
+  }
+  .company-content li
+  {
+    padding: 8px;
+  }
+}
+/*--------------------------------------- A login form ---------------------------------------*/
+/* Form méret beállítás */
+input[type=text], 
+input[type=password] 
+{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #00aba9;
+  box-sizing: border-box;
+}
+/* Gombok beállítása */
+button 
+{
+  background-color: #00aba9;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 50px;
+}
+/*Árnyalás gomb*/
+button:hover 
+{
+  background-color: lightgray;
+  color: #00aba9;
+  opacity: 0.8;
+}
+/* Vissza gomb beállítás */
+.cancelbtn 
+{
+  width: 150px;
+  padding: 10px 18px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  background-color: #00aba9;
+}
+/* Kép beállítás és a bezárást */
+.imgcontainer 
+{
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+}
+/*Ikon beállítás*/
+img.avatar 
+{
+  width: 40%;
+  border-radius: 50%;
+}
+.container 
+{
+  padding: 16px;
+}
+span.psw 
+{
+  float: right;
+  padding-top: 16px;
+}
+/* Háttér beállítás a formnak */
+.modal 
+{
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%; 
+  overflow: auto; /*scrollozás*/
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+  padding-top: 60px;
+}
+/* Content beállítása */
+.modal-content 
+{
+  background-color: #fefefe;
+  margin: 5% auto 15% auto;
+  border: 3px solid #00aba9;
+  width: 80%; 
+}
+/* A bezárás gomb */
+.close 
+{
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+.close:hover,
+.close:focus 
+{
+  color: #00aba9;
+  cursor: pointer;
+}
+/* Animációk bezárás és megnyitáskor */
+.animate 
+{
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+@-webkit-keyframes animatezoom 
+{
+  from 
+  {
+    -webkit-transform: scale(0)
+  } 
+  to 
+  {
+    -webkit-transform: scale(1)
+  }
+}  
+@keyframes animatezoom 
+{
+  from 
+  {
+    transform: scale(0)
+  } 
+  to 
+  {
+    transform: scale(1)
+  }
+}
+/* Méret beállítás */
+@media screen and (max-width: 300px) 
+{
+  span.psw 
+  {
+     display: block;
+     float: none;
+  }
+  .cancelbtn 
+  {
+     width: 100%;
+  }
+}
+label
+{
+  color:#00aba9;
+}
+#avatar
+{
+  width: 10%;
+}
+/*--------------------------------------- Középső kép form ---------------------------------------*/
+#midpic
+{
+  background-image: url(../Pics/midpic.jpg);
+  background-position:center;
+  background-size: cover;
+  background-attachment: fixed;
+  padding:14em;
+}
+#midpic2
+{
+  background-image: url(../Pics/children11.jpg);
+  background-position:center;
+  background-size: cover;
+  background-attachment: fixed;
+  padding:14em;
+}
+/*--------------------------------------- Idézetek kép form ---------------------------------------*/
+ul.quote-content
+{
+  width: 100%;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.quote-content li
+{
+  padding: 20px;
+  height: 290px;
+  background-clip: content-box;
+  background-size: cover;
+  background-position: center;
+}
+.quote-left
+{
+  flex-basis: 33%;
+}
+.quote-mid
+{
+  flex-basis: 33%;
+}
+.quote-right
+{
+  flex-basis: 33%;
+}
+.quote-area p
+{
+  max-width: 800px;
+  margin-bottom: 35px;
+  line-height: 2;
+  text-align: left;
+  padding-left: 0;
+}
+.quote-title
+{
+  text-transform: uppercase;
+  font-size: 50px;
+  margin-bottom: 5%;
+}
+.quote-right h2
+{
+  margin-bottom: 5%;
+}
+.quote-learnmore
+{
+  padding: 10px 30px;
+  background: #5bc0de;
+  border-radius: 50px;
+  text-transform: uppercase;
+  color: white;
+}
+@media (max-width: 1000px)
+{
+  .quote-left,
+  .quote-mid,
+  .quote-right
+  {
+    flex-basis: 100%;
+  }
+  .quote-content li
+  {
+    padding: 8px;
+  }
+}
+/*--------------------------------------- Footer form ---------------------------------------*/
+
+footer
+{
+  color: white;
+  background-color: black;
+  text-align: center;
+  opacity: 0.5;
+}
+/*--------------------------------------- Alert form ---------------------------------------*/
+.alert {
+  padding: 20px;
+  background-color: #f44336;
+  color: white;
+  opacity: 1;
+  transition: opacity 0.6s;
+  margin-bottom: 15px;
+}
+
+.alert.success {background-color: #4CAF50;}
+.alert.info {background-color: #2196F3;}
+.alert.warning {background-color: #ff9800;}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
+
+
+
+
+
