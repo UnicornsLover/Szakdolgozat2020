@@ -112,7 +112,7 @@ namespace Szakdolgozat2020.Forms.Foster
             }
             int selectedIndex = metroGridSchoolBasic.SelectedRows[0].Index;
 
-            DialogResult dr = MetroMessageBox.Show(this, "\n\nBiztos szeretné törölni a iskolát?", "Iskola törlése", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            DialogResult dr = MetroMessageBox.Show(this, "\n\nBiztos szeretné törölni az iskolát?", "Iskola törlése", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (dr == DialogResult.Yes)
             {
                 //Törlés a listából
@@ -131,7 +131,7 @@ namespace Szakdolgozat2020.Forms.Foster
                 catch (RepositorySchoolExceptionCantDelete)
                 {
 
-                    Debug.WriteLine("A iskola törlése sikertelen volt a listából, mert másik adatbázisba szerepel!");
+                    Debug.WriteLine("Az iskola törlése sikertelen volt a listából, mert másik adatbázisba szerepel!");
                     MetroMessageBox.Show(this, "\n\nHibát észleltünk, a törlés sikertelen volt az listából.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
@@ -178,7 +178,7 @@ namespace Szakdolgozat2020.Forms.Foster
                 //Módosítás az adatbázisban
                 try
                 {
-                    rep.updateParentInDatabase(id, modified);
+                    rep.updateSchoolInDatabase(id, modified);
                 }
                 catch (Exception ex)
                 {
@@ -194,7 +194,7 @@ namespace Szakdolgozat2020.Forms.Foster
                 catch (Exception ex)
                 {
 
-                    Debug.WriteLine("A dolgozó módosítása sikertelen volt a listában");
+                    Debug.WriteLine("Az iskola módosítása sikertelen volt a listában");
                     MetroMessageBox.Show(this, "\n\nHibát észleltünk, a módosítása sikertelen volt az adatbázisból.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
@@ -244,7 +244,7 @@ namespace Szakdolgozat2020.Forms.Foster
 
                 int id = repo.getnextSchoolId();
 
-                School newEmployee = new School(
+                School newSchool = new School(
                     id,
                     metroTextBoxName.Text,
                     metroTextBoxLocation.Text,
@@ -254,7 +254,7 @@ namespace Szakdolgozat2020.Forms.Foster
                 //Hozzáadás az adatbázishoz
                 try
                 {
-                    rep.insertParentToDatabase(newEmployee);
+                    rep.insertSchoolToDatabase(newSchool);
                 }
                 catch (Exception)
                 {
@@ -264,7 +264,7 @@ namespace Szakdolgozat2020.Forms.Foster
                 //Hozzáadás a listához
                 try
                 {
-                    repo.addSchoolToList(newEmployee);
+                    repo.addSchoolToList(newSchool);
                 }
                 catch (Exception)
                 {

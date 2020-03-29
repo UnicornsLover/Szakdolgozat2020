@@ -90,5 +90,23 @@ namespace Szakdolgozat2020.Forms
             SoulReg sc = new SoulReg();
             sc.Show();
         }
+
+        private void metroTileIntAdd_Click(object sender, EventArgs e)
+        {
+            AddSchool asd = new AddSchool();
+            asd.Show();
+        }
+
+        private void metroTileEdu_Click(object sender, EventArgs e)
+        {
+            Schools sc = new Schools();
+            sc.Show();
+        }
+
+        private void metroTileEvents_Click(object sender, EventArgs e)
+        {
+            EventsAdd ea = new EventsAdd();
+            ea.Show();
+        }
     }
 }

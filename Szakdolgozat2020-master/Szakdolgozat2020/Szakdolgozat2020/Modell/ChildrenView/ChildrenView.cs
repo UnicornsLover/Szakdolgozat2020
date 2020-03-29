@@ -13,10 +13,10 @@ namespace Szakdolgozat2020.Modell.SchoolChildren
         private string schoolname;
         private string fromDate;
         private string exDate;
-        private string type;
+        private string type2;
         private string hteacher;
 
-        public ChildrenView(int scID, string schoolname, string name, string fromDate, string exDate, string type, string hteacher)
+        public ChildrenView(int scID, string schoolname, string name, string fromDate, string exDate, string type2, string hteacher)
         {
             if (!isValidBAndF(fromDate, exDate))
             {
@@ -30,28 +30,29 @@ namespace Szakdolgozat2020.Modell.SchoolChildren
             {
                 throw new ModellChildrenViewExceptionNotValidDates3("Válaszon ki egy dátumot!");
             }
-            if (isValidCNAmeEmpty(schoolname))
-            {
-                throw new ModellChildrenViewExceptionNotValidSchool("Válaszon ki egy intézmény a legördülő menüből!");
-            }
-            if (isValidCNAmeEmpty(name))
-            {
-                throw new ModellChildrenViewExceptionNotValidChildren("Válaszon ki egy gyereket a legördülő menüből!");
-            }
-            if(isValidEmpty(type))
+            if (!isValidCNAmeEmpty(type2))
             {
                 throw new ModellChildrenViewExceptionNotValidType("Írja be az iskolában tanult tipust (pl: Átalános, Emelt biólógia, Pincér)! Kezdje nagy betűvel!");
             }
-            if (isValidEmpty(hteacher))
+            if (!isValidCNAmeEmpty(hteacher))
             {
-                throw new ModellChildrenViewExceptionNotValidHteacher("Írja be az osztályfönők nevét! Kezdje nagy betűvel!"); 
+                throw new ModellChildrenViewExceptionNotValidHteacher("Írja be az osztályfönők nevét! Kezdje nagy betűvel!");
             }
+            if (!isValidCNAmeEmpty(schoolname))
+            {
+                throw new ModellChildrenViewExceptionNotValidSchool("Válaszon ki egy intézmény a legördülő menüből!");
+            }
+            if (!isValidCNAmeEmpty(name))
+            {
+                throw new ModellChildrenViewExceptionNotValidChildren("Válaszon ki egy gyereket a legördülő menüből!");
+            }
+            
             this.scID = scID;
             this.name = name;
             this.schoolname = schoolname;
             this.fromDate = fromDate;
             this.exDate = exDate;
-            this.type = type;
+            this.type2 = type2;
             this.hteacher = hteacher;
         }
 
@@ -62,7 +63,7 @@ namespace Szakdolgozat2020.Modell.SchoolChildren
             this.name = modified.getChildrenName();
             this.fromDate = modified.getFromDate();
             this.exDate = modified.getExDate();
-            this.type = modified.getType();
+            this.type2 = modified.getType();
             this.hteacher = modified.getHeadteacher();
         }
         public void setscID(int scID)
@@ -87,7 +88,7 @@ namespace Szakdolgozat2020.Modell.SchoolChildren
         }
         public void setType(string type)
         {
-            this.type = type;
+            this.type2 = type;
         }
         public void setHeadTeacher(string hteacher)
         {
@@ -116,7 +117,7 @@ namespace Szakdolgozat2020.Modell.SchoolChildren
         }
         public string getType()
         {
-            return type;
+            return type2;
         }
         public string getHeadteacher()
         {
@@ -124,19 +125,6 @@ namespace Szakdolgozat2020.Modell.SchoolChildren
         }
 
         //****************************************Vlaidation************************************************
-        public bool isValidEmpty(string adat)
-        {
-            if (name == string.Empty)
-            {
-                return false;
-            }
-            if (!char.IsUpper(name.ElementAt(0)))
-            {
-                return false;
-            }
-            
-            return true;
-        }
         public bool isValidCNAmeEmpty(string adat)
         {
             if (adat == "")
@@ -160,11 +148,11 @@ namespace Szakdolgozat2020.Modell.SchoolChildren
 
         public bool isValidDate(string adat)
         {
-            if (adat != "1990-01-01")
+            if (adat == "1990-01-01")
             {
-                return true;
+                return false;
             }
-            return false;
+            return true;
         }
     }
 }

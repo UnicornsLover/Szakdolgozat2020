@@ -48,8 +48,8 @@ namespace Szakdolgozat2020.Repository.ChildrenViews
                     if (goodResult)
                     {
                         string hteacher = dr["headteacher"].ToString();
-                        ChildrenView par = new ChildrenView(id, cname, sname, fDate, eFinish, type, hteacher);
-                        childrenviews.Add(par);
+                        ChildrenView chiv = new ChildrenView(id, cname, sname, fDate, eFinish, type, hteacher);
+                        childrenviews.Add(chiv);
                     }
                 }
                 connection.Close();

@@ -32,7 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.metroButtonAddSchool = new MetroFramework.Controls.MetroButton();
             this.metroButtonLogOut = new MetroFramework.Controls.MetroButton();
             this.metroGridChildSchool = new MetroFramework.Controls.MetroGrid();
             this.metroComboBoxSchool = new MetroFramework.Controls.MetroComboBox();
@@ -46,7 +45,6 @@
             this.metroTextBoxType = new MetroFramework.Controls.MetroTextBox();
             this.metroLabelType = new MetroFramework.Controls.MetroLabel();
             this.metroTextBoxHeadTeacher = new MetroFramework.Controls.MetroTextBox();
-            this.metroLabelHTeacher = new MetroFramework.Controls.MetroLabel();
             this.metroComboBoxChildren = new MetroFramework.Controls.MetroComboBox();
             this.metroTextBoxIdS = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
@@ -62,6 +60,7 @@
             this.errorProviderHTeacher = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderSchool = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderChildren = new System.Windows.Forms.ErrorProvider(this.components);
+            this.metroLabelHT = new MetroFramework.Controls.MetroLabel();
             ((System.ComponentModel.ISupportInitialize)(this.metroGridChildSchool)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderBeginn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderFinish)).BeginInit();
@@ -70,21 +69,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderSchool)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderChildren)).BeginInit();
             this.SuspendLayout();
-            // 
-            // metroButtonAddSchool
-            // 
-            this.metroButtonAddSchool.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.metroButtonAddSchool.Location = new System.Drawing.Point(54, 98);
-            this.metroButtonAddSchool.Margin = new System.Windows.Forms.Padding(4);
-            this.metroButtonAddSchool.Name = "metroButtonAddSchool";
-            this.metroButtonAddSchool.Size = new System.Drawing.Size(209, 28);
-            this.metroButtonAddSchool.Style = MetroFramework.MetroColorStyle.Silver;
-            this.metroButtonAddSchool.TabIndex = 6;
-            this.metroButtonAddSchool.Text = "Intézmény hozzáadása ";
-            this.metroButtonAddSchool.UseCustomBackColor = true;
-            this.metroButtonAddSchool.UseSelectable = true;
-            this.metroButtonAddSchool.UseStyleColors = true;
-            this.metroButtonAddSchool.Click += new System.EventHandler(this.metroButtonAddSchool_Click);
             // 
             // metroButtonLogOut
             // 
@@ -299,15 +283,6 @@
             this.metroTextBoxHeadTeacher.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.metroTextBoxHeadTeacher.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // metroLabelHTeacher
-            // 
-            this.metroLabelHTeacher.AutoSize = true;
-            this.metroLabelHTeacher.Location = new System.Drawing.Point(805, 217);
-            this.metroLabelHTeacher.Name = "metroLabelHTeacher";
-            this.metroLabelHTeacher.Size = new System.Drawing.Size(92, 20);
-            this.metroLabelHTeacher.TabIndex = 23;
-            this.metroLabelHTeacher.Text = "Osztályfönők:";
-            // 
             // metroComboBoxChildren
             // 
             this.metroComboBoxChildren.FormattingEnabled = true;
@@ -463,11 +438,21 @@
             // 
             this.errorProviderChildren.ContainerControl = this;
             // 
+            // metroLabelHT
+            // 
+            this.metroLabelHT.AutoSize = true;
+            this.metroLabelHT.Location = new System.Drawing.Point(805, 217);
+            this.metroLabelHT.Name = "metroLabelHT";
+            this.metroLabelHT.Size = new System.Drawing.Size(92, 20);
+            this.metroLabelHT.TabIndex = 35;
+            this.metroLabelHT.Text = "Osztályfönők:";
+            // 
             // Schools
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1265, 687);
+            this.Controls.Add(this.metroLabelHT);
             this.Controls.Add(this.metroButtonAdd);
             this.Controls.Add(this.metroButtonModify);
             this.Controls.Add(this.metroButtonDelete);
@@ -476,7 +461,6 @@
             this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.metroTextBoxIdS);
             this.Controls.Add(this.metroComboBoxChildren);
-            this.Controls.Add(this.metroLabelHTeacher);
             this.Controls.Add(this.metroTextBoxHeadTeacher);
             this.Controls.Add(this.metroLabelType);
             this.Controls.Add(this.metroTextBoxType);
@@ -491,7 +475,6 @@
             this.Controls.Add(this.metroComboBoxSchool);
             this.Controls.Add(this.metroGridChildSchool);
             this.Controls.Add(this.metroButtonLogOut);
-            this.Controls.Add(this.metroButtonAddSchool);
             this.Name = "Schools";
             this.Style = MetroFramework.MetroColorStyle.Silver;
             this.Text = "Közoktatás";
@@ -509,7 +492,6 @@
         }
 
         #endregion
-        private MetroFramework.Controls.MetroButton metroButtonAddSchool;
         private MetroFramework.Controls.MetroButton metroButtonLogOut;
         private MetroFramework.Controls.MetroGrid metroGridChildSchool;
         private MetroFramework.Controls.MetroComboBox metroComboBoxSchool;
@@ -523,7 +505,6 @@
         private MetroFramework.Controls.MetroTextBox metroTextBoxType;
         private MetroFramework.Controls.MetroLabel metroLabelType;
         private MetroFramework.Controls.MetroTextBox metroTextBoxHeadTeacher;
-        private MetroFramework.Controls.MetroLabel metroLabelHTeacher;
         private MetroFramework.Controls.MetroComboBox metroComboBoxChildren;
         private MetroFramework.Controls.MetroTextBox metroTextBoxIdS;
         private MetroFramework.Controls.MetroLabel metroLabel1;
@@ -539,5 +520,6 @@
         private System.Windows.Forms.ErrorProvider errorProviderHTeacher;
         private System.Windows.Forms.ErrorProvider errorProviderSchool;
         private System.Windows.Forms.ErrorProvider errorProviderChildren;
+        private MetroFramework.Controls.MetroLabel metroLabelHT;
     }
 }

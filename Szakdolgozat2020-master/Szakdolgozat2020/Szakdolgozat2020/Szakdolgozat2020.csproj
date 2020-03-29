@@ -104,6 +104,12 @@
     <Compile Include="Forms\Foster\AddSchool.Designer.cs">
       <DependentUpon>AddSchool.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Foster\EventsAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Foster\EventsAdd.Designer.cs">
+      <DependentUpon>EventsAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Foster\Exception\insertSchoolException.cs" />
     <Compile Include="Forms\Foster\Exception\RepositoryChildrenViewExceptionCantDelete.cs" />
     <Compile Include="Forms\Foster\Exception\insertChildrenViewException.cs" />
@@ -113,6 +119,7 @@
     <Compile Include="Forms\Foster\Fosterhomepage.Designer.cs">
       <DependentUpon>Fosterhomepage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Foster\Exception\insertEventException.cs" />
     <Compile Include="Forms\Foster\Schools.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +128,7 @@
     </Compile>
     <Compile Include="Forms\Foster\Exception\updateSchoolException.cs" />
     <Compile Include="Forms\Foster\Exception\updateChildrenViewException.cs" />
+    <Compile Include="Forms\Foster\Exception\updateEventException.cs" />
     <Compile Include="Forms\Head of institution\Exception\insertEmployeException.cs" />
     <Compile Include="Forms\Head of institution\Exception\updateEmployeException.cs" />
     <Compile Include="Forms\Head of institution\WorkersRegistration.cs">
@@ -176,36 +184,41 @@
     <Compile Include="Modell\ChildrenView\Exception\ModellChildrenViewExceptionNotValidHteacher.cs" />
     <Compile Include="Modell\ChildrenView\Exception\ModellChildrenViewExceptionNotValidSchool.cs" />
     <Compile Include="Modell\ChildrenView\Exception\ModellChildrenViewExceptionNotValidType.cs" />
-    <Compile Include="Modell\Children\ChildrenDatabaseCommand.cs" />
-    <Compile Include="Modell\Children\getSQLCommand.cs" />
-    <Compile Include="Modell\Children\Child.cs" />
-    <Compile Include="Modell\Children\Exception\MedellNotValidIdcardException.cs" />
-    <Compile Include="Modell\Children\Exception\ModellChildNotValidBirthdayException.cs" />
-    <Compile Include="Modell\Children\Exception\ModellChildNotValidBirthplaceException.cs" />
-    <Compile Include="Modell\Children\Exception\ModellChildNotValidComingException.cs" />
-    <Compile Include="Modell\Children\Exception\ModellChildNotValidLocationException.cs" />
-    <Compile Include="Modell\Children\Exception\ModellChildNotValidNameEXception.cs" />
-    <Compile Include="Modell\Children\Exception\ModellChildNotValidSexException.cs" />
-    <Compile Include="Modell\Children\Exception\ModellChildNotValidTajnumberException.cs" />
-    <Compile Include="Modell\Employes\EmployeeDatabaseCommand.cs" />
-    <Compile Include="Modell\Employes\GetSQLCommand.cs" />
-    <Compile Include="Modell\Employes\Employes.cs" />
-    <Compile Include="Modell\Employes\Exception\ModellEmployeNotValidBirthPlacesException.cs" />
-    <Compile Include="Modell\Employes\Exception\ModellEmployeNotValidJobExeption.cs" />
-    <Compile Include="Modell\Employes\Exception\ModellEmployeNotValidLocationException.cs" />
-    <Compile Include="Modell\Employes\Exception\ModellEmployeNotValidMaidenNameException.cs" />
-    <Compile Include="Modell\Employes\Exception\ModellEmployeNotValidNameException.cs" />
-    <Compile Include="Modell\Employes\Exception\ModellEmployeNotValidSexException.cs" />
-    <Compile Include="Modell\Employes\Exception\ModellNotValidBirthDayDateException.cs" />
-    <Compile Include="Modell\Employes\Exception\MedellNotValidEmpIdcardException.cs" />
-    <Compile Include="Modell\Parents\GetSQLCommand.cs" />
-    <Compile Include="Modell\Parents\Exception\MedellNotValidParentIdcardException.cs" />
-    <Compile Include="Modell\Parents\Exception\ModellNotValidParentBirthDayDateException.cs" />
-    <Compile Include="Modell\Parents\Exception\ModellNotValidParentName.cs" />
-    <Compile Include="Modell\Parents\Exception\MedellNotValidParentLoginPerException.cs" />
-    <Compile Include="Modell\Parents\Exception\ModellNotValidParentNamee.cs" />
-    <Compile Include="Modell\Parents\ParentsDatabaseCommand.cs" />
-    <Compile Include="Modell\Parents\Parent.cs" />
+    <Compile Include="Modell\Child\ChildrenDatabaseCommand.cs" />
+    <Compile Include="Modell\Child\getSQLCommand.cs" />
+    <Compile Include="Modell\Child\Child.cs" />
+    <Compile Include="Modell\Child\Exception\MedellNotValidIdcardException.cs" />
+    <Compile Include="Modell\Child\Exception\ModellChildNotValidBirthdayException.cs" />
+    <Compile Include="Modell\Child\Exception\ModellChildNotValidBirthplaceException.cs" />
+    <Compile Include="Modell\Child\Exception\ModellChildNotValidComingException.cs" />
+    <Compile Include="Modell\Child\Exception\ModellChildNotValidLocationException.cs" />
+    <Compile Include="Modell\Child\Exception\ModellChildNotValidNameEXception.cs" />
+    <Compile Include="Modell\Child\Exception\ModellChildNotValidSexException.cs" />
+    <Compile Include="Modell\Child\Exception\ModellChildNotValidTajnumberException.cs" />
+    <Compile Include="Modell\Employe\EmployeeDatabaseCommand.cs" />
+    <Compile Include="Modell\Employe\GetSQLCommand.cs" />
+    <Compile Include="Modell\Employe\Employes.cs" />
+    <Compile Include="Modell\Employe\Exception\ModellEmployeNotValidBirthPlacesException.cs" />
+    <Compile Include="Modell\Employe\Exception\ModellEmployeNotValidJobExeption.cs" />
+    <Compile Include="Modell\Employe\Exception\ModellEmployeNotValidLocationException.cs" />
+    <Compile Include="Modell\Employe\Exception\ModellEmployeNotValidMaidenNameException.cs" />
+    <Compile Include="Modell\Employe\Exception\ModellEmployeNotValidNameException.cs" />
+    <Compile Include="Modell\Employe\Exception\ModellEmployeNotValidSexException.cs" />
+    <Compile Include="Modell\Employe\Exception\ModellNotValidBirthDayDateException.cs" />
+    <Compile Include="Modell\Employe\Exception\MedellNotValidEmpIdcardException.cs" />
+    <Compile Include="Modell\Event\EventDatabaseCommand.cs" />
+    <Compile Include="Modell\Event\GetSQLCommand.cs" />
+    <Compile Include="Modell\Event\Event.cs" />
+    <Compile Include="Modell\Event\Exception\ModellNotValidEventDetails.cs" />
+    <Compile Include="Modell\Event\Exception\ModellNotValidEventTitle.cs" />
+    <Compile Include="Modell\Parent\GetSQLCommand.cs" />
+    <Compile Include="Modell\Parent\Exception\MedellNotValidParentIdcardException.cs" />
+    <Compile Include="Modell\Parent\Exception\ModellNotValidParentBirthDayDateException.cs" />
+    <Compile Include="Modell\Parent\Exception\ModellNotValidParentName.cs" />
+    <Compile Include="Modell\Parent\Exception\MedellNotValidParentLoginPerException.cs" />
+    <Compile Include="Modell\Parent\Exception\ModellNotValidParentNamee.cs" />
+    <Compile Include="Modell\Parent\ParentsDatabaseCommand.cs" />
+    <Compile Include="Modell\Parent\Parent.cs" />
     <Compile Include="Modell\ChildrenView\ChildrenDatabaseCommand.cs" />
     <Compile Include="Modell\ChildrenView\GetSQLCommand.cs" />
     <Compile Include="Modell\ChildrenView\ChildrenView.cs" />
@@ -231,7 +244,15 @@
     <Compile Include="Repository\ChildrenViews\DatabaseCommand.cs" />
     <Compile Include="Repository\ChildrenViews\Exception\RepositoryChildrenViewException.cs" />
     <Compile Include="Repository\ChildrenViews\Exception\RepositoryChildrenViewReadyDataFromEmployes_LoginException.cs" />
+    <Compile Include="Repository\Events\EventDatabaseCommand.cs" />
+    <Compile Include="Repository\Events\Exception\RepositoryEventExceptionCantAdd.cs" />
+    <Compile Include="Repository\Events\Exception\RepositoryEventExceptionCantDelete.cs" />
+    <Compile Include="Repository\Events\Exception\RepositoryEventExceptionCantMoodify.cs" />
+    <Compile Include="Repository\Events\Exception\RepositoryEventException.cs" />
+    <Compile Include="Repository\Events\RepositoryEvents.cs" />
+    <Compile Include="Repository\Events\Exception\RepositoryEventsReadyDataFromEmployes_LoginException.cs" />
     <Compile Include="Repository\RepositoryCV.cs" />
+    <Compile Include="Repository\RepositoryEve.cs" />
     <Compile Include="Repository\RepositorySo.cs" />
     <Compile Include="Repository\ChildrenViews\ChildrenViews.cs" />
     <Compile Include="Repository\ChildrenViews\Exception\RepositoryChildrenViewsException.cs" />
@@ -294,6 +315,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Foster\AddSchool.resx">
       <DependentUpon>AddSchool.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Foster\EventsAdd.resx">
+      <DependentUpon>EventsAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Foster\Fosterhomepage.resx">
       <DependentUpon>Fosterhomepage.cs</DependentUpon>

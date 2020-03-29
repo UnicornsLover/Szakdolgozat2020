@@ -52,7 +52,7 @@ namespace Szakdolgozat2020.Forms.Foster
             metroDateTimeBegin.Text = "1990-01-01";
             metroDateTimeFinish.Text = "1990-01-01";
             metroTextBoxType.Text = "";
-            metroLabelHTeacher.Text = "";
+            metroTextBoxHeadTeacher.Text = "";
         }
         /// <summary>
         /// Beállít Datagridview oszlopait és egyébb dolgot
@@ -87,7 +87,6 @@ namespace Szakdolgozat2020.Forms.Foster
             metroComboBoxSchool.DataSource = null;
             metroComboBoxSchool.DataSource = rs.getSchoolName();
         }
-
         private void metroButtonAddSchool_Click(object sender, EventArgs e)
         {
             AddSchool sch = new AddSchool();
@@ -204,15 +203,7 @@ namespace Szakdolgozat2020.Forms.Foster
             {
                 int id = repo.getnextChildrenViewId();
 
-                ChildrenView newChildrenView = new ChildrenView(
-                    id,
-                    rs.getSchoolIdInsert(metroComboBoxSchool.Text),
-                    rc.getChildrenId(metroComboBoxChildren.Text),
-                    metroDateTimeBegin.Text,
-                    metroDateTimeFinish.Text,
-                    metroTextBoxType.Text,
-                    metroTextBoxHeadTeacher.Text
-                   );
+                
                 ChildrenView newChildrenView2 = new ChildrenView(
                     id,
                     metroComboBoxChildren.Text,
@@ -222,6 +213,17 @@ namespace Szakdolgozat2020.Forms.Foster
                     metroTextBoxType.Text,
                     metroTextBoxHeadTeacher.Text
                    );
+
+                ChildrenView newChildrenView = new ChildrenView(
+                    id,
+                    rs.getSchoolIdInsert(metroComboBoxSchool.Text),
+                    rc.getChildrenId(metroComboBoxChildren.Text),
+                    metroDateTimeBegin.Text,
+                    metroDateTimeFinish.Text,
+                    metroTextBoxType.Text,
+                    metroTextBoxHeadTeacher.Text
+                   );
+
 
                 //Hozzáadás az adatbázishoz
                 try
@@ -258,11 +260,11 @@ namespace Szakdolgozat2020.Forms.Foster
             }
             catch (ModellChildrenViewExceptionNotValidChildren mnc)
             {
-                errorProviderChildren.SetError(metroComboBoxChildren, mnc.Message);
+                errorProviderChildren.SetError(metroComboBoxSchool, mnc.Message);
             }
             catch (ModellChildrenViewExceptionNotValidSchool mns)
             {
-                errorProviderSchool.SetError(metroComboBoxSchool, mns.Message);
+                errorProviderSchool.SetError(metroComboBoxChildren, mns.Message);
             }
             catch (ModellChildrenViewExceptionNotValidType mnt)
             {

@@ -6,31 +6,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Szakdolgozat2020.Database;
-using Szakdolgozat2020.Modell.School;
+using Szakdolgozat2020.Modell.Event;
 
-namespace Szakdolgozat2020.Repository.Schools
+namespace Szakdolgozat2020.Repository.Events
 {
-    partial class DatabaseCommand
+    public partial class EventDatabaseCommand
     {
         private readonly string connectionString;
-        public DatabaseCommand()
+        public EventDatabaseCommand()
         {
             Connection cs = new Connection();
             connectionString = cs.getConnectionString();
         }
 
         /// <summary>
-        /// Az iskolák kiolvasása az adatbázisból
+        /// Az események kiolvasása az adatbázisból
         /// </summary>
-        /// <returns>Iskolák</returns>
-        public List<School> getSchoolsFromDatabase()
+        /// <returns>Események</returns>
+        public List<Event> getEventFromDatabase()
         {
-            List<School> schools = new List<School>();
+            List<Event> events = new List<Event>();
             MySqlConnection connection = new MySqlConnection(connectionString);
             try
             {
                 connection.Open();
-                string query = School.getSQLCommandGetAllRecord();
+                string query = Event.getSQLCommandGetAllRecord();
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 MySqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
@@ -39,14 +39,14 @@ namespace Szakdolgozat2020.Repository.Schools
                     int id = -1;
 
                     goodResult = int.TryParse(dr["ID"].ToString(), out id);
-                    string sname = dr["schoolName"].ToString();
-                    string sLocation = dr["schoolLocation"].ToString();
+                    string title = dr["title"].ToString();
+                    string details = dr["details"].ToString();
 
                     if (goodResult)
                     {
-                        string sPhone = dr["schoolPhone"].ToString();
-                        School sch = new School(id, sname, sLocation, sPhone);
-                        schools.Add(sch);
+                        string by = dr["by"].ToString();
+                        Event eve = new Event(id, title, details, by);
+                        events.Add(eve);
                     }
                 }
                 connection.Close();
@@ -54,23 +54,23 @@ namespace Szakdolgozat2020.Repository.Schools
             catch (Exception ex)
             {
                 connection.Close();
-                Debug.WriteLine(ex.Message + "Iskola adatainak beolvasása************************************************************");
-                throw new RepositorySchoolsReadyDataFromEmployes_LoginException("Iskola adatainak beolvasása sikertlen,vagy nem érthető el az adatbázis.");
+                Debug.WriteLine(ex.Message + "Esemény adatainak beolvasása************************************************************");
+                throw new RepositoryEventsReadyDataFromEmployes_LoginException("Esemény adatainak beolvasása sikertlen,vagy nem érthető el az adatbázis.");
             }
-            return schools;
+            return events;
         }
 
         /// <summary>
-        /// Iskola törlése az adatbázisól
+        /// Esemeny törlése az adatbázisól
         /// </summary>
-        /// <param name="id">Adott iskola id-ja</param>
-        public void deleteSchoolFromDatabase(int id)
+        /// <param name="id">Adott Esemeny id-ja</param>
+        public void deleteEventFromDatabase(int id)
         {
             MySqlConnection connection = new MySqlConnection(connectionString);
             try
             {
                 connection.Open();
-                string query = "DELETE FROM school WHERE ID=" + id;
+                string query = "DELETE FROM children_events WHERE ID=" + id;
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
                 connection.Close();
@@ -79,17 +79,17 @@ namespace Szakdolgozat2020.Repository.Schools
             {
                 connection.Close();
                 Debug.WriteLine(e.Message);
-                Debug.WriteLine("DeleteSchool***********************" + id + " idéjű iskola törlése nem sikerült.");
-                throw new RepositorySchoolException("Sikertelen törlés az adatbázisból.");
+                Debug.WriteLine("DeleteEvent***********************" + id + " idéjű esemény törlése nem sikerült.");
+                throw new RepositoryEventException("Sikertelen törlés az adatbázisból.");
             }
         }
 
         /// <summary>
-        /// Iskola módsítása az adatbázisban
+        /// Esemény módsítása az adatbázisban
         /// </summary>
-        /// <param name="id">Iskola id-ja</param>
-        /// <param name="modified">Adott iskola módosítása</param>
-        public void updateSchoolInDatabase(int id, School modified)
+        /// <param name="id">Esemény id-ja</param>
+        /// <param name="modified">Adott Esemény módosítása</param>
+        public void updateEventInDatabase(int id, Event modified)
         {
             MySqlConnection connection = new MySqlConnection(connectionString);
             try
@@ -105,21 +105,21 @@ namespace Szakdolgozat2020.Repository.Schools
                 connection.Close();
                 Debug.WriteLine(e.Message);
                 Debug.WriteLine("UpdateSchool***************************" + id + " idéjű iskola módosítása nem sikerült.");
-                throw new RepositorySchoolException("Sikertelen módosítás az adatbázisból.");
+                throw new RepositoryEventException("Sikertelen módosítás az adatbázisból.");
             }
         }
 
         /// <summary>
-        /// Iskola hozzáadása a z adatbázishoz
+        /// Esemény hozzáadása a z adatbázishoz
         /// </summary>
-        /// <param name="newSchool">Az adott iskola amit beszúrunk</param>
-        public void insertSchoolToDatabase(School newSchool)
+        /// <param name="newEvent">Az adott esemény amit beszúrunk</param>
+        public void insertEventToDatabase(Event newEvent)
         {
             MySqlConnection connection = new MySqlConnection(connectionString);
             try
             {
                 connection.Open();
-                string query = newSchool.getInsert();
+                string query = newEvent.getInsert();
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
                 connection.Close();
@@ -128,8 +128,8 @@ namespace Szakdolgozat2020.Repository.Schools
             {
                 connection.Close();
                 Debug.WriteLine(e.Message);
-                Debug.WriteLine("InsertSchool*******************************" + newSchool + " gyermek beszúrása adatbázisba nem sikerült.");
-                throw new RepositorySchoolException("Sikertelen beszúrás az adatbázisból.");
+                Debug.WriteLine("InsertEsemeny*******************************" + newEvent + " gyermek beszúrása adatbázisba nem sikerült.");
+                throw new RepositoryEventException("Sikertelen beszúrás az adatbázisból.");
             }
         }
     }

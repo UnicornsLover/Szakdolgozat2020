@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace Szakdolgozat2020.Modell.School
 {
-    public partial class 
-        
-       
-        School
+    public partial class School
     {
         public string getInsert()
         {

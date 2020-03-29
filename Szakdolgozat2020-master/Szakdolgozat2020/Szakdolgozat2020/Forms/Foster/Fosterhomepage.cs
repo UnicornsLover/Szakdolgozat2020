@@ -18,6 +18,11 @@ namespace Szakdolgozat2020.Forms.Foster
             metroLabelLoggedName.Text = LogIn.fnameLoged;
         }
 
+        public string getLogName()
+        { 
+            string a = LogIn.fnameLoged;
+            return a;
+        }
         private void Fosterhomepage_Load(object sender, EventArgs e)
         {
 
@@ -34,6 +39,18 @@ namespace Szakdolgozat2020.Forms.Foster
         {
             Schools sc = new Schools();
             sc.Show();
+        }
+
+        private void metroTileIntAdd_Click(object sender, EventArgs e)
+        {
+            AddSchool asd = new AddSchool();
+            asd.Show();
+        }
+
+        private void metroTileEvents_Click(object sender, EventArgs e)
+        {
+            EventsAdd ea = new EventsAdd();
+            ea.Show();
         }
     }
 }
