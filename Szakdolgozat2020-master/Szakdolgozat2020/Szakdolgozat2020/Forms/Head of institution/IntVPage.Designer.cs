@@ -38,6 +38,7 @@
             this.metroTileIntAdd = new MetroFramework.Controls.MetroTile();
             this.metroTileEdu = new MetroFramework.Controls.MetroTile();
             this.metroTileEvents = new MetroFramework.Controls.MetroTile();
+            this.metroTile2 = new MetroFramework.Controls.MetroTile();
             this.SuspendLayout();
             // 
             // metroLabelWelcome
@@ -120,7 +121,7 @@
             // metroTileAddMEvents
             // 
             this.metroTileAddMEvents.ActiveControl = null;
-            this.metroTileAddMEvents.Location = new System.Drawing.Point(516, 310);
+            this.metroTileAddMEvents.Location = new System.Drawing.Point(744, 310);
             this.metroTileAddMEvents.Name = "metroTileAddMEvents";
             this.metroTileAddMEvents.Size = new System.Drawing.Size(191, 123);
             this.metroTileAddMEvents.Style = MetroFramework.MetroColorStyle.Pink;
@@ -170,11 +171,26 @@
             this.metroTileEvents.UseSelectable = true;
             this.metroTileEvents.Click += new System.EventHandler(this.metroTileEvents_Click);
             // 
+            // metroTile2
+            // 
+            this.metroTile2.ActiveControl = null;
+            this.metroTile2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
+            this.metroTile2.ForeColor = System.Drawing.Color.DarkOrange;
+            this.metroTile2.Location = new System.Drawing.Point(516, 310);
+            this.metroTile2.Name = "metroTile2";
+            this.metroTile2.Size = new System.Drawing.Size(191, 123);
+            this.metroTile2.TabIndex = 15;
+            this.metroTile2.Text = "Gyerek - Esemény";
+            this.metroTile2.UseCustomBackColor = true;
+            this.metroTile2.UseSelectable = true;
+            this.metroTile2.Click += new System.EventHandler(this.metroTile2_Click);
+            // 
             // IntVPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.metroTile2);
             this.Controls.Add(this.metroTileEvents);
             this.Controls.Add(this.metroTileIntAdd);
             this.Controls.Add(this.metroTileEdu);
@@ -207,5 +223,6 @@
         private MetroFramework.Controls.MetroTile metroTileIntAdd;
         private MetroFramework.Controls.MetroTile metroTileEdu;
         private MetroFramework.Controls.MetroTile metroTileEvents;
+        private MetroFramework.Controls.MetroTile metroTile2;
     }
 }

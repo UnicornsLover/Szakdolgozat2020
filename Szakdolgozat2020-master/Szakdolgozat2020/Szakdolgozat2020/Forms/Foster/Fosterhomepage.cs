@@ -52,5 +52,11 @@ namespace Szakdolgozat2020.Forms.Foster
             EventsAdd ea = new EventsAdd();
             ea.Show();
         }
+
+        private void metroTile1_Click_1(object sender, EventArgs e)
+        {
+            EventChildForm ec = new EventChildForm();
+            ec.Show();
+        }
     }
 }

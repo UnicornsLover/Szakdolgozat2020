@@ -106,6 +106,37 @@ namespace Szakdolgozat2020.Repository.Events
         }
 
         /// <summary>
+        /// A esemény neveit kigyüjti
+        /// </summary>
+        /// <returns>esemény nevek</returns>
+        public List<string> getEventName()
+        {
+            //neve tárólására egy lista
+            List<string> eventchil = new List<string>();
+            foreach (Event eve in events)
+            {
+                if (!eventchil.Contains(eve.getTitle()))
+                {
+                    eventchil.Add(eve.getTitle());
+                }
+            }
+            eventchil.Sort();
+            return eventchil;
+        }
+
+        /// <summary>
+        /// Esemény idját lekérjük
+        /// </summary>
+        /// <param name="adat"></param>
+        /// <returns></returns>
+        public string getEventId(string adat)
+        {
+
+            string a = events.Find(x => x.getTitle() == adat).getEID().ToString();
+            return a;
+        }
+
+        /// <summary>
         /// A listban az esemény módosítása
         /// </summary>
         /// <param name="id">Esemény id-ja</param>

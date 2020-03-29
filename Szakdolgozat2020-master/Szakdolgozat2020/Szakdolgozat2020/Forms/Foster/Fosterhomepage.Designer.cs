@@ -34,6 +34,7 @@
             this.metroTileEdu = new MetroFramework.Controls.MetroTile();
             this.metroTileIntAdd = new MetroFramework.Controls.MetroTile();
             this.metroTileEvents = new MetroFramework.Controls.MetroTile();
+            this.metroTile1 = new MetroFramework.Controls.MetroTile();
             this.SuspendLayout();
             // 
             // metroLabelLoggedName
@@ -112,11 +113,26 @@
             this.metroTileEvents.UseSelectable = true;
             this.metroTileEvents.Click += new System.EventHandler(this.metroTileEvents_Click);
             // 
+            // metroTile1
+            // 
+            this.metroTile1.ActiveControl = null;
+            this.metroTile1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
+            this.metroTile1.ForeColor = System.Drawing.Color.DarkOrange;
+            this.metroTile1.Location = new System.Drawing.Point(790, 93);
+            this.metroTile1.Name = "metroTile1";
+            this.metroTile1.Size = new System.Drawing.Size(191, 123);
+            this.metroTile1.TabIndex = 13;
+            this.metroTile1.Text = "Gyerek - Esemény";
+            this.metroTile1.UseCustomBackColor = true;
+            this.metroTile1.UseSelectable = true;
+            this.metroTile1.Click += new System.EventHandler(this.metroTile1_Click_1);
+            // 
             // Fosterhomepage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1069, 546);
+            this.Controls.Add(this.metroTile1);
             this.Controls.Add(this.metroTileEvents);
             this.Controls.Add(this.metroTileIntAdd);
             this.Controls.Add(this.metroTileEdu);
@@ -140,5 +156,6 @@
         private MetroFramework.Controls.MetroTile metroTileEdu;
         private MetroFramework.Controls.MetroTile metroTileIntAdd;
         private MetroFramework.Controls.MetroTile metroTileEvents;
+        private MetroFramework.Controls.MetroTile metroTile1;
     }
 }

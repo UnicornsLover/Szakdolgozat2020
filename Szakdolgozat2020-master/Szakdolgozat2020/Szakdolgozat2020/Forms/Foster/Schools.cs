@@ -80,8 +80,8 @@ namespace Szakdolgozat2020.Forms.Foster
         {
             updateDataInDataGriedViewt();
             setChildrenViewDataGridView();
-            metroComboBoxSchool.Text = "1990-01-01";
-            metroComboBoxChildren.Text = "1990-01-01";
+            metroDateTimeBegin.Text = "1990-01-01";
+            metroDateTimeFinish.Text = "1990-01-01";
             metroComboBoxChildren.DataSource = null;
             metroComboBoxChildren.DataSource = rc.getChildrenName();
             metroComboBoxSchool.DataSource = null;
@@ -98,11 +98,6 @@ namespace Szakdolgozat2020.Forms.Foster
             LogIn li = new LogIn();
             li.Show();
             this.Hide();
-        }
-
-        public void feltoltChildrenViewList()
-        {
-            //cv.setChildrenView(cv.getChildenNameFromDataBase(metroComboBoxSchool.Text));
         }
 
         private void metroButtonSearch_Click(object sender, EventArgs e)
@@ -352,7 +347,7 @@ namespace Szakdolgozat2020.Forms.Foster
                 //Módosítás miatt DataGridView updatelése
                 updateDataInDataGriedViewt();
             }
-            catch (updateSchoolException uee)
+            catch (updateChildrenViewException uee)
             {
                 Debug.WriteLine("Az intézmény módosítás sikertelen volt az adatbázishoz, " + uee.Message);
                 MetroMessageBox.Show(this, "\n\nHibát észleltünk, a módosítás sikertelen volt. Nem lehet két ugyan olyan nevű intézmény.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);

@@ -108,5 +108,11 @@ namespace Szakdolgozat2020.Forms
             EventsAdd ea = new EventsAdd();
             ea.Show();
         }
+
+        private void metroTile2_Click(object sender, EventArgs e)
+        {
+            EventChildForm ec = new EventChildForm();
+            ec.Show();
+        }
     }
 }

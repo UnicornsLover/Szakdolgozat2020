@@ -47,6 +47,7 @@
             this.metroTextBoxBy = new MetroFramework.Controls.MetroTextBox();
             this.errorProviderTitle = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderDetails = new System.Windows.Forms.ErrorProvider(this.components);
+            this.metroLabelAddedP = new MetroFramework.Controls.MetroLabel();
             ((System.ComponentModel.ISupportInitialize)(this.metroGridEvents)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderTitle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderDetails)).BeginInit();
@@ -144,7 +145,7 @@
             this.richTextBoxDetails.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
             this.richTextBoxDetails.Location = new System.Drawing.Point(428, 132);
             this.richTextBoxDetails.Name = "richTextBoxDetails";
-            this.richTextBoxDetails.Size = new System.Drawing.Size(659, 103);
+            this.richTextBoxDetails.Size = new System.Drawing.Size(764, 103);
             this.richTextBoxDetails.TabIndex = 18;
             this.richTextBoxDetails.Text = "";
             // 
@@ -184,7 +185,7 @@
             this.metroGridEvents.EnableHeadersVisualStyles = false;
             this.metroGridEvents.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.metroGridEvents.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.metroGridEvents.Location = new System.Drawing.Point(53, 356);
+            this.metroGridEvents.Location = new System.Drawing.Point(153, 352);
             this.metroGridEvents.Name = "metroGridEvents";
             this.metroGridEvents.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -199,7 +200,7 @@
             this.metroGridEvents.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.metroGridEvents.RowTemplate.Height = 24;
             this.metroGridEvents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.metroGridEvents.Size = new System.Drawing.Size(909, 197);
+            this.metroGridEvents.Size = new System.Drawing.Size(1039, 197);
             this.metroGridEvents.Style = MetroFramework.MetroColorStyle.Silver;
             this.metroGridEvents.TabIndex = 20;
             this.metroGridEvents.SelectionChanged += new System.EventHandler(this.metroGridEvents_SelectionChanged);
@@ -207,7 +208,7 @@
             // metroButtonSearch
             // 
             this.metroButtonSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
-            this.metroButtonSearch.Location = new System.Drawing.Point(640, 255);
+            this.metroButtonSearch.Location = new System.Drawing.Point(724, 255);
             this.metroButtonSearch.Name = "metroButtonSearch";
             this.metroButtonSearch.Size = new System.Drawing.Size(208, 28);
             this.metroButtonSearch.Style = MetroFramework.MetroColorStyle.Green;
@@ -221,7 +222,7 @@
             // metroButtonClearCells
             // 
             this.metroButtonClearCells.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
-            this.metroButtonClearCells.Location = new System.Drawing.Point(879, 255);
+            this.metroButtonClearCells.Location = new System.Drawing.Point(984, 255);
             this.metroButtonClearCells.Name = "metroButtonClearCells";
             this.metroButtonClearCells.Size = new System.Drawing.Size(208, 28);
             this.metroButtonClearCells.Style = MetroFramework.MetroColorStyle.Green;
@@ -235,7 +236,7 @@
             // metroButtonDelete
             // 
             this.metroButtonDelete.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
-            this.metroButtonDelete.Location = new System.Drawing.Point(558, 581);
+            this.metroButtonDelete.Location = new System.Drawing.Point(560, 630);
             this.metroButtonDelete.Name = "metroButtonDelete";
             this.metroButtonDelete.Size = new System.Drawing.Size(208, 28);
             this.metroButtonDelete.Style = MetroFramework.MetroColorStyle.Green;
@@ -249,7 +250,7 @@
             // metroButtonModify
             // 
             this.metroButtonModify.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
-            this.metroButtonModify.Location = new System.Drawing.Point(290, 581);
+            this.metroButtonModify.Location = new System.Drawing.Point(292, 630);
             this.metroButtonModify.Name = "metroButtonModify";
             this.metroButtonModify.Size = new System.Drawing.Size(208, 28);
             this.metroButtonModify.Style = MetroFramework.MetroColorStyle.Green;
@@ -263,7 +264,7 @@
             // metroButtonAdd
             // 
             this.metroButtonAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
-            this.metroButtonAdd.Location = new System.Drawing.Point(22, 581);
+            this.metroButtonAdd.Location = new System.Drawing.Point(24, 630);
             this.metroButtonAdd.Name = "metroButtonAdd";
             this.metroButtonAdd.Size = new System.Drawing.Size(208, 28);
             this.metroButtonAdd.Style = MetroFramework.MetroColorStyle.Green;
@@ -291,7 +292,7 @@
             this.metroTextBoxBy.CustomButton.Visible = false;
             this.metroTextBoxBy.ForeColor = System.Drawing.Color.White;
             this.metroTextBoxBy.Lines = new string[0];
-            this.metroTextBoxBy.Location = new System.Drawing.Point(53, 255);
+            this.metroTextBoxBy.Location = new System.Drawing.Point(53, 289);
             this.metroTextBoxBy.MaxLength = 32767;
             this.metroTextBoxBy.Name = "metroTextBoxBy";
             this.metroTextBoxBy.PasswordChar = '\0';
@@ -319,11 +320,21 @@
             // 
             this.errorProviderDetails.ContainerControl = this;
             // 
+            // metroLabelAddedP
+            // 
+            this.metroLabelAddedP.AutoSize = true;
+            this.metroLabelAddedP.Location = new System.Drawing.Point(53, 255);
+            this.metroLabelAddedP.Name = "metroLabelAddedP";
+            this.metroLabelAddedP.Size = new System.Drawing.Size(95, 20);
+            this.metroLabelAddedP.TabIndex = 33;
+            this.metroLabelAddedP.Text = "Felvevő neve:";
+            // 
             // EventsAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1172, 632);
+            this.ClientSize = new System.Drawing.Size(1296, 681);
+            this.Controls.Add(this.metroLabelAddedP);
             this.Controls.Add(this.metroTextBoxBy);
             this.Controls.Add(this.metroButtonDelete);
             this.Controls.Add(this.metroButtonModify);
@@ -366,5 +377,6 @@
         private MetroFramework.Controls.MetroTextBox metroTextBoxBy;
         private System.Windows.Forms.ErrorProvider errorProviderTitle;
         private System.Windows.Forms.ErrorProvider errorProviderDetails;
+        private MetroFramework.Controls.MetroLabel metroLabelAddedP;
     }
 }

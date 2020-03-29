@@ -16,20 +16,6 @@ namespace Szakdolgozat2020.Repository.ChildrenViews
     public partial class ChildrenViews
     {
         List<ChildrenView> childrenviews;
-        /// <summary>
-        /// Gyerek neveit kigyűjti
-        /// </summary>
-        /// <returns>Gyerek nevekpublic</returns>
-        public List<string> getChildrenViewsName()
-        {
-            //neve tárólására egy lista
-            List<string> parentsName = new List<string>();
-            foreach (ChildrenView chv in childrenviews)
-            {
-                parentsName.Add(chv.getChildrenName());
-            }
-            return parentsName;
-        }
 
         /// <summary>
         /// Beállít adatok
@@ -75,10 +61,10 @@ namespace Szakdolgozat2020.Repository.ChildrenViews
         /// <param name="id">párok id-ja</param>
         public void deleteChildrenViewInList(int id)
         {
-            ChildrenView emp = childrenviews.Find(x => x.getscID() == id);
-            if (emp != null)
+            ChildrenView chiview = childrenviews.Find(x => x.getscID() == id);
+            if (chiview != null)
             {
-                childrenviews.Remove(emp);
+                childrenviews.Remove(chiview);
             }
             else
             {
@@ -90,7 +76,7 @@ namespace Szakdolgozat2020.Repository.ChildrenViews
         /// A listban a párok módosítása
         /// </summary>
         /// <param name="id">Párok id-ja</param>
-        /// <param name="modified">Módosított szülő</param>
+        /// <param name="modified">Módosított pár</param>
         public void updateChildrenViewInList(int id, ChildrenView modified)
         {
             ChildrenView chv = childrenviews.Find(x => x.getscID() == id);
