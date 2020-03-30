@@ -169,7 +169,7 @@ namespace Szakdolgozat2020.Forms.Administrator
                 string fname = adat;
                 char[] betuk = new char[10];
 
-                if (fname != "")
+                if (fname != "" && fname.Length >= 5)
                 {
                     for (int i = 0; i < 5; i++)
                     {
@@ -208,11 +208,11 @@ namespace Szakdolgozat2020.Forms.Administrator
             {
                 if (metroComboBoxLoginPermission.Text == "Engedélyezés")
                 {
-                    adat = "False";
+                    adat = "1";
                 }
                 else if (metroComboBoxLoginPermission.Text == "Tiltás")
                 {
-                    adat = "True";
+                    adat = "0";
                 }
             }
             return
@@ -250,6 +250,17 @@ namespace Szakdolgozat2020.Forms.Administrator
                     getRegUserPassword(metroTextBoxPassword.Text)
                    );
 
+                Parent newParent2 = new Parent(
+                    id,
+                    metroTextBoxName.Text,
+                    metroComboBoxSex.Text,
+                    metroDateTimeBDate.Text,
+                    metroTextBoxIdCard.Text,
+                    metroComboBoxLoginPermission.Text,
+                    getRegUserName(metroTextBoxName.Text),
+                    getRegUserPassword(metroTextBoxPassword.Text)
+                   );
+
                 //Hozzáadás az adatbázishoz
                 try
                 {
@@ -264,7 +275,7 @@ namespace Szakdolgozat2020.Forms.Administrator
                 //Hozzáadás a listához
                 try
                 {
-                    repo.addParentsToList(newParent);
+                    repo.addParentsToList(newParent2);
                 }
                 catch (Exception)
                 {
@@ -274,7 +285,6 @@ namespace Szakdolgozat2020.Forms.Administrator
                 }
 
                 //DataGridView frissítése
-                repo.setParents(rep.getParentsFromDatabase());
                 updateDataInDataGriedViewt();
                 updateParentsNumber();
                 emptyCells();
@@ -310,7 +320,7 @@ namespace Szakdolgozat2020.Forms.Administrator
         {
             try
             {
-                Parent modified = new Parent(
+                Parent modified2 = new Parent(
                     Convert.ToInt32(metroTextBoxID.Text),
                     metroTextBoxName.Text,
                     metroComboBoxSex.Text,
@@ -320,6 +330,19 @@ namespace Szakdolgozat2020.Forms.Administrator
                     getRegUserName(metroTextBoxName.Text),
                     getRegUserPassword(metroTextBoxPassword.Text)
                    );
+
+                Parent modified = new Parent(
+                    Convert.ToInt32(metroTextBoxID.Text),
+                    metroTextBoxName.Text,
+                    metroComboBoxSex.Text,
+                    metroDateTimeBDate.Text,
+                    metroTextBoxIdCard.Text,
+                    getPermisiion(metroComboBoxLoginPermission.Text),
+                    getRegUserName(metroTextBoxName.Text),
+                    getRegUserPassword(metroTextBoxPassword.Text)
+                   );
+
+                
 
                 int id = Convert.ToInt32(metroTextBoxID.Text);
 
@@ -336,7 +359,7 @@ namespace Szakdolgozat2020.Forms.Administrator
                 //Módosítás a listában
                 try
                 {
-                    repo.updateParentInList(id, modified);
+                    repo.updateParentInList(id, modified2);
                 }
                 catch (Exception ex)
                 {
@@ -345,11 +368,9 @@ namespace Szakdolgozat2020.Forms.Administrator
                     MetroMessageBox.Show(this, "\n\nHibát észleltünk, a módosítása sikertelen volt az adatbázisból.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
-
-
                 //Módosítás miatt DataGridView updatelése
                 updateDataInDataGriedViewt();
-                repo.setParents(rep.getParentsFromDatabase());
+                updateParentsNumber();
             }
             catch (updateParentException upe)
             {

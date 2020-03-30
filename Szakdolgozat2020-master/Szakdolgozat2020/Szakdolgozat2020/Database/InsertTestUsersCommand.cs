@@ -166,7 +166,11 @@ namespace Szakdolgozat2020.Database
                 string query =
                    "INSERT IGNORE INTO `children_events` (`ID`, `title`, `details`, `img`, `by`) VALUES"
                    + "(1, 'Kirándulás a mecsekben', 'Osztálykiránduláson vett részt Aranka. Ez 3 napos volt. De nagyon sok mindent mesélt. Például most már a gomba fajtákat is meg tudja különböztetni.', NULL, 'Chat Elek'),"
-                   + "(2, 'Strand a Balatonon', 'Az intézmény szervezése által jutott el a Balatonra, amit nagyon élvezett mert nem volt még Balatonon. Vizibicklizés volt.', NULL, 'Chat Elek');";
+                   + "(2, 'Strand a Balatonon', 'Az intézmény szervezése által jutott el a Balatonra, amit nagyon élvezett mert nem volt még Balatonon. Vizibicklizés volt.', NULL, 'Chat Elek'),"
+                   + "(3,'Meglátogatni az állatkertet', 'Az állatok és növényeket ismert meg. Egy két állatot meg is lehetet simogatni. Volt kis nai állatoknak és pár állatnak bből tudtt is adni. Nagyon örült a lehetőségnek utólag. is', NULL, 'Chat Elek'),"
+                   + "(4, 'Skyland ugráló', 'Itt egy olyan helység volt, ahol minden fele ugrálhatak a gyerkek trambulinok segítségével. Nagyon élvezte és majd nem 2 órát is voltunk. Különböző feladatokat kellettt ott teljesíteni. Lelekes volt végig', NULL, 'Chat Elek'),"
+                   + "(5, 'Írány a kalandparkba', 'A kalandparkba különböző magasságokban próbálhata ki magát a gyerköc. Nagyon élvezte. És voltk erőléti és logikai játékok is  a levgőben. Ő a logikait jobban szerette.', NULL, 'Chat Elek'),"
+                   + "(6, 'Tropicarium, állat nézegetés', 'Különbüző hüllőket tudott ott megnézbi. Neki különösen a gekó tetszett. Ha lehetet volna minden állatból visz haza egyet.', NULL, 'Chat Elek');";
 
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
@@ -190,8 +194,11 @@ namespace Szakdolgozat2020.Database
                 connection.Open();
                 string query =
                    "INSERT IGNORE INTO `ceventsk` (`ID`, `childrenID`, `eventsID`, `Timer`) VALUES"
-                   + "(1, 1, 2, '2009-09-15'),"
-                   + "(2, 2, 1, '2012-08-23');";
+                   + "(1, 1, 1, '2009-09-15'),"
+                   + "(2, 2, 2, '2012-11-01'),"
+                   + "(3, 1, 3, '2016-08-23'),"
+                   + "(4, 2, 4, '2019-11-15'),"
+                   + "(5, 3, 5, '2020-01-26');";
 
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
@@ -216,8 +223,10 @@ namespace Szakdolgozat2020.Database
                   "INSERT IGNORE INTO `parentsk` (`ID`, `pID`, `childrenID`) VALUES"
                     + "(1, 3, 2),"
                     +"(2, 4, 2),"
-                    +"(3, 2, 1),"
-                    +"(4, 1, 1)";
+                    + "(3, 1, 3),"
+                    + "(4, 2, 3),"
+                    + "(5, 2, 1),"
+                    +"(6, 1, 1);";
 
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();

@@ -54,6 +54,7 @@ namespace Szakdolgozat2020.Repository.Parents
                 dt.Columns.Add("Engedély:", typeof(string));
                 dt.Columns.Add("Felhasználónév:", typeof(string));
                 dt.Columns.Add("Jelszó:", typeof(string));
+                
                 foreach (Parent line in parents)
                 {
                     dt.Rows.Add(line.getPID(), line.getPname(), line.getPSex(),line.getPBirth(), line.getPIdcard(), line.getPLoginpermission(), line.getPUser(), line.getPPassword());

@@ -24,7 +24,7 @@ namespace Szakdolgozat2020.Modell.Parents
             //*************************Valid********************
             if (!isValidName(pname))
             {
-                throw new ModellNotValidParentNamee("Nem megfelelő 'Neve' mező, kezdje nagy betűvel a nevet és legalább 4 karakter hosszú legyen.Számot ne tartalamzzon.Kérlek próbáld újra!");
+                throw new ModellNotValidParentNamee("Nem megfelelő 'Neve' mező, kezdje nagy betűvel a nevet és legalább 5 karakter hosszú legyen.Számot ne tartalamzzon.Kérlek próbáld újra!");
             }
             if (!isValidSex(psex))
             {
@@ -120,6 +120,14 @@ namespace Szakdolgozat2020.Modell.Parents
         }
         public string getPLoginpermission()
         {
+            if (loginpermission == "True")
+            {
+                loginpermission = "Engedélyezés";
+            }
+            else if (loginpermission == "False")
+            {
+                loginpermission = "Tiltás";
+            }
             return loginpermission;
         }
         public string getPPassword()
