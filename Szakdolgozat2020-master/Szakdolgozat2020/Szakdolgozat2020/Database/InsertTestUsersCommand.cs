@@ -86,7 +86,7 @@ namespace Szakdolgozat2020.Database
                     "INSERT IGNORE INTO `children_fullprofile` (`ID`, `cname`, `csex`, `cidcardnumber`, `ctajnumber`, `cbirth`, `cbirthplace`, `ccoming`, `clocation`) VALUES"
                     + "(1, 'Szabó Péter', 'férfi', '785962LO', '789963365', '2005-12-04', 'Szeged', '2008-06-01', 'Szeged'),"
                     + "(2, 'Tóth Luca', 'nő', '788522CV', '780120412', '1995-07-29', 'Budapest', '2011-11-01', 'Szeged'),"
-                    +"(3, 'Erős István', 'férfi', '147852DF', '785236941', '2007-07-26', 'Kecskemét', '2012-12-01', 'Kecskemét'),"
+                    +"(3, 'Szabó István', 'férfi', '147852DF', '785236941', '2007-07-26', 'Kecskemét', '2012-12-01', 'Kecskemét'),"
                     +"(4, 'Nagy Irma', 'nő', '124578NM', '120125478', '1999-07-12', 'Szeged', '2004-12-01', 'Szeged'),"
                     +"(5, 'Horváth Eperke', 'nő', '175415KL', '120125169', '1999-12-31', 'Kecskemét', '2001-01-01', 'Kecskemét'),"
                     +"(6, 'Almos Adrienn', 'nő', '123568MN', '1205470123', '2002-03-24', 'Orosháza', '2004-05-01', 'Szeged');";

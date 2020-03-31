@@ -103,11 +103,11 @@ namespace Szakdolgozat2020.Forms.Foster
         private void metroButtonSearch_Click(object sender, EventArgs e)
         {
 
-            if (metroComboBoxChildren.Text == "")
+            if (metroComboBoxSchool.Text == "")
             {
                 MetroMessageBox.Show(this, "Kereséshez válasza ki az adott intézményt! \n Ha mindet szeretné látni akkor válaszd ki ezt a jelet \" * \" (csillag) jelet a \"Intézmények:\" cellánál!", "Hiba\n\n", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            else if (metroComboBoxChildren.Text == "*")
+            else if (metroComboBoxSchool.Text == "*")
             {
                 updateDataInDataGriedViewt();
             }

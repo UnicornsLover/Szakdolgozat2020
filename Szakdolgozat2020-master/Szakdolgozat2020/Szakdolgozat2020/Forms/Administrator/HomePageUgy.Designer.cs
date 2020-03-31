@@ -33,6 +33,7 @@
             this.metroLabelWelcome = new MetroFramework.Controls.MetroLabel();
             this.metroButtonLogOut = new MetroFramework.Controls.MetroButton();
             this.metroTile1 = new MetroFramework.Controls.MetroTile();
+            this.metroTilePC = new MetroFramework.Controls.MetroTile();
             this.SuspendLayout();
             // 
             // metroTileChildrenReg
@@ -96,11 +97,25 @@
             this.metroTile1.UseSelectable = true;
             this.metroTile1.Click += new System.EventHandler(this.metroTile1_Click);
             // 
+            // metroTilePC
+            // 
+            this.metroTilePC.ActiveControl = null;
+            this.metroTilePC.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(113)))), ((int)(((byte)(69)))));
+            this.metroTilePC.Location = new System.Drawing.Point(525, 106);
+            this.metroTilePC.Name = "metroTilePC";
+            this.metroTilePC.Size = new System.Drawing.Size(191, 123);
+            this.metroTilePC.TabIndex = 9;
+            this.metroTilePC.Text = "Szülő-gyerek";
+            this.metroTilePC.UseCustomBackColor = true;
+            this.metroTilePC.UseSelectable = true;
+            this.metroTilePC.Click += new System.EventHandler(this.metroTilePC_Click);
+            // 
             // HomePageUgy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.metroTilePC);
             this.Controls.Add(this.metroTile1);
             this.Controls.Add(this.metroButtonLogOut);
             this.Controls.Add(this.metroLabelLoggedName);
@@ -121,5 +136,6 @@
         private MetroFramework.Controls.MetroLabel metroLabelWelcome;
         private MetroFramework.Controls.MetroButton metroButtonLogOut;
         private MetroFramework.Controls.MetroTile metroTile1;
+        private MetroFramework.Controls.MetroTile metroTilePC;
     }
 }

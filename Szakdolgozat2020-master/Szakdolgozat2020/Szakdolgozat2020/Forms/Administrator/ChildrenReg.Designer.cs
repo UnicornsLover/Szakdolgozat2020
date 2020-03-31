@@ -379,7 +379,7 @@
             this.metroDateTimeComing.CustomFormat = "yyyy-MM-dd";
             this.metroDateTimeComing.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.metroDateTimeComing.Location = new System.Drawing.Point(1196, 144);
-            this.metroDateTimeComing.MinimumSize = new System.Drawing.Size(4, 30);
+            this.metroDateTimeComing.MinimumSize = new System.Drawing.Size(0, 30);
             this.metroDateTimeComing.Name = "metroDateTimeComing";
             this.metroDateTimeComing.Size = new System.Drawing.Size(302, 30);
             this.metroDateTimeComing.Style = MetroFramework.MetroColorStyle.Green;

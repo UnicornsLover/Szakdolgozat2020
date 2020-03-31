@@ -114,5 +114,11 @@ namespace Szakdolgozat2020.Forms
             EventChildForm ec = new EventChildForm();
             ec.Show();
         }
+
+        private void metroTilePC_Click(object sender, EventArgs e)
+        {
+            ParChiReg rp = new ParChiReg();
+            rp.Show();
+        }
     }
 }

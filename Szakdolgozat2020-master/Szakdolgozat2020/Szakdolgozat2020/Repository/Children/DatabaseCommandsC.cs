@@ -10,7 +10,7 @@ using Szakdolgozat2020.Modell.Children;
 
 namespace Szakdolgozat2020.Repository.Children
 {
-    partial class RepositoryDatabaseChildren
+    public partial class RepositoryDatabaseChildren
     {
         private readonly string connectionString;
         public RepositoryDatabaseChildren()
@@ -117,7 +117,7 @@ namespace Szakdolgozat2020.Repository.Children
         /// <summary>
         /// Gyermek hozzáadása a z adatbázishoz
         /// </summary>
-        /// <param name="newEmployee">Az adott gyermek akit beszúrunk</param>
+        /// <param name="newChild">Az adott gyermek akit beszúrunk</param>
         public void insertChildrenToDatabase(Child newChild)
         {
             MySqlConnection connection = new MySqlConnection(connectionString);

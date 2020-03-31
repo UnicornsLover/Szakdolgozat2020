@@ -69,6 +69,13 @@
     <Compile Include="Forms\Administrator\Exception\insertParentException.cs" />
     <Compile Include="Forms\Administrator\Exception\ModellParentNotValidSexException.cs" />
     <Compile Include="Forms\Administrator\Exception\ModellParentNotValidNameException.cs" />
+    <Compile Include="Forms\Administrator\Exception\insertChildrenParentException.cs" />
+    <Compile Include="Forms\Administrator\ParChiReg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Administrator\ParChiReg.Designer.cs">
+      <DependentUpon>ParChiReg.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Administrator\ParentsReg.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +85,8 @@
     <Compile Include="Forms\Administrator\Exception\updateChildException.cs" />
     <Compile Include="Forms\Administrator\Exception\updateParentException.cs" />
     <Compile Include="Forms\Administrator\Exception\RepositoryParentExceptionCantDelete.cs" />
+    <Compile Include="Forms\Administrator\Exception\RepositoryChildrenParentExceptionCantDelete.cs" />
+    <Compile Include="Forms\Administrator\Exception\updateChildrenParentException.cs" />
     <Compile Include="Forms\Boss.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -185,6 +194,11 @@
       <DependentUpon>SoulReg.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Soul\Exception\updateSoulException.cs" />
+    <Compile Include="Modell\ChildParent\ChildParentDatabaseCommand.cs" />
+    <Compile Include="Modell\ChildParent\getSQLCommand.cs" />
+    <Compile Include="Modell\ChildParent\ChildParent.cs" />
+    <Compile Include="Modell\ChildParent\Exception\ModellExceptionNotValidChildrenName.cs" />
+    <Compile Include="Modell\ChildParent\Exception\ModellExceptionNotValidPArentName.cs" />
     <Compile Include="Modell\ChildrenView\Exception\ModellChildrenViewExceptionNotValidChildren.cs" />
     <Compile Include="Modell\ChildrenView\Exception\ModellChildrenViewExceptionNotValidDates.cs" />
     <Compile Include="Modell\ChildrenView\Exception\ModellChildrenViewExceptionNotValidDates2.cs" />
@@ -259,6 +273,13 @@
     <Compile Include="Repository\ChildrenEvents\Exception\RepositoryEventChildException.cs" />
     <Compile Include="Repository\ChildrenEvents\Exception\RepositoryEventChildrenReadyDataFromEmployes_LoginException.cs" />
     <Compile Include="Repository\ChildrenEvents\RepositoryEventsChildren.cs" />
+    <Compile Include="Repository\ChildrenParents\ChildrenParentDatabaseCommand.cs" />
+    <Compile Include="Repository\ChildrenParents\Exception\RepositoryChildParentExceptionCantAdd.cs" />
+    <Compile Include="Repository\ChildrenParents\Exception\RepositoryChildParentExceptionCantDelete.cs" />
+    <Compile Include="Repository\ChildrenParents\Exception\RepositoryChildParentExceptionCantMoodify.cs" />
+    <Compile Include="Repository\ChildrenParents\Exception\RepositoryChildParentException.cs" />
+    <Compile Include="Repository\ChildrenParents\Exception\RepositoryChildrenParentReadyDataFromEmployes_LoginException.cs" />
+    <Compile Include="Repository\ChildrenParents\RepositoryChildrenParents.cs" />
     <Compile Include="Repository\ChildrenViews\Exception\RepositoryChildrenViewExceptionCantMoodify.cs" />
     <Compile Include="Repository\ChildrenViews\Exception\RepositoryChildrenViewsExceptionCantDelete.cs" />
     <Compile Include="Repository\ChildrenViews\Exception\RepositoryChilldrenViewExceptionCantAdd.cs" />
@@ -272,6 +293,7 @@
     <Compile Include="Repository\Events\Exception\RepositoryEventException.cs" />
     <Compile Include="Repository\Events\RepositoryEvents.cs" />
     <Compile Include="Repository\Events\Exception\RepositoryEventsReadyDataFromEmployes_LoginException.cs" />
+    <Compile Include="Repository\RepositoryCP.cs" />
     <Compile Include="Repository\RepositoryCV.cs" />
     <Compile Include="Repository\RepositoryEve.cs" />
     <Compile Include="Repository\RepositoryEveChil.cs" />
@@ -320,6 +342,9 @@
     <Compile Include="Repository\Souls\Exception\RepositorySoulsExceptionCantDelete.cs" />
     <Compile Include="Repository\Souls\Exception\RepositorySoulsExceptionCantMoodify.cs" />
     <Compile Include="Repository\Souls\Exception\RepositorySoulsReadyDataFromEmployes_LoginException.cs" />
+    <EmbeddedResource Include="Forms\Administrator\ParChiReg.resx">
+      <DependentUpon>ParChiReg.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Administrator\ParentsReg.resx">
       <DependentUpon>ParentsReg.cs</DependentUpon>
     </EmbeddedResource>

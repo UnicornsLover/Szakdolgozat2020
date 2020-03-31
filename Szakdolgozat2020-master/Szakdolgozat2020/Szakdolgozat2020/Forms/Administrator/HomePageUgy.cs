@@ -51,5 +51,11 @@ namespace Szakdolgozat2020.Forms.Foster
             ParentsReg p = new ParentsReg();
             p.Show();
         }
+
+        private void metroTilePC_Click(object sender, EventArgs e)
+        {
+            ParChiReg rp = new ParChiReg();
+            rp.Show();
+        }
     }
 }

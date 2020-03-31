@@ -23,11 +23,19 @@ namespace Szakdolgozat2020.Repository.Parents
             List<string> parentsName = new List<string>();
             foreach (Parent parent in parents)
             {
-                parentsName.Add(parent.getPname());
+                if (!parentsName.Contains(parent.getPname()))
+                {
+                    parentsName.Add(parent.getPname());
+                }
             }
+            parentsName.Sort();
             return parentsName;
         }
-
+        public string getParentIdInsert(string adat)
+        {
+            string a = parents.Find(x => x.getPname() == adat).getPID().ToString();
+            return a;
+        }
         /// <summary>
         /// Beállít szülők
         /// </summary>

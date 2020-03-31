@@ -39,6 +39,7 @@
             this.metroTileEdu = new MetroFramework.Controls.MetroTile();
             this.metroTileEvents = new MetroFramework.Controls.MetroTile();
             this.metroTile2 = new MetroFramework.Controls.MetroTile();
+            this.metroTilePC = new MetroFramework.Controls.MetroTile();
             this.SuspendLayout();
             // 
             // metroLabelWelcome
@@ -65,7 +66,7 @@
             // 
             // metroButtonLogOut
             // 
-            this.metroButtonLogOut.Location = new System.Drawing.Point(863, 497);
+            this.metroButtonLogOut.Location = new System.Drawing.Point(865, 667);
             this.metroButtonLogOut.Margin = new System.Windows.Forms.Padding(4);
             this.metroButtonLogOut.Name = "metroButtonLogOut";
             this.metroButtonLogOut.Size = new System.Drawing.Size(156, 28);
@@ -121,7 +122,7 @@
             // metroTileAddMEvents
             // 
             this.metroTileAddMEvents.ActiveControl = null;
-            this.metroTileAddMEvents.Location = new System.Drawing.Point(744, 310);
+            this.metroTileAddMEvents.Location = new System.Drawing.Point(39, 440);
             this.metroTileAddMEvents.Name = "metroTileAddMEvents";
             this.metroTileAddMEvents.Size = new System.Drawing.Size(191, 123);
             this.metroTileAddMEvents.Style = MetroFramework.MetroColorStyle.Pink;
@@ -134,7 +135,7 @@
             // 
             this.metroTileIntAdd.ActiveControl = null;
             this.metroTileIntAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
-            this.metroTileIntAdd.Location = new System.Drawing.Point(744, 142);
+            this.metroTileIntAdd.Location = new System.Drawing.Point(39, 291);
             this.metroTileIntAdd.Name = "metroTileIntAdd";
             this.metroTileIntAdd.Size = new System.Drawing.Size(191, 123);
             this.metroTileIntAdd.TabIndex = 13;
@@ -147,7 +148,7 @@
             // 
             this.metroTileEdu.ActiveControl = null;
             this.metroTileEdu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
-            this.metroTileEdu.Location = new System.Drawing.Point(39, 310);
+            this.metroTileEdu.Location = new System.Drawing.Point(278, 291);
             this.metroTileEdu.Name = "metroTileEdu";
             this.metroTileEdu.Size = new System.Drawing.Size(191, 123);
             this.metroTileEdu.TabIndex = 12;
@@ -161,7 +162,7 @@
             this.metroTileEvents.ActiveControl = null;
             this.metroTileEvents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
             this.metroTileEvents.ForeColor = System.Drawing.Color.White;
-            this.metroTileEvents.Location = new System.Drawing.Point(278, 310);
+            this.metroTileEvents.Location = new System.Drawing.Point(516, 291);
             this.metroTileEvents.Name = "metroTileEvents";
             this.metroTileEvents.Size = new System.Drawing.Size(191, 123);
             this.metroTileEvents.TabIndex = 14;
@@ -176,7 +177,7 @@
             this.metroTile2.ActiveControl = null;
             this.metroTile2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
             this.metroTile2.ForeColor = System.Drawing.Color.DarkOrange;
-            this.metroTile2.Location = new System.Drawing.Point(516, 310);
+            this.metroTile2.Location = new System.Drawing.Point(747, 291);
             this.metroTile2.Name = "metroTile2";
             this.metroTile2.Size = new System.Drawing.Size(191, 123);
             this.metroTile2.TabIndex = 15;
@@ -185,11 +186,25 @@
             this.metroTile2.UseSelectable = true;
             this.metroTile2.Click += new System.EventHandler(this.metroTile2_Click);
             // 
+            // metroTilePC
+            // 
+            this.metroTilePC.ActiveControl = null;
+            this.metroTilePC.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(113)))), ((int)(((byte)(69)))));
+            this.metroTilePC.Location = new System.Drawing.Point(747, 142);
+            this.metroTilePC.Name = "metroTilePC";
+            this.metroTilePC.Size = new System.Drawing.Size(191, 123);
+            this.metroTilePC.TabIndex = 16;
+            this.metroTilePC.Text = "Szülő-gyerek";
+            this.metroTilePC.UseCustomBackColor = true;
+            this.metroTilePC.UseSelectable = true;
+            this.metroTilePC.Click += new System.EventHandler(this.metroTilePC_Click);
+            // 
             // IntVPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(1063, 724);
+            this.Controls.Add(this.metroTilePC);
             this.Controls.Add(this.metroTile2);
             this.Controls.Add(this.metroTileEvents);
             this.Controls.Add(this.metroTileIntAdd);
@@ -224,5 +239,6 @@
         private MetroFramework.Controls.MetroTile metroTileEdu;
         private MetroFramework.Controls.MetroTile metroTileEvents;
         private MetroFramework.Controls.MetroTile metroTile2;
+        private MetroFramework.Controls.MetroTile metroTilePC;
     }
 }
