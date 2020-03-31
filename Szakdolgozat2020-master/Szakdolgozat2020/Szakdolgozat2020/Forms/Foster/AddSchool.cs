@@ -29,6 +29,7 @@ namespace Szakdolgozat2020.Forms.Foster
         {
             updateDataInDataGriedViewt();
             setSchoolsDataGridView();
+            emptyCells();
         }
 
         /// <summary>
@@ -110,38 +111,49 @@ namespace Szakdolgozat2020.Forms.Foster
             {
                 return;
             }
-            int selectedIndex = metroGridSchoolBasic.SelectedRows[0].Index;
 
-            DialogResult dr = MetroMessageBox.Show(this, "\n\nBiztos szeretné törölni az iskolát?", "Iskola törlése", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (dr == DialogResult.Yes)
+            try
             {
-                //Törlés a listából
-                //Törlés az adatbázisból
-                int id = -1;
-                if (!int.TryParse(metroGridSchoolBasic.SelectedRows[0].Cells[0].Value.ToString(), out id))
-                {
-                    return;
-                }
+                int selectedIndex = metroGridSchoolBasic.SelectedRows[0].Index;
 
-                try
+                DialogResult dr = MetroMessageBox.Show(this, "\n\nBiztos szeretné törölni az iskolát?", "Iskola törlése", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (dr == DialogResult.Yes)
                 {
-                    rep.deleteSchoolFromDatabase(id);
-                    repo.deleteSchoolInList(id);
+                    //Törlés a listából
+                    //Törlés az adatbázisból
+                    int id = -1;
+                    if (!int.TryParse(metroGridSchoolBasic.SelectedRows[0].Cells[0].Value.ToString(), out id))
+                    {
+                        return;
+                    }
+
+                    try
+                    {
+                        rep.deleteSchoolFromDatabase(id);
+                        repo.deleteSchoolInList(id);
+                    }
+                    catch (RepositorySchoolExceptionCantDelete)
+                    {
+
+                        Debug.WriteLine("Az iskola törlése sikertelen volt a listából, mert másik adatbázisba szerepel!");
+                        MetroMessageBox.Show(this, "\n\nHibát észleltünk, a törlés sikertelen volt az listából.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+
+                    //DataGridView frissítése
+                    updateDataInDataGriedViewt();
                 }
-                catch (RepositorySchoolExceptionCantDelete)
+                else
                 {
-
-                    Debug.WriteLine("Az iskola törlése sikertelen volt a listából, mert másik adatbázisba szerepel!");
-                    MetroMessageBox.Show(this, "\n\nHibát észleltünk, a törlés sikertelen volt az listából.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    Debug.WriteLine("'DialogResult.No'-ra futott rá!");
                 }
-
-                //DataGridView frissítése
-                updateDataInDataGriedViewt();
             }
-            else
+            catch (ArgumentOutOfRangeException ae)
             {
-                Debug.WriteLine("'DialogResult.No'-ra futott rá!");
+
+                Debug.WriteLine("A törlés sikertelen volt!" + ae.Message);
+                MetroMessageBox.Show(this, "\n\nHibát észleltünk, a törlés sikertelen volt. Kattintson a táblázatba arra a sora amit törölni kiván!", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+
         }
 
         private void metroGridSchoolBasic_SelectionChanged(object sender, EventArgs e)

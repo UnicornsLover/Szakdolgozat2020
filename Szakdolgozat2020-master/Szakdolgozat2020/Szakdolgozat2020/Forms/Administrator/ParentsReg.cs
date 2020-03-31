@@ -30,7 +30,7 @@ namespace Szakdolgozat2020.Forms.Administrator
         {
             updateDataInDataGriedViewt();
             setParentsDataGridView();
-            metroDateTimeBDate.Text = "1950-01-01";
+            emptyCells();
             updateParentsNumber();
         }
 
@@ -127,38 +127,50 @@ namespace Szakdolgozat2020.Forms.Administrator
             {
                 return;
             }
-            int selectedIndex = metroGridParents.SelectedRows[0].Index;
 
-            DialogResult dr = MetroMessageBox.Show(this, "\n\nBiztos szeretné törölni a szülőt?", "Szülő törlése", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (dr == DialogResult.Yes)
+            try
             {
-                //Törlés a listából
-                int id = -1;
-                if (!int.TryParse(metroGridParents.SelectedRows[0].Cells[0].Value.ToString(), out id))
-                {
-                    return;
-                }
+                int selectedIndex = metroGridParents.SelectedRows[0].Index;
 
-                try
+                DialogResult dr = MetroMessageBox.Show(this, "\n\nBiztos szeretné törölni a szülőt?", "Szülő törlése", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (dr == DialogResult.Yes)
                 {
-                    rep.deleteParentFromDatabase(id);
-                    repo.deleteParentInList(id);
+                    //Törlés a listából
+                    int id = -1;
+                    if (!int.TryParse(metroGridParents.SelectedRows[0].Cells[0].Value.ToString(), out id))
+                    {
+                        return;
+                    }
+
+                    try
+                    {
+                        rep.deleteParentFromDatabase(id);
+                        repo.deleteParentInList(id);
+                    }
+                    catch (RepositoryParentExceptionCantDelete)
+                    {
+
+                        Debug.WriteLine("A szülő törlése sikertelen volt, nem lehet törölni olyan adatot, ami más adatbázisban szerepel.");
+                        MetroMessageBox.Show(this, "\n\nA szülő törlése sikertelen volt, nem lehet törölni olyan adatot, ami más adatbázisban szerepel.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+
+                    //DataGridView frissítése
+                    updateDataInDataGriedViewt();
+                    updateParentsNumber();
                 }
-                catch (RepositoryParentExceptionCantDelete)
+                else
                 {
-
-                    Debug.WriteLine("A szülő törlése sikertelen volt, nem lehet törölni olyan adatot, ami más adatbázisban szerepel.");
-                    MetroMessageBox.Show(this, "\n\nA szülő törlése sikertelen volt, nem lehet törölni olyan adatot, ami más adatbázisban szerepel.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    Debug.WriteLine("'DialogResult.No'-ra futott rá!");
                 }
-
-                //DataGridView frissítése
-                updateDataInDataGriedViewt();
-                updateParentsNumber();
             }
-            else
+            catch (ArgumentOutOfRangeException ae)
             {
-                Debug.WriteLine("'DialogResult.No'-ra futott rá!");
+
+                Debug.WriteLine("A törlés sikertelen volt!" + ae.Message);
+                MetroMessageBox.Show(this, "\n\nHibát észleltünk, a törlés sikertelen volt. Kattintson a táblázatba arra a sora amit törölni kiván!", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+
+
         }
         public string getRegUserName(string adat)
         {

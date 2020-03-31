@@ -79,9 +79,7 @@ namespace Szakdolgozat2020.Forms.Soul
         {
             updateDataInDataGriedViewt();
             setSoulDataGridView();
-            metroDateTimeAddedDate.Text = "1990-01-01";
-            //metroComboBoxChildrenName.DataSource = null;
-            //metroComboBoxChildrenName.DataSource = repo.getSoulName();
+            emptyCells();
             metroComboBoxChildrenName.DataSource = rc.getChildrenName();
 
         }
@@ -126,37 +124,48 @@ namespace Szakdolgozat2020.Forms.Soul
             {
                 return;
             }
-            int selectedIndex = metroGridSoul.SelectedRows[0].Index;
 
-            DialogResult dr = MetroMessageBox.Show(this, "\n\nBiztos szeretné törölni a gyermeket?", "Dolgozó törlése", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (dr == DialogResult.Yes)
+            try
             {
-                //Törlés a listából
-                int id = -1;
-                if (!int.TryParse(metroGridSoul.SelectedRows[0].Cells[0].Value.ToString(), out id))
-                {
-                    return;
-                }
+                int selectedIndex = metroGridSoul.SelectedRows[0].Index;
 
-                try
+                DialogResult dr = MetroMessageBox.Show(this, "\n\nBiztos szeretné törölni a gyermeket?", "Dolgozó törlése", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (dr == DialogResult.Yes)
                 {
-                    rep.deleteSoulFromDatabase(id);
-                    repo.deleteSoulInList(id);
+                    //Törlés a listából
+                    int id = -1;
+                    if (!int.TryParse(metroGridSoul.SelectedRows[0].Cells[0].Value.ToString(), out id))
+                    {
+                        return;
+                    }
+
+                    try
+                    {
+                        rep.deleteSoulFromDatabase(id);
+                        repo.deleteSoulInList(id);
+                    }
+                    catch (RepositorySoulExceptionCantDelete ex)
+                    {
+
+                        Debug.WriteLine("A dolgozó törlése sikertelen volt, mert más adatbázisban is szerepel! Nem lehet törölni.");
+                        MetroMessageBox.Show(this, "\n\nA dolgozó törlése sikertelen volt, mert más adatbázisban is szerepel!", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+
+                    //DataGridView frissítése
+                    updateDataInDataGriedViewt();
                 }
-                catch (RepositorySoulExceptionCantDelete ex)
+                else
                 {
-
-                    Debug.WriteLine("A dolgozó törlése sikertelen volt, mert más adatbázisban is szerepel! Nem lehet törölni.");
-                    MetroMessageBox.Show(this, "\n\nA dolgozó törlése sikertelen volt, mert más adatbázisban is szerepel!", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    Debug.WriteLine("'DialogResult.No'-ra futott rá!");
                 }
-
-                //DataGridView frissítése
-                updateDataInDataGriedViewt();
             }
-            else
+            catch (ArgumentOutOfRangeException ae)
             {
-                Debug.WriteLine("'DialogResult.No'-ra futott rá!");
+
+                Debug.WriteLine("A törlés sikertelen volt!" + ae.Message);
+                MetroMessageBox.Show(this, "\n\nHibát észleltünk, a törlés sikertelen volt. Kattintson a táblázatba arra a sora amit törölni kiván!", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+
         }
 
         private void metroGridSoul_SelectionChanged(object sender, EventArgs e)

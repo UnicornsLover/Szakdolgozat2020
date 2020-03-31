@@ -126,7 +126,7 @@
             this.metroGridPC.EnableHeadersVisualStyles = false;
             this.metroGridPC.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.metroGridPC.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.metroGridPC.Location = new System.Drawing.Point(392, 296);
+            this.metroGridPC.Location = new System.Drawing.Point(263, 284);
             this.metroGridPC.Name = "metroGridPC";
             this.metroGridPC.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;

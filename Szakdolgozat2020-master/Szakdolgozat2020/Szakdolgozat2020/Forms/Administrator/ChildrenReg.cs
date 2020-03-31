@@ -87,8 +87,7 @@ namespace Szakdolgozat2020.Forms.Nevelo
         {
             updateDataInDataGriedViewt();
             setChildrenDataGridView();
-            metroDateTimeBDate.Text = "1990-01-01";
-            metroDateTimeComing.Text = "1990-01-01";
+            emptyCells();
             updateCildrenNumber();
         }
 
@@ -137,38 +136,47 @@ namespace Szakdolgozat2020.Forms.Nevelo
             {
                 return;
             }
-            int selectedIndex = metroGridChildren.SelectedRows[0].Index;
 
-            DialogResult dr = MetroMessageBox.Show(this, "\n\nBiztos szeretné törölni a gyermeket?", "Dolgozó törlése", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (dr == DialogResult.Yes)
+            try
             {
-                
-                int id = -1;
-                if (!int.TryParse(metroGridChildren.SelectedRows[0].Cells[0].Value.ToString(), out id))
+                int selectedIndex = metroGridChildren.SelectedRows[0].Index;
+                DialogResult dr = MetroMessageBox.Show(this, "\n\nBiztos szeretné törölni a gyermeket?", "Dolgozó törlése", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (dr == DialogResult.Yes)
                 {
-                    return;
-                }
 
-                //Törlés az adatbázisból
-                //Törlés a listából
-                try
-                {
-                    rep.deleteChildFromDatabase(id);
-                    repo.deleteChildInList(id);
-                }
-                catch (Exception ex)
-                {
-                    Debug.WriteLine("Sikertelen törlés! Nem lehet törlni, mert másik táblában is szerepel.");
-                    MetroMessageBox.Show(this, "\n\nSikertelen törlés! Nem lehet törlni, mert másik táblában is szerepel.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+                    int id = -1;
+                    if (!int.TryParse(metroGridChildren.SelectedRows[0].Cells[0].Value.ToString(), out id))
+                    {
+                        return;
+                    }
 
-                //DataGridView frissítése
-                updateDataInDataGriedViewt();
-                updateCildrenNumber();
+                    //Törlés az adatbázisból
+                    //Törlés a listából
+                    try
+                    {
+                        rep.deleteChildFromDatabase(id);
+                        repo.deleteChildInList(id);
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine("Sikertelen törlés! Nem lehet törlni, mert másik táblában is szerepel.");
+                        MetroMessageBox.Show(this, "\n\nSikertelen törlés! Nem lehet törlni, mert másik táblában is szerepel.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+
+                    //DataGridView frissítése
+                    updateDataInDataGriedViewt();
+                    updateCildrenNumber();
+                }
+                else
+                {
+                    Debug.WriteLine("'DialogResult.No'-ra futott rá!");
+                }
             }
-            else
+            catch (ArgumentOutOfRangeException ae)
             {
-                Debug.WriteLine("'DialogResult.No'-ra futott rá!");
+
+                Debug.WriteLine("A törlés sikertelen volt!" + ae.Message);
+                MetroMessageBox.Show(this, "\n\nHibát észleltünk, a törlés sikertelen volt. Kattintson a táblázatba arra a sora amit törölni kiván!", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

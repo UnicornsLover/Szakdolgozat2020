@@ -71,7 +71,7 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
         {
             updateDataInDataGriedViewt();
             setEmployeDataGridView();
-            metroDateTimeEBirth.Text = "1945-01-01";
+            emptyCells();
             updateEmployeesNumber();
         }
 
@@ -137,48 +137,60 @@ namespace Szakdolgozat2020.Forms.Head_of_institution
             {
                 return;
             }
-            int selectedIndex = metroGridEmployees.SelectedRows[0].Index;
 
-            DialogResult dr = MetroMessageBox.Show(this, "\n\nBiztos szeretné törölni a dolgozót?", "Dolgozó törlése", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (dr == DialogResult.Yes)
+            try
             {
-                //Törlés a listából
-                int id = -1;
-                if (!int.TryParse(metroGridEmployees.SelectedRows[0].Cells[0].Value.ToString(), out id))
-                {
-                    return;
-                }
+                int selectedIndex = metroGridEmployees.SelectedRows[0].Index;
 
-                try
+                DialogResult dr = MetroMessageBox.Show(this, "\n\nBiztos szeretné törölni a dolgozót?", "Dolgozó törlése", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (dr == DialogResult.Yes)
                 {
-                    repo.deleteEmployeInList(id);
-                }
-                catch (RepositoryEmployeExceptionCantDelete ex)
-                {
+                    //Törlés a listából
+                    int id = -1;
+                    if (!int.TryParse(metroGridEmployees.SelectedRows[0].Cells[0].Value.ToString(), out id))
+                    {
+                        return;
+                    }
 
-                    Debug.WriteLine("A dolgozó törlése sikertelen volt a listából!");
-                    MetroMessageBox.Show(this, "\n\nHibát észleltünk, a törlés sikertelen volt az listából.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+                    try
+                    {
+                        repo.deleteEmployeInList(id);
+                    }
+                    catch (RepositoryEmployeExceptionCantDelete ex)
+                    {
 
-                //Törlés az adatbázisból
-                try
-                {
-                    rep.deleteEmployeFromDatabase(id);
-                }
-                catch (Exception ex)
-                {
-                    Debug.WriteLine("A dolgozó törlése sikertelen volt az adatbázisból");
-                    MetroMessageBox.Show(this, "\n\nHibát észleltünk, a törlés sikertelen volt az adatbázisból.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+                        Debug.WriteLine("A dolgozó törlése sikertelen volt a listából!");
+                        MetroMessageBox.Show(this, "\n\nHibát észleltünk, a törlés sikertelen volt az listából.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
 
-                //DataGridView frissítése
-                updateDataInDataGriedViewt();
-                updateEmployeesNumber();
+                    //Törlés az adatbázisból
+                    try
+                    {
+                        rep.deleteEmployeFromDatabase(id);
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine("A dolgozó törlése sikertelen volt az adatbázisból");
+                        MetroMessageBox.Show(this, "\n\nHibát észleltünk, a törlés sikertelen volt az adatbázisból.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+
+                    //DataGridView frissítése
+                    updateDataInDataGriedViewt();
+                    updateEmployeesNumber();
+                }
+                else
+                {
+                    Debug.WriteLine("DialogResult.No-ra futott rá!");
+                }
             }
-            else
+            catch (ArgumentOutOfRangeException ae)
             {
-                Debug.WriteLine("DialogResult.No-ra futott rá!");
+
+                Debug.WriteLine("A törlés sikertelen volt!" + ae.Message);
+                MetroMessageBox.Show(this, "\n\nHibát észleltünk, a törlés sikertelen volt. Kattintson a táblázatba arra a sora amit törölni kiván!", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+
+
 
         }
         /// <summary>

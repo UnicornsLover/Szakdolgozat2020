@@ -72,7 +72,7 @@ namespace Szakdolgozat2020.Forms.Administrator
         {
             updateDataInDataGriedViewt();
             setChildrenParentViewDataGridView();
-            metroTextBoxID.Text = "";
+            emptyCells();
             metroComboBoxChildrenName.DataSource =null;
             metroComboBoxChildrenName.DataSource =rc.getChildrenName();
             metroComboBoxParenttName.DataSource = null;
@@ -113,38 +113,49 @@ namespace Szakdolgozat2020.Forms.Administrator
             {
                 return;
             }
-            int selectedIndex = metroGridPC.SelectedRows[0].Index;
 
-            DialogResult dr = MetroMessageBox.Show(this, "\n\nBiztos szeretné törölni a szülő-gyerek párat?", "Szülő-gyerek pár törlése", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (dr == DialogResult.Yes)
+            try
             {
-                //Törlés a listából
-                //Törlés az adatbázisból
-                int id = -1;
-                if (!int.TryParse(metroGridPC.SelectedRows[0].Cells[0].Value.ToString(), out id))
-                {
-                    return;
-                }
+                int selectedIndex = metroGridPC.SelectedRows[0].Index;
 
-                try
+                DialogResult dr = MetroMessageBox.Show(this, "\n\nBiztos szeretné törölni a szülő-gyerek párat?", "Szülő-gyerek pár törlése", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (dr == DialogResult.Yes)
                 {
-                    rpcdb.deleteChildParentFromDatabase(id);
-                    repo.deleteChildParentInList(id);
+                    //Törlés a listából
+                    //Törlés az adatbázisból
+                    int id = -1;
+                    if (!int.TryParse(metroGridPC.SelectedRows[0].Cells[0].Value.ToString(), out id))
+                    {
+                        return;
+                    }
+
+                    try
+                    {
+                        rpcdb.deleteChildParentFromDatabase(id);
+                        repo.deleteChildParentInList(id);
+                    }
+                    catch (RepositoryChildrenParentExceptionCantDelete)
+                    {
+
+                        Debug.WriteLine("A vizsgálat törlése sikertelen volt a listából, mert másik adatbázisban is szerepel!");
+                        MetroMessageBox.Show(this, "\n\nA vizsgálat törlése sikertelen volt a listából, mert másik adatbázisban is szerepel!", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+
+                    //DataGridView frissítése
+                    updateDataInDataGriedViewt();
                 }
-                catch (RepositoryChildrenParentExceptionCantDelete)
+                else
                 {
-
-                    Debug.WriteLine("A vizsgálat törlése sikertelen volt a listából, mert másik adatbázisban is szerepel!");
-                    MetroMessageBox.Show(this, "\n\nA vizsgálat törlése sikertelen volt a listából, mert másik adatbázisban is szerepel!", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    Debug.WriteLine("'DialogResult.No'-ra futott rá!");
                 }
-
-                //DataGridView frissítése
-                updateDataInDataGriedViewt();
             }
-            else
+            catch (ArgumentOutOfRangeException ae)
             {
-                Debug.WriteLine("'DialogResult.No'-ra futott rá!");
+
+                Debug.WriteLine("A törlés sikertelen volt!" + ae.Message);
+                MetroMessageBox.Show(this, "\n\nHibát észleltünk, a törlés sikertelen volt. Kattintson a táblázatba arra a sora amit törölni kiván!", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+
         }
 
         private void metroGridPC_SelectionChanged(object sender, EventArgs e)
