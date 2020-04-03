@@ -26,7 +26,7 @@ namespace Szakdolgozat2020.Forms.Foster
         }
         private void Fosterhomepage_Load(object sender, EventArgs e)
         {
-
+            metroTileInReason.Enabled = false;
         }
 
         private void metroButtonLogOut_Click(object sender, EventArgs e)
@@ -65,5 +65,6 @@ namespace Szakdolgozat2020.Forms.Foster
             SoulReg sr = new SoulReg();
             sr.Show();
         }
+
     }
 }

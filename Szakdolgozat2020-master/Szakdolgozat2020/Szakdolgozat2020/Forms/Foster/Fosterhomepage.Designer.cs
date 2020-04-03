@@ -36,6 +36,9 @@
             this.metroTileEvents = new MetroFramework.Controls.MetroTile();
             this.metroTile1 = new MetroFramework.Controls.MetroTile();
             this.metroTileAddMEvents = new MetroFramework.Controls.MetroTile();
+            this.metroTileInReason = new MetroFramework.Controls.MetroTile();
+            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.metroTileInReason.SuspendLayout();
             this.SuspendLayout();
             // 
             // metroLabelLoggedName
@@ -62,7 +65,7 @@
             // 
             // metroButtonLogOut
             // 
-            this.metroButtonLogOut.Location = new System.Drawing.Point(890, 495);
+            this.metroButtonLogOut.Location = new System.Drawing.Point(875, 495);
             this.metroButtonLogOut.Name = "metroButtonLogOut";
             this.metroButtonLogOut.Size = new System.Drawing.Size(156, 28);
             this.metroButtonLogOut.Style = MetroFramework.MetroColorStyle.Silver;
@@ -79,7 +82,7 @@
             this.metroTileEdu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
             this.metroTileEdu.Location = new System.Drawing.Point(303, 93);
             this.metroTileEdu.Name = "metroTileEdu";
-            this.metroTileEdu.Size = new System.Drawing.Size(191, 123);
+            this.metroTileEdu.Size = new System.Drawing.Size(197, 123);
             this.metroTileEdu.TabIndex = 10;
             this.metroTileEdu.Text = "Oktatás - Gyerek";
             this.metroTileEdu.UseCustomBackColor = true;
@@ -92,7 +95,7 @@
             this.metroTileIntAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
             this.metroTileIntAdd.Location = new System.Drawing.Point(55, 93);
             this.metroTileIntAdd.Name = "metroTileIntAdd";
-            this.metroTileIntAdd.Size = new System.Drawing.Size(191, 123);
+            this.metroTileIntAdd.Size = new System.Drawing.Size(197, 123);
             this.metroTileIntAdd.TabIndex = 11;
             this.metroTileIntAdd.Text = "Intézmény felvétele:";
             this.metroTileIntAdd.UseCustomBackColor = true;
@@ -106,7 +109,7 @@
             this.metroTileEvents.ForeColor = System.Drawing.Color.White;
             this.metroTileEvents.Location = new System.Drawing.Point(551, 93);
             this.metroTileEvents.Name = "metroTileEvents";
-            this.metroTileEvents.Size = new System.Drawing.Size(191, 123);
+            this.metroTileEvents.Size = new System.Drawing.Size(197, 123);
             this.metroTileEvents.TabIndex = 12;
             this.metroTileEvents.Text = "Esemény felvétele";
             this.metroTileEvents.UseCustomBackColor = true;
@@ -121,7 +124,7 @@
             this.metroTile1.ForeColor = System.Drawing.Color.DarkOrange;
             this.metroTile1.Location = new System.Drawing.Point(790, 93);
             this.metroTile1.Name = "metroTile1";
-            this.metroTile1.Size = new System.Drawing.Size(191, 123);
+            this.metroTile1.Size = new System.Drawing.Size(197, 123);
             this.metroTile1.TabIndex = 13;
             this.metroTile1.Text = "Gyerek - Esemény";
             this.metroTile1.UseCustomBackColor = true;
@@ -133,18 +136,46 @@
             this.metroTileAddMEvents.ActiveControl = null;
             this.metroTileAddMEvents.Location = new System.Drawing.Point(55, 255);
             this.metroTileAddMEvents.Name = "metroTileAddMEvents";
-            this.metroTileAddMEvents.Size = new System.Drawing.Size(191, 123);
+            this.metroTileAddMEvents.Size = new System.Drawing.Size(197, 123);
             this.metroTileAddMEvents.Style = MetroFramework.MetroColorStyle.Pink;
             this.metroTileAddMEvents.TabIndex = 14;
             this.metroTileAddMEvents.Text = "Vizsgálatok:";
             this.metroTileAddMEvents.UseSelectable = true;
             this.metroTileAddMEvents.Click += new System.EventHandler(this.metroTileAddMEvents_Click);
             // 
+            // metroTileInReason
+            // 
+            this.metroTileInReason.ActiveControl = null;
+            this.metroTileInReason.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
+            this.metroTileInReason.Controls.Add(this.metroLabel1);
+            this.metroTileInReason.Location = new System.Drawing.Point(303, 255);
+            this.metroTileInReason.Name = "metroTileInReason";
+            this.metroTileInReason.Size = new System.Drawing.Size(197, 123);
+            this.metroTileInReason.TabIndex = 37;
+            this.metroTileInReason.Text = "Bekerülés okai";
+            this.metroTileInReason.UseCustomBackColor = true;
+            this.metroTileInReason.UseSelectable = true;
+            // 
+            // metroLabel1
+            // 
+            this.metroLabel1.AutoSize = true;
+            this.metroLabel1.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
+            this.metroLabel1.Location = new System.Drawing.Point(3, 45);
+            this.metroLabel1.Name = "metroLabel1";
+            this.metroLabel1.Size = new System.Drawing.Size(160, 17);
+            this.metroLabel1.Style = MetroFramework.MetroColorStyle.White;
+            this.metroLabel1.TabIndex = 0;
+            this.metroLabel1.Text = "HAMAROSAN ELÉRHETŐ";
+            this.metroLabel1.UseCustomForeColor = true;
+            // 
             // Fosterhomepage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1069, 546);
+            this.Controls.Add(this.metroTileInReason);
             this.Controls.Add(this.metroTileAddMEvents);
             this.Controls.Add(this.metroTile1);
             this.Controls.Add(this.metroTileEvents);
@@ -157,6 +188,8 @@
             this.Style = MetroFramework.MetroColorStyle.Silver;
             this.Text = "Nevelő";
             this.Load += new System.EventHandler(this.Fosterhomepage_Load);
+            this.metroTileInReason.ResumeLayout(false);
+            this.metroTileInReason.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -172,5 +205,7 @@
         private MetroFramework.Controls.MetroTile metroTileEvents;
         private MetroFramework.Controls.MetroTile metroTile1;
         private MetroFramework.Controls.MetroTile metroTileAddMEvents;
+        private MetroFramework.Controls.MetroTile metroTileInReason;
+        private MetroFramework.Controls.MetroLabel metroLabel1;
     }
 }
