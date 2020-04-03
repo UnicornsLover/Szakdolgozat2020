@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Szakdolgozat2020.Forms.Soul;
 
 namespace Szakdolgozat2020.Forms.Foster
 {
@@ -57,6 +58,12 @@ namespace Szakdolgozat2020.Forms.Foster
         {
             EventChildForm ec = new EventChildForm();
             ec.Show();
+        }
+
+        private void metroTileAddMEvents_Click(object sender, EventArgs e)
+        {
+            SoulReg sr = new SoulReg();
+            sr.Show();
         }
     }
 }

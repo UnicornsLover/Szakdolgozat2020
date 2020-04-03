@@ -22,6 +22,7 @@ namespace Szakdolgozat2020
     {
         public static string fnameLoged;
         public static string userId;
+        public static string etype;
         private readonly string connectionString;
         Connection dc = new Connection();
         public LogIn()
@@ -51,11 +52,13 @@ namespace Szakdolgozat2020
                     {
                         fnameLoged = dr["ename"].ToString();
                         userId = dr["ID"].ToString();
+                        etype = dr["ejob"].ToString();
                         ChangePassword cp = new ChangePassword();
                         cp.Show();
                     }
                     else
                     {
+                        etype = dr["ejob"].ToString();
                         switch (dr["ejob"].ToString())
                         {
                             case "Rendszergazda":

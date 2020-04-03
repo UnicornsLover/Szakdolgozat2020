@@ -30,6 +30,7 @@ namespace Szakdolgozat2020.Forms.Soul
             InitializeComponent();
             repo.setSouls(rep.getSoulsFromDatabase());
             rc.setChild(cd.getChildrenFromDatabase());
+            
         }
         /// <summary>
         /// DataGridview frissitése
@@ -50,6 +51,7 @@ namespace Szakdolgozat2020.Forms.Soul
             richTextBoxDetails.Text = "";
             richTextBoxST.Text = "";
             metroDateTimeAddedDate.Text = "1990-01-01";
+            metroTextBoxAddedPerson.Text = "";
         }
 
         /// <summary>
@@ -81,6 +83,13 @@ namespace Szakdolgozat2020.Forms.Soul
             setSoulDataGridView();
             emptyCells();
             metroComboBoxChildrenName.DataSource = rc.getChildrenName();
+            if (LogIn.etype == "Nevelő")
+            {
+                metroButtonAdd.Enabled = false;
+                metroButtonModify.Enabled = false;
+                metroButtonDelete.Enabled = false;
+            }
+            Console.WriteLine(LogIn.etype+"******************************************************************************************");
 
         }
 

@@ -112,11 +112,11 @@ namespace Szakdolgozat2020.Database
                 connection.Open();
                 string query =
                     "INSERT IGNORE INTO `children_school` (`ID`,`schoolID`, `childrenID`, `fromDate`, `expectedFinish`, `type`, `headteacher`) VALUES"
-                    + "(1,1, 2, '2001-09-01', '2009-07-15', 'Általános', 'Szabó Emese'),"
-                    +"(2,2, 2, '2009-09-01', '2013-07-31', 'Biólogia és Kémia szak', 'Tóth Attila'),"
-                    +"(3,3, 2, '2013-09-01', '2018-05-31', 'Orvosi', '-'),"
+                    + "(1,1, 2, '2001-09-01', '2009-07-15', 'Általános Iskola', 'Szabó Emese'),"
+                    +"(2,2, 2, '2009-09-01', '2013-07-31', 'Gimnázium', 'Tóth Attila'),"
+                    +"(3,3, 2, '2013-09-01', '2018-05-31', 'Egyetem', '-'),"
                     +"(4,4, 1, '2011-09-01', '2019-07-15', 'Általános', 'Király Attila'),"
-                    +"(5,5, 1, '2019-09-01', '2023-05-31', 'Informatikai', 'Forgó Gábor');";
+                    +"(5,5, 1, '2019-09-01', '2023-05-31', 'OKJ', 'Forgó Gábor');";
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
                 connection.Close();

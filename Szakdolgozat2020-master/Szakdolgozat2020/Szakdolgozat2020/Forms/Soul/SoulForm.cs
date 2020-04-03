@@ -15,6 +15,7 @@ namespace Szakdolgozat2020.Forms.Soul
         public SoulForm()
         {
             InitializeComponent();
+            metroLabelLoggedName.Text = LogIn.fnameLoged;
         }
 
         private void metroTileAddMEvents_Click(object sender, EventArgs e)

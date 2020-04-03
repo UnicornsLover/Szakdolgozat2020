@@ -56,7 +56,7 @@ namespace Szakdolgozat2020.Database
                     + "`ebirth` date DEFAULT NULL,"
                     + "`ebirthplace` varchar(40) COLLATE utf8_hungarian_ci DEFAULT NULL,"
                     + "`ejob` varchar(18) COLLATE utf8_hungarian_ci DEFAULT NULL,"
-                    + "`elocation` varchar(90) COLLATE utf8_hungarian_ci DEFAULT NULL,"
+                    + "`elocation` varchar(25) COLLATE utf8_hungarian_ci DEFAULT NULL,"
                     + "`idcard` varchar(10) COLLATE utf8_hungarian_ci DEFAULT NULL,"
                     + "`euname` varchar(25) COLLATE utf8_hungarian_ci NOT NULL,"
                     +"`epassword` varchar(25) COLLATE utf8_hungarian_ci NOT NULL"

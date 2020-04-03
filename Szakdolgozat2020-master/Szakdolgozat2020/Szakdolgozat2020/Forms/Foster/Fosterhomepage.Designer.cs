@@ -35,6 +35,7 @@
             this.metroTileIntAdd = new MetroFramework.Controls.MetroTile();
             this.metroTileEvents = new MetroFramework.Controls.MetroTile();
             this.metroTile1 = new MetroFramework.Controls.MetroTile();
+            this.metroTileAddMEvents = new MetroFramework.Controls.MetroTile();
             this.SuspendLayout();
             // 
             // metroLabelLoggedName
@@ -127,11 +128,24 @@
             this.metroTile1.UseSelectable = true;
             this.metroTile1.Click += new System.EventHandler(this.metroTile1_Click_1);
             // 
+            // metroTileAddMEvents
+            // 
+            this.metroTileAddMEvents.ActiveControl = null;
+            this.metroTileAddMEvents.Location = new System.Drawing.Point(55, 255);
+            this.metroTileAddMEvents.Name = "metroTileAddMEvents";
+            this.metroTileAddMEvents.Size = new System.Drawing.Size(191, 123);
+            this.metroTileAddMEvents.Style = MetroFramework.MetroColorStyle.Pink;
+            this.metroTileAddMEvents.TabIndex = 14;
+            this.metroTileAddMEvents.Text = "Vizsgálatok:";
+            this.metroTileAddMEvents.UseSelectable = true;
+            this.metroTileAddMEvents.Click += new System.EventHandler(this.metroTileAddMEvents_Click);
+            // 
             // Fosterhomepage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1069, 546);
+            this.Controls.Add(this.metroTileAddMEvents);
             this.Controls.Add(this.metroTile1);
             this.Controls.Add(this.metroTileEvents);
             this.Controls.Add(this.metroTileIntAdd);
@@ -157,5 +171,6 @@
         private MetroFramework.Controls.MetroTile metroTileIntAdd;
         private MetroFramework.Controls.MetroTile metroTileEvents;
         private MetroFramework.Controls.MetroTile metroTile1;
+        private MetroFramework.Controls.MetroTile metroTileAddMEvents;
     }
 }
