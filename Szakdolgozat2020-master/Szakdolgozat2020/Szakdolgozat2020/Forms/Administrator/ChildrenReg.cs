@@ -36,6 +36,10 @@ namespace Szakdolgozat2020.Forms.Nevelo
             metroGridChildren.DataSource = null;
             metroGridChildren.DataSource = childrenDT;
         }
+
+        /// <summary>
+        /// A cellák kiürítése
+        /// </summary>
         public void emptyCells()
         {
             metroTextBoxID.Text = "";
@@ -50,7 +54,7 @@ namespace Szakdolgozat2020.Forms.Nevelo
         }
 
         /// <summary>
-        /// Beállít Datagridview oszlopait és egyébb dolgot
+        /// Beállít Datagridview oszlopait és formázás
         /// </summary>
         public void setChildrenDataGridView()
         {
@@ -81,7 +85,7 @@ namespace Szakdolgozat2020.Forms.Nevelo
         }
 
         /// <summary>
-        /// Form elinduláskor való meghívás
+        /// Form elinduláskor való meghívás //load
         /// </summary>
         private void ChildrenReg_Load(object sender, EventArgs e)
         {
@@ -117,7 +121,7 @@ namespace Szakdolgozat2020.Forms.Nevelo
         }
 
         /// <summary>
-        /// Cellák ürítése
+        /// Cellák ürítése a gm menyomására
         /// </summary>
         private void metroButtonClearCells_Click(object sender, EventArgs e)
         {
@@ -127,8 +131,6 @@ namespace Szakdolgozat2020.Forms.Nevelo
         /// <summary>
         /// Gyerek törlése
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void metroButtonDelete_Click(object sender, EventArgs e)
         {
             //Ha sor nullat ad vissza ne történjen 
@@ -159,7 +161,7 @@ namespace Szakdolgozat2020.Forms.Nevelo
                     }
                     catch (Exception ex)
                     {
-                        Debug.WriteLine("Sikertelen törlés! Nem lehet törlni, mert másik táblában is szerepel.");
+                        Debug.WriteLine("Sikertelen törlés! Nem lehet törlni a gyereket, mert másik táblában is szerepel.");
                         MetroMessageBox.Show(this, "\n\nSikertelen törlés! Nem lehet törlni, mert másik táblában is szerepel.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
 
@@ -183,8 +185,6 @@ namespace Szakdolgozat2020.Forms.Nevelo
         /// <summary>
         /// Gyerek hozzáadása
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void metroButtonAdd_Click(object sender, EventArgs e)
         {
             errorProviderName.Clear();
@@ -230,7 +230,7 @@ namespace Szakdolgozat2020.Forms.Nevelo
                 catch (Exception)
                 {
 
-                    Debug.WriteLine("A dolgozó felvétele sikertelen volt a listához");
+                    Debug.WriteLine("A gyerek felvétele sikertelen volt a listához");
                     MetroMessageBox.Show(this, "\n\nHibát észleltünk, a felvétel sikertelen volt a listához.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
@@ -241,7 +241,7 @@ namespace Szakdolgozat2020.Forms.Nevelo
             }
             catch (insertChildException ice)
             {
-                Debug.WriteLine("A dolgozó felvétele sikertelen volt az adatbázishoz, " + ice.Message);
+                Debug.WriteLine("A gyerek felvétele sikertelen volt az adatbázishoz, " + ice.Message);
                 MetroMessageBox.Show(this, "\n\nHibát észleltünk, a felvétel sikertelen volt. Nem lehet ugyan olyna személyigazolvány szám és taj szám, mint ami már van a DataGridView-ba és az adatbázisba.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             catch (ModellChildNotValidNameException mne)
@@ -336,7 +336,7 @@ namespace Szakdolgozat2020.Forms.Nevelo
             }
             catch (updateChildException uce)
             {
-                Debug.WriteLine("A dolgozó módosítás sikertelen volt az adatbázishoz, " + uce.Message);
+                Debug.WriteLine("A gyermek módosítás sikertelen volt az adatbázishoz, " + uce.Message);
                 MetroMessageBox.Show(this, "\n\nHibát észleltünk, a módosítás sikertelen volt. Nem lehet ugyan olyna személyigazolvány szám és taj szám, mint ami már van a DataGridView-ba és az adatbázisba.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             catch (ModellChildNotValidNameException mne)
@@ -378,6 +378,9 @@ namespace Szakdolgozat2020.Forms.Nevelo
             }
         }
 
+        /// <summary>
+        /// Ha egy sor katintunk akkor azt a sort írj bele textboxokba/comboboxba
+        /// </summary>
         private void metroGridChildren_SelectionChanged(object sender, EventArgs e)
         {
             if (metroGridChildren.SelectedRows.Count != 0)

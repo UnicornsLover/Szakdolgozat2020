@@ -13,6 +13,9 @@ namespace Szakdolgozat2020.Repository.Children
     public partial class RepositoryDatabaseChildren
     {
         private readonly string connectionString;
+        /// <summary>
+        /// Adatbázissal a kapcsolat
+        /// </summary>
         public RepositoryDatabaseChildren()
         {
             Connection cs = new Connection();
@@ -59,7 +62,7 @@ namespace Szakdolgozat2020.Repository.Children
             catch (Exception ex)
             {
                 connection.Close();
-                Debug.WriteLine(ex.Message + "Dolgozók1 adatainak beolvasása************************************************************");
+                Debug.WriteLine(ex.Message + "Gyerek adatainak beolvasása************************************************************");
                 throw new RepositoryChildrenReadyDataFromEmployes_LoginException("Gyermekek adatainak beolvasása sikertlen, nem elérthető az adatbázis.");
             }
             return children;
@@ -115,7 +118,7 @@ namespace Szakdolgozat2020.Repository.Children
         }
 
         /// <summary>
-        /// Gyermek hozzáadása a z adatbázishoz
+        /// Gyermek hozzáadása az adatbázishoz
         /// </summary>
         /// <param name="newChild">Az adott gyermek akit beszúrunk</param>
         public void insertChildrenToDatabase(Child newChild)

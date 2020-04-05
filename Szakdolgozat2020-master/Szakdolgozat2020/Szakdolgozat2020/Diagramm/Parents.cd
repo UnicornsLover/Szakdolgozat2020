@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Szakdolgozat2020.Forms.Administrator.ParentsReg">
+    <Position X="9" Y="2" Width="2.25" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>ByAigBCACCJAUQQYCCPCAigSABgAQAIgAGABCgACIAA=</HashCode>
+      <FileName>Forms\Administrator\ParentsReg.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="rep" />
+      <Field Name="repo" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Szakdolgozat2020.Modell.Parents.Parent">
+    <Position X="3.5" Y="1.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>SICARIAIgIBEgECAAAAIACAAAAAIRAAADAAARwEDCUA=</HashCode>
+      <FileName>Modell\Parent\GetSQLCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Szakdolgozat2020.Repository.Parents.RepositoryParents">
+    <Position X="0.5" Y="1.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAEAAQAAAAAACAAAAAAIIAAAIIAQAAAAAAAA=</HashCode>
+      <FileName>Repository\Parents\RepositoryParents.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="parents" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Szakdolgozat2020.Repository.Parents.RepositoryDatabaseParents">
+    <Position X="5.5" Y="1.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAEAAAAgAAAAAAAAAAAAAAAAAAARAAAAAAAA=</HashCode>
+      <FileName>Repository\Parents\DatabaseCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

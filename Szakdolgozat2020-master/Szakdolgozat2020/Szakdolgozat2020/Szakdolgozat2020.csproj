@@ -402,6 +402,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Diagramm\Children.cd" />
+    <None Include="Diagramm\EventDia.cd" />
+    <None Include="Diagramm\Parent-Children.cd" />
+    <None Include="Diagramm\Parents.cd" />
+    <None Include="Diagramm\SchoolDia.cd" />
+    <None Include="Diagramm\SoulDia.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

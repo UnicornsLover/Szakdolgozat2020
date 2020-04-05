@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Szakdolgozat2020.Forms.Foster.EventChildForm">
+    <Position X="6.25" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>CiggIAAACLIAUQDQCSKDAIASAAAAAAAAAEIAEEAAAhA=</HashCode>
+      <FileName>Forms\Foster\EventChild.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="rc" />
+      <Field Name="rce" />
+      <Field Name="rdb" />
+      <Field Name="rdc" />
+      <Field Name="re" />
+      <Field Name="rec" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Szakdolgozat2020.Forms.Foster.EventsAdd">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AiBgAAGhCDIAUQEACSSCAAASAAAQAIAIAFCAACAAAAA=</HashCode>
+      <FileName>Forms\Foster\EventsAdd.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="rs" />
+      <Field Name="edc" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Szakdolgozat2020.Modell.Event.Event">
+    <Position X="4.5" Y="1.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AQAAABCAQAAABFAAASAAAAAAAQAABAAACAAABQABAFA=</HashCode>
+      <FileName>Modell\Event\Event.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Szakdolgozat2020.Modell.EventChildren.EventChild">
+    <Position X="8.25" Y="1.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAQAAAAABQAKAAAAEAFAQARACADAAABwAAAEA=</HashCode>
+      <FileName>Modell\EventChildren\EventChild.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Szakdolgozat2020.Repository.ChildrenEvents.RepositoryEventsChildren">
+    <Position X="9.5" Y="3.25" Width="2" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>ACCAAAAAAAAAAAgAAAAAAAAAAIAAAAACgAAACAAAAAA=</HashCode>
+      <FileName>Repository\ChildrenEvents\RepositoryEventsChildren.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="eventchilds" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Szakdolgozat2020.Repository.ChildrenEvents.EventChildrenDatabaseCommand">
+    <Position X="6.25" Y="4" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAggIAIAAAAAAAAAAAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>Repository\ChildrenEvents\EventChildrenDatabaseCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Szakdolgozat2020.Repository.Events.EventDatabaseCommand">
+    <Position X="0.75" Y="2.5" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAABAEAAAAAAACAAAAAAAAAAQ=</HashCode>
+      <FileName>Repository\Events\EventDatabaseCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Szakdolgozat2020.Repository.Events.RepositoryEvents">
+    <Position X="2.5" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAIAAIAGAAAAAACAACEAEAAAAAAAgAIEAAAAAABAAAQ=</HashCode>
+      <FileName>Repository\RepositoryEve.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="events" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Szakdolgozat2020.Repository.Children.RepositoryChildren">
+    <Position X="10.5" Y="0.5" Width="2.25" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAwAAAAQAAAAMAAFAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Repository\Children\RepositoryChildren.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="children" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Szakdolgozat2020.Repository.Children.RepositoryDatabaseChildren">
+    <Position X="11.25" Y="1.75" Width="2.25" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAggACAAAEAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Repository\Children\DatabaseCommandsC.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Szakdolgozat2020.Modell.Children.Child">
+    <Position X="13.75" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>QIIQQIABQAgKQCAAAEQgAAIAkAQEhAIBGAQgBQUBGkQ=</HashCode>
+      <FileName>Modell\Child\Child.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

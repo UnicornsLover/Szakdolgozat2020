@@ -16,7 +16,7 @@ namespace Szakdolgozat2020.Repository.Parents
         /// <summary>
         /// Szülők neveit kigyűjti
         /// </summary>
-        /// <returns>Szülő nevekpublic</returns>
+        /// <returns>Szülő nevek </returns>
         public List<string> getParentsName()
         {
             //neve tárólására egy lista
@@ -31,6 +31,12 @@ namespace Szakdolgozat2020.Repository.Parents
             parentsName.Sort();
             return parentsName;
         }
+
+        /// <summary>
+        /// A szülő nevei alapján megkeresük a id-jt.
+        /// </summary>
+        /// <param name="adat">A szülő neve</param>
+        /// <returns> Adott nevű szülő nevéhez tartozó id </returns>
         public string getParentIdInsert(string adat)
         {
             string a = parents.Find(x => x.getPname() == adat).getPID().ToString();

@@ -25,6 +25,9 @@ namespace Szakdolgozat2020.Forms.Foster
             repo.setSchools(rep.getSchoolsFromDatabase());
         }
 
+        /// <summary>
+        /// A form betöltésekor az események
+        /// </summary>
         private void AddSchool_Load(object sender, EventArgs e)
         {
             updateDataInDataGriedViewt();
@@ -44,6 +47,9 @@ namespace Szakdolgozat2020.Forms.Foster
             metroGridSchoolBasic.DataSource = schoolTD;
         }
 
+        /// <summary>
+        /// Inputok ürítése és azok alaphelyzetbeállítása
+        /// </summary>
         public void emptyCells()
         {
             metroTextBoxSID.Text = "";
@@ -71,12 +77,16 @@ namespace Szakdolgozat2020.Forms.Foster
             metroGridSchoolBasic.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
 
-
+        /// <summary>
+        /// Iskola név alapján keresés
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void metroButtonSearch_Click(object sender, EventArgs e)
         {
             if (metroTextBoxName.Text == "")
             {
-                MetroMessageBox.Show(this, "Keresés csak pontos név megadásával lehetséges (pl: Kecskeméti Református Gimnázium - nagy betű is fontos), a cella kitötése kötelező! \nTöltse ki a \"Neve:\" cellát!\nHa esetleg minden adatot újra szeretne látni egy szűrés után, csak is kizárólag írja be ezt a \" * \" (csillag) jelet a \"Neve:\" cellábas!", "Hiba\n\n", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MetroMessageBox.Show(this, "Keresés csak pontos intézmény név megadásával lehetséges (pl: Kecskeméti Református Gimnázium - nagy betű is fontos), a cella kitötése kötelező! \nTöltse ki a \"Neve:\" cellát!\nHa esetleg minden adatot újra szeretne látni egy szűrés után, csak is kizárólag írja be ezt a \" * \" (csillag) jelet a \"Neve:\" cellábas!", "Hiba\n\n", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else if (metroTextBoxName.Text == "*")
             {
@@ -89,21 +99,25 @@ namespace Szakdolgozat2020.Forms.Foster
 
                 if (metroGridSchoolBasic.Rows.Count == 0)
                 {
-                    MetroMessageBox.Show(this, "Keresés csak pontos név megadásával lehetséges (pl: Kecskeméti Református Gimnázium - nagy betű is fontos), a cella kitötése kötelező! \nTöltse ki a \"Neve:\" cellát!\nHa esetleg minden adatot újra szeretne látni egy szűrés után, csak is kizárólag írja be ezt a \" * \" (csillag) jelet a \"Neve:\" cellábas!", "Hiba\n\n", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MetroMessageBox.Show(this, "Keresés csak pontos intézmény név megadásával lehetséges (pl: Kecskeméti Református Gimnázium - nagy betű is fontos), a cella kitötése kötelező! \nTöltse ki a \"Neve:\" cellát!\nHa esetleg minden adatot újra szeretne látni egy szűrés után, csak is kizárólag írja be ezt a \" * \" (csillag) jelet a \"Neve:\" cellábas!", "Hiba\n\n", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
 
         }
 
+        /// <summary>
+        /// Keresés gombra esemény
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void metroButtonCleanCells_Click(object sender, EventArgs e)
         {
             emptyCells();
         }
+
         /// <summary>
         /// Iskola törlése
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void metroButtonDelete_Click(object sender, EventArgs e)
         {
             //Ha sor nullat ad vissza ne történjen 
@@ -155,18 +169,7 @@ namespace Szakdolgozat2020.Forms.Foster
             }
 
         }
-
-        private void metroGridSchoolBasic_SelectionChanged(object sender, EventArgs e)
-        {
-            if (metroGridSchoolBasic.SelectedRows.Count != 0)
-            {
-                metroGridSchoolBasic.CurrentRow.Selected = true;
-                metroTextBoxSID.Text = metroGridSchoolBasic.SelectedRows[0].Cells[0].Value.ToString();
-                metroTextBoxName.Text = metroGridSchoolBasic.SelectedRows[0].Cells[1].Value.ToString();
-                metroTextBoxLocation.Text = metroGridSchoolBasic.SelectedRows[0].Cells[2].Value.ToString();
-                metroTextBoxPhone.Text = metroGridSchoolBasic.SelectedRows[0].Cells[3].Value.ToString();
-            }
-        }
+ 
 
         /// <summary>
         /// Iskola módosítása adatbázisban, listában, DatagridView frissítése
@@ -242,8 +245,6 @@ namespace Szakdolgozat2020.Forms.Foster
         /// <summary>
         /// Iskola intézmény hozzáadása
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void metroButtonAddSchool_Click(object sender, EventArgs e)
         {
             errorProviderName.Clear();
@@ -314,7 +315,11 @@ namespace Szakdolgozat2020.Forms.Foster
             }
         }
 
-        private void metroGridSchoolBasic_SelectionChanged_1(object sender, EventArgs e)
+
+        /// <summary>
+        /// Egy sora kattintáskor az inputok feltöltése a sor adatiaval
+        /// </summary>
+        private void metroGridSchoolBasic_SelectionChanged(object sender, EventArgs e)
         {
             if (metroGridSchoolBasic.SelectedRows.Count != 0)
             {
@@ -323,7 +328,6 @@ namespace Szakdolgozat2020.Forms.Foster
                 metroTextBoxName.Text = metroGridSchoolBasic.SelectedRows[0].Cells[1].Value.ToString();
                 metroTextBoxLocation.Text = metroGridSchoolBasic.SelectedRows[0].Cells[2].Value.ToString();
                 metroTextBoxPhone.Text = metroGridSchoolBasic.SelectedRows[0].Cells[3].Value.ToString();
-                
             }
         }
     }

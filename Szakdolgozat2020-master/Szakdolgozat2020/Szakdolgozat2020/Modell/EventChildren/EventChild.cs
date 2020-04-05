@@ -42,6 +42,7 @@ namespace Szakdolgozat2020.Modell.EventChildren
 
 
         }
+        //****************************Settter*************************
         public void setecID(int ecID)
         {
             this.ecID = ecID;
@@ -58,7 +59,7 @@ namespace Szakdolgozat2020.Modell.EventChildren
         {
             this.dateTime = dateTime;
         }
-
+        //****************************Getter*************************
         public int getecID()
         {
             return ecID;

@@ -145,7 +145,8 @@ namespace Szakdolgozat2020.Database
                 "ALTER TABLE `children_events` "
                 + "ADD PRIMARY KEY IF NOT EXISTS (`ID`);" +
                 "ALTER TABLE `children_events` MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 1;" +
-                "ALTER TABLE children_events ADD UNIQUE INDEX(`ID`); ";
+                "ALTER TABLE children_events ADD UNIQUE INDEX(`ID`); " +
+                "ALTER TABLE children_events ADD UNIQUE INDEX(`title`); ";
                 MySqlCommand cmdCreateTable = new MySqlCommand(queryCreateTable, connection);
                 cmdCreateTable.ExecuteNonQuery();
                 MySqlCommand cmdPrimaryKey = new MySqlCommand(queryPrimaryKey, connection);

@@ -26,6 +26,9 @@ namespace Szakdolgozat2020.Forms.Administrator
             repo.setParents(rep.getParentsFromDatabase());
         }
 
+        /// <summary>
+        /// Load, a form betötésekor
+        /// </summary>
         private void ParentsReg_Load(object sender, EventArgs e)
         {
             updateDataInDataGriedViewt();
@@ -46,6 +49,9 @@ namespace Szakdolgozat2020.Forms.Administrator
             metroGridParents.DataSource = parentsTD;
         }
 
+        /// <summary>
+        /// Cellák kiürítése, alaphelyzetbe állítása
+        /// </summary>
         public void emptyCells()
         {
             metroTextBoxID.Text = "";
@@ -59,7 +65,7 @@ namespace Szakdolgozat2020.Forms.Administrator
             metroTextBoxPassword.Text = "";
         }
         /// <summary>
-        /// Beállít Datagridview oszlopait és egyébb dolgot
+        /// Beállít Datagridview oszlopait és formázás
         /// </summary>
         public void setParentsDataGridView()
         {
@@ -82,12 +88,19 @@ namespace Szakdolgozat2020.Forms.Administrator
             metroGridParents.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
 
+        /// <summary>
+        /// Megszámolja  a gyerkek számát az intézményben (lista)
+        /// </summary>
         public void updateParentsNumber()
         {
             metroLabelPdb.Text = "Jelenleg gyermekek száma az intézménybe: " + repo.getParentsNumber().ToString() + " .";
         }
 
-
+        /// <summary>
+        /// Keresés funkció egy textbox segítségével
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void metroButtonSearch_Click(object sender, EventArgs e)
         {
             if (metroTextBoxName.Text == "")
@@ -110,16 +123,17 @@ namespace Szakdolgozat2020.Forms.Administrator
             }
         }
 
-        
+        /// <summary>
+        /// Gomb nyomásra a cellékürítése és alaphelyzetre állítása
+        /// </summary>
         private void metroButtonClearCells_Click(object sender, EventArgs e)
         {
             emptyCells();
         }
+
         /// <summary>
-        /// szülő törlése
+        /// Szülő törlése
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void metroButtonDelete_Click(object sender, EventArgs e)
         {
             //Ha sor nullat ad vissza ne történjen 
@@ -172,6 +186,12 @@ namespace Szakdolgozat2020.Forms.Administrator
 
 
         }
+
+        /// <summary>
+        /// Szülő felvételekor generál egy felhasználó neve a neve alapján.
+        /// </summary>
+        /// <param name="adat"></param>
+        /// <returns>Felhasználó név</returns>
         public string getRegUserName(string adat)
         {
             try
@@ -208,6 +228,12 @@ namespace Szakdolgozat2020.Forms.Administrator
 
             
         }
+
+        /// <summary>
+        /// A szülő engedély/ tiltás átalakítása adatbázis és datagridview miatt
+        /// </summary>
+        /// <param name="adat"></param>
+        /// <returns>Átalakított adat</returns>
         public string getPermisiion(string adat)
         {
             adat = "";
@@ -328,6 +354,7 @@ namespace Szakdolgozat2020.Forms.Administrator
             }
         }
 
+
         private void metroButtonModify_Click(object sender, EventArgs e)
         {
             try
@@ -415,6 +442,9 @@ namespace Szakdolgozat2020.Forms.Administrator
             }
         }
 
+        /// <summary>
+        /// Egy dott so kijelöléssekor, az cellákba rakja bela  a kiválasztott sort
+        /// </summary>
         private void metroGridParents_SelectionChanged(object sender, EventArgs e)
         {
             if(metroGridParents.SelectedRows.Count != 0)

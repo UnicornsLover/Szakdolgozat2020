@@ -34,9 +34,9 @@ namespace Szakdolgozat2020.Repository.Children
         
 
         /// <summary>
-        /// Beállytja  gyereket
+        /// Beállítja  gyereket
         /// </summary>
-        /// <param name="children"> Gyerek </param>
+        /// <param name="children"> Gyerek a lsitából </param>
         public void setChild(List<Child> children)
         {
             this.children = children;
@@ -74,7 +74,7 @@ namespace Szakdolgozat2020.Repository.Children
         }
 
         /// <summary>
-        /// Mgszámolj  agyerekeket
+        /// Mgszámolja gyerekeket
         /// </summary>
         /// <returns>Gyerekek száma</returns>
         public int getChildrenNumber()
@@ -104,6 +104,11 @@ namespace Szakdolgozat2020.Repository.Children
             }
         }
 
+        /// <summary>
+        /// A gyerek id-ja mgszerzése név alapján
+        /// </summary>
+        /// <param name="adat">A gyerek neve</param>
+        /// <returns>Névhez tartozó id.</returns>
         public string getChildrenId(string adat)
         {
             
@@ -132,7 +137,7 @@ namespace Szakdolgozat2020.Repository.Children
         /// <summary>
         /// Újy gyermek hozzáadaása a listához
         /// </summary>
-        /// <param name="newChild"></param>
+        /// <param name="newChild"> Az új gyerek</param>
         public void addChildToList(Child newChild)
         {
             try

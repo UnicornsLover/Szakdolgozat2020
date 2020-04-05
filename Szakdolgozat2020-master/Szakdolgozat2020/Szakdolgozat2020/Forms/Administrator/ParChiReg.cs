@@ -25,6 +25,10 @@ namespace Szakdolgozat2020.Forms.Administrator
         RepositoryDatabaseParents rdp = new RepositoryDatabaseParents();
         RepositoryChildrenParents repo = new RepositoryChildrenParents();
         ChildrenParentDatabaseCommand rpcdb = new ChildrenParentDatabaseCommand();
+        
+        /// <summary>
+        /// Konstruktor
+        /// </summary>
         public ParChiReg()
         {
             InitializeComponent();
@@ -45,6 +49,9 @@ namespace Szakdolgozat2020.Forms.Administrator
             metroGridPC.DataSource = childrenParentDT;
         }
 
+        /// <summary>
+        /// Inputok ürítése, alaphelyzetbe állítása
+        /// </summary>
         public void emptyCells()
         {
             metroTextBoxID.Text = "";
@@ -52,6 +59,9 @@ namespace Szakdolgozat2020.Forms.Administrator
             metroComboBoxChildrenName.SelectedItem = null;
         }
 
+        /// <summary>
+        /// Datagridview Beállítása
+        /// </summary>
         public void setChildrenParentViewDataGridView()
         {
             childrenParentDT.Columns[0].ColumnName = "Azonosító:";
@@ -68,6 +78,9 @@ namespace Szakdolgozat2020.Forms.Administrator
             metroGridPC.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
 
+        /// <summary>
+        /// Form loadja, beállítások
+        /// </summary>
         private void ParChiReg_Load(object sender, EventArgs e)
         {
             updateDataInDataGriedViewt();
@@ -79,11 +92,14 @@ namespace Szakdolgozat2020.Forms.Administrator
             metroComboBoxParenttName.DataSource = rp.getParentsName();
         }
 
+        /// <summary>
+        /// Gyerek név alapján keresés
+        /// </summary>
         private void metroButtonSearch_Click(object sender, EventArgs e)
         {
             if (metroComboBoxChildrenName.Text == "")
             {
-                MetroMessageBox.Show(this, "Kereséshez válasza a gyerek nevét! Kivéálasztás kötelező!", "Hiba\n\n", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MetroMessageBox.Show(this, "Kereséshez válassza kis a gyerek nevét! Kivéálasztás kötelező!", "Hiba\n\n", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else if (metroComboBoxChildrenName.Text == "*")
             {
@@ -96,16 +112,22 @@ namespace Szakdolgozat2020.Forms.Administrator
 
                 if (metroGridPC.Rows.Count == 0)
                 {
-                    MetroMessageBox.Show(this, "Kereséshez válasza a gyerek nevét! Kivéálasztás kötelező!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MetroMessageBox.Show(this, "Kereséshez válassza ki a gyerek nevét! Kivéálasztás kötelező!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
         }
 
+        /// <summary>
+        /// Gombnyomásra az inputok aéaphelyzetbeállítása
+        /// </summary>
         private void metroButtonClearCells_Click(object sender, EventArgs e)
         {
             emptyCells();
         }
 
+        /// <summary>
+        /// Törlés Gyerek-Szülő pár
+        /// </summary>
         private void metroButtonDelete_Click(object sender, EventArgs e)
         {
             //Ha sor nullat ad vissza ne történjen 
@@ -118,7 +140,7 @@ namespace Szakdolgozat2020.Forms.Administrator
             {
                 int selectedIndex = metroGridPC.SelectedRows[0].Index;
 
-                DialogResult dr = MetroMessageBox.Show(this, "\n\nBiztos szeretné törölni a szülő-gyerek párat?", "Szülő-gyerek pár törlése", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult dr = MetroMessageBox.Show(this, "\n\nBiztos szeretné törölni a szülő-gyerek párat?", "Szülő-Gyerek pár törlése", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (dr == DialogResult.Yes)
                 {
                     //Törlés a listából
@@ -137,7 +159,7 @@ namespace Szakdolgozat2020.Forms.Administrator
                     catch (RepositoryChildrenParentExceptionCantDelete)
                     {
 
-                        Debug.WriteLine("A vizsgálat törlése sikertelen volt a listából, mert másik adatbázisban is szerepel!");
+                        Debug.WriteLine("A Gyerek-Szülő pár törlése sikertelen volt a listából, mert másik adatbázisban is szerepel!");
                         MetroMessageBox.Show(this, "\n\nA vizsgálat törlése sikertelen volt a listából, mert másik adatbázisban is szerepel!", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
 
@@ -158,6 +180,9 @@ namespace Szakdolgozat2020.Forms.Administrator
 
         }
 
+        /// <summary>
+        /// Kiválasztott sor alapján az inputok feltöltése
+        /// </summary>
         private void metroGridPC_SelectionChanged(object sender, EventArgs e)
         {
             if (metroGridPC.SelectedRows.Count != 0)
@@ -170,6 +195,9 @@ namespace Szakdolgozat2020.Forms.Administrator
                 
         }
 
+        /// <summary>
+        /// Szülő-Gyerek pár hozzáadása
+        /// </summary>
         private void metroButtonAdd_Click(object sender, EventArgs e)
         {
             errorProviderParent.Clear();
@@ -212,7 +240,7 @@ namespace Szakdolgozat2020.Forms.Administrator
                 catch (Exception)
                 {
 
-                    Debug.WriteLine("Az szölő gyerek pár felvétele sikertelen volt a listához");
+                    Debug.WriteLine("Az Szülő-Gyerek pár felvétele sikertelen volt a listához");
                     MetroMessageBox.Show(this, "\n\nHibát észleltünk, a felvétel sikertelen volt a listához.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
@@ -224,7 +252,7 @@ namespace Szakdolgozat2020.Forms.Administrator
             }
             catch (insertChildrenParentException ise)
             {
-                Debug.WriteLine("Az szülő gyerek pár felvétele sikertelen volt az adatbázishoz, " + ise.Message);
+                Debug.WriteLine("Az Szülő-Gyerek pár felvétele sikertelen volt az adatbázishoz, " + ise.Message);
                 MetroMessageBox.Show(this, "\n\nHibát észleltünk, a felvétel sikertelen volt. ", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             catch (ModellExceptionNotValidPArentName mpe)
@@ -242,6 +270,9 @@ namespace Szakdolgozat2020.Forms.Administrator
             }
         }
 
+        /// <summary>
+        /// Szülő-Gyerek pár módosításaa
+        /// </summary>
         private void metroButtonModify_Click(object sender, EventArgs e)
         {
             errorProviderParent.Clear();
@@ -281,7 +312,7 @@ namespace Szakdolgozat2020.Forms.Administrator
                 catch (Exception ex)
                 {
 
-                    Debug.WriteLine("Az szülő gyerek pár  módosítása sikertelen volt a listában");
+                    Debug.WriteLine("Az Szülő-Gyerek pár  módosítása sikertelen volt a listában");
                     MetroMessageBox.Show(this, "\n\nHibát észleltünk, a módosítása sikertelen volt az adatbázisból.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
@@ -292,7 +323,7 @@ namespace Szakdolgozat2020.Forms.Administrator
             }
             catch (updateChildrenParentException uee)
             {
-                Debug.WriteLine("Az szülő gyerek módosítás sikertelen volt az adatbázishoz, " + uee.Message);
+                Debug.WriteLine("Az Szülő-Gyerek módosítás sikertelen volt az adatbázishoz, " + uee.Message);
                 MetroMessageBox.Show(this, "\n\nHibát észleltünk, a módosítás sikertelen volt.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             catch (ModellExceptionNotValidPArentName mpe)

@@ -356,7 +356,7 @@
             this.metroGridSchoolBasic.Size = new System.Drawing.Size(1095, 212);
             this.metroGridSchoolBasic.Style = MetroFramework.MetroColorStyle.Silver;
             this.metroGridSchoolBasic.TabIndex = 39;
-            this.metroGridSchoolBasic.SelectionChanged += new System.EventHandler(this.metroGridSchoolBasic_SelectionChanged_1);
+            this.metroGridSchoolBasic.SelectionChanged += new System.EventHandler(this.metroGridSchoolBasic_SelectionChanged);
             // 
             // AddSchool
             // 

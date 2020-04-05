@@ -32,7 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.metroButtonLogOut = new MetroFramework.Controls.MetroButton();
             this.metroGridChildSchool = new MetroFramework.Controls.MetroGrid();
             this.metroComboBoxSchool = new MetroFramework.Controls.MetroComboBox();
             this.metroLabelInt = new MetroFramework.Controls.MetroLabel();
@@ -69,19 +68,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderSchool)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderChildren)).BeginInit();
             this.SuspendLayout();
-            // 
-            // metroButtonLogOut
-            // 
-            this.metroButtonLogOut.Location = new System.Drawing.Point(1086, 636);
-            this.metroButtonLogOut.Name = "metroButtonLogOut";
-            this.metroButtonLogOut.Size = new System.Drawing.Size(156, 28);
-            this.metroButtonLogOut.Style = MetroFramework.MetroColorStyle.Silver;
-            this.metroButtonLogOut.TabIndex = 8;
-            this.metroButtonLogOut.Text = "Kijelentkezés";
-            this.metroButtonLogOut.UseCustomBackColor = true;
-            this.metroButtonLogOut.UseSelectable = true;
-            this.metroButtonLogOut.UseStyleColors = true;
-            this.metroButtonLogOut.Click += new System.EventHandler(this.metroButtonLogOut_Click);
             // 
             // metroGridChildSchool
             // 
@@ -474,7 +460,6 @@
             this.Controls.Add(this.metroLabelInt);
             this.Controls.Add(this.metroComboBoxSchool);
             this.Controls.Add(this.metroGridChildSchool);
-            this.Controls.Add(this.metroButtonLogOut);
             this.Name = "Schools";
             this.Style = MetroFramework.MetroColorStyle.Silver;
             this.Text = "Közoktatás";
@@ -492,7 +477,6 @@
         }
 
         #endregion
-        private MetroFramework.Controls.MetroButton metroButtonLogOut;
         private MetroFramework.Controls.MetroGrid metroGridChildSchool;
         private MetroFramework.Controls.MetroComboBox metroComboBoxSchool;
         private MetroFramework.Controls.MetroLabel metroLabelInt;

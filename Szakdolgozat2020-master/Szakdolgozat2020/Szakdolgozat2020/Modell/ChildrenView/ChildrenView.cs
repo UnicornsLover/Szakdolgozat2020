@@ -66,6 +66,7 @@ namespace Szakdolgozat2020.Modell.SchoolChildren
             this.type2 = modified.getType();
             this.hteacher = modified.getHeadteacher();
         }
+        //****************************************Setter************************************************
         public void setscID(int scID)
         {
             this.scID = scID;
@@ -94,7 +95,7 @@ namespace Szakdolgozat2020.Modell.SchoolChildren
         {
             this.hteacher = hteacher;
         }
-
+        //****************************************Getter************************************************
         public int getscID()
         {
             return scID;

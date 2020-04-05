@@ -36,7 +36,7 @@ namespace Szakdolgozat2020.Modell.Event
             this.details = modified.getDetails();
             this.byy = modified.getBy();
         }
-
+        //****************************Setter*************************
         public void seteID(int eID)
         {
             this.eID = eID;
@@ -49,10 +49,12 @@ namespace Szakdolgozat2020.Modell.Event
         {
             this.details = details;
         }
+        
         public void setBy(string byy)
         {
             this.byy = byy;
         }
+        //****************************Getter*************************
         public int getEID()
         {
             return eID;

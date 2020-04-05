@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Szakdolgozat2020.Modell.Children.Child">
+    <Position X="3.75" Y="0.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>QIIQQIABQAgKQCAAAEQgAAIAkAQEhAIBGAQgBQUBGkQ=</HashCode>
+      <FileName>Modell\Child\Child.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Szakdolgozat2020.Repository.Children.RepositoryDatabaseChildren">
+    <Position X="6.25" Y="0.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAggACAAAEAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Repository\Children\DatabaseCommandsC.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Szakdolgozat2020.Repository.Children.RepositoryChildren">
+    <Position X="0.5" Y="0.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAwAAAAQAAAAMAAFAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Repository\Children\RepositoryChildren.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="children" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Szakdolgozat2020.Forms.Nevelo.ChildrenReg">
+    <Position X="9.75" Y="1" Width="2.25" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AyAgkEEACCIAURAICCOCAgQSABkHAQIkAGAgAAAEJQA=</HashCode>
+      <FileName>Forms\Administrator\ChildrenReg.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="rep" />
+      <Field Name="repo" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

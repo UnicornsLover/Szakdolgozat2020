@@ -45,6 +45,9 @@ namespace Szakdolgozat2020.Forms.Foster
             metroGridEventChildren.DataSource = eventChildrenDT;
         }
 
+        /// <summary>
+        /// Az inputok ürítése és lap heéyzetbe állítása
+        /// </summary>
         public void emptyCells()
         {
             metroTextBoxId.Text = "";
@@ -74,6 +77,9 @@ namespace Szakdolgozat2020.Forms.Foster
             metroGridEventChildren.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
 
+        /// <summary>
+        /// Form metöltése esemény
+        /// </summary>
         private void EventChild_Load(object sender, EventArgs e)
         {
             updateDataInDataGriedViewt();
@@ -85,6 +91,9 @@ namespace Szakdolgozat2020.Forms.Foster
             metrocomboboxEvent.DataSource = re.getEventName();
         }
 
+        /// <summary>
+        /// Keresés gyermek név alapján
+        /// </summary>
         private void metroButtonSearch_Click(object sender, EventArgs e)
         {
             if (metroComboBoxChildrenName.Text == "")
@@ -107,11 +116,19 @@ namespace Szakdolgozat2020.Forms.Foster
             }
         }
 
+        /// <summary>
+        /// Keresés gombra esemény katintáskor
+        /// </summary>
         private void metroButtonClearCells_Click(object sender, EventArgs e)
         {
             emptyCells();
         }
 
+        /// <summary>
+        /// Esemény-Gyerek pár törlése
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void metroButtonDelete_Click(object sender, EventArgs e)
         {
             //Ha sor nullat ad vissza ne történjen 
@@ -164,6 +181,9 @@ namespace Szakdolgozat2020.Forms.Foster
 
         }
 
+        /// <summary>
+        /// Ha sorra kattintasz akkor az adott sor adataival inputok feltöltése
+        /// </summary>
         private void metroGridEventChildren_SelectionChanged(object sender, EventArgs e)
         {
             if (metroGridEventChildren.SelectedRows.Count != 0)
@@ -177,6 +197,9 @@ namespace Szakdolgozat2020.Forms.Foster
             }
         }
 
+        /// <summary>
+        /// Esemény-gyerek hozzáadásas
+        /// </summary>
         private void metroButtonAdd_Click(object sender, EventArgs e)
         {
             errorProviderChildrenName.Clear();
@@ -220,7 +243,7 @@ namespace Szakdolgozat2020.Forms.Foster
                 catch (Exception)
                 {
 
-                    Debug.WriteLine("Az esemény gyerek pár felvétele sikertelen volt a listához");
+                    Debug.WriteLine("Az esemény-gyerek pár felvétele sikertelen volt a listához");
                     MetroMessageBox.Show(this, "\n\nHibát észleltünk, a felvétel sikertelen volt a listához.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
@@ -232,7 +255,7 @@ namespace Szakdolgozat2020.Forms.Foster
             }
             catch (insertEventChildrenException ise)
             {
-                Debug.WriteLine("Az esemény gyerek pár felvétele sikertelen volt az adatbázishoz, " + ise.Message);
+                Debug.WriteLine("Az esemény-gyerek pár felvétele sikertelen volt az adatbázishoz, " + ise.Message);
                 MetroMessageBox.Show(this, "\n\nHibát észleltünk, a felvétel sikertelen volt. ", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             catch (ModellNotValidExceptionChildrenName mcn)
@@ -253,6 +276,11 @@ namespace Szakdolgozat2020.Forms.Foster
             }
         }
 
+        /// <summary>
+        /// Esemény-gyerek pár módosítása
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void metroButtonModify_Click(object sender, EventArgs e)
         {
             errorProviderChildrenName.Clear();
@@ -295,7 +323,7 @@ namespace Szakdolgozat2020.Forms.Foster
                 catch (Exception ex)
                 {
 
-                    Debug.WriteLine("Az esemény gyerek pár  módosítása sikertelen volt a listában");
+                    Debug.WriteLine("Az esemény-gyerek pár  módosítása sikertelen volt a listában");
                     MetroMessageBox.Show(this, "\n\nHibát észleltünk, a módosítása sikertelen volt az adatbázisból.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
@@ -306,7 +334,7 @@ namespace Szakdolgozat2020.Forms.Foster
             }
             catch (updateEventChildrenException uee)
             {
-                Debug.WriteLine("Az gyermek esemény módosítás sikertelen volt az adatbázishoz, " + uee.Message);
+                Debug.WriteLine("Az gyermek-esemény módosítás sikertelen volt az adatbázishoz, " + uee.Message);
                 MetroMessageBox.Show(this, "\n\nHibát észleltünk, a módosítás sikertelen volt.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             catch (ModellNotValidExceptionChildrenName mcn)

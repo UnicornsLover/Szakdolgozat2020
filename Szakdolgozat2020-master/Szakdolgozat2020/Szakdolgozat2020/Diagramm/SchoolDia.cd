@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Szakdolgozat2020.Forms.Foster.Schools">
+    <Position X="1" Y="4.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AqgAAQgACiIAWYEICaOCQASSQIUAQAEYAEAEACApABg=</HashCode>
+      <FileName>Forms\Foster\Schools.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="repo" />
+      <Field Name="rep" />
+      <Field Name="rdc" />
+      <Field Name="rs" />
+      <Field Name="sd" />
+      <Field Name="rc" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Szakdolgozat2020.Forms.Foster.AddSchool">
+    <Position X="9" Y="2" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAiCIAURAACiOCQACagBEIQAAAACAAAAAAAgI=</HashCode>
+      <FileName>Forms\Foster\AddSchool.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="repo" />
+      <Field Name="rep" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Szakdolgozat2020.Modell.School.School">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AUIAAIIAAAgCAABAAAAAAAAAACAABABACAIEJQAABEQ=</HashCode>
+      <FileName>Modell\School\GetSQLCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Szakdolgozat2020.Modell.SchoolChildren.ChildrenView">
+    <Position X="13" Y="0.5" Width="2" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>QAABAAAABEAAAAARAAAAAAQAURCEBQgAXAUEFQAAgUA=</HashCode>
+      <FileName>Modell\ChildrenView\ChildrenDatabaseCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Szakdolgozat2020.Repository.ChildrenViews.ChildrenViews">
+    <Position X="9.25" Y="0.5" Width="2.25" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAgAAAAAgAAAAAAAAAACECAAAAAAACA=</HashCode>
+      <FileName>Repository\ChildrenViews\ChildrenViews.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="childrenviews" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Szakdolgozat2020.Repository.ChildrenViews.RepositoryChildrenViewDatabaseCommand">
+    <Position X="11.75" Y="3.25" Width="3.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAgAAAAAAAAAAAAAAAAAAABEAAAAEAA=</HashCode>
+      <FileName>Repository\ChildrenViews\DatabaseCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Szakdolgozat2020.Repository.Schools.DatabaseCommand">
+    <Position X="2.5" Y="0.75" Width="2.25" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAEAAAABAAAAAhAAAAAAAAAAAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Repository\Schools\DatabaseCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Szakdolgozat2020.Repository.Schools.RepositorySchools">
+    <Position X="5.5" Y="6" Width="2.25" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAADEAAAAAAAACAAAAAAAUAAAAgAAAgAgpAAAAAA=</HashCode>
+      <FileName>Repository\RepositoryS.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="schools" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Szakdolgozat2020.Repository.Children.RepositoryDatabaseChildren">
+    <Position X="4.5" Y="2.75" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAggACAAAEAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Repository\Children\DatabaseCommandsC.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Szakdolgozat2020.Repository.Children.RepositoryChildren" Collapsed="true">
+    <Position X="3.75" Y="4.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAwAAAAQAAAAMAAFAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Repository\Children\RepositoryChildren.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

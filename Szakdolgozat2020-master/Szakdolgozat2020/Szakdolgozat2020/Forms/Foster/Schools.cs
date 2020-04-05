@@ -44,6 +44,10 @@ namespace Szakdolgozat2020.Forms.Foster
             metroGridChildSchool.DataSource = null;
             metroGridChildSchool.DataSource = childrenViewDT;
         }
+
+        /// <summary>
+        /// Az inpputok ürítése és alaphelyyzetbe állítása
+        /// </summary>
         public void emptyCells()
         {
             metroTextBoxIdS.Text = "";
@@ -54,6 +58,7 @@ namespace Szakdolgozat2020.Forms.Foster
             metroTextBoxType.Text = "";
             metroTextBoxHeadTeacher.Text = "";
         }
+
         /// <summary>
         /// Beállít Datagridview oszlopait és egyébb dolgot
         /// </summary>
@@ -76,6 +81,10 @@ namespace Szakdolgozat2020.Forms.Foster
             metroGridChildSchool.MultiSelect = false;
             metroGridChildSchool.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
+
+        /// <summary>
+        /// A form betöltés 
+        /// </summary>
         private void Schools_Load(object sender, EventArgs e)
         {
             updateDataInDataGriedViewt();
@@ -86,25 +95,18 @@ namespace Szakdolgozat2020.Forms.Foster
             metroComboBoxSchool.DataSource = null;
             metroComboBoxSchool.DataSource = rs.getSchoolName();
         }
-        private void metroButtonAddSchool_Click(object sender, EventArgs e)
-        {
-            AddSchool sch = new AddSchool();
-            sch.Show();
-        }
 
-        private void metroButtonLogOut_Click(object sender, EventArgs e)
-        {
-            LogIn li = new LogIn();
-            li.Show();
-            this.Hide();
-        }
-
+        /// <summary>
+        /// Intézmény név alapján való keresés
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void metroButtonSearch_Click(object sender, EventArgs e)
         {
 
             if (metroComboBoxSchool.Text == "")
             {
-                MetroMessageBox.Show(this, "Kereséshez válasza ki az adott intézményt! \n Ha mindet szeretné látni akkor válaszd ki ezt a jelet \" * \" (csillag) jelet a \"Intézmények:\" cellánál!", "Hiba\n\n", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MetroMessageBox.Show(this, "Kereséshez válasza ki az adott intézményt!", "Hiba\n\n", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else if (metroComboBoxSchool.Text == "*")
             {
@@ -117,16 +119,24 @@ namespace Szakdolgozat2020.Forms.Foster
 
                 if (metroGridChildSchool.Rows.Count == 0)
                 {
-                    MetroMessageBox.Show(this, "Kereséshez válasza ki az adott intézményt! \n Ha mindet szeretné látni akkor válaszd ki ezt a jelet \" * \" (csillag) jelet a \"Intézmények:\" cellánál!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MetroMessageBox.Show(this, "Kereséshez válasza ki az adott intézményt!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
         }
 
+        /// <summary>
+        /// Cella ürítés gombra esemény
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void metroButtonClearCells_Click(object sender, EventArgs e)
         {
             emptyCells();
         }
 
+        /// <summary>
+        /// Gyerk-Iskola pár törlése
+        /// </summary>
         private void metroButtonDelete_Click(object sender, EventArgs e)
         {
             //Ha sor nullat ad vissza ne történjen 
@@ -178,7 +188,9 @@ namespace Szakdolgozat2020.Forms.Foster
             }
 
         }
-
+        /// <summary>
+        /// Egy adott sor kiválasztása és annak adatia az inputokba töltése.
+        /// </summary>
         private void metroGridChildSchool_SelectionChanged(object sender, EventArgs e)
         {
             if (metroGridChildSchool.SelectedRows.Count != 0)
@@ -196,6 +208,9 @@ namespace Szakdolgozat2020.Forms.Foster
             }
         }
 
+        /// <summary>
+        /// GYerek- Iskola pár hozzáadása
+        /// </summary>
         private void metroButtonAdd_Click(object sender, EventArgs e)
         {
             errorProviderBeginn.Clear();
@@ -298,6 +313,9 @@ namespace Szakdolgozat2020.Forms.Foster
             }
         }
 
+        /// <summary>
+        /// Gyerek-Iskola pár módosítáása
+        /// </summary>
         private void metroButtonModify_Click(object sender, EventArgs e)
         {
             errorProviderBeginn.Clear();

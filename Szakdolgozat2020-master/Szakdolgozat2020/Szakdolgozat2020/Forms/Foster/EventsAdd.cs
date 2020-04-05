@@ -26,6 +26,9 @@ namespace Szakdolgozat2020.Forms.Foster
             rs.setEvents(edc.getEventFromDatabase());
         }
 
+        /// <summary>
+        /// Form betöltés események
+        /// </summary>
         private void EventsAdd_Load(object sender, EventArgs e)
         {
             updateDataInDataGriedViewt();
@@ -44,6 +47,10 @@ namespace Szakdolgozat2020.Forms.Foster
             metroGridEvents.DataSource = null;
             metroGridEvents.DataSource = eventTD;
         }
+
+        /// <summary>
+        /// Cellák ürítése és alaphelyzetbe állítása
+        /// </summary>
         public void emptyCells()
         {
             metroTextBoxId.Text = "";
@@ -71,11 +78,16 @@ namespace Szakdolgozat2020.Forms.Foster
             metroGridEvents.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
 
+        /// <summary>
+        /// Keresés
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void metroButtonSearch_Click(object sender, EventArgs e)
         {
             if (metroTextBoxTitle.Text == "")
             {
-                MetroMessageBox.Show(this, "Keresés csak pontos név megadásával lehetséges (pl: Kecskeméti Református Gimnázium - nagy betű is fontos), a cella kitötése kötelező! \nTöltse ki a \"Neve:\" cellát!\nHa esetleg minden adatot újra szeretne látni egy szűrés után, csak is kizárólag írja be ezt a \" * \" (csillag) jelet a \"Neve:\" cellábas!", "Hiba\n\n", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MetroMessageBox.Show(this, "Keresés csak pontos Cím megadásával ehetséges!", "Hiba\n\n", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else if (metroTextBoxTitle.Text == "*")
             {
@@ -88,11 +100,14 @@ namespace Szakdolgozat2020.Forms.Foster
 
                 if (metroGridEvents.Rows.Count == 0)
                 {
-                    MetroMessageBox.Show(this, "Keresés csak pontos név megadásával lehetséges (pl: Kirándulás a mecsekben - nagy betű is fontos), a cella kitötése kötelező! \nTöltse ki a \"Cím:\" cellát!\nHa esetleg minden adatot újra szeretne látni egy szűrés után, csak is kizárólag írja be ezt a \" * \" (csillag) jelet a \"Neve:\" cellábas!", "Hiba\n\n", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MetroMessageBox.Show(this, "Keresés csak pontos Cím megadásával ehetséges!", "Hiba\n\n", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
         }
 
+        /// <summary>
+        /// Cella ürítés gombra esemény
+        /// </summary>
         private void metroButtonClearCells_Click(object sender, EventArgs e)
         {
             emptyCells();
@@ -101,8 +116,6 @@ namespace Szakdolgozat2020.Forms.Foster
         /// <summary>
         /// Esemény törlése
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void metroButtonDelete_Click(object sender, EventArgs e)
         {
             //Ha sor nullat ad vissza ne történjen 
@@ -156,6 +169,9 @@ namespace Szakdolgozat2020.Forms.Foster
 
         }
 
+        /// <summary>
+        /// Adott sor kiválasztásakor az inputok feltöltése.
+        /// </summary>
         private void metroGridEvents_SelectionChanged(object sender, EventArgs e)
         {
             if (metroGridEvents.SelectedRows.Count != 0)
@@ -168,6 +184,9 @@ namespace Szakdolgozat2020.Forms.Foster
             }
         }
 
+        /// <summary>
+        /// Események módosítása
+        /// </summary>
         private void metroButtonModify_Click(object sender, EventArgs e)
         {
             errorProviderTitle.Clear();
@@ -231,6 +250,9 @@ namespace Szakdolgozat2020.Forms.Foster
             }
         }
 
+        /// <summary>
+        /// Esemény hozzáadása
+        /// </summary>
         private void metroButtonAdd_Click(object sender, EventArgs e)
         {
             errorProviderTitle.Clear();
