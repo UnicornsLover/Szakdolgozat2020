@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Szakdolgozat2020.Forms;
 using Szakdolgozat2020.Forms.Foster;
+using Szakdolgozat2020.Forms.Soul;
 
 namespace Szakdolgozat2020
 {
@@ -18,7 +19,7 @@ namespace Szakdolgozat2020
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LogInScreen());
+            Application.Run(new IntVPage());
         }
     }
 }

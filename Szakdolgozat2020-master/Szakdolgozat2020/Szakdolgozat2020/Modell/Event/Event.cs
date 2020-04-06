@@ -54,6 +54,7 @@ namespace Szakdolgozat2020.Modell.Event
         {
             this.byy = byy;
         }
+
         //****************************Getter*************************
         public int getEID()
         {
@@ -81,5 +82,6 @@ namespace Szakdolgozat2020.Modell.Event
             }
             return false;
         }
+
     }   
 }

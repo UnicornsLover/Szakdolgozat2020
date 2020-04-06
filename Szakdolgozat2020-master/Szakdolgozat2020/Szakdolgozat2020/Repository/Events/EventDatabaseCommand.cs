@@ -41,6 +41,7 @@ namespace Szakdolgozat2020.Repository.Events
                     goodResult = int.TryParse(dr["ID"].ToString(), out id);
                     string title = dr["title"].ToString();
                     string details = dr["details"].ToString();
+                    
 
                     if (goodResult)
                     {

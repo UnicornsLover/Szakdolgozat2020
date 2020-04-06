@@ -18,9 +18,9 @@ if (!empty($_POST['rusername']) && (!empty($_POST['rpassword'])) && ($_SERVER["R
     {
         //sikertelen bejelentkezési kísérlet
         echo "0";
-        $html = "Már regisztráltál!",
     }
+
 }
-echo $html;
+
 
 ?>

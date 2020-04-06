@@ -33,7 +33,7 @@ $(document).ready(function(){
                 {
                     $("p").remove();
                     $("br").remove(); 
-                    $("#loginbtn").after("<br><br><p class='slower animated bounceIn' id ='error' style='color:red; text-align:center;'>Hibás jelszó vagy felhasználónév!!</p>");
+                    $("#loginbtn").after("<br><br><p class='slower animated bounceIn' id ='error' style='color:red; text-align:center;'>Hibás jelszó vagy felhasználónév!!\nVagy még nem regisztrált, akkor használja a 'Regisztráció' menüpontot!</p>");
                 }
             }
 
@@ -103,26 +103,47 @@ $(document).ready(function(){
         console.log(idcard);
         console.log(regusername);
         console.log(password);
-        $.ajax({
-            url:"updatepdata.php",
-            method:"POST",
-            data:{name:name,birth:birth,idcard:idcard,regusername:regusername,password:password},
-            success:function(data){
-                if(data == 1)
-                {
-                    $(".save").before("<span style='color: green; font-weight: bold;'>Sikeres mentés!</span>");
-                    setTimeout(function(){
-                      $("#id03").fadeOut(200);
-                    },1000)
+        let pswregex= new RegExp(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/);
+        let userregex= new RegExp(/^[A-Za-zÁÉÍÓÖŐÚÜŰáéíóöőúüű\s\d]{6,}$/);
+        if(!userregex.test(regusername))
+        {
+            $("#regusername").css("border","2px solid red");
+            $("#error").hide();
+            $(".save").after("<div id='error'><p class='slower animated bounceIn' id ='error' style='color:red; text-align:center;'> A felhasználó név csak betűből és számból állhat és minimum 6 karakter hoszzú! mezőt!</p>");
+        
+        }
+        else if(!pswregex.test(password))
+        {
+            $("#regpassword").css("border","2px solid red");
+            $("#error").hide();
+            $(".save").after("<div id='error'><p class='slower animated bounceIn' id ='error' style='color:red; text-align:center;'> A jelszónak tartalmaznia kell egy számot és egy betüt és minimum 8 karakter hoszzú! mezőt!</p>");
+        }
+        else
+        {
+            $("#regusername").css("border","2px solid green");
+            $("#regpassword").css("border","2px solid green");
+            $("#error").remove();
+            $.ajax({
+                url:"updatepdata.php",
+                method:"POST",
+                data:{name:name,birth:birth,idcard:idcard,regusername:regusername,password:password},
+                success:function(data){
+                    if(data == 1)
+                    {
+                        $(".save").before("<span style='color: green; font-weight: bold;'>Sikeres mentés!</span>");
+                        setTimeout(function(){
+                          $("#id03").fadeOut(200);
+                        },1000)
+                    }
+                    else
+                    {
+    
+                    }
                 }
-                else
-                {
-
-                }
-            }
-
-        });
-
+    
+            });
+        }
+        
     });
     
     $("#content").click(function(){
@@ -130,6 +151,35 @@ $(document).ready(function(){
         return false;
     });    
 
+    $("#chiname").change(function(){
+        let names = $(this).children(":selected").attr("id");
+        //console.log(names);
+        $.ajax({
+            url:"selectchildrendata.php",
+            method:"POST",
+            data:{names:names},
+            success:function(data){
+                //alert(data);
+                $('.chitable').html(data);
+            }
+
+        });
+    });
+
+    $("#hchiname").change(function(){
+        let names = $(this).children(":selected").attr("id");
+        //console.log(names);
+        $.ajax({
+            url:"selectchildrendatah.php",
+            method:"POST",
+            data:{names:names},
+            success:function(data){
+                //alert(data);
+                $('.htable').html(data);
+            }
+
+        });
+    });
     
     
     

@@ -5,7 +5,7 @@ require_once('config/init.php');
     {
         $username = $_POST['username'];
         $pwd = $_POST['password'];
-        $sql = "SELECT * FROM parents WHERE loginuser = '$username' AND loginpsw = '$pwd' AND loginpermission = 1";
+        $sql = "SELECT * FROM parents WHERE loginuser = '$username' AND loginpsw = '$pwd' AND loginpermission = 1 AND reg = 1";
         $res = $conn -> query($sql);
         if (!$res){
             die("Hiba a bejelentkezéskor!");

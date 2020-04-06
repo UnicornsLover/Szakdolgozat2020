@@ -38,6 +38,7 @@
             this.metroTileAddMEvents = new MetroFramework.Controls.MetroTile();
             this.metroTileInReason = new MetroFramework.Controls.MetroTile();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.metroTileInReason.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -170,11 +171,25 @@
             this.metroLabel1.Text = "HAMAROSAN ELÉRHETŐ";
             this.metroLabel1.UseCustomForeColor = true;
             // 
+            // metroButton1
+            // 
+            this.metroButton1.Location = new System.Drawing.Point(667, 495);
+            this.metroButton1.Name = "metroButton1";
+            this.metroButton1.Size = new System.Drawing.Size(156, 28);
+            this.metroButton1.Style = MetroFramework.MetroColorStyle.Silver;
+            this.metroButton1.TabIndex = 38;
+            this.metroButton1.Text = "Hiba bejelentés";
+            this.metroButton1.UseCustomBackColor = true;
+            this.metroButton1.UseSelectable = true;
+            this.metroButton1.UseStyleColors = true;
+            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
+            // 
             // Fosterhomepage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1069, 546);
+            this.Controls.Add(this.metroButton1);
             this.Controls.Add(this.metroTileInReason);
             this.Controls.Add(this.metroTileAddMEvents);
             this.Controls.Add(this.metroTile1);
@@ -207,5 +222,6 @@
         private MetroFramework.Controls.MetroTile metroTileAddMEvents;
         private MetroFramework.Controls.MetroTile metroTileInReason;
         private MetroFramework.Controls.MetroLabel metroLabel1;
+        private MetroFramework.Controls.MetroButton metroButton1;
     }
 }

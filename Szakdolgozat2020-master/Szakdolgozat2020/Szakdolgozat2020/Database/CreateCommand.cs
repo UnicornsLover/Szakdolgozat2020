@@ -179,7 +179,7 @@ namespace Szakdolgozat2020.Database
                     +"`special_treatment` varchar(50) COLLATE utf8_hungarian_ci DEFAULT NULL,"
                     +"`treatdate` date NOT NULL,"
                     +"`by` varchar(30) COLLATE utf8_hungarian_ci DEFAULT NULL"
-                    +") ENGINE = InnoDB DEFAULT CHARSET = utf8 COLLATE = utf8_hungarian_ci;";
+                    + ") ENGINE = InnoDB DEFAULT CHARSET = utf8 COLLATE = utf8_hungarian_ci;";
 
 
                 string queryPrimaryKey =
@@ -220,8 +220,8 @@ namespace Szakdolgozat2020.Database
                     +"`pbirth` date DEFAULT NULL,"
                     + "`psex` varchar(10) COLLATE utf8_hungarian_ci DEFAULT NULL,"
                     + "`pidcardnumber` varchar(10) COLLATE utf8_hungarian_ci DEFAULT NULL,"
-                    +"`loginpermission` tinyint(1) NOT NULL,"
-                    +"`loginuser` varchar(25) COLLATE utf8_hungarian_ci NOT NULL,"
+                    + "`loginpermission` TINYINT(1) NULL DEFAULT '0',"
+                    + "`loginuser` varchar(25) COLLATE utf8_hungarian_ci NOT NULL,"
                     +"`loginpsw` varchar(25) COLLATE utf8_hungarian_ci NOT NULL,"
                     + "`reg` tinyint(1) COLLATE utf8_hungarian_ci DEFAULT NULL"
                     + ") ENGINE = InnoDB DEFAULT CHARSET = utf8 COLLATE = utf8_hungarian_ci;";

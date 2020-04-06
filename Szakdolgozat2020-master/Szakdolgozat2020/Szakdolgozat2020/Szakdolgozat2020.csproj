@@ -107,6 +107,12 @@
     </Compile>
     <Compile Include="Forms\Administrator\Exception\InsertChildException.cs" />
     <Compile Include="Forms\Administrator\Exception\RepositoryChildExceptionCantDelete.cs" />
+    <Compile Include="Forms\Error.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Error.Designer.cs">
+      <DependentUpon>Error.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Foster\AddSchool.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -239,6 +245,7 @@
     <Compile Include="Modell\Event\Event.cs" />
     <Compile Include="Modell\Event\Exception\ModellNotValidEventDetails.cs" />
     <Compile Include="Modell\Event\Exception\ModellNotValidEventTitle.cs" />
+    <Compile Include="Modell\Event\Exception\ModellEventNotValidException.cs" />
     <Compile Include="Modell\Parent\GetSQLCommand.cs" />
     <Compile Include="Modell\Parent\Exception\MedellNotValidParentIdcardException.cs" />
     <Compile Include="Modell\Parent\Exception\ModellNotValidParentBirthDayDateException.cs" />
@@ -359,6 +366,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Administrator\HomePageUgy.resx">
       <DependentUpon>HomePageUgy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Error.resx">
+      <DependentUpon>Error.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Foster\AddSchool.resx">
       <DependentUpon>AddSchool.cs</DependentUpon>

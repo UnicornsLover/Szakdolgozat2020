@@ -32,6 +32,7 @@
             this.metroLabelLoggedName = new MetroFramework.Controls.MetroLabel();
             this.metroLabelWelcome = new MetroFramework.Controls.MetroLabel();
             this.metroButtonLogOut = new MetroFramework.Controls.MetroButton();
+            this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.SuspendLayout();
             // 
             // metroTileAddMEvents
@@ -83,11 +84,27 @@
             this.metroButtonLogOut.UseStyleColors = true;
             this.metroButtonLogOut.Click += new System.EventHandler(this.metroButtonLogOut_Click);
             // 
+            // metroButton1
+            // 
+            this.metroButton1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.metroButton1.Location = new System.Drawing.Point(612, 444);
+            this.metroButton1.Margin = new System.Windows.Forms.Padding(4);
+            this.metroButton1.Name = "metroButton1";
+            this.metroButton1.Size = new System.Drawing.Size(156, 28);
+            this.metroButton1.Style = MetroFramework.MetroColorStyle.Pink;
+            this.metroButton1.TabIndex = 14;
+            this.metroButton1.Text = "Hiba bejelentés";
+            this.metroButton1.UseCustomBackColor = true;
+            this.metroButton1.UseSelectable = true;
+            this.metroButton1.UseStyleColors = true;
+            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
+            // 
             // SoulForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1006, 496);
+            this.Controls.Add(this.metroButton1);
             this.Controls.Add(this.metroButtonLogOut);
             this.Controls.Add(this.metroLabelLoggedName);
             this.Controls.Add(this.metroLabelWelcome);
@@ -106,5 +123,6 @@
         private MetroFramework.Controls.MetroLabel metroLabelLoggedName;
         private MetroFramework.Controls.MetroLabel metroLabelWelcome;
         private MetroFramework.Controls.MetroButton metroButtonLogOut;
+        private MetroFramework.Controls.MetroButton metroButton1;
     }
 }

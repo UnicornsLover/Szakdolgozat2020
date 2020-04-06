@@ -66,5 +66,10 @@ namespace Szakdolgozat2020.Forms.Foster
             sr.Show();
         }
 
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+            Error er = new Error();
+            er.Show();
+        }
     }
 }

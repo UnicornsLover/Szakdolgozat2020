@@ -9,18 +9,18 @@ if (!isLogged()) {
 ?>
 <section id="up" class="start-area">
   <div class="start-img"></div>
-  <h1 class="slower animated bounceInLeft">Live <sup>in</sup> Care gyerek követő</h1>
+  <h1 class="slower animated bounceInLeft">Live <sup>in</sup> Care gyerek ellátás</h1>
   <h1 class="slower animated bounceInLeft">Válassza ki a gyermek nevét a legördülő menüből!</h1>
   <div class="container">
     <div class="row">
       <div class="col-lg-3">
         <?php
           $parentId = $_SESSION['uid'];
-          $sql="SELECT DISTINCT children_fullprofile.cname,children_fullprofile.ID
-          FROM children_fullprofile INNER JOIN ceventsk ON children_fullprofile.ID = ceventsk.childrenID INNER JOIN children_events ON children_events.ID = ceventsk.eventsID INNER JOIN parentsk ON children_fullprofile.ID = parentsk.childrenID
+          $sql = "SELECT DISTINCT children_fullprofile.cname,children_fullprofile.ID
+          FROM children_fullprofile INNER JOIN children_healths ON children_fullprofile.ID = children_healths.childrenID INNER JOIN parentsk ON children_fullprofile.ID = parentsk.childrenID
           WHERE parentsk.pID = '$parentId'";
           $res = $conn -> query($sql);
-          $select = "<br><select class='custom-select bg-info text-white' id='chiname'><option>Gyermek neve</option>";
+          $select = "<br><select class='custom-select bg-info text-white' id='hchiname'><option>Gyermek neve</option>";
           while ($row = $res->fetch_array())
           {
             $select .= "<option id='$row[1]'>{$row[0]}</option>";
@@ -35,7 +35,7 @@ if (!isLogged()) {
     <div class="row">
       <div class="col-lg-12">
         
-      <table class="chitable table table-light table-borderless table-striped">
+      <table class="htable table table-light table-borderless table-striped">
       </table>
       </div>
     </div>

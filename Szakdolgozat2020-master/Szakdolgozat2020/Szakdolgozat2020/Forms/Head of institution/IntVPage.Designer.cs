@@ -40,6 +40,7 @@
             this.metroTileEvents = new MetroFramework.Controls.MetroTile();
             this.metroTile2 = new MetroFramework.Controls.MetroTile();
             this.metroTilePC = new MetroFramework.Controls.MetroTile();
+            this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.SuspendLayout();
             // 
             // metroLabelWelcome
@@ -199,11 +200,26 @@
             this.metroTilePC.UseSelectable = true;
             this.metroTilePC.Click += new System.EventHandler(this.metroTilePC_Click);
             // 
+            // metroButton1
+            // 
+            this.metroButton1.Location = new System.Drawing.Point(669, 667);
+            this.metroButton1.Margin = new System.Windows.Forms.Padding(4);
+            this.metroButton1.Name = "metroButton1";
+            this.metroButton1.Size = new System.Drawing.Size(156, 28);
+            this.metroButton1.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroButton1.TabIndex = 17;
+            this.metroButton1.Text = "Hiba bejelentés";
+            this.metroButton1.UseCustomBackColor = true;
+            this.metroButton1.UseSelectable = true;
+            this.metroButton1.UseStyleColors = true;
+            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
+            // 
             // IntVPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1063, 724);
+            this.Controls.Add(this.metroButton1);
             this.Controls.Add(this.metroTilePC);
             this.Controls.Add(this.metroTile2);
             this.Controls.Add(this.metroTileEvents);
@@ -240,5 +256,6 @@
         private MetroFramework.Controls.MetroTile metroTileEvents;
         private MetroFramework.Controls.MetroTile metroTile2;
         private MetroFramework.Controls.MetroTile metroTilePC;
+        private MetroFramework.Controls.MetroButton metroButton1;
     }
 }

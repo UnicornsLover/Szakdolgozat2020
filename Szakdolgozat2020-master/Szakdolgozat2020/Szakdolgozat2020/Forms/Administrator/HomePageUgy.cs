@@ -57,5 +57,11 @@ namespace Szakdolgozat2020.Forms.Foster
             ParChiReg rp = new ParChiReg();
             rp.Show();
         }
+
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+            Error er = new Error();
+            er.Show();
+        }
     }
 }
