@@ -96,7 +96,7 @@ namespace Szakdolgozat2020
                 else
                 {
                     labelError.Text = hiba;
-                    MetroMessageBox.Show(this, "Hibás felhasználónév vagy jelszó,\n kérlek próbálokozz újból!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    MetroMessageBox.Show(this, "Hibás felhasználónév vagy jelszó,\n kérlek próbálkozz újból!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 }
 
                 con.Close();

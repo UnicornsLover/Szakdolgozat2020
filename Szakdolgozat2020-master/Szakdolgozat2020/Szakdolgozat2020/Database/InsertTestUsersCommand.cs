@@ -283,7 +283,7 @@ namespace Szakdolgozat2020.Database
             catch (Exception)
             {
 
-                throw;
+                throw new DatabaseNotWorking("Hiba az adatbázis elérésekor!");
             }
             
         }
