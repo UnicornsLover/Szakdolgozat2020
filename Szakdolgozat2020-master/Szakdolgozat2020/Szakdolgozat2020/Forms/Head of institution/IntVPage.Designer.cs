@@ -115,7 +115,7 @@
             this.metroTile1.Size = new System.Drawing.Size(191, 123);
             this.metroTile1.Style = MetroFramework.MetroColorStyle.Green;
             this.metroTile1.TabIndex = 8;
-            this.metroTile1.Text = "Szülő adatbázis";
+            this.metroTile1.Text = "Szülő regisztráció";
             this.metroTile1.UseCustomBackColor = true;
             this.metroTile1.UseSelectable = true;
             this.metroTile1.Click += new System.EventHandler(this.metroTile1_Click);

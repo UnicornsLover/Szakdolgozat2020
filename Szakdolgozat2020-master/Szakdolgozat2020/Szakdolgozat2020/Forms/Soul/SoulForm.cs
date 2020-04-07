@@ -1,7 +1,9 @@
-﻿using System;
+﻿using MetroFramework;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -20,8 +22,18 @@ namespace Szakdolgozat2020.Forms.Soul
 
         private void metroTileAddMEvents_Click(object sender, EventArgs e)
         {
-            SoulReg sr = new SoulReg();
-            sr.Show();
+            
+            try
+            {
+                SoulReg sr = new SoulReg();
+                sr.Show();
+            }
+            catch (Exception ex)
+            {
+
+                Debug.WriteLine(ex.Message);
+                MetroMessageBox.Show(this, "\n\nHibát észleltünk! Az adatbázis nem érhető el, vagy a bemeneti adatt nem megfelelő. Kérem próbálja újra később!", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private void metroButtonLogOut_Click(object sender, EventArgs e)

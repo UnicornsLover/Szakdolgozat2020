@@ -60,6 +60,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Database\DatabaseNotWorking.cs" />
     <Compile Include="Database\InsertTestUsersCommand.cs" />
     <Compile Include="Database\CreateCommand.cs" />
     <Compile Include="Database\Exception\DatabaseCreateException.cs" />

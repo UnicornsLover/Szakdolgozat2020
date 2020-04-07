@@ -11,7 +11,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Szakdolgozat2020.Forms.Administrator;
 using Szakdolgozat2020.Forms.Nevelo;
+using Szakdolgozat2020.Repository.Children;
+using Szakdolgozat2020.Repository.ChildrenParents;
 using Szakdolgozat2020.Repository.Employes;
+using Szakdolgozat2020.Repository.Parents;
 
 namespace Szakdolgozat2020.Forms.Foster
 {
@@ -32,7 +35,7 @@ namespace Szakdolgozat2020.Forms.Foster
                 ChildrenReg cr = new ChildrenReg();
                 cr.Show();
             }
-            catch (RepositoryEmployeesReadyDataFromEmployes_LoginException ex)
+            catch (RepositoryChildrenReadyDataFromEmployes_LoginException ex)
             {
                 Debug.WriteLine(ex.Message);
                 MetroMessageBox.Show(this, "\n\nHibát észleltünk! Az adatbázis nem érhető el, vagy a bemeneti adatt nem megfelelő. Kérem próbálja újra később!", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -48,14 +51,35 @@ namespace Szakdolgozat2020.Forms.Foster
 
         private void metroTile1_Click(object sender, EventArgs e)
         {
-            ParentsReg p = new ParentsReg();
-            p.Show();
+            
+
+            try
+            {
+                ParentsReg p = new ParentsReg();
+                p.Show();
+            }
+            catch (RepositoryParentsReadyDataFromEmployes_LoginException ex)
+            {
+
+                Debug.WriteLine(ex.Message);
+                MetroMessageBox.Show(this, "\n\nHibát észleltünk! Az adatbázis nem érhető el, vagy a bemeneti adatt nem megfelelő. Kérem próbálja újra később!", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private void metroTilePC_Click(object sender, EventArgs e)
         {
-            ParChiReg rp = new ParChiReg();
-            rp.Show();
+            
+            try
+            {
+                ParChiReg rp = new ParChiReg();
+                rp.Show();
+            }
+            catch (RepositoryChildrenParentReadyDataFromEmployes_LoginException ex)
+            {
+
+                Debug.WriteLine(ex.Message);
+                MetroMessageBox.Show(this, "\n\nHibát észleltünk! Az adatbázis nem érhető el, vagy a bemeneti adatt nem megfelelő. Kérem próbálja újra később!", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private void metroButton1_Click(object sender, EventArgs e)
