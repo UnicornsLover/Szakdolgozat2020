@@ -32,6 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Schools));
             this.metroGridChildSchool = new MetroFramework.Controls.MetroGrid();
             this.metroComboBoxSchool = new MetroFramework.Controls.MetroComboBox();
             this.metroLabelInt = new MetroFramework.Controls.MetroLabel();
@@ -276,6 +277,7 @@
             this.metroComboBoxChildren.Location = new System.Drawing.Point(168, 248);
             this.metroComboBoxChildren.Name = "metroComboBoxChildren";
             this.metroComboBoxChildren.Size = new System.Drawing.Size(256, 30);
+            this.metroComboBoxChildren.Style = MetroFramework.MetroColorStyle.Silver;
             this.metroComboBoxChildren.TabIndex = 24;
             this.metroComboBoxChildren.UseSelectable = true;
             // 
@@ -403,26 +405,32 @@
             // errorProviderBeginn
             // 
             this.errorProviderBeginn.ContainerControl = this;
+            this.errorProviderBeginn.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProviderBeginn.Icon")));
             // 
             // errorProviderFinish
             // 
             this.errorProviderFinish.ContainerControl = this;
+            this.errorProviderFinish.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProviderFinish.Icon")));
             // 
             // errorProviderType
             // 
             this.errorProviderType.ContainerControl = this;
+            this.errorProviderType.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProviderType.Icon")));
             // 
             // errorProviderHTeacher
             // 
             this.errorProviderHTeacher.ContainerControl = this;
+            this.errorProviderHTeacher.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProviderHTeacher.Icon")));
             // 
             // errorProviderSchool
             // 
             this.errorProviderSchool.ContainerControl = this;
+            this.errorProviderSchool.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProviderSchool.Icon")));
             // 
             // errorProviderChildren
             // 
             this.errorProviderChildren.ContainerControl = this;
+            this.errorProviderChildren.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProviderChildren.Icon")));
             // 
             // metroLabelHT
             // 

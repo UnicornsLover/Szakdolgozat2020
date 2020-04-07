@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddSchool));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -302,14 +303,17 @@
             // errorProviderName
             // 
             this.errorProviderName.ContainerControl = this;
+            this.errorProviderName.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProviderName.Icon")));
             // 
             // errorProviderPhone
             // 
             this.errorProviderPhone.ContainerControl = this;
+            this.errorProviderPhone.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProviderPhone.Icon")));
             // 
             // errorProviderLocation
             // 
             this.errorProviderLocation.ContainerControl = this;
+            this.errorProviderLocation.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProviderLocation.Icon")));
             // 
             // metroGridSchoolBasic
             // 

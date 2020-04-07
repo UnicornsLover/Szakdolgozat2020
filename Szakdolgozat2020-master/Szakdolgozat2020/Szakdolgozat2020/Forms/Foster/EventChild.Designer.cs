@@ -32,6 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EventChildForm));
             this.metroComboBoxChildrenName = new MetroFramework.Controls.MetroComboBox();
             this.metroLabelChName = new MetroFramework.Controls.MetroLabel();
             this.metroLabelEvent = new MetroFramework.Controls.MetroLabel();
@@ -62,6 +63,7 @@
             this.metroComboBoxChildrenName.Location = new System.Drawing.Point(23, 206);
             this.metroComboBoxChildrenName.Name = "metroComboBoxChildrenName";
             this.metroComboBoxChildrenName.Size = new System.Drawing.Size(527, 30);
+            this.metroComboBoxChildrenName.Style = MetroFramework.MetroColorStyle.Silver;
             this.metroComboBoxChildrenName.TabIndex = 0;
             this.metroComboBoxChildrenName.UseSelectable = true;
             // 
@@ -90,6 +92,7 @@
             this.metrocomboboxEvent.Location = new System.Drawing.Point(605, 206);
             this.metrocomboboxEvent.Name = "metrocomboboxEvent";
             this.metrocomboboxEvent.Size = new System.Drawing.Size(523, 30);
+            this.metrocomboboxEvent.Style = MetroFramework.MetroColorStyle.Silver;
             this.metrocomboboxEvent.TabIndex = 2;
             this.metrocomboboxEvent.UseSelectable = true;
             // 
@@ -194,6 +197,7 @@
             this.metroDateTimeeventDate.MinimumSize = new System.Drawing.Size(0, 30);
             this.metroDateTimeeventDate.Name = "metroDateTimeeventDate";
             this.metroDateTimeeventDate.Size = new System.Drawing.Size(254, 30);
+            this.metroDateTimeeventDate.Style = MetroFramework.MetroColorStyle.Silver;
             this.metroDateTimeeventDate.TabIndex = 23;
             // 
             // metroLabelDate
@@ -274,14 +278,17 @@
             // errorProviderChildrenName
             // 
             this.errorProviderChildrenName.ContainerControl = this;
+            this.errorProviderChildrenName.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProviderChildrenName.Icon")));
             // 
             // errorProviderEventName
             // 
             this.errorProviderEventName.ContainerControl = this;
+            this.errorProviderEventName.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProviderEventName.Icon")));
             // 
             // errorProviderDate
             // 
             this.errorProviderDate.ContainerControl = this;
+            this.errorProviderDate.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProviderDate.Icon")));
             // 
             // EventChildForm
             // 

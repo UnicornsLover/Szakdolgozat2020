@@ -32,6 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SoulReg));
             this.metroTextBoxAId = new MetroFramework.Controls.MetroTextBox();
             this.richTextBoxDetails = new System.Windows.Forms.RichTextBox();
             this.metroLabelId = new MetroFramework.Controls.MetroLabel();
@@ -395,22 +396,27 @@
             // errorProviderChildrenName
             // 
             this.errorProviderChildrenName.ContainerControl = this;
+            this.errorProviderChildrenName.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProviderChildrenName.Icon")));
             // 
             // errorProviderType
             // 
             this.errorProviderType.ContainerControl = this;
+            this.errorProviderType.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProviderType.Icon")));
             // 
             // errorProviderDetils
             // 
             this.errorProviderDetils.ContainerControl = this;
+            this.errorProviderDetils.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProviderDetils.Icon")));
             // 
             // errorProviderSpecial
             // 
             this.errorProviderSpecial.ContainerControl = this;
+            this.errorProviderSpecial.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProviderSpecial.Icon")));
             // 
             // errorProviderAdded
             // 
             this.errorProviderAdded.ContainerControl = this;
+            this.errorProviderAdded.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProviderAdded.Icon")));
             // 
             // SoulReg
             // 

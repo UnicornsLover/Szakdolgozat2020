@@ -32,6 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ParChiReg));
             this.metroComboBoxChildrenName = new MetroFramework.Controls.MetroComboBox();
             this.metroComboBoxParenttName = new MetroFramework.Controls.MetroComboBox();
             this.metroLabelcname = new MetroFramework.Controls.MetroLabel();
@@ -265,10 +266,12 @@
             // errorProviderChildren
             // 
             this.errorProviderChildren.ContainerControl = this;
+            this.errorProviderChildren.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProviderChildren.Icon")));
             // 
             // errorProviderParent
             // 
             this.errorProviderParent.ContainerControl = this;
+            this.errorProviderParent.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProviderParent.Icon")));
             // 
             // ParChiReg
             // 

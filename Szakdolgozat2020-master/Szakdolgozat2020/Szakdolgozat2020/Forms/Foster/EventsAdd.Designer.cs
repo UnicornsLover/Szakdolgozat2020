@@ -32,6 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EventsAdd));
             this.metroLabelID = new MetroFramework.Controls.MetroLabel();
             this.metroTextBoxId = new MetroFramework.Controls.MetroTextBox();
             this.metroTextBoxTitle = new MetroFramework.Controls.MetroTextBox();
@@ -315,10 +316,12 @@
             // errorProviderTitle
             // 
             this.errorProviderTitle.ContainerControl = this;
+            this.errorProviderTitle.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProviderTitle.Icon")));
             // 
             // errorProviderDetails
             // 
             this.errorProviderDetails.ContainerControl = this;
+            this.errorProviderDetails.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProviderDetails.Icon")));
             // 
             // metroLabelAddedP
             // 

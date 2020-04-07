@@ -726,6 +726,7 @@
             // errorProviderIdcard
             // 
             this.errorProviderIdcard.ContainerControl = this;
+            this.errorProviderIdcard.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProviderIdcard.Icon")));
             // 
             // WorkersRegistration
             // 
