@@ -199,7 +199,8 @@ namespace Szakdolgozat2020.Forms.Nevelo
             {
                 int id = repo.getnextChildId();
 
-                Child newEmployee = new Child(
+
+                Child newChild = new Child(
                     id,
                     metroTextBoxName.Text,
                     metroComboBoxSex.Text,
@@ -211,27 +212,14 @@ namespace Szakdolgozat2020.Forms.Nevelo
                     metroTextBoxLocation.Text
                    );
 
-                //Hozzáadás az adatbázishoz
-                try
+                if (!newChild.isValid())
                 {
-                    rep.insertChildrenToDatabase(newEmployee);
+                    return;
                 }
-                catch (Exception)
+                else
                 {
-                    
-                    throw new insertChildException();
-                }
-
-                //Hozzáadás a listához
-                try
-                {
-                    repo.addChildToList(newEmployee);
-                }
-                catch (Exception)
-                {
-
-                    Debug.WriteLine("A gyerek felvétele sikertelen volt a listához");
-                    MetroMessageBox.Show(this, "\n\nHibát észleltünk, a felvétel sikertelen volt a listához.", "Felhívás", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    rep.insertChildrenToDatabase(newChild);
+                    repo.addChildToList(newChild);
                 }
 
                 //DataGridView frissítése

@@ -65,6 +65,43 @@ namespace Szakdolgozat2020.Modell.Children
             this.clocation = clocation;
         }
 
+        public bool isValid()
+        {
+            if (!isValidName(cname))
+            {
+                throw new ModellChildNotValidNameException("Nem megfelelő 'Neve' mező, kezdje nagy betűvel a nevet és legalább 4 karakter hosszú legyen. Számot ne tartalamzzon. Kérlek próbáld újra!");
+            }
+            if (!isValidSex(csex))
+            {
+                throw new ModellChildNotValidSexException("Nem megfelelő 'Neme' mező, kattintson a lefele mutató nyilra 'Neme' mezőnél és a legördülő menő segítségével válasza ki a nemet.");
+            }
+            if (!isValidIdCard(cidcard))
+            {
+                throw new MedellNotValidChiIdcardException("Nem megfelelő 'Személyigazolvány szám:' mező. Kérlek figyelj a formátumra. Pl: 123456AB");
+            }
+            if (!isValidTaj(ctajnumber))
+            {
+                throw new ModellChildNotValidTajnumberException("Nem megfelelő 'Taj szam:' mező. Kérlek figyelj oda a formátumra, csak számot tartalmazhat. pl:123456789");
+            }
+            if (!isValidBirthDay(cbirthday))
+            {
+                throw new ModellChildNotValidBirthdayException("Nem megfelelő 'Születési idő:' mező, kérem állítsa be a felvett személy születési dátumát!");
+            }
+            if (!isValidBirthPlace(cbirthdayplace))
+            {
+                throw new ModellChildNotValidBirthplaceException("Nem megfelelő 'Születési hely' mező, kezdje nagy betűvel a város nevet. Kérem próbálja újra.");
+            }
+            if (!isValidComing(ccomming))
+            {
+                throw new ModellChildNotValidComingException("Nem megfelelő 'Belépés időpontja:' mező, kérem állítsa be a felvett személy belépési dátumát!");
+            }
+            if (!isValidLocation(clocation))
+            {
+                throw new ModellChildNotValidLocationException("Nem megfelelő 'Intézmény helye, ahol tartózkodik:' mező. Kezdje nagy betűvel a város nevét, irányitó számot ne írjon. Kérem próbálja újra.");
+            }
+            return true;
+        }
+
         public void updateL(Child modified)
         {
             this.cname = modified.getCcname();
@@ -169,7 +206,7 @@ namespace Szakdolgozat2020.Modell.Children
             }
             for (int i = 1; i < name.Length; i = i + 1)
             {
-                if (!char.IsLetter(name.ElementAt(i)) && (!char.IsWhiteSpace(name.ElementAt(i))))
+                if (!char.IsLetter(name.ElementAt(i)) && (char.IsWhiteSpace(name.ElementAt(i))))
                 {
                     return false;
                 }

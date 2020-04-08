@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace Szakdolgozat2020.Modell.Children
 {
     [Serializable]
-    internal class ModellChildNotValidBirthdayException : Exception
+    public class ModellChildNotValidBirthdayException : Exception
     {
         public ModellChildNotValidBirthdayException()
         {

@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace Szakdolgozat2020.Modell.Children
 {
     [Serializable]
-    internal class ModellChildNotValidSexException : Exception
+    public class ModellChildNotValidSexException : Exception
     {
         public ModellChildNotValidSexException()
         {

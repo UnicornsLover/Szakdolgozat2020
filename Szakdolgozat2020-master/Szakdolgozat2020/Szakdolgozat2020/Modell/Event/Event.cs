@@ -15,13 +15,13 @@ namespace Szakdolgozat2020.Modell.Event
 
         public Event(int eID, string title, string details, string byy)
         {
-            if (isValidTextBox(title))
+            if (!isValidTextBox(title))
             {
-                throw new ModellNotValidEventTitle("Töltse ki a 'Cím' mezőt!");
+                throw new ModellNotValidEventTitle("Töltse ki a 'Cím' mezőt, és nagy betűvel kezdje!");
             }
-            if (isValidTextBox(details))
+            if (!isValidTextBox(details))
             {
-                throw new ModellNotValidEventDetails("Töltse ki a 'Leírás' mezőt!");
+                throw new ModellNotValidEventDetails("Töltse ki a 'Leírás' mezőt, és nagy betűvel kezdje!");
             }
 
             this.eID = eID;
@@ -78,9 +78,13 @@ namespace Szakdolgozat2020.Modell.Event
         {
             if (name == string.Empty)
             {
-                return true;
+                return false;
             }
-            return false;
+            if (!char.IsUpper(name.ElementAt(0)))
+            {
+                return false;
+            }
+            return true;
         }
 
     }   
