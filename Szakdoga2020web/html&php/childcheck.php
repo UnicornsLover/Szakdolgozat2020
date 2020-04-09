@@ -27,6 +27,10 @@ if (!isLogged()) {
             $choseone = $row[0];
           }
           $select .= "</select><br><br>";
+          if($res->num_rows == 0)
+          {
+            $select .= "<h5>Nincs a gyerekéhez/gyermekeihez esemény hozzárendelve.</h2>";
+          }
           echo $select;
         ?>
 

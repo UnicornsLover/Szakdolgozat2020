@@ -1,4 +1,4 @@
 <?php
 session_start();
-require_once('config/connect.php');
-require_once('config/functions.php');
+require_once('connect.php');
+require_once('functions.php');

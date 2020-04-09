@@ -20,7 +20,7 @@ if (!empty($_POST['rusername']) && (!empty($_POST['rpassword'])) && ($_SERVER["R
 
         <br>
         <br>
-        Adja meg az új jelszavát és felhasználó nevét:
+        <label>Adja meg az új jelszavát és felhasználó nevét:</label>
         <br>
 
         <label><b>Felhasználónév:</b></label>

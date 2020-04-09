@@ -1,5 +1,4 @@
 <?php
-
 require_once('config/init.php');
     if (!empty($_POST['username']) && (!empty($_POST['password']) && $_SERVER["REQUEST_METHOD"]=="POST")) //data-ba ami van ajax
     {
